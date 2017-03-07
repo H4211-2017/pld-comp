@@ -3,18 +3,18 @@
 #include <stdio.h>
 #include <string.h>
 
-}%
+%}
 
-%option yynowrap 
+%option noyywrap 
  
 digit		[0-9]
 alphahex	[a-fA-F]
 alpha		[a-zA-Z_]
-alphanum    ({digit|alpha})
+alphanum    ({digit}|{alpha})
 alphanums   {alphanum}*
-alphanum_ex [ !#-\[\]-~\t]|\\"|\\n|\\t|\\r|\\0
-alphanums_ex {alphanum_ex}*
-ident		{alpha}{alphanums}
+alphanumex [ !#-\[\]-~\t]|"\n"|"\t"|"\r"|"\0"
+alphanumsex {alphanumex}*
+ident		{alpha}{alphanum}
 number      {digit}+
 hextail		({digit}|{alphahex}){1,8}
 hex		    0[xX]{hextail}
@@ -69,10 +69,10 @@ hex		    0[xX]{hextail}
 {number}			{printf("{number}"); 
 						yylval.val = atoi(yytext); 
 						return INT_VAL;}
-"'"{alphanum_ex}"'"	{printf("'{alphanum_ex}'"); 
+"'"{alphanumex}"'"	{printf("'{alphanumex}'"); 
 						yylval.cVal = strdup(yytext)[1]; 
 						return CHAR_VAL;}
-"\""{alphanums_ex}"\"" 	{printf("\"{alphanums_ex}\""); 
+"\""{alphanumsex}"\"" 	{printf("\"{alphanumsex}\""); 
 						yylval.sVal = strndup(&yytext[1], sizeof(char)*(strlen(yytext)-2));
 						return CHAIN;}
 {ident}				{printf("identifiant"); 
@@ -84,9 +84,3 @@ hex		    0[xX]{hextail}
 .					{return UNEXPECTED;}
 %%
 
-int main(void)
-{
-	printf("hello world");
-	yylex();
-	return 0;
-}
