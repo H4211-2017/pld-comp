@@ -71,3 +71,11 @@ Thumbs.db
 *.dll
 *.exe
 
+#Qt Creator file
+*.user
+
+#Bison/Flex file
+*.tab.h
+*.tab.c
+*.yy.c
+*.output
