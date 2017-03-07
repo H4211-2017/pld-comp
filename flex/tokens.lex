@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "bison.tab.h"
 
 %}
 
@@ -30,9 +31,9 @@ hex		    0[xX]{hextail}
 "while"   			{printf("while"); return WHILE;}
 "for"     			{printf("for"); return FOR;}
 "main"				{printf("main"); return MAIN;}
-"{"       			{printf('{'); return LEFT_BRACES;}
-"}"       			{printf('}'); return RIGHT_BRACES;}
-"("      			{printf("("); return LEFT_PARENTHSIS;}
+"{"       			{printf("{"); return LEFT_BRACES;}
+"}"       			{printf("}"); return RIGHT_BRACES;}
+"("      			{printf("("); return LEFT_PARENTHESIS;}
 ")"      			{printf(")"); return RIGHT_PARENTHESIS;}
 "["					{printf("["); return LEFT_BRACKET;}
 "]"					{printf("]"); return RIGHT_BRACKET;}
@@ -47,7 +48,7 @@ hex		    0[xX]{hextail}
 "-="				{printf("-="); return AFFECT_SUB;}
 "*="				{printf("*="); return AFFECT_MULT;}
 "/="				{printf("/="); return AFFECT_DIV;}
-"%="				{printf("%="); return AFFECT_MOD;}
+"%="				{printf("MOD="); return AFFECT_MOD;}
 "++"				{printf("++"); return INCREMENT;}
 "--"				{printf("--"); return DECREMENT;}
 "="					{printf("="); return AFFECT;}
@@ -61,7 +62,8 @@ hex		    0[xX]{hextail}
 "!"					{printf("!"); return BOOL_NOT;}
 "&"					{printf("&"); return BIT_AND;}
 "|"					{printf("|"); return BIT_OR;}
-"^"					{printf("^"); return BIT_NOT;}
+"^"					{printf("^"); return BIT_XOR;}
+"~"					{printf("~"); return BIT_NOT;}
 "<<"				{printf("<<"); return BIT_LEFT_SHIFT;}
 ">>"				{printf(">>"); return BIT_RIGHT_SHIFT;}
 "void"				{printf("void"); return VOID;}
