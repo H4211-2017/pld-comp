@@ -14,7 +14,7 @@ alphanum    ({digit}|{alpha})
 alphanums   {alphanum}*
 alphanumex [ !#-\[\]-~\t]|"\n"|"\t"|"\r"|"\0"
 alphanumsex {alphanumex}*
-ident		{alpha}{alphanum}
+ident		{alpha}{alphanums}
 number      {digit}+
 hextail		({digit}|{alphahex})+
 hex		    0[xX]{hextail}
@@ -29,6 +29,7 @@ hex		    0[xX]{hextail}
 "else"    			{printf("else"); return ELSE;}
 "while"   			{printf("while"); return WHILE;}
 "for"     			{printf("for"); return FOR;}
+"main"				{printf("main"); return MAIN;}
 "{"       			{printf('{'); return LEFT_BRACES;}
 "}"       			{printf('}'); return RIGHT_BRACES;}
 "("      			{printf("("); return LEFT_PARENTHSIS;}
@@ -54,7 +55,7 @@ hex		    0[xX]{hextail}
 "-"					{printf("-"); return SUB;}
 "*"					{printf("*"); return MULT;}
 "/"					{printf("/"); return DIV;}
-"%"					{printf("%"); return MOD;}
+"%"					{printf("MOD"); return MOD;}
 "&&"				{printf("&&"); return BOOL_AND;}
 "||"				{printf("||"); return BOOL_OR;}
 "!"					{printf("!"); return BOOL_NOT;}
@@ -68,7 +69,7 @@ hex		    0[xX]{hextail}
 "int32_t"			{printf("int32_t"); return INT32;}
 "int64_t"			{printf("int64_t"); return INT64;}
 {number}			{printf("{number}"); 
-						yylval.val = atoi(yytext); 
+						yylval.iVal = atoi(yytext); 
 						return INT_VAL;}
 "'"{alphanumex}"'"	{printf("'{alphanumex}'"); 
 						yylval.cVal = strdup(yytext)[1]; 
@@ -84,3 +85,4 @@ hex		    0[xX]{hextail}
 [ \n\t\r]+    		{printf("%s",yytext); return IGNORED;}
 .					{printf("%s", yytext); return UNEXPECTED;}
 %%
+
