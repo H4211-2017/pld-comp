@@ -16,7 +16,7 @@ alphanumex [ !#-\[\]-~\t]|"\n"|"\t"|"\r"|"\0"
 alphanumsex {alphanumex}*
 ident		{alpha}{alphanum}
 number      {digit}+
-hextail		({digit}|{alphahex}){1,8}
+hextail		({digit}|{alphahex})+
 hex		    0[xX]{hextail}
 
 
@@ -29,28 +29,28 @@ hex		    0[xX]{hextail}
 "else"    			{printf("else"); return ELSE;}
 "while"   			{printf("while"); return WHILE;}
 "for"     			{printf("for"); return FOR;}
-"{"       			{printf('{'); return LBRACK;}
-"}"       			{printf('}'); return RBRACK;}
-"("      			{printf("("); return LPAR;}
-")"      			{printf(")"); return RPAR;}
-"["					{printf("["); return LSQU;}
-"]"					{printf("]"); return RSQU;}
-"=="				{printf("=="); return BOOL_EQ;}
+"{"       			{printf('{'); return LEFT_BRACES;}
+"}"       			{printf('}'); return RIGHT_BRACES;}
+"("      			{printf("("); return LEFT_PARENTHSIS;}
+")"      			{printf(")"); return RIGHT_PARENTHESIS;}
+"["					{printf("["); return LEFT_BRACKET;}
+"]"					{printf("]"); return RIGHT_BRACKET;}
+"=="				{printf("=="); return BOOL_EQUAL;}
 "!="				{printf("!="); return BOOL_DIF;}
-"<="				{printf("<="); return BOOL_LEQ;}
-">="				{printf(">="); return BOOL_GEQ;}
-"< "				{printf("< "); return BOOL_LT;}
-"> "				{printf("> "); return BOOL_GT;}
-"+="				{printf("+="); return I_ADD;}
-"-="				{printf("-="); return I_SUB;}
-"*="				{printf("*="); return I_MULT;}
-"/="				{printf("/="); return I_DIV;}
-"%="				{printf("%="); return I_MOD;}
-"++"				{printf("++"); return INC;}
-"--"				{printf("--"); return DEC;}
-"="					{printf("="); return AFF_EQ;}
-"+"					{printf("+"); return PLUS;}
-"-"					{printf("-"); return MINUS;}
+"<="				{printf("<="); return BOOL_LESS_OR_EQUAL;}
+">="				{printf(">="); return BOOL_GREATER_OR_EQUAL;}
+"< "				{printf("< "); return BOOL_LESS;}
+"> "				{printf("> "); return BOOL_GREATER;}
+"+="				{printf("+="); return AFFECT_ADD;}
+"-="				{printf("-="); return AFFECT_SUB;}
+"*="				{printf("*="); return AFFECT_MULT;}
+"/="				{printf("/="); return AFFECT_DIV;}
+"%="				{printf("%="); return AFFECT_MOD;}
+"++"				{printf("++"); return INCREMENT;}
+"--"				{printf("--"); return DECREMENT;}
+"="					{printf("="); return AFFECT;}
+"+"					{printf("+"); return ADD;}
+"-"					{printf("-"); return SUB;}
 "*"					{printf("*"); return MULT;}
 "/"					{printf("/"); return DIV;}
 "%"					{printf("%"); return MOD;}
@@ -60,8 +60,8 @@ hex		    0[xX]{hextail}
 "&"					{printf("&"); return BIT_AND;}
 "|"					{printf("|"); return BIT_OR;}
 "^"					{printf("^"); return BIT_NOT;}
-"<<"				{printf("<<"); return BIT_LSHIFT;}
-">>"				{printf(">>"); return BIT_RSHIFT;}
+"<<"				{printf("<<"); return BIT_LEFT_SHIFT;}
+">>"				{printf(">>"); return BIT_RIGHT_SHIFT;}
 "void"				{printf("void"); return VOID;}
 "char"				{printf("char"); return CHAR;}
 "int32_t"			{printf("int32_t"); return INT32;}
