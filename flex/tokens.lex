@@ -36,6 +36,7 @@ hex		    0[xX]{hextail}
 "["					{printf("["); return LEFT_BRACKET;}
 "]"					{printf("]"); return RIGHT_BRACKET;}
 "=="				{printf("=="); return BOOL_EQUAL;}
+"return"			{printf("return"); return RETURN;}
 "!="				{printf("!="); return BOOL_DIF;}
 "<="				{printf("<="); return BOOL_LESS_OR_EQUAL;}
 ">="				{printf(">="); return BOOL_GREATER_OR_EQUAL;}
@@ -80,7 +81,6 @@ hex		    0[xX]{hextail}
 						return ID;}
 ";"					{printf(";"); return SEMICOLON;}
 ","					{printf(","); return COMMA;}
-[ \n\t\r]+    		{return IGNORED;}
-.					{return UNEXPECTED;}
+[ \n\t\r]+    		{printf("%s",yytext); return IGNORED;}
+.					{printf("%s", yytext); return UNEXPECTED;}
 %%
-
