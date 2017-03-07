@@ -14,7 +14,7 @@ alphanum    ({digit}|{alpha})
 alphanums   {alphanum}*
 alphanumex [ !#-\[\]-~\t]|"\n"|"\t"|"\r"|"\0"
 alphanumsex {alphanumex}*
-ident		{alpha}{alphanum}
+ident		{alpha}{alphanums}
 number      {digit}+
 hextail		({digit}|{alphahex}){1,8}
 hex		    0[xX]{hextail}
@@ -29,8 +29,10 @@ hex		    0[xX]{hextail}
 "else"    			{printf("else"); return ELSE;}
 "while"   			{printf("while"); return WHILE;}
 "for"     			{printf("for"); return FOR;}
-"{"       			{printf('{'); return LBRACK;}
-"}"       			{printf('}'); return RBRACK;}
+"return"			{printf("return"); return RETURN;}
+"main"				{printf("main"); return MAIN;}
+"{"       			{printf("{"); return LBRACK;}
+"}"       			{printf("}"); return RBRACK;}
 "("      			{printf("("); return LPAR;}
 ")"      			{printf(")"); return RPAR;}
 "["					{printf("["); return LSQU;}
@@ -45,7 +47,7 @@ hex		    0[xX]{hextail}
 "-="				{printf("-="); return I_SUB;}
 "*="				{printf("*="); return I_MULT;}
 "/="				{printf("/="); return I_DIV;}
-"%="				{printf("%="); return I_MOD;}
+"%="				{printf("MOD="); return I_MOD;}
 "++"				{printf("++"); return INC;}
 "--"				{printf("--"); return DEC;}
 "="					{printf("="); return AFF_EQ;}
@@ -53,7 +55,7 @@ hex		    0[xX]{hextail}
 "-"					{printf("-"); return MINUS;}
 "*"					{printf("*"); return MULT;}
 "/"					{printf("/"); return DIV;}
-"%"					{printf("%"); return MOD;}
+"%"					{printf("MOD"); return MOD;}
 "&&"				{printf("&&"); return BOOL_AND;}
 "||"				{printf("||"); return BOOL_OR;}
 "!"					{printf("!"); return BOOL_NOT;}
@@ -67,7 +69,7 @@ hex		    0[xX]{hextail}
 "int32_t"			{printf("int32_t"); return INT32;}
 "int64_t"			{printf("int64_t"); return INT64;}
 {number}			{printf("{number}"); 
-						yylval.val = atoi(yytext); 
+						yylval.iVal = atoi(yytext); 
 						return INT_VAL;}
 "'"{alphanumex}"'"	{printf("'{alphanumex}'"); 
 						yylval.cVal = strdup(yytext)[1]; 
@@ -80,7 +82,7 @@ hex		    0[xX]{hextail}
 						return ID;}
 ";"					{printf(";"); return SEMICOLON;}
 ","					{printf(","); return COMMA;}
-[ \n\t\r]+    		{return IGNORED;}
-.					{return UNEXPECTED;}
+[ \n\t\r]+    		{printf("%s",yytext); return IGNORED;}
+.					{printf("%s", yytext); return UNEXPECTED;}
 %%
 
