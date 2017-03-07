@@ -29,6 +29,7 @@ hex		    0[xX]{hextail}
 "else"    			{printf("else"); return ELSE;}
 "while"   			{printf("while"); return WHILE;}
 "for"     			{printf("for"); return FOR;}
+"return"			{printf("return"); return RETURN;}
 "{"       			{printf('{'); return LBRACK;}
 "}"       			{printf('}'); return RBRACK;}
 "("      			{printf("("); return LPAR;}
@@ -80,7 +81,6 @@ hex		    0[xX]{hextail}
 						return ID;}
 ";"					{printf(";"); return SEMICOLON;}
 ","					{printf(","); return COMMA;}
-[ \n\t\r]+    		{return IGNORED;}
-.					{return UNEXPECTED;}
+[ \n\t\r]+    		{printf("%s",yytext); return IGNORED;}
+.					{printf("%s", yytext); return UNEXPECTED;}
 %%
-
