@@ -11,9 +11,10 @@ CPP_FLAGS=-DYYDEBUG -g -o
 CPP_FLAGS_OBJ= -c
 BISON_FLAGS=-v -d
 
-SRC=variable.cpp
+#To be updated after each change in list of files
+SRC=TypeChar.cpp  TypeInt32.cpp  TypeInt64.cpp  Variable.cpp
 SRC_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.cpp)
-HEADERS_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.h) $(AST_DIRECTORY)config.h
+HEADERS_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.h) $(AST_DIRECTORY)
 OBJ_AST=$(SRC:%.cpp=$(BIN_DIRECTORY)%.o)
 
 $(BIN_DIRECTORY)test: $(SRC_DRECTORY)main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.c $(OBJ_AST)
