@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "bison.tab.h"
+#include "../bin/bison.tab.h"
 
 %}
 
@@ -84,7 +84,6 @@ hex		    0[xX]{hextail}
 						return ID;}
 ";"					{printf(";"); return SEMICOLON;}
 ","					{printf(","); return COMMA;}
-[ \n\t\r]+    		{printf("%s",yytext); return IGNORED;}
-.					{printf("%s", yytext); return UNEXPECTED;}
+[ \t]				{printf("%s", yytext);}
 %%
 

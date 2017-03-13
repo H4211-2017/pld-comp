@@ -50,7 +50,7 @@ void yyerror(int * param, const char * msg);
 
 %%
 
-result : expr fin {*renvoi = $1;}
+result : expr {*renvoi = $1;}
 	;
 uoperation : SUB expr {$$ = -$2;}
 	| ADD expr {$$ = $2;}
@@ -79,8 +79,5 @@ expr : INT_VAL {$$ = $1;}
 	| expr MOD expr {$$ = $1 % $3;}
 	| LEFT_PARENTHESIS expr RIGHT_PARENTHESIS {$$ = $2;}
 	;
-fin : IGNORED {}
-	;
-
 %%
 	

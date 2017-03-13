@@ -1,7 +1,8 @@
 #include <iostream>
-#include "bison.tab.h"
+#include "../bin/bison.tab.h"
 
 using namespace std;
+extern int yylex();
 
 void yyerror(int * param, const char * msg)
 {
