@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "AbstractInstruction.h"
-#include "data/Register.h"
+#include "../data/Register.h"
 
 class AbstractOperator : public AbstractInstruction
 {

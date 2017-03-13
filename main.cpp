@@ -1,5 +1,5 @@
 #include <iostream>
-#include "IR/AbstractInstruction.h"
+#include "IR/instructions/AbstractInstruction.h"
 
 using namespace std;
 

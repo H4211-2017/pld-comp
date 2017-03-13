@@ -4,8 +4,8 @@
 #include <memory>
 
 #include "AbstractInstruction.h"
-#include "data/Memory.h"
-#include "data/Register.h"
+#include "../data/Memory.h"
+#include "../data/Register.h"
 
 class AbstractMemoryAcess : public AbstractInstruction
 {

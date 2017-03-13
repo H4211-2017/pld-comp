@@ -1,6 +1,6 @@
 #include "AbstractData.h"
 
-AstractData::AstractData()
+AbstractData::AbstractData()
 {
 
 }

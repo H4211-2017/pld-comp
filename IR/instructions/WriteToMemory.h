@@ -19,10 +19,10 @@ private:
     int intValue;
     long longValue;
 
-    const int MEMORY_TYPE;
-    const int CHAR_TYPE;
-    const int INT_TYPE;
-    const int LONG_TYPE;
+    static const int MEMORY_TYPE;
+    static const int CHAR_TYPE;
+    static const int INT_TYPE;
+    static const int LONG_TYPE;
 };
 
 #endif // WRITETOMEMORY_H

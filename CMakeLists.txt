@@ -8,9 +8,12 @@ file(
 
         source_files
 
-        IR/data/*
-        IR/instructions/*
-        IR/basicBlock/*
+        IR/data/*.cpp
+        IR/data/*.h
+        IR/instructions/*.cpp
+        IR/instructions/*.h
+        IR/basicBlock/*.cpp
+        IR/basicBlock/*.h
 )
 
-add_executable(${PROJECT_NAME} "main.cpp" ${source_files})
+add_executable(${PROJECT_NAME} main.cpp ${source_files})

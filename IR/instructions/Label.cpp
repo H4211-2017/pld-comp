@@ -5,10 +5,10 @@ Label::Label()
 
 }
 
-std::string getLabelName(){
+std::string Label::getLabelName(){
     return labelName;
 }
 
-void setLabelName(std::string name){
+void Label::setLabelName(std::string name){
     labelName =name;
 }
