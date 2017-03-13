@@ -33,7 +33,11 @@ void yyerror(int * param, const char * msg);
 %token <id> ID
 %type <eval> expr
 %type <eval> uoperation
+%type <eval> iint
+%type <eval> seqint
 
+%left ID
+%right AFFECT
 %left BOOL_OR
 %left BOOL_AND
 %left BIT_OR
@@ -50,13 +54,35 @@ void yyerror(int * param, const char * msg);
 
 %%
 
-result : expr {*renvoi = $1;}
+result : seqint {*renvoi = $1;}
+	; 
+
+type : CHAR {printf("CHAR");}
+	| INT32 {printf("INT32");}
+	| INT64	{printf("INT64");}
 	;
+
+sigvar : type ID {printf("SIGVAR");}
+	;
+	
+declvar : sigvar AFFECT expr {printf("AFFECTATION");}
+	| sigvar {printf("DECLARATION");}
+	;
+
+seqint : seqint iint {$$ = $2;}
+	|  seqint declvar {$$ = 0;}
+	| /*epsilon*/ {$$ = 0;}
+	;
+	
+iint : expr SEMICOLON {$$ = $1;}
+	;
+
 uoperation : SUB expr {$$ = -$2;}
 	| ADD expr {$$ = $2;}
 	| BIT_NOT expr {$$ = ~$2;}
 	| BOOL_NOT expr {$$ = !$2;}
 	;
+		
 expr : INT_VAL {$$ = $1;}
 	| uoperation {$$ = $1;}
 	| expr BOOL_OR expr {$$ = $1 || $3;}
@@ -79,5 +105,7 @@ expr : INT_VAL {$$ = $1;}
 	| expr MOD expr {$$ = $1 % $3;}
 	| LEFT_PARENTHESIS expr RIGHT_PARENTHESIS {$$ = $2;}
 	;
+	
+
 %%
 	
