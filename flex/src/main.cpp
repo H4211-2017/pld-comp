@@ -1,5 +1,5 @@
 #include <iostream>
-#include "bison.tab.h"
+#include "bison.tab.hpp"
 
 using namespace std;
 extern int yylex();
