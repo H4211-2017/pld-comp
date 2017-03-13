@@ -40,8 +40,13 @@ IR/data/Memory.cpp
 IR/data/Memory.h
 IR/data/Register.cpp
 IR/data/Register.h
-flex/src/AST/config.h
-flex/src/AST/variable.cpp
-flex/src/AST/variable.h
+flex/src/AST/TypeChar.cpp
+flex/src/AST/TypeChar.h
+flex/src/AST/TypeInt32.cpp
+flex/src/AST/TypeInt32.h
+flex/src/AST/TypeInt64.cpp
+flex/src/AST/TypeInt64.h
+flex/src/AST/Variable.cpp
+flex/src/AST/Variable.h
 flex/src/main.cpp
 main.cpp

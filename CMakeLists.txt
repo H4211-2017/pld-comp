@@ -14,6 +14,8 @@ file(
         IR/instructions/*.h
         IR/basicBlock/*.cpp
         IR/basicBlock/*.h
+
+        flex/src/AST/*
 )
 
 add_executable(${PROJECT_NAME} main.cpp ${source_files})

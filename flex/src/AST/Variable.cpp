@@ -1,5 +1,6 @@
-int foo();
+#include "Variable.h"
 
-int foo() {
-    int a = 3;
+Variable::Variable()
+{
+
 }
