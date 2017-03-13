@@ -74,7 +74,8 @@ Thumbs.db
 *.user
 
 #Bison/Flex file
-*.tab.h
-*.tab.c
+*.tab.hpp
+*.tab.cpp
 *.yy.c
 *.output
+flex/bin/*

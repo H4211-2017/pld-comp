@@ -1,19 +1,25 @@
 SRC_DIRECTORY=../src/
 BIN_DIRECTORY=../bin/
+AST_DIRECTORY=../src/AST/
 TEST_DIRECTORY=../test/
-
-CPP_FLAGS=-DYYDEBUG -g -o
-BISON_FLAGS=-v -d
 
 INCLUDE_DIRECTORIES=-I $(BIN_DIRECTORY)
 
+CPP_FLAGS=-DYYDEBUG -g -o
+CPP_FLAGS_OBJ= -c
+BISON_FLAGS=-v -d
+
+ALL_HEADERS=
+
 $(BIN_DIRECTORY)test: $(SRC_DRECTORY)main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.c
-	g++ $(CPP_FLAGS) $(BIN_DIRECTORY)test $(SRC_DRECTORY)main.cpp $(BIN_DIRECTORY)lex.yy.c $(BIN_DIRECTORY)bison.tab.cpp $(INCLUDE_DIRECTORIES)
+	g++ $(CPP_FLAGS) $(BIN_DIRECTORY)test $(SRC_DIRECTORY)main.cpp $(BIN_DIRECTORY)lex.yy.c $(BIN_DIRECTORY)bison.tab.cpp $(INCLUDE_DIRECTORIES)
 
 $(BIN_DIRECTORY)lex.yy.c: $(SRC_DRECTORY)tokens.lex
 	flex -o $(BIN_DIRECTORY)lex.yy.c $(SRC_DRECTORY)tokens.lex
 
 $(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp
 	bison $(BISON_FLAGS) -o $(BIN_DIRECTORY)bison.tab.cpp $(SRC_DRECTORY)bison.ypp
-
 	
+	
+$(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(ALL_HEADERS)
+	g++ $(CPP_FLAGS) $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
