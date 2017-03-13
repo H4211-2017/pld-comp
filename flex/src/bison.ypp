@@ -49,6 +49,7 @@ void yyerror(int * param, const char * msg);
 %left ADD SUB
 %left MULT DIV MOD
 %right BIT_NOT BOOL_NOT
+left SEMICOLON
 
 %parse-param{int * renvoi}
 
@@ -57,20 +58,20 @@ void yyerror(int * param, const char * msg);
 result : seqint {*renvoi = $1;}
 	; 
 
-type : CHAR {printf("CHAR");}
-	| INT32 {printf("INT32");}
-	| INT64	{printf("INT64");}
+type : CHAR {}
+	| INT32 {}
+	| INT64	{}
 	;
 
-sigvar : type ID {printf("SIGVAR");}
+sigvar : type ID {}
 	;
 	
-declvar : sigvar AFFECT expr {printf("AFFECTATION");}
-	| sigvar {printf("DECLARATION");}
+declvar : sigvar AFFECT expr {}
+	| sigvar {}
 	;
 
 seqint : seqint iint {$$ = $2;}
-	|  seqint declvar {$$ = 0;}
+	|  seqint declvar SEMICOLON {$$ = 0;}
 	| /*epsilon*/ {$$ = 0;}
 	;
 	

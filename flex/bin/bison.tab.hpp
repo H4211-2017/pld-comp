@@ -99,7 +99,8 @@ extern int yydebug;
     CHAR_VAL = 309,
     INT_VAL = 310,
     CHAIN = 311,
-    ID = 312
+    ID = 312,
+    left = 313
   };
 #endif
 
@@ -116,7 +117,7 @@ union YYSTYPE
 	char * id;
 	int eval;
 
-#line 120 "../bin/bison.tab.hpp" /* yacc.c:1909  */
+#line 121 "../bin/bison.tab.hpp" /* yacc.c:1909  */
 };
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
