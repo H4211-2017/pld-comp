@@ -1,3 +1,5 @@
+#$(word n, $^) is the nth word of the dependency list
+
 SRC_DIRECTORY=../src/
 BIN_DIRECTORY=../bin/
 AST_DIRECTORY=../src/AST/
@@ -25,4 +27,5 @@ $(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp
 	
 	
 $(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(HEADERS_AST)
-	g++ $(CPP_FLAGS) $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
+	g++ $(CPP_FLAGS) $@ $(CPP_FLAGS_OBJ) $(word 1,$^) $(INCLUDE_DIRECTORIES)
+
