@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.0.2.  */
+/* A Bison parser, made by GNU Bison 3.0.4.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2013 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.0.2"
+#define YYBISON_VERSION "3.0.4"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -168,7 +168,7 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE YYSTYPE;
+
 union YYSTYPE
 {
 #line 12 "bison.ypp" /* yacc.c:355  */
@@ -181,6 +181,8 @@ union YYSTYPE
 
 #line 183 "../bin/bison.tab.cpp" /* yacc.c:355  */
 };
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
@@ -194,7 +196,7 @@ int yyparse (int * renvoi);
 
 /* Copy the second part of user declarations.  */
 
-#line 198 "../bin/bison.tab.cpp" /* yacc.c:358  */
+#line 200 "../bin/bison.tab.cpp" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1356,161 +1358,161 @@ yyreduce:
         case 2:
 #line 53 "bison.ypp" /* yacc.c:1646  */
     {*renvoi = (yyvsp[0].eval);}
-#line 1360 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1362 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 3:
 #line 55 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = -(yyvsp[0].eval);}
-#line 1366 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1368 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 4:
 #line 56 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[0].eval);}
-#line 1372 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1374 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 5:
 #line 57 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = ~(yyvsp[0].eval);}
-#line 1378 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1380 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 6:
 #line 58 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = !(yyvsp[0].eval);}
-#line 1384 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1386 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 7:
 #line 60 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[0].iVal);}
-#line 1390 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1392 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 8:
 #line 61 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[0].eval);}
-#line 1396 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1398 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 9:
 #line 62 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) || (yyvsp[0].eval);}
-#line 1402 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1404 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 10:
 #line 63 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) && (yyvsp[0].eval);}
-#line 1408 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1410 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 11:
 #line 64 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) | (yyvsp[0].eval);}
-#line 1414 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1416 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 12:
 #line 65 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) ^ (yyvsp[0].eval);}
-#line 1420 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1422 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 13:
 #line 66 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) & (yyvsp[0].eval);}
-#line 1426 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1428 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 14:
 #line 67 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) == (yyvsp[0].eval);}
-#line 1432 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1434 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 15:
 #line 68 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) != (yyvsp[0].eval);}
-#line 1438 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1440 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 16:
 #line 69 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) < (yyvsp[0].eval);}
-#line 1444 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1446 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 17:
 #line 70 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) > (yyvsp[0].eval);}
-#line 1450 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1452 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 18:
 #line 71 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) <= (yyvsp[0].eval);}
-#line 1456 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1458 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 19:
 #line 72 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) >= (yyvsp[0].eval);}
-#line 1462 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1464 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 20:
 #line 73 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) >> (yyvsp[0].eval);}
-#line 1468 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1470 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 21:
 #line 74 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) << (yyvsp[0].eval);}
-#line 1474 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1476 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 22:
 #line 75 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) + (yyvsp[0].eval);}
-#line 1480 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1482 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 23:
 #line 76 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) - (yyvsp[0].eval);}
-#line 1486 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1488 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 24:
 #line 77 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) * (yyvsp[0].eval);}
-#line 1492 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1494 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 25:
 #line 78 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) / (yyvsp[0].eval);}
-#line 1498 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1500 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 26:
 #line 79 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-2].eval) % (yyvsp[0].eval);}
-#line 1504 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1506 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 27:
 #line 80 "bison.ypp" /* yacc.c:1646  */
     {(yyval.eval) = (yyvsp[-1].eval);}
-#line 1510 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1512 "../bin/bison.tab.cpp" /* yacc.c:1646  */
     break;
 
 
-#line 1514 "../bin/bison.tab.cpp" /* yacc.c:1646  */
+#line 1516 "../bin/bison.tab.cpp" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
