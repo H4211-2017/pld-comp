@@ -9,9 +9,12 @@ CPP_FLAGS=-DYYDEBUG -g -o
 CPP_FLAGS_OBJ= -c
 BISON_FLAGS=-v -d
 
-ALL_HEADERS=
+SRC=variable.cpp
+SRC_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.cpp)
+HEADERS_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.h) $(AST_DIRECTORY)config.h
+OBJ_AST=$(SRC:%.cpp=$(BIN_DIRECTORY)%.o)
 
-$(BIN_DIRECTORY)test: $(SRC_DRECTORY)main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.c
+$(BIN_DIRECTORY)test: $(SRC_DRECTORY)main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.c $(OBJ_AST)
 	g++ $(CPP_FLAGS) $(BIN_DIRECTORY)test $(SRC_DIRECTORY)main.cpp $(BIN_DIRECTORY)lex.yy.c $(BIN_DIRECTORY)bison.tab.cpp $(INCLUDE_DIRECTORIES)
 
 $(BIN_DIRECTORY)lex.yy.c: $(SRC_DRECTORY)tokens.lex
@@ -21,5 +24,5 @@ $(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp
 	bison $(BISON_FLAGS) -o $(BIN_DIRECTORY)bison.tab.cpp $(SRC_DRECTORY)bison.ypp
 	
 	
-$(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(ALL_HEADERS)
+$(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(HEADERS_AST)
 	g++ $(CPP_FLAGS) $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)

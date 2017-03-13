@@ -1,2 +1,6 @@
 IR
 IR/data
+flex/src/AST
+flex/bin
+.
+flex/src
