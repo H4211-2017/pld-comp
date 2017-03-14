@@ -10,7 +10,11 @@ public:
 	
 	virtual ~ExprNode();
 	
-	virtual shared_ptr<Expr> reduce() = 0;
+	shared_ptr<ExprNode> reduce();
+	/**
+	 * not const because can return this, can reduce expr if only composed
+	 * of constants, else return this.
+	 */
 
 private:
 

@@ -2,17 +2,17 @@
 #define UNARYOPERATORNODE_H
 
 #include <memory>
-#include "Expr.h"
+#include "ExprNode.h"
 
-class UnaryOperatorNode : public Expr
+class UnaryOperatorNode : public ExprNode
 {
 public:
-	UnaryOperatorNode(std::shared_ptr<Expr> pDaughterExpr);
+	UnaryOperatorNode(std::shared_ptr<ExprNode> pDaughterExprNode);
 
 	virtual ~UnaryOperatorNode();
 
 protected:
-	std::shared_ptr<Expr> m_pDaughterExpr;
+	std::shared_ptr<ExprNode> m_pDaughterExprNode;
 };
 
 #endif // UNARYOPERATORNODE_H
