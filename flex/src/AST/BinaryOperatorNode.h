@@ -16,22 +16,22 @@ protected:
 	std::shared_ptr<ExprNode> m_pRightExprNode;
 };
 
-class PlusOperatorNode : public BinaryOperatorNode
+class AddOperatorNode : public BinaryOperatorNode
 {
 public:
-	PlusOperatorNode(std::shared_ptr<ExprNode> pLeftExprNode, std::shared_ptr<ExprNode> pRightExprNode);
+	AddOperatorNode(std::shared_ptr<ExprNode> pLeftExprNode, std::shared_ptr<ExprNode> pRightExprNode);
 
-	virtual ~PlusOperatorNode();
+	virtual ~AddOperatorNode();
 	
 	virtual shared_ptr<long> evaluate() const;
 }
 
-class MinusOperatorNode : public BinaryOperatorNode
+class SubOperatorNode : public BinaryOperatorNode
 {
 public:
-	MinusOperatorNode(std::shared_ptr<ExprNode> pLeftExprNode, std::shared_ptr<ExprNode> pRightExprNode);
+	SubOperatorNode(std::shared_ptr<ExprNode> pLeftExprNode, std::shared_ptr<ExprNode> pRightExprNode);
 
-	virtual ~MinusOperatorNode();
+	virtual ~SubOperatorNode();
 	
 	virtual shared_ptr<long> evaluate() const;
 }
@@ -45,5 +45,28 @@ public:
 	
 	virtual shared_ptr<long> evaluate() const;
 }
+
+class DivOperatorNode : public DivOperatorNode
+{
+public:
+	DivOperatorNode(std::shared_ptr<ExprNode> pLeftExprNode, std::shared_ptr<ExprNode> pRightExprNode);
+
+	virtual ~DivOperatorNode();
+	
+	virtual shared_ptr<long> evaluate() const;
+}
+
+class ModOperatorNode : public ModOperatorNode
+{
+public:
+	ModOperatorNode(std::shared_ptr<ExprNode> pLeftExprNode, std::shared_ptr<ExprNode> pRightExprNode);
+
+	virtual ~ModOperatorNode();
+	
+	virtual shared_ptr<long> evaluate() const;
+}
+
+class 
+
 
 #endif // BINARYOPERATORNODE_H
