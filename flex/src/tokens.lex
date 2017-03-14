@@ -2,7 +2,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
+#include <string>
+#include <sstream>
+#include <iostream>
+
 #include "bison.tab.hpp"
+
+using namespace std;
 
 %}
 
@@ -72,8 +79,9 @@ hex		    0[xX]{hextail}
 "char"				{printf("CHAR "); return CHAR;}
 "int32_t"			{printf("INT32 "); return INT32;}
 "int64_t"			{printf("INT64 "); return INT64;}
-{number}			{printf("{number} "); 
-						yylval.iVal = atoi(yytext); 
+{number}			{printf("{number} ");
+                        stringstream ss(yytext);
+                        ss >> yylval.lVal; 
 						return INT_VAL;}
 "'"{alphanumex}"'"	{printf("'{alphanumex}' "); 
 						yylval.cVal = strdup(yytext)[1]; 

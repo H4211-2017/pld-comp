@@ -4,17 +4,19 @@
 #include <iostream>
 #include <typeinfo>
 
+using namespace std;
+
 extern int yylex(void);
-void yyerror(int * param, const char * msg);
+void yyerror(long int * param, const char * msg);
 
 %}
 
 %union {
 	char cVal;
-	int iVal;
+	long int lVal;
 	char * sVal;
 	char * id;
-	int eval;
+	long int eval;
 }
 
 %token SHARP LINE_COM BEGIN_COM END_COM 
@@ -28,7 +30,7 @@ void yyerror(int * param, const char * msg);
 %token BIT_NOT BIT_LEFT_SHIFT BIT_RIGHT_SHIFT 
 %token VOID CHAR INT32 INT64 SEMICOLON COMMA UNEXPECTED
 %token <cVal> CHAR_VAL
-%token <iVal> INT_VAL
+%token <lVal> INT_VAL
 %token <sVal> CHAIN
 %token <id> ID
 %type <eval> expr
@@ -52,26 +54,101 @@ void yyerror(int * param, const char * msg);
 %left ADD SUB
 %left MULT DIV MOD
 %right BIT_NOT BOOL_NOT
-left SEMICOLON
+%left SEMICOLON
 
-%parse-param{int * renvoi}
+%parse-param{long int * renvoi}
 
 %%
 
-result : seqint {*renvoi = $1;}
-	; 
+/* ===== TODO: TO SORT ===== */
 
-type : CHAR {}
-	| INT32 {}
-	| INT64	{}
+result : seqint {*renvoi = $1;}
 	;
 
-sigvar : type ID {}
+/* ===== GENERAL ===== */
+
+programmeprime : programme {cout << "programmeprime" << endl;}
+    ;
+programme : liext mainbody liext {cout << "programme" << endl;}
+    ;
+    
+mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {cout << "mainbody" << endl;}
+    ;
+maintype : type         {cout << "maintype: type" << endl;}
+    | VOID              {cout << "maintype : void" << endl;}
+    | /* epsilon */     {cout << "maintype : epsilon" << endl;}
+    ;
+mainarg : VOID          {cout << "mainarg : void" << endl;}
+    | larg              {cout << "mainarag : larg" << endl;}
+    | /* epsilon */     {cout << "mainarg : epsilon" << endl;}
+    ;
+    
+liext : liext iext  {cout << "liext : liext iext" << endl;}
+    | /* epsilon */ {cout << "liext : epsilon" << endl;}
+    ;
+iext : deffonc    {cout << "iext : deffonc" << endl;}
+    | declfonc    {cout << "iext : declfonc" << endl;}
+    | SHARP     {cout << "iext : SHARP" << endl;}
+    | declvar   {cout << "iext : declvar" << endl;}
+    ;
+
+/* ===== FONCTIONS ======*/
+
+declfonc : debutfonc SEMICOLON  {cout << "declfonc : debutfonc ;" << endl;}
+    ;
+deffonc : debutfonc bloc        {cout << "deffonc : debutfonc bloc" << endl;}
+    ;
+    
+debutfonc : sigfonc LEFT_PARENTHESIS larg RIGHT_PARENTHESIS     {cout << "debutfonc : sigfonc ( larg )" << endl;}
+    | sigfonc LEFT_PARENTHESIS RIGHT_PARENTHESIS                {cout << "debutfonc : sigfonc ( )" << endl;}
+    | sigfonc LEFT_PARENTHESIS VOID RIGHT_PARENTHESIS           {cout << "debutfonc : sigfonc ( VOID )" << endl;}
+    ;
+    
+larg : larg COMMA arg                               {cout << "larg : larg , arg "<< endl;}
+    | larg COMMA type                               {cout << "larg : larg , type "<< endl;}
+    | larg COMMA type LEFT_BRACKET RIGHT_BRACKET    {cout << "larg : larg , type [ ] "<< endl;}
+    | arg                                           {cout << "larg : arg "<< endl;}
+    | type                                          {cout << "larg : type "<< endl;}
+    | type LEFT_BRACKET RIGHT_BRACKET               {cout << "larg : type[] "<< endl;}
+    ;
+arg : sigvar                                {cout << "arg : sigvar "<< endl;}
+    | sigvar LEFT_BRACKET RIGHT_BRACKET     {cout << "arg : sigvar[] "<< endl;}
+    ;
+    
+appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {cout << "appelfonc : ID ( ) "<< endl;}
+    | ID LEFT_PARENTHESIS lparam RIGHT_PARENTHESIS  {cout << "appelfonc : ID ( lparam )" << endl;}
+    ;
+lparam : lparam COMMA ID    {cout << "lparam : lparam, ID "<< endl;}
+    | ID                    {cout << "lparam : ID "<< endl;}
+    ;
+    
+
+/* ===== VARIABLES ===== */
+
+declvar : sigvar AFFECT expr    {cout << "declvar : sigvar AFFECT expr "<< endl;}
+	| sigvar                    {cout << "declvar : sigvar "<< endl;}
+	;
+
+type : CHAR {cout << "type : char "<< endl;}
+	| INT32 {cout << "type : int32 "<< endl;}
+	| INT64	{cout << "type : int64 "<< endl;}
+	;
+
+/* ===== IDENTIFIANT ===== */
+
+sigvar : type ID {cout << "sigvar : type ID "<< endl;}
 	;
 	
-declvar : sigvar AFFECT expr {}
-	| sigvar {}
-	;
+sigfonc : type ID                           {cout << "sigfonc : type ID "<< endl;}
+    | VOID ID                               {cout << "sigfonc : void ID "<< endl;}
+    | type LEFT_BRACKET RIGHT_BRACKET ID    {cout << "sigfonc : type [] ID"<< endl;}
+    | ID                                    {cout << "sigfonc : ID "<< endl;}
+    ;
+
+/* ===== INSTRUCTIONS INTERIEURES ===== */
+
+bloc : LEFT_BRACKET seqint RIGHT_BRACKET    {cout << "bloc : { seqint } "<< endl;}
+    ;
 
 seqint : seqint iint {$$ = $2;}
 	|  seqint declvar SEMICOLON {$$ = 0;}
@@ -80,18 +157,20 @@ seqint : seqint iint {$$ = $2;}
 	
 iint : iintcomp SEMICOLON {$$ = $1;}
 	;
-
+	
 iintcomp : iintcomp COMMA expr {$$ = $3;}
 	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = $1 ? $3 : $5;}
 	| expr {$$ = $1;}
 	;
+
+/* ===== EXPRESSION ===== */
 
 uoperation : SUB expr {$$ = -$2;}
 	| ADD expr {$$ = $2;}
 	| BIT_NOT expr {$$ = ~$2;}
 	| BOOL_NOT expr {$$ = !$2;}
 	;
-		
+	
 expr : INT_VAL {$$ = $1;}
 	| uoperation {$$ = $1;}
 	| expr BOOL_OR expr {$$ = $1 || $3;}
@@ -114,7 +193,13 @@ expr : INT_VAL {$$ = $1;}
 	| expr MOD expr {$$ = $1 % $3;}
 	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = $2;}
 	;
-	
+
+/* ===== AFFECTATION ===== */
+
+/* ===== STRUCTURES ===== */ 
 
 %%
-	
+void yyerror(long int * param, const char * msg)
+{
+    cout << msg << endl;
+}

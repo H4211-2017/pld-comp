@@ -11,7 +11,7 @@ void yyerror(int * param, const char * msg)
 
 int main(void)
 {
-	int i = 0;
+	long int i = 0;
 	yyparse(&i);
 	cout << i << endl;
 }
