@@ -1,21 +1,17 @@
-#ifndef VARIABLE_H
-#define VARIABLE_H
+#ifndef IFOR_H
+#define IFOR_H
 
-#include <string>
+#include <memory>
+#include "IIntComp.h"
 
-class Variable
+class IFor
 {
 public:
-    Variable();
-
-    long int evaluate() const =0;
-
-
-protected:
-    long int value;
+	IFor();
+    IFor(std::shared_ptr<IIntComp> pIIntComp);
 
 private:
-    std::string id;
+    std::shared_ptr<IIntComp> m_pIIntComp;
 };
 
-#endif // VARIABLE_H
+#endif // IFOR_H

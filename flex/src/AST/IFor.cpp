@@ -1,6 +1,11 @@
-#include "Variable.h"
+#include "IFor.h"
 
-Variable::Variable()
+IFor::IFor() : m_pIIntComp(nullptr);
 {
+	
+}
 
+IFor::IFor(std::shared_ptr<IIntComp> pIIntComp) : m_pIIntComp(pIIntComp);
+{
+	
 }
