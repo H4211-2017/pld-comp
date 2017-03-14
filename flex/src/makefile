@@ -12,7 +12,7 @@ CPP_FLAGS_OBJ= -c
 BISON_FLAGS=-v -d
 
 #To be updated after each change in list of files
-SRC=TypeChar.cpp  TypeInt32.cpp  TypeInt64.cpp  Variable.cpp
+SRC=#TypeChar.cpp  TypeInt32.cpp  TypeInt64.cpp  Variable.cpp
 SRC_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.cpp)
 HEADERS_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.h) $(AST_DIRECTORY)
 OBJ_AST=$(SRC:%.cpp=$(BIN_DIRECTORY)%.o)
