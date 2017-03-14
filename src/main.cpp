@@ -1,10 +1,17 @@
 #include <iostream>
-#include "IR/instructions/AbstractInstruction.h"
+#include "bison.tab.hpp"
 
 using namespace std;
+extern int yylex();
 
-int main(int argc, char *argv[])
+void yyerror(int * param, const char * msg)
 {
-    cout << "Hello World!" << endl;
-    return 0;
+	cout << msg << endl;
+}
+
+int main(void)
+{
+	int i = 0;
+	yyparse(&i);
+	cout << i << endl;
 }

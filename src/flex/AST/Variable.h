@@ -8,7 +8,7 @@ class Variable
 public:
     Variable();
 
-    long int evaluate() const =0;
+    virtual long int evaluate() const =0;
 
 
 protected:
