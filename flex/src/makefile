@@ -17,16 +17,18 @@ SRC_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.cpp)
 HEADERS_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.h) $(AST_DIRECTORY)
 OBJ_AST=$(SRC:%.cpp=$(BIN_DIRECTORY)%.o)
 
-$(BIN_DIRECTORY)test: $(SRC_DRECTORY)main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.c $(OBJ_AST)
+$(BIN_DIRECTORY)test: $(SRC_DRECTORY)main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.c $(OBJ_AST) $(BIN_DIRECTORY)
 	g++ $(CPP_FLAGS) $(BIN_DIRECTORY)test $(SRC_DIRECTORY)main.cpp $(BIN_DIRECTORY)lex.yy.c $(BIN_DIRECTORY)bison.tab.cpp $(INCLUDE_DIRECTORIES)
 
-$(BIN_DIRECTORY)lex.yy.c: $(SRC_DRECTORY)tokens.lex
+$(BIN_DIRECTORY)lex.yy.c: $(SRC_DRECTORY)tokens.lex $(BIN_DIRECTORY)
 	flex -o $(BIN_DIRECTORY)lex.yy.c $(SRC_DRECTORY)tokens.lex
 
-$(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp
+$(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp $(BIN_DIRECTORY)
 	bison $(BISON_FLAGS) -o $(BIN_DIRECTORY)bison.tab.cpp $(SRC_DRECTORY)bison.ypp
 	
 	
-$(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(HEADERS_AST)
+$(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(HEADERS_AST) $(BIN_DIRECTORY)
 	g++ $(CPP_FLAGS) $@ $(CPP_FLAGS_OBJ) $(word 1,$^) $(INCLUDE_DIRECTORIES)
 
+$(BIN_DIRECTORY):
+	mkdir $(BIN_DIRECTORY)
