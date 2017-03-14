@@ -1,0 +1,5 @@
+<map id="AbstractMemoryAcess" name="AbstractMemoryAcess">
+<area shape="rect" id="node3" href="$class_read_from_memory.html" title="ReadFromMemory" alt="" coords="5,155,136,181"/>
+<area shape="rect" id="node4" href="$class_write_to_memory.html" title="WriteToMemory" alt="" coords="160,155,275,181"/>
+<area shape="rect" id="node2" href="$class_abstract_instruction.html" title="AbstractInstruction" alt="" coords="78,5,210,32"/>
+</map>
