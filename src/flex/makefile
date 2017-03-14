@@ -20,7 +20,7 @@ HEADERS_AST=$(SRC:%.cpp=$(AST_DIRECTORY)%.h) $(AST_DIRECTORY)
 OBJ_AST=$(SRC:%.cpp=$(BIN_DIRECTORY)%.o)
 
 $(BIN_DIRECTORY)test: $(SRC_DRECTORY)../main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.c $(OBJ_AST) $(BIN_DIRECTORY) LIB
-	g++ $(CPP_FLAGS) $(BIN_DIRECTORY)test $(SRC_DIRECTORY)../main.cpp -L$(LIB_DIRECTORY) $(INCLUDE_DIRECTORIES) -lbisontab -llexyy #$(BIN_DIRECTORY)lex.yy.c
+	g++ $(CPP_FLAGS) $(BIN_DIRECTORY)test $(SRC_DIRECTORY)../main.cpp -L$(LIB_DIRECTORY) $(INCLUDE_DIRECTORIES) -lbisontab -llexyy $(BIN_DIRECTORY)lex.yy.c
 
 $(BIN_DIRECTORY)lex.yy.c: $(SRC_DRECTORY)tokens.lex $(BIN_DIRECTORY)
 	flex -o $(BIN_DIRECTORY)lex.yy.c $(SRC_DRECTORY)tokens.lex
