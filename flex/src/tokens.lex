@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "fcBison.h"
 #include "bison.tab.hpp"
 
 %}

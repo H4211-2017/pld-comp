@@ -1,0 +1,15 @@
+bison.ypp: In function ‘int yyparse(std::shared_ptr<std::map<std::basic_string<char>, std::shared_ptr<Variable> > >)’:
+bison.ypp:75:47: error: ‘createVar’ was not declared in this scope
+ result : seqiint { createVar(variablesGlob, $1);renvoi = variablesGlob;}
+                                               ^
+In file included from tokens.lex:5:0:
+../bin/bison.tab.hpp:132:14: error: ‘shared_ptr’ was not declared in this scope
+ int yyparse (shared_ptr< mapVar > renvoi);
+              ^
+../bin/bison.tab.hpp:132:26: error: ‘mapVar’ was not declared in this scope
+ int yyparse (shared_ptr< mapVar > renvoi);
+                          ^
+../bin/bison.tab.hpp:132:35: error: ‘renvoi’ was not declared in this scope
+ int yyparse (shared_ptr< mapVar > renvoi);
+                                   ^
+make: *** [../bin/CParser] Erreur 1

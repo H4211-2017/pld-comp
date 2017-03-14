@@ -3,9 +3,20 @@
 #include <string>
 #include <iostream>
 #include <typeinfo>
+#include <memory>
+#include "Variable.h"
+#include "TypeInt64.h"
+#include "TypeInt32.h"
+#include "TypeChar.h"
+#include "fcBison.h"
+
+using namespace std;
 
 extern int yylex(void);
-void yyerror(int * param, const char * msg);
+void yyerror(shared_ptr< mapVar > * param, const char * msg);
+
+
+shared_ptr< mapVar > variablesGlob = make_shared< mapVar >();
 
 %}
 
@@ -15,6 +26,7 @@ void yyerror(int * param, const char * msg);
 	char * sVal;
 	char * id;
 	int eval;
+	struct InfosSigVar * infosSigVar;
 }
 
 %token SHARP LINE_COM BEGIN_COM END_COM 
@@ -35,7 +47,9 @@ void yyerror(int * param, const char * msg);
 %type <eval> uoperation
 %type <eval> iintcomp
 %type <eval> iint
-%type <eval> seqint
+%type <eval> seqiint
+%type <eval> type
+%type <infosSigVar> sigvar;
 
 %left ID
 %right AFFECT
@@ -54,27 +68,32 @@ void yyerror(int * param, const char * msg);
 %right BIT_NOT BOOL_NOT
 left SEMICOLON
 
-%parse-param{int * renvoi}
+%parse-param{shared_ptr< mapVar > * renvoi}
 
 %%
 
-result : seqint {*renvoi = $1;}
+result : seqiint { InfosSigVar tps; createVariable(variablesGlob, tps);*renvoi = variablesGlob;}
 	; 
 
-type : CHAR {}
-	| INT32 {}
-	| INT64	{}
+type : CHAR {$$ = 0;}
+	| INT32 {$$ = 1;}
+	| INT64	{$$ = 2;}
 	;
 
-sigvar : type ID {}
+sigvar : type ID { $$ = new InfosSigVar();
+					$$->type = $1;
+					$$->id = $2;}
 	;
 	
-declvar : sigvar AFFECT expr {}
-	| sigvar {}
+declvar : sigvar AFFECT expr {createVariable(variablesGlob, *$1);
+								affectVariable(variablesGlob, $1->id, $3);
+								delete $1;}
+	| sigvar {createVariable(variablesGlob, *$1);
+				delete $1;}
 	;
 
-seqint : seqint iint {$$ = $2;}
-	|  seqint declvar SEMICOLON {$$ = 0;}
+seqiint : seqiint iint {$$ = $2;}
+	|  seqiint declvar SEMICOLON {$$ = 0;}
 	| /*epsilon*/ {$$ = 0;}
 	;
 	
