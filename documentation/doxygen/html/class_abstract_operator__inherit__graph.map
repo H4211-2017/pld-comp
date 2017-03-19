@@ -1,0 +1,12 @@
+<map id="AbstractOperator" name="AbstractOperator">
+<area shape="rect" id="node3" href="$class_operator_bigger.html" title="OperatorBigger" alt="" coords="381,5,491,32"/>
+<area shape="rect" id="node4" href="$class_operator_bigger_or_equal.html" title="OperatorBiggerOrEqual" alt="" coords="358,56,514,83"/>
+<area shape="rect" id="node5" href="$class_operator_div.html" title="OperatorDiv" alt="" coords="390,107,482,133"/>
+<area shape="rect" id="node6" href="$class_operator_minus.html" title="OperatorMinus" alt="" coords="383,157,489,184"/>
+<area shape="rect" id="node7" href="$class_operator_modulus.html" title="OperatorModulus" alt="" coords="375,208,497,235"/>
+<area shape="rect" id="node8" href="$class_operator_mult.html" title="OperatorMult" alt="" coords="387,259,485,285"/>
+<area shape="rect" id="node9" href="$class_operator_plus.html" title="OperatorPlus" alt="" coords="387,309,485,336"/>
+<area shape="rect" id="node10" href="$class_operator_smaller.html" title="OperatorSmaller" alt="" coords="378,360,494,387"/>
+<area shape="rect" id="node11" href="$class_operator_smaller_or_equal.html" title="OperatorSmallerOrEqual" alt="" coords="355,411,517,437"/>
+<area shape="rect" id="node2" href="$class_abstract_instruction.html" title="AbstractInstruction" alt="" coords="5,233,137,260"/>
+</map>
