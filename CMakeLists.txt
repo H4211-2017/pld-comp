@@ -20,7 +20,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include/)
 #add_library(bisontab STATIC lib/libbisontab.a)
 #add_library(lexyy STATIC lib/liblexyy.a)
 
-add_executable(${PROJECT_NAME} ${source_files} ${header_files} bin/flex/lex.yy.c)
+add_executable(${PROJECT_NAME} ${source_files} ${header_files} bin/flex/lex.yy.cpp)
 
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/lib/libbisontab.a)
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/lib/liblexyy.a)

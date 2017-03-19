@@ -4,7 +4,7 @@
 #include <iostream>
 #include <typeinfo>
 
-extern int yylex(void);
+extern int yylex();
 void yyerror(int * param, const char * msg);
 
 %}

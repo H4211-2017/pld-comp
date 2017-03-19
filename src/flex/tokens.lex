@@ -4,6 +4,7 @@
 #include <string.h>
 #include "bison.tab.hpp"
 
+extern int yylex();
 %}
 
 %option noyywrap 

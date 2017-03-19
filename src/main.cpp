@@ -2,7 +2,7 @@
 #include "bison.tab.hpp"
 
 using namespace std;
-extern int yylex();
+extern "C" int yylex();
 
 void yyerror(int * param, const char * msg)
 {
