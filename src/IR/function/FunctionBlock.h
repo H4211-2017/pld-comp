@@ -3,13 +3,14 @@
 
 #include <memory>
 
-#include "BasicBlock.h"
+#include "AbstractFunction.h"
+#include "../basicBlock/BasicBlock.h"
 
 namespace IR {
-    class FunctionBlock
+    class FunctionBlock : public AbstractFunction
     {
     public:
-        FunctionBlock();
+        FunctionBlock(std::string name);
     private:
         BasicBlock functionInit;
         BasicBlock functionCore;

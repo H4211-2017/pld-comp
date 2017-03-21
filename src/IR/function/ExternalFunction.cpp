@@ -1,6 +1,8 @@
 #include "ExternalFunction.h"
 
-ExternalFunction::ExternalFunction()
+using namespace IR;
+
+ExternalFunction::ExternalFunction(std::string name): AbstractFunction(name)
 {
 
 }

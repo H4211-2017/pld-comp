@@ -1,11 +1,18 @@
 #ifndef ABSTRACTFUNCTION_H
 #define ABSTRACTFUNCTION_H
 
+#include <string>
 
-class AbstractFunction
-{
-public:
-    AbstractFunction();
-};
+namespace IR {
+    class AbstractFunction
+    {
+    public:
+        AbstractFunction(std::string name);
+
+    private:
+        std::string functionName;
+    };
+}
+
 
 #endif // ABSTRACTFUNCTION_H

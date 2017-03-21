@@ -1,6 +1,8 @@
 #include "AbstractFunction.h"
 
-AbstractFunction::AbstractFunction()
+using namespace IR;
+
+AbstractFunction::AbstractFunction(std::string name): functionName(name)
 {
 
 }
