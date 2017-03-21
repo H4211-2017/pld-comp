@@ -15,38 +15,59 @@ CPP_FLAGS=-std=c++11 -DYYDEBUG -g
 CPP_FLAGS_OBJ=-c
 BISON_FLAGS=-v -d
 
-#To be updated after each change in list of files
-SRC=TypeChar.cpp TypeInt32.cpp TypeInt64.cpp Variable.cpp fcBison.cpp
+
 #SRC=$(find . -name "*.cpp")
-HEADERS=$(find . -name "*.h")
+#HEADERS=$(find . -name "*.h")
 
 
-SRC_RULE_MEMBER=$(SRC:%.cpp=$(RULE_MEMBER_DIRECTORY)%.cpp)
-OBJ_RULE_MEMBER=$(SRC:%.cpp=$(BIN_DIRECTORY)%.o)
-HEADERS_RULE_MEMBER=$(SRC:%.cpp=$(INC_DIRECTORY)%.h)
+###############################################
+#                                             #
+#  MAIN DEPENDENCIES FOR RULE MEMBER BUILDING #
+#                                             #
+###############################################
+SRC_RM=TypeChar.cpp TypeInt32.cpp TypeInt64.cpp Variable.cpp fcBison.cpp
+SRC_RULE_MEMBER=$(SRC_RM:%.cpp=$(RULE_MEMBER_DIRECTORY)%.cpp) 
+OBJ_RULE_MEMBER=$(SRC_RM:%.cpp=$(BIN_DIRECTORY)%.o)
+HEADERS_RULE_MEMBER=$(SRC_RM:%.cpp=$(INC_DIRECTORY)%.h)
+
+###############################################
+#                                             #
+#  MAIN DEPENDENCIES FOR AST BUILDING         #
+#                                             #
+###############################################
+SRC_AST_NOPATH =Node.cpp
+SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
+OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
+HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(INC_DIRECTORY)%.h)
+
+
+#To be updated after each change in list of files
+SRCS=$(SRC_RM) $(SRC_AST_NOPATH)
+OBJS=$(OBJ_RULE_MEMBER) $(OBJ_AST)
+HEADERS=$(HEADERS_RULE_MEMBER) $(HEADERS_AST)
 
 EXE=$(BIN_DIRECTORY)CParser
 
 all: $(EXE)
 
-$(EXE): $(SRC_DRECTORY)../main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.cpp $(OBJ_RULE_MEMBER) $(HEADERS_RULE_MEMBER) $(BIN_DIRECTORY) 
+$(EXE): $(SRC_DRECTORY)../main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.cpp $(OBJS) $(HEADERS) $(BIN_DIRECTORY) 
 	echo $(HEADERS_INC)
-	g++ $(CPP_FLAGS) -o $(BIN_DIRECTORY)test $(SRC_DIRECTORY)../main.cpp $(BIN_DIRECTORY)lex.yy.cpp $(BIN_DIRECTORY)bison.tab.cpp $(OBJ_RULE_MEMBER) $(INCLUDE_DIRECTORIES)
+	g++ $(CPP_FLAGS) -o $(BIN_DIRECTORY)test $(SRC_DIRECTORY)../main.cpp $(BIN_DIRECTORY)lex.yy.cpp $(BIN_DIRECTORY)bison.tab.cpp $(OBJS) $(INCLUDE_DIRECTORIES)
 
-flex: $(BIN_DIRECTORY)lex.yy.cpp
+flex: $(BIN_DIRECTORY)lex.yy.cpp 
 
 bison: $(BIN_DIRECTORY)bison.tab.cpp
 
-$(BIN_DIRECTORY)lex.yy.cpp: $(SRC_DRECTORY)tokens.lex $(HEADERS_INC)
+$(BIN_DIRECTORY)lex.yy.cpp: $(SRC_DRECTORY)tokens.lex $(HEADERS_INC) $(BIN_DIRECTORY)
 	flex -o $@ $< 
 
-$(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp $(HEADERS_INC)
+$(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp $(HEADERS_INC) $(BIN_DIRECTORY)
 	bison $(BISON_FLAGS) -Wother -o $@ $< 
 
-reglealakon: $(BIN_DIRECTORY)Variable.o
-	echo "coucou"
+$(BIN_DIRECTORY)%.o: $(RULE_MEMBER_DIRECTORY)%.cpp $(HEADERS_RULE_MEMBER) $(BIN_DIRECTORY)
+	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 
-$(BIN_DIRECTORY)%.o: $(RULE_MEMBER_DIRECTORY)%.cpp $(HEADERS_INC) $(BIN_DIRECTORY)
+$(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(HEADERS_AST) $(BIN_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 
 $(BIN_DIRECTORY):
