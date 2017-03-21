@@ -1,0 +1,5 @@
+<map id="Variable" name="Variable">
+<area shape="rect" id="node2" href="$class_type_char.html" title="TypeChar" alt="" coords="5,80,84,107"/>
+<area shape="rect" id="node3" href="$class_type_int32.html" title="TypeInt32" alt="" coords="109,80,189,107"/>
+<area shape="rect" id="node4" href="$class_type_int64.html" title="TypeInt64" alt="" coords="213,80,293,107"/>
+</map>
