@@ -3,7 +3,7 @@
 
 #include <map>
 #include <memory>
-#include "RuleMember/Variable.h"
+#include "Variable.h"
 
 using namespace std;
 

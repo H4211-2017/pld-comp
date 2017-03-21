@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "fcBison.h"
-#include "bison.tab.hpp"
+#include <sstream>
+#include "/home/jliermann/Desktop/pld-comp/include/fcBison.h"
+#include "/home/jliermann/Desktop/pld-comp/bin/flex/bison.tab.hpp"
 
 extern int yylex();
+
 %}
 
 %option noyywrap 
@@ -75,8 +77,10 @@ hex		    0[xX]{hextail}
 "int32_t"			{printf("INT32 "); return INT32;}
 "int64_t"			{printf("INT64 "); return INT64;}
 {number}			{printf("{number} ");
-                        std::stringstream ss(yytext);
-                        ss >> yylval.lVal; 
+                        std::stringstream ss(strdup(yytext));
+                        long int tps;
+                        ss >> tps;
+                        yylval.lVal = tps; 
 						return INT_VAL;}
 "'"{alphanumex}"'"	{printf("'{alphanumex}' "); 
 						yylval.cVal = strdup(yytext)[1]; 

@@ -1,7 +1,9 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.1)
+
 
 project(pld-comp)
 set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
+set(CMAKE_CXX_STANDARD 11)
 
 file(
         GLOB_RECURSE
