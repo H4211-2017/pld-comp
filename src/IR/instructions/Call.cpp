@@ -2,7 +2,7 @@
 
 using namespace IR;
 
-Call::Call()
+Call::Call(std::shared_ptr<AbstractFunction> function): AbstractInstruction()
 {
 
 }
