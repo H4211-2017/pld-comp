@@ -35,7 +35,7 @@ HEADERS_RULE_MEMBER=$(SRC_RM:%.cpp=$(INC_DIRECTORY)%.h)
 #  MAIN DEPENDENCIES FOR AST BUILDING         #
 #                                             #
 ###############################################
-SRC_AST_NOPATH =Node.cpp
+SRC_AST_NOPATH =Node.cpp Constant.cpp
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
 OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
 HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(INC_DIRECTORY)%.h)
@@ -58,10 +58,10 @@ flex: $(BIN_DIRECTORY)lex.yy.cpp
 
 bison: $(BIN_DIRECTORY)bison.tab.cpp
 
-$(BIN_DIRECTORY)lex.yy.cpp: $(SRC_DRECTORY)tokens.lex $(HEADERS_INC) $(BIN_DIRECTORY)
+$(BIN_DIRECTORY)lex.yy.cpp: $(SRC_DRECTORY)tokens.lex $(HEADERS) $(BIN_DIRECTORY)
 	flex -o $@ $< 
 
-$(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp $(HEADERS_INC) $(BIN_DIRECTORY)
+$(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp $(HEADERS) $(BIN_DIRECTORY)
 	bison $(BISON_FLAGS) -Wother -o $@ $< 
 
 $(BIN_DIRECTORY)%.o: $(RULE_MEMBER_DIRECTORY)%.cpp $(HEADERS_RULE_MEMBER) $(BIN_DIRECTORY)

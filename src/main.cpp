@@ -7,14 +7,14 @@
 using namespace std;
 extern "C" int yylex();
 
-void yyerror(shared_ptr< mapVar > * param, const char * msg)
+void yyerror(int * param, const char * msg)
 {
 	cout << msg << endl;
 }
 
 int main(void)
 {
-	shared_ptr< mapVar > i = make_shared< mapVar >();
+	/*shared_ptr< mapVar > i = make_shared< mapVar >();
 	
 	try
 	{
@@ -28,6 +28,11 @@ int main(void)
 	for(mapVar::iterator it = i->begin(); it != i->end(); it++)
 	{
 		cout << it->second->toString();
-	}
+	}*/
+	
+	int i = 0;
+	
+	yyparse(&i);
+	cout << i << endl;
 
 }

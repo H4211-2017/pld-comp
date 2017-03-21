@@ -9,11 +9,13 @@
 #include "TypeInt32.h"
 #include "TypeChar.h"
 #include "fcBison.h"
+#include "Constant.h"
+#include "Node.h"
 
 using namespace std;
 
 extern int yylex(void);
-void yyerror(shared_ptr< mapVar > * param, const char * msg);
+void yyerror(int * param, const char * msg);
 
 shared_ptr< mapVar > variablesGlob = make_shared< mapVar >();
 
@@ -64,13 +66,13 @@ shared_ptr< mapVar > variablesGlob = make_shared< mapVar >();
 %right BIT_NOT BOOL_NOT
 %left SEMICOLON
 
-%parse-param{shared_ptr< mapVar > * renvoi}
+%parse-param{int *renvoi}
 
 %%
 
 /* ===== TODO: TO SORT ===== */
 
-result : seqint {InfosSigVar tps; createVariable(variablesGlob, tps); affectVariable(variablesGlob, "renvoi", $1); *renvoi = variablesGlob;}
+result : seqint {*renvoi = $1;}
 	;
 
 /* ===== GENERAL ===== */
@@ -177,7 +179,7 @@ uoperation : SUB expr {$$ = -$2;}
 	| BOOL_NOT expr {$$ = !$2;}
 	;
 	
-expr : INT_VAL {$$ = $1;}
+expr : INT_VAL {AST::Constant cst($1); $$ = cst.evaluate().first.int64;}
 	| uoperation {$$ = $1;}
 	| expr BOOL_OR expr {$$ = $1 || $3;}
 	| expr BOOL_AND expr {$$ = $1 && $3;}
