@@ -20,15 +20,7 @@ BISON_FLAGS=-v -d
 #HEADERS=$(find . -name "*.h")
 
 
-###############################################
-#                                             #
-#  MAIN DEPENDENCIES FOR RULE MEMBER BUILDING #
-#                                             #
-###############################################
-SRC_RM=TypeChar.cpp TypeInt32.cpp TypeInt64.cpp Variable.cpp fcBison.cpp
-SRC_RULE_MEMBER=$(SRC_RM:%.cpp=$(RULE_MEMBER_DIRECTORY)%.cpp) 
-OBJ_RULE_MEMBER=$(SRC_RM:%.cpp=$(BIN_DIRECTORY)%.o)
-HEADERS_RULE_MEMBER=$(SRC_RM:%.cpp=$(INC_DIRECTORY)%.h)
+
 
 ###############################################
 #                                             #
