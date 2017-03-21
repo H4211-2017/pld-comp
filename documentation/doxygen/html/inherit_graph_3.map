@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_variable.html" title="Variable" alt="" coords="5,56,75,83"/>
+<area shape="rect" id="node2" href="$class_type_char.html" title="TypeChar" alt="" coords="123,5,202,32"/>
+<area shape="rect" id="node3" href="$class_type_int32.html" title="TypeInt32" alt="" coords="123,56,203,83"/>
+<area shape="rect" id="node4" href="$class_type_int64.html" title="TypeInt64" alt="" coords="123,107,203,133"/>
+</map>

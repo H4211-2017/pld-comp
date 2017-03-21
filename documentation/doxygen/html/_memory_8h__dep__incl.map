@@ -1,0 +1,9 @@
+<map id="src/IR/data/Memory.h" name="src/IR/data/Memory.h">
+<area shape="rect" id="node2" href="$_memory_8cpp.html" title="src/IR/data/Memory.cpp" alt="" coords="15,87,177,114"/>
+<area shape="rect" id="node3" href="$_abstract_memory_acess_8h.html" title="src/IR/instructions\l/AbstractMemoryAcess.h" alt="" coords="201,80,372,121"/>
+<area shape="rect" id="node4" href="$_abstract_memory_acess_8cpp.html" title="src/IR/instructions\l/AbstractMemoryAcess.cpp" alt="" coords="5,169,189,211"/>
+<area shape="rect" id="node5" href="$_read_from_memory_8h.html" title="src/IR/instructions\l/ReadFromMemory.h" alt="" coords="214,169,359,211"/>
+<area shape="rect" id="node7" href="$_write_to_memory_8h.html" title="src/IR/instructions\l/WriteToMemory.h" alt="" coords="391,169,521,211"/>
+<area shape="rect" id="node6" href="$_read_from_memory_8cpp.html" title="src/IR/instructions\l/ReadFromMemory.cpp" alt="" coords="203,259,362,300"/>
+<area shape="rect" id="node8" href="$_write_to_memory_8cpp.html" title="src/IR/instructions\l/WriteToMemory.cpp" alt="" coords="387,259,531,300"/>
+</map>

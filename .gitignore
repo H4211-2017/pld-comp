@@ -78,4 +78,5 @@ Thumbs.db
 *.tab.cpp
 *.yy.c
 *.output
-flex/bin/*
+
+bin/*
