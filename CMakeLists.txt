@@ -16,11 +16,11 @@ file(
         header_files
         src/*.h
 )
-#file(
-#        GLOB_RECURSE
-#        header_files_moche
-#        include/*.h
-#)
+file(
+        GLOB_RECURSE
+        header_files_moche
+        include/*.h
+)
 
 find_package(BISON)
 find_package(FLEX)
