@@ -1,14 +1,16 @@
 #ifndef ABSTRACTDATA_H
 #define ABSTRACTDATA_H
 
+namespace IR {
+    class AbstractData
+    {
+    public:
+        AbstractData();
 
-class AbstractData
-{
-public:
-    AbstractData();
+    public:
+        int dataSize; // 1, 2 or 4 byte(s)
+    };
+}
 
-public:
-    int dataSize; // 1, 2 or 4 byte(s)
-};
 
 #endif // ABSTRACTDATA_H

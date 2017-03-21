@@ -6,21 +6,30 @@
 
 #include "../instructions/AbstractInstruction.h"
 
-class BasicBlock
-{
-public:
-    BasicBlock();
+namespace IR {
 
-    void insertNextBlockTrue(std::shared_ptr<BasicBlock> basicBlock);
-    void insertNextBlockFalse(std::shared_ptr<BasicBlock> basicBlock);
+    class BasicBlock
+    {
+    public:
+        BasicBlock();
 
-    void setNextBlockTrue(std::shared_ptr<BasicBlock> basicBlock);
-    void setNextBlockFalse(std::shared_ptr<BasicBlock> basicBlock);
+        void pushInstructionBack(std::shared_ptr<AbstractInstruction> instruction);
+        void setEndConditionnalInstruction(std::shared_ptr<AbstractInstruction> conditionalInstruction);
 
-private:
-    //std::list<AbstractInstruction> instructionsList;
-    std::shared_ptr<BasicBlock> nextBlockTrue;
-    std::shared_ptr<BasicBlock> nextBlockFalse;
-};
+        void insertNextBlockTrue(std::shared_ptr<BasicBlock> basicBlock);
+        void insertNextBlockFalse(std::shared_ptr<BasicBlock> basicBlock);
+
+        void setNextBlockTrue(std::shared_ptr<BasicBlock> basicBlock);
+        void setNextBlockFalse(std::shared_ptr<BasicBlock> basicBlock);
+
+    private:
+        std::list<std::shared_ptr<AbstractInstruction>> instructionsList;
+        std::shared_ptr<AbstractInstruction> endConditionnalInstruction;
+        std::shared_ptr<BasicBlock> nextBlockTrue;
+        std::shared_ptr<BasicBlock> nextBlockFalse;
+    };
+}
+
+
 
 #endif // BASICBLOCK_H

@@ -3,10 +3,13 @@
 
 #include "AbstractOperator.h"
 
-class OperatorDiv : public AbstractOperator
-{
-public:
-    OperatorDiv(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister);
-};
+namespace IR {
+    class OperatorDiv : public AbstractOperator
+    {
+    public:
+        OperatorDiv(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister);
+    };
+}
+
 
 #endif // OperatorDiv_H

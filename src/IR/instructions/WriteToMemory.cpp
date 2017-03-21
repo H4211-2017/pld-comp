@@ -1,5 +1,7 @@
 #include "WriteToMemory.h"
 
+using namespace IR;
+
 const int WriteToMemory::MEMORY_TYPE = 0;
 const int WriteToMemory::CHAR_TYPE   = 1;
 const int WriteToMemory::INT_TYPE    = 2;

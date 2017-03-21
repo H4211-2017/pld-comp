@@ -5,12 +5,17 @@
 
 #include "BasicBlock.h"
 
-class FunctionBlock
-{
-public:
-    FunctionBlock();
-private:
+namespace IR {
+    class FunctionBlock
+    {
+    public:
+        FunctionBlock();
+    private:
+        BasicBlock functionInit;
+        BasicBlock functionCore;
+        BasicBlock functionReturn;
 
-};
+    };
+}
 
 #endif // FUNCTIONBLOCK_H

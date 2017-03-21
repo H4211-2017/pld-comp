@@ -3,10 +3,13 @@
 
 #include "AbstractOperator.h"
 
-class OperatorMinus : public AbstractOperator
-{
-public:
-    OperatorMinus(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister);
-};
+namespace IR {
+    class OperatorMinus : public AbstractOperator
+    {
+    public:
+        OperatorMinus(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister);
+    };
+}
+
 
 #endif // OperatorMinus_H

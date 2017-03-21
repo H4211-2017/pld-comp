@@ -1,5 +1,7 @@
 #include "OperatorSmaller.h"
 
+using namespace IR;
+
 OperatorSmaller::OperatorSmaller(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister) :
     AbstractOperator(resultRegister,firstValueRegister,secondValueRegister)
 {

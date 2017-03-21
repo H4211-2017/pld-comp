@@ -3,11 +3,14 @@
 
 #include "AbstractData.h"
 
-class Memory : public AbstractData
-{
-public:
-    Memory();
+namespace IR {
+    class Memory : public AbstractData
+    {
+    public:
+        Memory();
 
-};
+    };
+}
+
 
 #endif // MEMORY_H

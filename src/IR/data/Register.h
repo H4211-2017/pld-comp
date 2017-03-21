@@ -3,10 +3,13 @@
 
 #include "AbstractData.h"
 
-class Register : public AbstractData
-{
-public:
-    Register();
-};
+namespace IR {
+    class Register : public AbstractData
+    {
+    public:
+        Register();
+    };
+}
+
 
 #endif // REGISTER_H

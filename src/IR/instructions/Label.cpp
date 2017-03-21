@@ -1,5 +1,7 @@
 #include "Label.h"
 
+using namespace IR;
+
 Label::Label()
 {
 
