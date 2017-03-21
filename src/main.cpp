@@ -1,6 +1,6 @@
 #include <iostream>
 #include <map>
-#include "fcBison.h"
+#include "../include/fcBison.h"
 #include <memory>
 #include "bison.tab.hpp"
 
