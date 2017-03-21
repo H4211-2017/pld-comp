@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.1)
 
 project(pld-comp)
 set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
-set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_STANDARD 11)
+list( APPEND CMAKE_CXX_FLAGS "-std=c++0x -I${CMAKE_SOURCE_DIR}/include  ${CMAKE_CXX_FLAGS}")
 
 file(
         GLOB_RECURSE
@@ -15,6 +16,11 @@ file(
         header_files
         src/*.h
 )
+#file(
+#        GLOB_RECURSE
+#        header_files_moche
+#        include/*.h
+#)
 
 find_package(BISON)
 find_package(FLEX)
@@ -32,4 +38,5 @@ add_executable(${PROJECT_NAME}
     ${source_files} ${header_files}
     ${BISON_MyParser_OUTPUTS}
     ${FLEX_MyScanner_OUTPUTS}
+    ${header_files_moche}
 )

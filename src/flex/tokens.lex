@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <sstream>
-#include "/home/jliermann/Desktop/pld-comp/include/fcBison.h"
-#include "/home/jliermann/Desktop/pld-comp/bin/flex/bison.tab.hpp"
+#include "../../include/fcBison.h"
+#include "../../bin/flex/bison.tab.hpp"
 
 extern int yylex();
 
