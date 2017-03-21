@@ -1,0 +1,139 @@
+%{
+#include <map>
+#include <string>
+#include <iostream>
+#include <typeinfo>
+#include <memory>
+#include "Variable.h"
+#include "TypeInt64.h"
+#include "TypeInt32.h"
+#include "TypeChar.h"
+#include "fcBison.h"
+
+using namespace std;
+
+extern int yylex(void);
+void yyerror(shared_ptr< mapVar > * param, const char * msg);
+
+
+shared_ptr< mapVar > variablesGlob = make_shared< mapVar >();
+
+%}
+
+%union {
+	char cVal;
+	int iVal;
+	char * sVal;
+	char * id;
+	int eval;
+	struct InfosSigVar * infosSigVar;
+}
+
+%token SHARP LINE_COM BEGIN_COM END_COM 
+%token IF ELSE WHILE FOR MAIN 
+%token LEFT_BRACES RIGHT_BRACES LEFT_PARENTHESIS RIGHT_PARENTHESIS 
+%token LEFT_BRACKET RIGHT_BRACKET BOOL_EQUAL RETURN 
+%token BOOL_DIF BOOL_LESS_OR_EQUAL BOOL_GREATER_OR_EQUAL BOOL_LESS BOOL_GREATER 
+%token AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD TERNARY_ASK TERNARY_CHOOSE
+%token INCREMENT DECREMENT AFFECT ADD SUB MULT DIV MOD 
+%token BOOL_AND BOOL_OR BOOL_NOT BIT_AND BIT_OR BIT_XOR
+%token BIT_NOT BIT_LEFT_SHIFT BIT_RIGHT_SHIFT 
+%token VOID CHAR INT32 INT64 SEMICOLON COMMA UNEXPECTED
+%token <cVal> CHAR_VAL
+%token <iVal> INT_VAL
+%token <sVal> CHAIN
+%token <id> ID
+%type <eval> expr
+%type <eval> uoperation
+%type <eval> iintcomp
+%type <eval> iint
+%type <eval> seqiint
+%type <eval> type
+%type <infosSigVar> sigvar;
+
+%left ID
+%right AFFECT
+%left COMMA
+%right TERNARY_ASK TERNARY_CHOOSE
+%left BOOL_OR
+%left BOOL_AND
+%left BIT_OR
+%left BIT_XOR
+%left BIT_AND
+%left BOOL_EQUAL BOOL_DIF
+%left BOOL_LESS BOOL_GREATER BOOL_LESS_OR_EQUAL BOOL_GREATER_OR_EQUAL 
+%left BIT_RIGHT_SHIFT BIT_LEFT_SHIFT
+%left ADD SUB
+%left MULT DIV MOD
+%right BIT_NOT BOOL_NOT
+left SEMICOLON
+
+%parse-param{shared_ptr< mapVar > * renvoi}
+
+%%
+
+result : seqiint { InfosSigVar tps; createVariable(variablesGlob, tps);*renvoi = variablesGlob;}
+	; 
+
+type : CHAR {$$ = 0;}
+	| INT32 {$$ = 1;}
+	| INT64	{$$ = 2;}
+	;
+
+sigvar : type ID { $$ = new InfosSigVar();
+					$$->type = $1;
+					$$->id = $2;}
+	;
+	
+declvar : sigvar AFFECT expr {createVariable(variablesGlob, *$1);
+								affectVariable(variablesGlob, $1->id, $3);
+								delete $1;}
+	| sigvar {createVariable(variablesGlob, *$1);
+				delete $1;}
+	;
+
+seqiint : seqiint iint {$$ = $2;}
+	|  seqiint declvar SEMICOLON {$$ = 0;}
+	| /*epsilon*/ {$$ = 0;}
+	;
+	
+iint : iintcomp SEMICOLON {$$ = $1;}
+	;
+
+iintcomp : iintcomp COMMA expr {$$ = $3;}
+	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = $1 ? $3 : $5;}
+	| expr {$$ = $1;}
+	;
+
+uoperation : SUB expr {$$ = -$2;}
+	| ADD expr {$$ = $2;}
+	| BIT_NOT expr {$$ = ~$2;}
+	| BOOL_NOT expr {$$ = !$2;}
+	;
+		
+expr : INT_VAL {$$ = $1;}
+	| uoperation {$$ = $1;}
+	| expr BOOL_OR expr {$$ = $1 || $3;}
+	| expr BOOL_AND expr {$$ = $1 && $3;}
+	| expr BIT_OR expr {$$ = $1 | $3;}
+	| expr BIT_XOR expr {$$ = $1 ^ $3;}
+	| expr BIT_AND expr {$$ = $1 & $3;}
+	| expr BOOL_EQUAL expr {$$ = $1 == $3;}
+	| expr BOOL_DIF expr {$$ = $1 != $3;}
+	| expr BOOL_LESS expr {$$ = $1 < $3;}
+	| expr BOOL_GREATER expr {$$ = $1 > $3;}
+	| expr BOOL_LESS_OR_EQUAL expr {$$ = $1 <= $3;}
+	| expr BOOL_GREATER_OR_EQUAL expr {$$ = $1 >= $3;}
+	| expr BIT_RIGHT_SHIFT expr {$$ = $1 >> $3;}
+	| expr BIT_LEFT_SHIFT expr {$$ = $1 << $3;}
+	| expr ADD expr {$$ = $1 + $3;}
+	| expr SUB expr {$$ = $1 - $3;}
+	| expr MULT expr {$$ = $1 * $3;}
+	| expr DIV expr {$$ = $1 / $3;}
+	| expr MOD expr {$$ = $1 % $3;}
+	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = $2;}
+	;
+	
+
+%%
+	

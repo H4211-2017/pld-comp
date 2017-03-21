@@ -2,11 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-#include <string>
-#include <sstream>
-#include <iostream>
-
+#include "fcBison.h"
 #include "bison.tab.hpp"
 
 extern int yylex();
