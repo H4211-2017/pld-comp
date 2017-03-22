@@ -5,7 +5,7 @@
 class AbstractExpression
 {
 public:
-    AbstractExpression(ds);
+    AbstractExpression();
 };
 
 #endif // ABSTRACTEXPRESSION_H
