@@ -25,13 +25,15 @@ BISON_FLAGS=-v -d
 #  MAIN DEPENDENCIES FOR AST BUILDING         #
 #                                             #
 ###############################################
+
+#To be updated after each change in list of files
 SRC_AST_NOPATH =Node.cpp Constant.cpp
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
 OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
 HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(INC_DIRECTORY)%.h)
 
 
-#To be updated after each change in list of files
+
 SRCS=$(SRC_RM) $(SRC_AST_NOPATH)
 OBJS=$(OBJ_RULE_MEMBER) $(OBJ_AST)
 HEADERS=$(HEADERS_RULE_MEMBER) $(HEADERS_AST)

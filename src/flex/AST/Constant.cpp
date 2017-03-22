@@ -2,7 +2,7 @@
 
 using namespace AST;
 
-Constant::Constant() : Node()
+Constant::Constant() : AbstractNode()
 {
 	
 }
@@ -33,9 +33,9 @@ Constant::~Constant()
 	
 }
 
-std::pair<TypeValue, Type> Constant::evaluate() const
+std::shared_ptr<std::pair<TypeValue, Type>> Constant::evaluate() const
 {
-	return std::pair<TypeValue, Type>(value, type);
+    return std::make_shared<std::pair<TypeValue, Type>>(value, type);
 }
  
 std::string Constant::toIR() const
