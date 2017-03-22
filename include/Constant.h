@@ -20,7 +20,7 @@ namespace AST{
          * or empty shared pointer else
          */
 
-        virtual std::string toIR() const;
+        virtual void buildIR() const;
 
     };
 

@@ -3,8 +3,8 @@
 
 #include "AbstractNode.h"
 
-namespace AST {
-	
+namespace AST
+{
 	class AbstractExpression : public AbstractNode
 	{
 	public:
