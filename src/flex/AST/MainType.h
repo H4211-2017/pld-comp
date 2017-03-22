@@ -1,8 +1,10 @@
 #ifndef MAINTYPE_H
 #define MAINTYPE_H
 
+#include "AbstractNode.h"
+
 namespace AST {
-    class MainType
+    class MainType : public AbstractNode
     {
     public:
         MainType();
