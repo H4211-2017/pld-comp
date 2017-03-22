@@ -1,11 +1,14 @@
 #ifndef ABSTRACTEXPRESSION_H
 #define ABSTRACTEXPRESSION_H
 
+#include "AbstractNode.h"
 
-class AbstractExpression
+namespace AST
 {
-public:
-    AbstractExpression();
-};
-
+	class AbstractExpression : public AbstractNode
+	{
+	public:
+		AbstractExpression();
+	};
+}
 #endif // ABSTRACTEXPRESSION_H

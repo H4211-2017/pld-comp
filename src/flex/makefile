@@ -27,7 +27,7 @@ BISON_FLAGS=-v -d
 ###############################################
 
 #To be updated after each change in list of files
-SRC_AST_NOPATH =AbstractExpression.cpp AbstractNode.cpp ComposedInstruction.cpp Constant.cpp UnitInstruction.cpp
+SRC_AST_NOPATH =AbstractExpression.cpp AbstractNode.cpp ComposedInstruction.cpp Constant.cpp MainArg.cpp MainBody.cpp MainType.cpp UnitInstruction.cpp
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
 OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
 HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(INC_DIRECTORY)%.h)

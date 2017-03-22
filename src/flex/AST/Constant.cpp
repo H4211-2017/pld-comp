@@ -38,8 +38,7 @@ std::shared_ptr<std::pair<TypeValue, Type>> Constant::evaluate() const
     return std::make_shared<std::pair<TypeValue, Type>>(value, type);
 }
  
-std::string Constant::toIR() const
+void Constant::buildIR() const
 {
-	return "";
 	//TODO Complete IR
 }
