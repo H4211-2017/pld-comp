@@ -10,8 +10,8 @@ namespace AST {
     class ComposedInstruction : AbstractNode
     {
     public:
-        //ComposedInstruction(ComposedInstruction composedInstruction, AbstractExpression abstractExpression);
-        ComposedInstruction(AbstractExpression abstractExpression);
+        ComposedInstruction(std::shared_ptr<ComposedInstruction> composedInstruction, std::shared_ptr<AbstractExpression> abstractExpression);
+        ComposedInstruction(std::shared_ptr<AbstractExpression> abstractExpression);
 
     private:
         std::vector<std::shared_ptr<AbstractExpression>> listExpressions;
