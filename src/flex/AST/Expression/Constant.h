@@ -2,11 +2,11 @@
 #define CONSTANT_H
 
 #include <memory>
-#include "AbstractNode.h"
+#include "AbstractExpression.h"
 
 namespace AST{
 	
-    class Constant : public AbstractNode
+    class Constant : public AbstractExpression
     {
     public:
         Constant();

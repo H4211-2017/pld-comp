@@ -4,6 +4,10 @@
 #include <string.h>
 #include <sstream>
 
+#include "Constant.h"
+#include "AbstractExpression.h"
+#include "AddExpression.h"
+
 #include "bison.tab.hpp"
 
 extern int yylex();

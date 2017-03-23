@@ -7,11 +7,14 @@
 
 #include "AbstractBinaryExpression.h"
 using namespace AST;
-AbstractBinaryExpression::AbstractBinaryExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<AbstractExpression> leftMember) {
+AbstractBinaryExpression::AbstractBinaryExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<AbstractExpression> leftMember) : 
+AbstractExpression()
+{
     this->rightMember = rightMember;
     this->leftMember = leftMember;
 }
 
-AbstractBinaryExpression::~AbstractBinaryExpression() {
+AbstractBinaryExpression::~AbstractBinaryExpression() 
+{
 }
 

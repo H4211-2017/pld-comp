@@ -2,26 +2,19 @@
 
 using namespace AST;
 
-Constant::Constant()
+Constant::Constant() : AbstractExpression()
 {
 	
 }
 
-/*Constant::Constant(TypeValue value, Type type)
-    : Constant()
-{
-	this->value = value;
-	this->type = type;
-}*/
-
 Constant::Constant(long int value)
-    : AbstractNode(Type::INT_64, value)
+    : AbstractExpression(Type::INT_64, value)
 {
 
 }
 
 Constant::Constant(char value)
-    : AbstractNode(Type::CHAR, value)
+    : AbstractExpression(Type::CHAR, value)
 {
 
 }
@@ -33,7 +26,7 @@ Constant::~Constant()
 
 Value Constant::evaluate() const
 {
-    Value ret;
+    Value ret = this->value;
     return ret;
     //return std::make_shared<std::pair<TypeValue, Type>>(value, type);
 }

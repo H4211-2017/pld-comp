@@ -42,4 +42,5 @@ namespace AST{
     };
 
 }
+	
 #endif // ABSTRACTNODE_H

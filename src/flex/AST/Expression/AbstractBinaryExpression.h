@@ -16,6 +16,7 @@ class AbstractBinaryExpression : public AbstractExpression{
 public:
 	AbstractBinaryExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<AbstractExpression> leftMember);
 	virtual ~AbstractBinaryExpression();
+	
 protected:
 	std::shared_ptr<AbstractExpression> rightMember;
 	std::shared_ptr<AbstractExpression> leftMember;

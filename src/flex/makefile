@@ -8,7 +8,7 @@ AST_DIRECTORY=$(SRC_DIRECTORY)AST/
 TEST_DIRECTORY=../../test/flex/
 LIB_DIRECTORY=../../lib/
 INC_DIRECTORY=../../include/
-
+EXPR_DIRECTORY=$(BIN_DIRECTORY)Expression/
 
 
 CPP_FLAGS=-std=c++11 -DYYDEBUG -g
@@ -27,7 +27,8 @@ BISON_FLAGS=-v -d
 ###############################################
 
 #To be updated after each change in list of files
-SRC_AST_NOPATH =AbstractBinaryExpression.cpp AbstractExpression.cpp AbstractNode.cpp AddExpression.cpp ComposedInstruction.cpp Constant.cpp MainArg.cpp MainBody.cpp MainType.cpp UnitInstruction.cpp Value.cpp VariableDeclaration.cpp VariableScope.cpp VariableSignature.cpp
+EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp
+SRC_AST_NOPATH =$(EXPR) AbstractNode.cpp ComposedInstruction.cpp MainArg.cpp MainBody.cpp MainType.cpp UnitInstruction.cpp Value.cpp VariableDeclaration.cpp VariableScope.cpp VariableSignature.cpp
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
 OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
 HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)
@@ -37,14 +38,14 @@ HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)
 SRCS=$(SRC_RM) $(SRC_AST_NOPATH)
 OBJS=$(OBJ_RULE_MEMBER) $(OBJ_AST)
 HEADERS=$(HEADERS_RULE_MEMBER) $(HEADERS_AST)
-INCLUDE_DIRECTORIES=-I$(INC_DIRECTORY) -I$(BIN_DIRECTORY) -I$(AST_DIRECTORY)
+INCLUDE_DIRECTORIES=-I$(BIN_DIRECTORY) -I$(AST_DIRECTORY) -I$(AST_DIRECTORY)Expression -I$(BIN_DIRECTORY)Expression
 
 EXE=$(BIN_DIRECTORY)CParser
 
 all: $(EXE)
 
 $(EXE): $(SRC_DRECTORY)../main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.cpp $(OBJS) $(HEADERS) $(BIN_DIRECTORY) 
-	echo $(HEADERS_INC)
+	echo $(OBJS)
 	g++ $(CPP_FLAGS) -o $(BIN_DIRECTORY)test $(SRC_DIRECTORY)../main.cpp $(BIN_DIRECTORY)lex.yy.cpp $(BIN_DIRECTORY)bison.tab.cpp $(OBJS) $(INCLUDE_DIRECTORIES)
 
 flex: $(BIN_DIRECTORY)lex.yy.cpp 
@@ -62,14 +63,20 @@ $(BIN_DIRECTORY)%.o: $(RULE_MEMBER_DIRECTORY)%.cpp $(HEADERS_RULE_MEMBER) $(BIN_
 
 $(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(HEADERS_AST) $(BIN_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
+	
+$(BIN_DIRECTORY)Expression/%.o: $(AST_DIRECTORY)Expression/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(EXPR_DIRECTORY)
+	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 
 $(BIN_DIRECTORY):
 	mkdir $(BIN_DIRECTORY)
+	
+$(EXPR_DIRECTORY):
+	mkdir $(EXPR_DIRECTORY)
 
 cleanAll: cleano cleanBison cleanFlex
 
 cleano:
-	rm $(BIN_DIRECTORY)*.o
+	rm $(BIN_DIRECTORY)*.o $(EXPR_DIRECTORY)*.o 
 
 cleanBison:
 	rm $(BIN_DIRECTORY)bison.tab.cpp
