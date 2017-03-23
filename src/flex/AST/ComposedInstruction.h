@@ -13,9 +13,10 @@ namespace AST {
         ComposedInstruction(std::shared_ptr<ComposedInstruction> composedInstruction, std::shared_ptr<AbstractExpression> abstractExpression);
         ComposedInstruction(std::shared_ptr<AbstractExpression> abstractExpression);
 
+        virtual void printTree(int tabulationNumber) const;
+
     private:
         std::vector<std::shared_ptr<AbstractExpression>> listExpressions;
-
     };
 }
 
