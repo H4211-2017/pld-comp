@@ -24,7 +24,7 @@ Constant()
 Constant::Constant(char value) : 
 Constant()
 {
-	this->value.car = value;
+    this->value.character = value;
 	this->type = CHAR;
 }
 
@@ -41,4 +41,9 @@ std::shared_ptr<std::pair<TypeValue, Type>> Constant::evaluate() const
 void Constant::buildIR() const
 {
 	//TODO Complete IR
+}
+
+void Constant::printTree(int tabulationNumber) const
+{
+    AbstractNode::printTree(tabulationNumber);
 }
