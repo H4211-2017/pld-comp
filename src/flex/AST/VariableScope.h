@@ -33,9 +33,9 @@ namespace AST{
 		
 		virtual ~VariableScope();
 		
-		void declareVariable( std::string identifiant,  Value variable);
+		void declareVariable( std::string identifiant,  Value & variable);
 		
-		Value findVariable( std::string identifiant );
+		std::shared_ptr<Value> findVariable( std::string identifiant );
 		
 		
 		
@@ -44,7 +44,7 @@ namespace AST{
 		std::shared_ptr<VariableScope> mother;
 		
 		// map<id, pair<type, valeur>>
-		std::map< std::string, Value > scope;
+		std::map< std::string, std::shared_ptr<Value> > scope;
 		
 		
 	};
