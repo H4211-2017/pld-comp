@@ -43,13 +43,8 @@ namespace AST{
 		//tree hierarchy
 		std::shared_ptr<VariableScope> mother;
 		
-		// map<id, pair<type, valeur>>
 		std::map< std::string, std::shared_ptr<Value> > scope;
-		
-		
-	};
-
-
+    };
 }
 
 #endif // VARIABLESCOPE
