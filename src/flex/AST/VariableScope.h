@@ -8,6 +8,7 @@
 
 
 #include "AbstractNode.h"
+#include "Value.h"
 
 namespace AST{
 
@@ -32,9 +33,9 @@ namespace AST{
 		
 		virtual ~VariableScope();
 		
-		void declareVariable( std::string identifiant, std::pair<Type, TypeValue> variable);
+		void declareVariable( std::string identifiant,  Value variable);
 		
-		std::pair<Type, TypeValue> findVariable( std::string identifiant );
+		Value findVariable( std::string identifiant );
 		
 		
 		
@@ -43,7 +44,7 @@ namespace AST{
 		std::shared_ptr<VariableScope> mother;
 		
 		// map<id, pair<type, valeur>>
-		std::map< std::string, std::pair<Type, TypeValue> > scope;
+		std::map< std::string, Value > scope;
 		
 		
 	};

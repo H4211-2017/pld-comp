@@ -16,12 +16,12 @@ VariableScope::VariableScope( VariableScope & variableScope ) :
 	
 }
 
-void VariableScope::declareVariable( std::string identifiant, std::pair<Type, TypeValue> variable)
+void VariableScope::declareVariable( std::string identifiant, Value variable)
 {
 	scope.emplace(identifiant, variable);
 }
 
-std::pair<Type, TypeValue> VariableScope::findVariable( std::string identifiant )
+Value VariableScope::findVariable( std::string identifiant )
 {
 	try
 	{
