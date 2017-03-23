@@ -18,6 +18,12 @@ AbstractNode::AbstractNode(Type type, long int value)
 
 }
 
+AbstractNode::AbstractNode(Type type)
+    : value(type, 0)
+{
+
+}
+
 AbstractNode::~AbstractNode()
 {
 	

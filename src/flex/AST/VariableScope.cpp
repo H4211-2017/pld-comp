@@ -16,12 +16,18 @@ VariableScope::VariableScope( VariableScope & variableScope ) :
 	
 }
 
-void VariableScope::declareVariable( std::string identifiant, std::pair<Type, TypeValue> variable)
+void VariableScope::declareVariable(std::string identifiant, Value variable)
 {
-	scope.emplace(identifiant, variable);
+    std::shared_ptr<Value> sharedVariable = std::make_shared<Value>(variable);
+    auto pair = std::pair<std::string, std::shared_ptr<Value>>(identifiant, sharedVariable);
+    auto result = scope.insert(pair);
+    if (!result.second)
+    {
+        std::cerr << "VariableScope::declareVariable : a variable already existed with name " << identifiant << std::endl;
+    }
 }
 
-std::pair<Type, TypeValue> VariableScope::findVariable( std::string identifiant )
+std::shared_ptr<Value> VariableScope::findVariable(std::string identifiant)
 {
 	try
 	{
@@ -48,8 +54,7 @@ std::pair<Type, TypeValue> VariableScope::findVariable( std::string identifiant 
 	{
 		std::cerr << "VariableScope::findVariable ( " << identifiant << " ) : "<< e.what() << std::endl;
 		exit(-1);
-	}
-	
+	}	
 }
 
 
