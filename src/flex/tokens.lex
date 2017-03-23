@@ -59,6 +59,11 @@ hex		    0[xX]{hextail}
 "*="				{printf("AFFECT_MULT "); return AFFECT_MULT;}
 "/="				{printf("AFFECT_DIV "); return AFFECT_DIV;}
 "%="				{printf("AFFECT_MOD "); return AFFECT_MOD;}
+"&="				{printf("AFFECT_BIT_AND "); return AFFECT_BIT_AND;}
+"^="				{printf("AFFECT_BIT_XOR "); return AFFECT_BIT_XOR;}
+"|="				{printf("AFFECT_BIT_OR "); return AFFECT_BIT_OR;}
+"<<="				{printf("AFFECT_BIT_LEFT_SHIFT "); return AFFECT_BIT_LEFT_SHIFT;}
+">>="				{printf("AFFECT_BIT_RIGHT_SHIFT "); return AFFECT_BIT_RIGHT_SHIFT;}
 "++"				{printf("INCREMENT "); return INCREMENT;}
 "--"				{printf("DECREMENT "); return DECREMENT;}
 "="					{printf("AFFECT "); return AFFECT;}

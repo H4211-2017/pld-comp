@@ -46,7 +46,7 @@ all: $(EXE)
 
 $(EXE): $(SRC_DRECTORY)../main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.cpp $(OBJS) $(HEADERS) $(BIN_DIRECTORY) 
 	echo $(OBJS)
-	g++ $(CPP_FLAGS) -o $(BIN_DIRECTORY)test $(SRC_DIRECTORY)../main.cpp $(BIN_DIRECTORY)lex.yy.cpp $(BIN_DIRECTORY)bison.tab.cpp $(OBJS) $(INCLUDE_DIRECTORIES)
+	g++ $(CPP_FLAGS) -o $(BIN_DIRECTORY)CParser $(SRC_DIRECTORY)../main.cpp $(BIN_DIRECTORY)lex.yy.cpp $(BIN_DIRECTORY)bison.tab.cpp $(OBJS) $(INCLUDE_DIRECTORIES)
 
 flex: $(BIN_DIRECTORY)lex.yy.cpp 
 
@@ -56,7 +56,7 @@ $(BIN_DIRECTORY)lex.yy.cpp: $(SRC_DRECTORY)tokens.lex $(HEADERS) $(BIN_DIRECTORY
 	flex -o $@ $< 
 
 $(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp $(HEADERS) $(BIN_DIRECTORY)
-	bison $(BISON_FLAGS) -Wother -o $@ $< 
+	bison $(BISON_FLAGS) -Wno-other -o $@ $< 
 
 $(BIN_DIRECTORY)%.o: $(RULE_MEMBER_DIRECTORY)%.cpp $(HEADERS_RULE_MEMBER) $(BIN_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
