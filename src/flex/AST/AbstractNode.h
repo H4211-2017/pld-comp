@@ -21,6 +21,7 @@ namespace AST{
         INT_64,
         CHAR,
     };
+
     typedef enum Type Type;
 
 
@@ -28,6 +29,7 @@ namespace AST{
     {
     public:
         AbstractNode();
+        AbstractNode(Type type, long int value);
 
         virtual ~AbstractNode();
 
