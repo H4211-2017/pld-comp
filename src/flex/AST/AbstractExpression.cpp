@@ -4,5 +4,4 @@ using namespace AST;
 
 AbstractExpression::AbstractExpression()
 {
-
 }
