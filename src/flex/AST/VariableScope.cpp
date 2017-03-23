@@ -16,12 +16,12 @@ VariableScope::VariableScope( VariableScope & variableScope ) :
 	
 }
 
-void VariableScope::declareVariable( std::string identifiant, Value variable)
+void VariableScope::declareVariable( std::string identifiant, Value & variable)
 {
-	scope.emplace(identifiant, variable);
+	scope.emplace(identifiant, std::make_shared<Value>(variable) );
 }
 
-Value VariableScope::findVariable( std::string identifiant )
+std::shared_ptr<Value> VariableScope::findVariable( std::string identifiant )
 {
 	try
 	{
