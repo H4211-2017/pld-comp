@@ -33,9 +33,9 @@ namespace AST{
 		
 		virtual ~VariableScope();
 		
-		void declareVariable( std::string identifiant,  Value & variable);
+        void declareVariable(std::string identifiant, Value variable);
 		
-		std::shared_ptr<Value> findVariable( std::string identifiant );
+        std::shared_ptr<Value> findVariable(std::string identifiant);
 		
 		
 		

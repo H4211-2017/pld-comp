@@ -13,11 +13,14 @@ namespace AST {
         VariableSignature(std::string identifiant, Type type);
 
         virtual void printTree(int tabulationNumber) const;
-        virtual std::shared_ptr<std::pair<TypeValue, Type>> evaluate() const;
+        virtual Value evaluate() const;
         virtual void buildIR() const;
 
+        std::string getIdentifiant() const;
+        Value getValue() const;
+
     private:
-        std::string m_identifiant;
+        std::string identifiant;
     };
 }
 

@@ -6,8 +6,11 @@
 #include <iostream>
 
 #include "Value.h"
+#include "VariableScope.h"
 
 namespace AST{
+
+    class VariableScope;
 
     class AbstractNode
     {
@@ -15,6 +18,12 @@ namespace AST{
         AbstractNode();
         AbstractNode(Value value);
         AbstractNode(Type type, long int value);
+        AbstractNode(Type type);
+
+        AbstractNode(std::shared_ptr<VariableScope>);
+        AbstractNode(Value value, std::shared_ptr<VariableScope>);
+        AbstractNode(Type type, long int value, std::shared_ptr<VariableScope>);
+        AbstractNode(Type type, std::shared_ptr<VariableScope>);
 
         virtual ~AbstractNode();
 
@@ -38,6 +47,7 @@ namespace AST{
 
     protected:
         Value value;
+        std::shared_ptr<VariableScope> currentVariableScope;
 
     };
 
