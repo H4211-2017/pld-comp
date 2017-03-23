@@ -9,17 +9,18 @@ namespace AST{
 
     union TypeValue
     {
+        char character;
         int int32;
         long int int64;
-        char character;
     };
     typedef union TypeValue TypeValue;
 
     enum Type
     {
+        CHAR,
         INT_32,
         INT_64,
-        CHAR,
+        ERROR,
     };
     typedef enum Type Type;
 

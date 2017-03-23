@@ -7,15 +7,15 @@
 
 #ifndef SRC_FLEX_AST_ADDEXPRESSION_H_
 #define SRC_FLEX_AST_ADDEXPRESSION_H_
-
+#include "AbstractBinaryExpression.h"
 namespace AST {
 
 class AddExpression : public AbstractBinaryExpression {
 public:
-	AddExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<leftMember>);
+    AddExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<AbstractExpression> leftMember);
 	virtual ~AddExpression();
+    virtual std::shared_ptr<std::pair<TypeValue,Type>> evaluate() const;
 private:
-	virtual long int evaluate();
 	virtual void printTree(int tabulationNumber);
 };
 
