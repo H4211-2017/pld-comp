@@ -165,7 +165,7 @@ iint : iintcomp SEMICOLON {$$ = $1;}
 	
 iintcomp : iintcomp COMMA expr {$$ = $3->node->evaluate().getValue().second;}
 	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = $1->node->evaluate().getValue().second ? $3 : $5;}
-	| expr {$$ = $1->node->evaluate().getValue().second;}
+	| expr {$$ = $1->node->evaluate().getValue().second; $1->node->printTree(0);}
 	;
 
 /* ===== EXPRESSION ===== */

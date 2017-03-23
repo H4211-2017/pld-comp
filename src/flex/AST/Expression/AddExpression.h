@@ -8,16 +8,17 @@ class AddExpression : public AbstractBinaryExpression
 	
 public:
 
-	AddExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<AbstractExpression> leftMember);
+    AddExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
 	
 	virtual ~AddExpression();
 
 	virtual Value evaluate() const;
 
-	virtual void printTree(int tabulationNumber) const;
-
 	// TODO : create class CFG and replace comment below.
 	virtual void buildIR(/*std::shared_ptr<CFG>*/) const;
+
+protected:
+    virtual void printOperator() const;
 
 };
 

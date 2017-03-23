@@ -45,7 +45,10 @@ namespace AST{
          */
         virtual void buildIR(/*std::shared_ptr<IR::BasicBloc>*/) const = 0;
 
+        Value getValue() const;
+
     protected:
+
         Value value;
         std::shared_ptr<VariableScope> currentVariableScope;
 

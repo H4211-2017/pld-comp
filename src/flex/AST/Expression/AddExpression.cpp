@@ -4,7 +4,7 @@
 
 using namespace AST;
 
-AddExpression::AddExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<AbstractExpression> leftMember)
+AddExpression::AddExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractBinaryExpression(rightMember, leftMember)
 {
 	
@@ -23,13 +23,13 @@ Value AddExpression::evaluate() const
 	return ret;
 }
 
-void AddExpression::printTree(int tabulationNumber) const
-{
-	
-}
-
 // TODO : create class CFG and replace comment below.
 void AddExpression::buildIR(/*std::shared_ptr<CFG>*/) const
 {
 	
+}
+
+void AddExpression::printOperator() const
+{
+    std::cout << "+";
 }
