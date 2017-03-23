@@ -22,6 +22,8 @@ namespace AST{
 
         virtual void buildIR() const;
 
+        virtual void printTree(int tabulationNumber) const;
+
     };
 
 }

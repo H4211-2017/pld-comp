@@ -4,11 +4,7 @@
 #include <iostream>
 #include <typeinfo>
 #include <memory>
-//#include "Variable.h"
-#include "TypeInt64.h"
-#include "TypeInt32.h"
-#include "TypeChar.h"
-#include "fcBison.h"
+
 #include "Constant.h"
 #include "AbstractNode.h"
 
@@ -16,8 +12,6 @@ using namespace std;
 
 extern int yylex(void);
 void yyerror(int * param, const char * msg);
-
-shared_ptr< mapVar > variablesGlob = make_shared< mapVar >();
 
 %}
 
