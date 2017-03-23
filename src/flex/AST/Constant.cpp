@@ -2,30 +2,28 @@
 
 using namespace AST;
 
-Constant::Constant() : AbstractNode()
+Constant::Constant()
 {
 	
 }
 
-/*Constant::Constant(TypeValue value, Type type) : 
-Constant()
+/*Constant::Constant(TypeValue value, Type type)
+    : Constant()
 {
 	this->value = value;
 	this->type = type;
 }*/
 
-Constant::Constant(long int value) : 
-Constant()
+Constant::Constant(long int value)
+    : AbstractNode(Type::INT_64, value)
 {
-	this->value.int64 = value;
-	this->type = INT_64;
+
 }
 
-Constant::Constant(char value) : 
-Constant()
+Constant::Constant(char value)
+    : AbstractNode(Type::CHAR, value)
 {
-    this->value.character = value;
-	this->type = CHAR;
+
 }
 
 Constant::~Constant()
@@ -33,9 +31,11 @@ Constant::~Constant()
 	
 }
 
-std::shared_ptr<std::pair<TypeValue, Type>> Constant::evaluate() const
+Value Constant::evaluate() const
 {
-    return std::make_shared<std::pair<TypeValue, Type>>(value, type);
+    Value ret;
+    return ret;
+    //return std::make_shared<std::pair<TypeValue, Type>>(value, type);
 }
  
 void Constant::buildIR() const

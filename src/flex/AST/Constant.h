@@ -14,7 +14,7 @@ namespace AST{
         Constant(char value);
         virtual ~Constant();
 
-        virtual std::shared_ptr<std::pair<TypeValue, Type>> evaluate() const;
+        virtual Value evaluate() const;
         /**
          * return a shared pointer to the value instancited by new if evaluable
          * or empty shared pointer else
