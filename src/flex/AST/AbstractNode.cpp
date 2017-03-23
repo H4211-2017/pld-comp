@@ -34,6 +34,11 @@ AbstractNode::~AbstractNode()
 	
 }
 
+Value AbstractNode::getValue() const
+{
+    return value;
+}
+
 void AbstractNode::printTree(int tabulationNumber) const
 {
     for (int i = 0; i < tabulationNumber; i++)
@@ -55,8 +60,4 @@ void AbstractNode::printTree(int tabulationNumber) const
         std::cerr << "AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;
         break;
     }
-
-    std::cout << value.getValue().second << std::endl;
-
-
 }

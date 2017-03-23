@@ -27,6 +27,7 @@ ADD_FLEX_BISON_DEPENDENCY(MyScanner MyParser)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/flex/AST)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/flex/AST/Expression)
 
 add_executable(${PROJECT_NAME}
     ${source_files} ${header_files}

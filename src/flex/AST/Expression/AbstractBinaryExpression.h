@@ -16,8 +16,12 @@ class AbstractBinaryExpression : public AbstractExpression{
 public:
 	AbstractBinaryExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<AbstractExpression> leftMember);
 	virtual ~AbstractBinaryExpression();
+
+    virtual void printTree(int tabulationNumber) const;
 	
 protected:
+    virtual void printOperator() const =0;
+
 	std::shared_ptr<AbstractExpression> rightMember;
 	std::shared_ptr<AbstractExpression> leftMember;
 };
