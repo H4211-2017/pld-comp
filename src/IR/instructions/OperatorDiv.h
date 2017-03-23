@@ -7,7 +7,7 @@ namespace IR {
     class OperatorDiv : public AbstractOperator
     {
     public:
-        OperatorDiv(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister);
+        OperatorDiv(sh_Register resultRegister, sh_Register firstValueRegister, sh_Register secondValueRegister);
     };
 }
 

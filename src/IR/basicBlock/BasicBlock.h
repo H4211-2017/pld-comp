@@ -3,8 +3,11 @@
 
 #include <list>
 #include <memory>
+#include <map>
 
 #include "../instructions/AbstractInstruction.h"
+#include "../data/Memory.h"
+#include "../data/Register.h"
 
 namespace IR {
 
@@ -13,8 +16,9 @@ namespace IR {
     public:
         BasicBlock();
 
-        void pushInstructionBack(std::shared_ptr<AbstractInstruction> instruction);
-        void setEndConditionnalInstruction(std::shared_ptr<AbstractInstruction> conditionalInstruction);
+        void pushInstructionBack(sh_AbsInstruction instruction);
+        void pushInstructionBack(std::list<sh_AbsInstruction> instructions);
+        void setEndConditionnalInstruction(sh_AbsInstruction conditionalInstruction);
 
         void insertNextBlockTrue(std::shared_ptr<BasicBlock> basicBlock);
         void insertNextBlockFalse(std::shared_ptr<BasicBlock> basicBlock);
@@ -23,10 +27,13 @@ namespace IR {
         void setNextBlockFalse(std::shared_ptr<BasicBlock> basicBlock);
 
     private:
-        std::list<std::shared_ptr<AbstractInstruction>> instructionsList;
-        std::shared_ptr<AbstractInstruction> endConditionnalInstruction;
+        std::list<sh_AbsInstruction> instructionsList;
+        sh_AbsInstruction endConditionnalInstruction;
         std::shared_ptr<BasicBlock> nextBlockTrue;
         std::shared_ptr<BasicBlock> nextBlockFalse;
+
+        std::map<std::string, sh_Memory> usedMemory;
+        std::map<std::string, sh_Register> usedRegister;
     };
 }
 

@@ -7,11 +7,11 @@ namespace IR {
     class ReadFromMemory : public AbstractMemoryAcess
     {
     public:
-        ReadFromMemory(std::shared_ptr<Memory> from, std::shared_ptr<Register> to);
+        ReadFromMemory(sh_Memory from, sh_Register to);
 
     private:
-        std::shared_ptr<Memory> source;
-        std::shared_ptr<Register> destination;
+        sh_Memory source;
+        sh_Register destination;
     };
 }
 

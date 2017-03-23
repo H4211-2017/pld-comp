@@ -2,7 +2,8 @@
 
 using namespace IR;
 
-Register::Register()
+Register::Register(Type type, std::string name):
+    AbstractData(type,name)
 {
 
 }

@@ -1,7 +1,7 @@
 #ifndef GENERATOR_H
 #define GENERATOR_H
 
-#include <memory>
+#include "../instructions/OperatorPlus.h"
 
 #include "../data/Memory.h"
 #include "../data/Register.h"
@@ -12,9 +12,14 @@ namespace IR {
     public:
         Generator();
 
-        std::shared_ptr<Memory> addition(std::shared_ptr<Memory> a, std::shared_ptr<Memory> b);
+        sh_Memory getNewUnusedMemmory(); ///TODO
+
+        std::list<sh_AbsInstruction> addition(sh_Memory valueA, sh_Memory valueB, sh_Memory dest); ///TODO
 
     protected:
+
+    private:
+
     };
 }
 

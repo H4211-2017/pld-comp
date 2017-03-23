@@ -2,8 +2,11 @@
 
 using namespace IR;
 
-AbstractOperator::AbstractOperator(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister):
+AbstractOperator::AbstractOperator(sh_Register resultRegister, sh_Register firstValueRegister, sh_Register secondValueRegister):
     destination(resultRegister), firstValue(firstValueRegister), secondValue(secondValueRegister)
 {
+    this->readRegisterVector.push_back(firstValueRegister);
+    this->readRegisterVector.push_back(secondValueRegister);
 
+    this->wroteRegisterVector.push_back(resultRegister);
 }

@@ -7,7 +7,7 @@ namespace IR {
     class OperatorModulus : public AbstractOperator
     {
     public:
-        OperatorModulus(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister);
+        OperatorModulus(sh_Register resultRegister, sh_Register firstValueRegister, sh_Register secondValueRegister);
     };
 }
 

@@ -2,7 +2,8 @@
 
 using namespace IR;
 
-Memory::Memory()
+Memory::Memory(Type type, std::string name):
+    AbstractData(type,name)
 {
 
 }

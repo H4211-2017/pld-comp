@@ -7,14 +7,14 @@ namespace IR {
     class WriteToMemory : public AbstractMemoryAcess
     {
     public:
-        WriteToMemory(std::shared_ptr<Register> from, std::shared_ptr<Memory> to);
-        WriteToMemory(char value, std::shared_ptr<Memory> to);
-        WriteToMemory(int value, std::shared_ptr<Memory> to);
-        WriteToMemory(long value, std::shared_ptr<Memory> to);
+        WriteToMemory(sh_Register from, sh_Memory to);
+        WriteToMemory(char value, sh_Memory to);
+        WriteToMemory(int value, sh_Memory to);
+        WriteToMemory(long value, sh_Memory to);
 
     private:
-        std::shared_ptr<Register> source;
-        std::shared_ptr<Memory> destination;
+        sh_Register source;
+        sh_Memory destination;
         int type;
         char charValue;
         int intValue;

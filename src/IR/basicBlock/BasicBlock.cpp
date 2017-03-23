@@ -53,16 +53,47 @@ void BasicBlock::setNextBlockTrue(std::shared_ptr<BasicBlock> basicBlock)
  * @brief BasicBlock::pushInstructionBack push_back an instruction to the block instruction list.
  * @param instruction the instruction to add
  */
-void BasicBlock::pushInstructionBack(std::shared_ptr<AbstractInstruction> instruction)
+void BasicBlock::pushInstructionBack(sh_AbsInstruction instruction)
 {
     this->instructionsList.push_back(instruction);
+
+    //add used memory/register to the map of this basicBlock
+    for(sh_Memory mem : instruction->getReadMemoryVector())
+    {
+        usedMemory[mem->getName()] = mem;
+    }
+    for(sh_Memory mem : instruction->getWroteMemoryVector())
+    {
+        usedMemory[mem->getName()] = mem;
+    }
+
+    for(sh_Register reg : instruction->getReadRegisterVector())
+    {
+        usedRegister[reg->getName()] = reg;
+    }
+    for(sh_Register reg : instruction->getWroteRegisterVector())
+    {
+        usedRegister[reg->getName()] = reg;
+    }
+}
+
+/**
+ * @brief BasicBlock::pushInstructionBack push_back a list of instruction to the block instruction list.
+ * @param instructions list of instruction to add
+ */
+void BasicBlock::pushInstructionBack(std::list<sh_AbsInstruction> instructions)
+{
+    for(auto instruction : instructions)
+    {
+        pushInstructionBack(instruction);
+    }
 }
 
 /**
  * @brief BasicBlock::setEndConditionnalInstruction set the instruction used to choose the next BasicBlock.
  * @param conditionalInstruction the instruction to use to choose.
  */
-void BasicBlock::setEndConditionnalInstruction(std::shared_ptr<AbstractInstruction> conditionalInstruction)
+void BasicBlock::setEndConditionnalInstruction(sh_AbsInstruction conditionalInstruction)
 {
     this->endConditionnalInstruction = conditionalInstruction;
 }

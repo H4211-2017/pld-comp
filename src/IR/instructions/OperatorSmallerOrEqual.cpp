@@ -2,7 +2,7 @@
 
 using namespace IR;
 
-OperatorSmallerOrEqual::OperatorSmallerOrEqual(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister) :
+OperatorSmallerOrEqual::OperatorSmallerOrEqual(sh_Register resultRegister, sh_Register firstValueRegister, sh_Register secondValueRegister) :
     AbstractOperator(resultRegister,firstValueRegister,secondValueRegister)
 {
 

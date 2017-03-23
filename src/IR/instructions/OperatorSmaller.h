@@ -7,7 +7,7 @@ namespace IR {
     class OperatorSmaller : public AbstractOperator
     {
     public:
-        OperatorSmaller(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister);
+        OperatorSmaller(sh_Register resultRegister, sh_Register firstValueRegister, sh_Register secondValueRegister);
     };
 }
 

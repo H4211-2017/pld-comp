@@ -2,9 +2,9 @@
 
 using namespace IR;
 
-OperatorPlus::OperatorPlus(std::shared_ptr<Register> resultRegister,
-                           std::shared_ptr<Register> firstValueRegister,
-                           std::shared_ptr<Register> secondValueRegister):
+OperatorPlus::OperatorPlus(sh_Register resultRegister,
+                           sh_Register firstValueRegister,
+                           sh_Register secondValueRegister):
     AbstractOperator(resultRegister,firstValueRegister,secondValueRegister)
 {
 
