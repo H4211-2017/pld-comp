@@ -8,16 +8,15 @@
 
 namespace AST {
 	
-	class BlockNode : AbstractNode
+    class Block : AbstractNode
 	{
 	public:
-		BlockNode();
-		BlockNode(std::shared_ptr<VariableScope>, std::shared_ptr<SequenceInstruction>);
+        Block();
+        Block(std::shared_ptr<VariableScope>, std::shared_ptr<SequenceInstruction>);
 		
 		
     private:
 		std::shared_ptr<SequenceInstruction> sequenceInstr;
-
 	};
 	
 	
