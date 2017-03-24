@@ -17,6 +17,8 @@ namespace AST {
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
         virtual void buildIR() const;
+
+        virtual std::shared_ptr<VariableScope> getScope() const;
      
     private:
     	
