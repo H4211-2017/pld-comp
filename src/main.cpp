@@ -8,6 +8,7 @@
 #include "AbstractExpression.h"
 #include "AddExpression.h"
 #include "AbstractNode.h"
+#include "ComposedInstruction.h"
 
 #include "bison.tab.hpp"
 

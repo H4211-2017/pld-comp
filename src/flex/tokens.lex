@@ -7,6 +7,7 @@
 #include "Constant.h"
 #include "AbstractExpression.h"
 #include "AddExpression.h"
+#include "ComposedInstruction.h"
 
 #include "bison.tab.hpp"
 
