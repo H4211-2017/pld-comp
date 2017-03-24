@@ -48,6 +48,8 @@ namespace AST{
 
         Value getValue() const;
 
+		std::string getName() const;
+		
     protected:
 
         Value value;
