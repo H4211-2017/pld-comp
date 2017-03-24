@@ -3,9 +3,12 @@
 
 #include "AbstractNode.h"
 
+
 namespace AST
 {
-	
+
+
+
 class AbstractExpression : public AbstractNode
 {
 	
@@ -14,6 +17,10 @@ public:
     AbstractExpression(std::string name, Value value);
     AbstractExpression(std::string name, Type type, long int value);
 };
+
+
+std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr);
+
 
 }
 

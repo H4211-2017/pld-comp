@@ -188,58 +188,58 @@ uoperation : SUB expr {//$$ = new AST::Constant(-($2->evaluate().getValue().seco
 	
 expr : INT_VAL {$$ = new Constant($1);}
 	| uoperation {$$ = $1;}
-	| expr BOOL_OR expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_AND expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BOOL_AND expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_OR expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BIT_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_XOR expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BIT_XOR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_AND expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BIT_AND expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_EQUAL expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BOOL_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_DIF expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BOOL_DIF expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_LESS expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BOOL_LESS expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_GREATER expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BOOL_GREATER expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_LESS_OR_EQUAL expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BOOL_LESS_OR_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_RIGHT_SHIFT expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BIT_RIGHT_SHIFT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_LEFT_SHIFT expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr BIT_LEFT_SHIFT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr ADD expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr ADD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr SUB expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr SUB expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr MULT expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr MULT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr DIV expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr DIV expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr MOD expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
+	| expr MOD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
 	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new Constant($2);}
