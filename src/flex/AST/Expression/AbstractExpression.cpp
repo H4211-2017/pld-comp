@@ -21,13 +21,17 @@ AbstractExpression::AbstractExpression(std::string name, Value value)
 	
 }
 
+AbstractExpression::AbstractExpression(std::string name, Type type)
+    : AbstractNode(name, type)
+{
+
+}
+
 AbstractExpression::AbstractExpression(std::string name, Type type, long int value)
     : AbstractNode(name, type, value)
 {
 	
 }
-
-
 
 std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 {

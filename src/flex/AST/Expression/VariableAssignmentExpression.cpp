@@ -2,10 +2,10 @@
 
 using namespace AST;
 
-VariableAssignmentExpression::VariableAssignmentExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
+VariableAssignmentExpression::VariableAssignmentExpression(std::shared_ptr<Variable> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractBinaryExpression("VariableAssignmentExpression", leftMember, rightMember)
 {
-
+    //TODO : check if left member is a declared variable
 }
 
 Value VariableAssignmentExpression::evaluate() const
@@ -13,11 +13,7 @@ Value VariableAssignmentExpression::evaluate() const
     return rightMember->evaluate();
 }
 
-
-void VariableAssignmentExpression::printTree(int tabulationNumber) const {
-    AbstractNode::printTree(tabulationNumber);
-
-    leftMember->printTree(tabulationNumber + 1);
-    std::cout << "=" << std::endl;
-    rightMember->printTree(tabulationNumber + 1);
+void VariableAssignmentExpression::printOperator() const
+{
+    std::cout << "=";
 }

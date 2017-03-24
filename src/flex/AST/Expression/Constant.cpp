@@ -14,12 +14,6 @@ Constant::Constant(long int value)
 
 }
 
-Constant::Constant(char value)
-    : AbstractExpression("Constant", Type::CHAR, value)
-{
-
-}
-
 Constant::~Constant()
 {
 	
@@ -27,9 +21,7 @@ Constant::~Constant()
 
 Value Constant::evaluate() const
 {
-    Value ret = this->value;
-    return ret;
-    //return std::make_shared<std::pair<TypeValue, Type>>(value, type);
+    return value;
 }
  
 void Constant::buildIR() const
