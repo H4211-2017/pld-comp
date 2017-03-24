@@ -13,6 +13,7 @@ namespace AST
 	public:
 		AbstractExpression(std::string name);
 		AbstractExpression(std::string name, Value value);
+        AbstractExpression(std::string name, Type type);
 		AbstractExpression(std::string name, Type type, long int value);
 	};
 
