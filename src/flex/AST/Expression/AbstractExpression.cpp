@@ -27,6 +27,8 @@ AbstractExpression::AbstractExpression(std::string name, Type type, long int val
 	
 }
 
+
+
 std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 {
 	std::string name = ptr->getName();
