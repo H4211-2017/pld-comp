@@ -32,6 +32,5 @@ void AbstractBinaryExpression::printTree(int tabulationNumber) const
     leftMember->printTree(tabulationNumber + 1);
     std::cout << std::endl;
     rightMember->printTree(tabulationNumber + 1);
-    //std::cout << std::endl;
 }
 

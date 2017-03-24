@@ -87,9 +87,9 @@ hex		    0[xX]{hextail}
 "int64_t"			{printf("INT64 "); return INT64;}
 {number}			{printf("{number} ");
                         std::stringstream ss(strdup(yytext));
-                        long int tps;
-                        ss >> tps;
-                        yylval.lVal = tps; 
+                        long int tmp;
+                        ss >> tmp;
+                        yylval.lVal = tmp;
 						return INT_VAL;}
 "'"{alphanumex}"'"	{printf("'{alphanumex}' "); 
 						yylval.cVal = strdup(yytext)[1]; 

@@ -30,7 +30,7 @@ int main(void)
 		cout << it->second->toString();
 	}*/
 	
-	int i = 0;
+    long int i = 0;
 	
 	yyparse(&i);
 	cout << i << endl;

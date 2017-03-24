@@ -13,7 +13,7 @@
 using namespace AST;
 
 extern int yylex(void);
-void yyerror(int * param, const char * msg);
+void yyerror(long int * param, const char * msg);
 
 %}
 
@@ -65,7 +65,7 @@ void yyerror(int * param, const char * msg);
 %right BIT_NOT BOOL_NOT INCREMENT DECREMENT
 %left SEMICOLON
 
-%parse-param{int *renvoi}
+%parse-param{long int *renvoi}
 
 %%
 
