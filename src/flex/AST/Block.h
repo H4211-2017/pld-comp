@@ -13,10 +13,14 @@ namespace AST {
 	public:
         Block();
         Block(std::shared_ptr<VariableScope>, std::shared_ptr<SequenceInstruction>);
+
+        virtual void printTree(int tabulationNumber) const;
+        virtual Value evaluate() const;
+        virtual void buildIR() const;
 		
 		
     private:
-		std::shared_ptr<SequenceInstruction> sequenceInstr;
+        std::shared_ptr<SequenceInstruction> sequenceInstruction;
 	};
 	
 	
