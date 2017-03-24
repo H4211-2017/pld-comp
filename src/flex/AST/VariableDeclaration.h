@@ -1,11 +1,11 @@
 #ifndef VARIABLEDECLARATION_H
 #define VARIABLEDECLARATION_H
 
-#include "AbstractNode.h"
+#include "AbstractInstruction.h"
 #include "VariableSignature.h"
 
 namespace AST {
-    class VariableDeclaration : public AbstractNode
+    class VariableDeclaration : public AbstractInstruction
     {
     public:
         VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<VariableScope> variableScope);

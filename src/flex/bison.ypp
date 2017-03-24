@@ -94,7 +94,7 @@ std::shared_ptr<VariableScope> currentContext = global;
 programme : liext mainbody liext {std::cout << "programme" << std::endl;}
     ;
     
-mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl; *renvoi = $6->evaluate().getValue().second;}
+mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl; *renvoi = $6->evaluate().getValue().second; std::cout << std::endl; $6->printTree(0); delete $6;}
     ;
 maintype : type         {std::cout << "maintype: type" << std::endl;}
     | VOID              {std::cout << "maintype : void" << std::endl;}
@@ -182,7 +182,7 @@ bloc : open_context seqint close_context    {$$ = new Block(currentContext, std:
     ;
 
 seqint : seqint iint {$$->addInstruction(make_shared_instr($2)); delete $2;} // TODO
-	|  seqint declvar SEMICOLON {} // TODO
+	|  seqint declvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;} // TODO
 	| SEMICOLON {$$->addInstruction(std::make_shared<ComposedInstruction>());} // TODO
 	| /*epsilon*/ {$$ = new SequenceInstruction();} // TODO
 	;

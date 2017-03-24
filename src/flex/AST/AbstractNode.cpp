@@ -69,7 +69,7 @@ void AbstractNode::printTree(int tabulationNumber) const
         std::cout << "Char ";
         break;
     default:
-        std::cerr << "AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;
+        std::cerr << "ERROR ";//"AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;
         break;
     }
 
