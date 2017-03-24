@@ -3,12 +3,12 @@
 
 #include "Constant.h"
 #include "AbstractExpression.h"
-#include "ComposedInstruction.h"
+#include "Instruction/ComposedInstruction.h"
 #include "AddExpression.h"
 #include "AbstractNode.h"
 #include "Block.h"
-#include "UnitInstruction.h"
+#include "Instruction/UnitInstruction.h"
 #include "VariableScope.h"
-#include "SequenceInstruction.h"
+#include "Instruction/SequenceInstruction.h"
 
 #endif

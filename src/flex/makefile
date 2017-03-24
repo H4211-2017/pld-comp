@@ -28,9 +28,9 @@ BISON_FLAGS=-v -d
 ###############################################
 
 #To be updated after each change in list of files
-EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp
+EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp Expression/VariableAssignmentExpression.cpp Expression/Variable.cpp
 INSTR=Instruction/AbstractInstruction.cpp Instruction/ComposedInstruction.cpp Instruction/SequenceInstruction.cpp Instruction/UnitInstruction.cpp
-SRC_AST_NOPATH =$(EXPR) $(INSTR) AbstractNode.cpp AssignationVariableExpression.cpp Block.cpp  MainBody.cpp MainType.cpp  Value.cpp VariableDeclaration.cpp VariableScope.cpp VariableSignature.cpp
+SRC_AST_NOPATH =$(EXPR) $(INSTR) AbstractNode.cpp ArgumentList.cpp AssignationVariableExpression.cpp Block.cpp MainBody.cpp MainType.cpp Value.cpp VariableDeclaration.cpp VariableScope.cpp VariableSignature.cpp
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
 OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
 HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)
