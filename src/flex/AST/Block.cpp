@@ -29,6 +29,11 @@ Value Block::evaluate() const
     	return Value();
 }
 
+std::shared_ptr<VariableScope> Block::getScope() const
+{
+    return std::make_shared<VariableScope>(currentVariableScope);
+}
+
 void Block::buildIR() const
 {
     // TODO
