@@ -26,9 +26,9 @@ AbstractNode::AbstractNode(std::string name, Type type)
 }
 
 AbstractNode::AbstractNode(std::string name, std::shared_ptr<VariableScope> variableScope)
-    : name(name), currentVariableScope(variableScope)
+    : name(name)
 {
-
+	currentVariableScope = variableScope;
 }
 
 AbstractNode::~AbstractNode()

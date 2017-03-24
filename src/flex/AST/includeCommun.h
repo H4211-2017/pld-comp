@@ -10,5 +10,9 @@
 #include "Instruction/UnitInstruction.h"
 #include "VariableScope.h"
 #include "Instruction/SequenceInstruction.h"
+#include "VariableSignature.h"
+#include "Value.h"
+#include "VariableDeclaration.h"
+#include "IDExpression.h"
 
 #endif

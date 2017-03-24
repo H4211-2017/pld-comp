@@ -4,6 +4,7 @@
 
 #include "AbstractExpression.h"
 #include "AddExpression.h"
+#include "IDExpression.h"
 #include "Constant.h"
 
 using namespace AST;
@@ -43,6 +44,10 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 	else if(name == "AddExpression")
 	{
 		return std::make_shared<AddExpression>( *( static_cast< AddExpression* >(ptr) ) );
+	}
+	else if(name == "IDExpression")
+	{
+		return std::make_shared<IDExpression>( *( static_cast< IDExpression* >(ptr) ) );
 	}
 	else
 	{	

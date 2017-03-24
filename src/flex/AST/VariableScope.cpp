@@ -12,8 +12,8 @@ VariableScope::VariableScope()
 }
 
 VariableScope::VariableScope( std::shared_ptr<VariableScope> variableScope )
-	: mother(variableScope)
 {
+	mother = variableScope;
 }
 
 void VariableScope::declareVariable(std::string identifiant, std::shared_ptr<AbstractExpression> variable)

@@ -13,7 +13,7 @@ void yyerror(long int * param, const char * msg);
 
 std::shared_ptr<VariableScope> global = std::make_shared<VariableScope>();
 
-std::shared_ptr<VariableScope> current = global;
+std::shared_ptr<VariableScope> currentContext = global;
 
 %}
 
@@ -29,6 +29,9 @@ std::shared_ptr<VariableScope> current = global;
 	AST::UnitInstruction* unitInstruction;
 	AST::AbstractInstruction* abstractInstruction;
 	AST::SequenceInstruction* sequenceInstruction;
+	AST::VariableSignature* signatureV;
+	AST::Type* typeVar;
+	AST::VariableDeclaration* declVar;
 }
 
 %token SHARP LINE_COM BEGIN_COM END_COM 
@@ -54,6 +57,9 @@ std::shared_ptr<VariableScope> current = global;
 %type <block> bloc
 %type <abstractInstruction> iint
 %type <sequenceInstruction> seqint
+%type <signatureV> sigvar
+%type <typeVar> type
+%type <declVar> declvar
 
 %left ID
 %right AFFECT AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD AFFECT_BIT_LEFT_SHIFT AFFECT_BIT_RIGHT_SHIFT AFFECT_BIT_AND AFFECT_BIT_XOR AFFECT_BIT_OR
@@ -88,7 +94,7 @@ std::shared_ptr<VariableScope> current = global;
 programme : liext mainbody liext {std::cout << "programme" << std::endl;}
     ;
     
-mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl;}
+mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl; *renvoi = $6->evaluate().getValue().second;}
     ;
 maintype : type         {std::cout << "maintype: type" << std::endl;}
     | VOID              {std::cout << "maintype : void" << std::endl;}
@@ -141,29 +147,38 @@ lparam : lparam COMMA ID    {std::cout << "lparam : lparam, ID "<< std::endl;}
 
 /* ===== VARIABLES ===== */ // TODO
 
-declvar : sigvar AFFECT expr    {std::cout << "declvar : sigvar AFFECT expr "<< std::endl;}
-	| sigvar                    {std::cout << "declvar : sigvar "<< std::endl;}
+declvar : sigvar AFFECT expr    {$$ = new VariableDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), make_shared_expr($3), currentContext);
+									delete $1;
+									delete $3;}
+	| sigvar                    {$$ = new VariableDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), currentContext);
+									delete $1;}
 	;
 
-type : CHAR {std::cout << "type : char "<< std::endl;}
-	| INT32 {std::cout << "type : int32 "<< std::endl;}
-	| INT64	{std::cout << "type : int64 "<< std::endl;}
+type : CHAR {$$ = new Type(Type::CHAR);}
+	| INT32 {$$ = new Type(Type::INT_32);}
+	| INT64	{$$ = new Type(Type::INT_64);}
 	;
 
-/* ===== IDENTIFIANT ===== */ // TODO
+/* ===== IDENTIFIANT ===== */ 
 
-sigvar : type ID {std::cout << "sigvar : type ID "<< std::endl;}
+sigvar : type ID {$$ = new VariableSignature($2, *$1);
+					delete $1;}
 	;
 	
-sigfonc : type ID                           {std::cout << "sigfonc : type ID "<< std::endl;}
-    | VOID ID                               {std::cout << "sigfonc : void ID "<< std::endl;}
-    | type LEFT_BRACKET RIGHT_BRACKET ID    {std::cout << "sigfonc : type [] ID"<< std::endl;}
-    | ID                                    {std::cout << "sigfonc : ID "<< std::endl;}
+sigfonc : type ID                           {std::cout << "sigfonc : type ID "<< std::endl;} // TODO
+    | VOID ID                               {std::cout << "sigfonc : void ID "<< std::endl;} // TODO
+    | type LEFT_BRACKET RIGHT_BRACKET ID    {std::cout << "sigfonc : type [] ID"<< std::endl;} // TODO
+    | ID                                    {std::cout << "sigfonc : ID "<< std::endl;} // TODO
     ;
 
 /* ===== INSTRUCTIONS INTERIEURES ===== */
 
-bloc : LEFT_BRACES seqint RIGHT_BRACES    {$$ = new Block(current, std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($2) ))); current = $$->getScope();} // TODO
+open_context : LEFT_BRACES {currentContext = std::make_shared<VariableScope>(currentContext);}
+	;
+	
+close_context : RIGHT_BRACES {currentContext = currentContext->getMother();}
+
+bloc : open_context seqint close_context    {$$ = new Block(currentContext, std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($2) )));}
     ;
 
 seqint : seqint iint {$$->addInstruction(make_shared_instr($2)); delete $2;} // TODO
@@ -177,7 +192,6 @@ iint : iintcomp SEMICOLON {$$ = $1;}
 	;
 
 iintunit : bloc {$$ = new UnitInstruction(std::make_shared<Block>( *( static_cast< Block* >($1) ) ));
-					current = $1->getScope()->getMother();
 					delete $1;}
 	| structure {$$ = new UnitInstruction();} // TODO
 	| ireturn {$$ = new UnitInstruction();} // TODO
@@ -211,6 +225,7 @@ uoperation : SUB expr {$$ = new Constant(-1*($2->evaluate().getValue().second));
 	;
 	
 expr : INT_VAL {$$ = new Constant($1);}
+	| ID {$$ = new IDExpression($1, currentContext);}
 	| uoperation {$$ = $1;} // TODO
 	| affectation {$$ = new Constant(0);} // TODO
 	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
