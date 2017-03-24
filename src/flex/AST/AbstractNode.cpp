@@ -70,3 +70,8 @@ void AbstractNode::printTree(int tabulationNumber) const
 
     std::cout << name << " ";
 }
+
+std::string AbstractNode::getName() const
+{
+	return name;
+}

@@ -3,17 +3,23 @@
 
 #include "AbstractNode.h"
 
+
 namespace AST
 {
-    class AbstractExpression : public AbstractNode
-    {
+    
+	class AbstractExpression : public AbstractNode
+	{
+		
+	public:
+		AbstractExpression(std::string name);
+		AbstractExpression(std::string name, Value value);
+		AbstractExpression(std::string name, Type type, long int value);
+	};
 
-    public:
-        AbstractExpression(std::string name);
-        AbstractExpression(std::string name, Value value);
-        AbstractExpression(std::string name, Type type, long int value);
-    };
 }
+
+
+std::shared_ptr<AST::AbstractExpression> make_shared_expr(AST::AbstractExpression* ptr);
 
 struct ExprNode 
 {
