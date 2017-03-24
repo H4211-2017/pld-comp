@@ -36,6 +36,11 @@ AbstractNode::~AbstractNode()
 	
 }
 
+std::shared_ptr<VariableScope> AbstractNode::getScope() const
+{
+	return currentVariableScope;
+}
+
 Value AbstractNode::getValue() const
 {
     return value;

@@ -2,8 +2,14 @@
 
 using namespace AST;
 
+ComposedInstruction::ComposedInstruction() 
+	: AbstractInstruction("ComposedInstruction")
+{
+
+}
+
 ComposedInstruction::ComposedInstruction(std::shared_ptr<AbstractExpression> abstractExpression)
-    : AbstractNode("ComposedInstruction")
+    : AbstractInstruction("ComposedInstruction")
 {
     listExpressions.push_back(abstractExpression);
     this->value = abstractExpression->getValue();

@@ -1,14 +1,9 @@
 #include <iostream>
 #include <map>
-#include "../include/fcBison.h"
 #include <memory>
 
+#include "includeCommun.h"
 
-#include "Constant.h"
-#include "AbstractExpression.h"
-#include "AddExpression.h"
-#include "AbstractNode.h"
-#include "ComposedInstruction.h"
 
 #include "bison.tab.hpp"
 

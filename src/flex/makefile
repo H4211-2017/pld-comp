@@ -60,9 +60,6 @@ $(BIN_DIRECTORY)lex.yy.cpp: $(SRC_DRECTORY)tokens.lex $(HEADERS) $(BIN_DIRECTORY
 $(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp $(HEADERS) $(BIN_DIRECTORY)
 	bison $(BISON_FLAGS) -Wno-other -Wconflicts-sr -o $@ $< 
 
-$(BIN_DIRECTORY)%.o: $(RULE_MEMBER_DIRECTORY)%.cpp $(HEADERS_RULE_MEMBER) $(BIN_DIRECTORY)
-	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
-
 $(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(HEADERS_AST) $(BIN_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 	
@@ -73,6 +70,7 @@ $(INSTR_DIRECTORY)%.o: $(AST_DIRECTORY)Instruction/%.cpp $(HEADERS_AST) $(BIN_DI
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 
 $(BIN_DIRECTORY):
+	mkdir ../../bin
 	mkdir $(BIN_DIRECTORY)
 	
 $(EXPR_DIRECTORY):

@@ -4,10 +4,9 @@
 #include <string.h>
 #include <sstream>
 
-#include "Constant.h"
-#include "AbstractExpression.h"
-#include "AddExpression.h"
-#include "ComposedInstruction.h"
+
+#include "includeCommun.h"
+
 
 #include "bison.tab.hpp"
 

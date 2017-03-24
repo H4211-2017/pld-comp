@@ -7,6 +7,7 @@
 
 
 namespace AST {
+
     class VariableSignature : public AbstractNode
     {
     public:
@@ -18,6 +19,7 @@ namespace AST {
 
         std::string getIdentifiant() const;
         Value getValue() const;
+        
 
     private:
         std::string identifiant;

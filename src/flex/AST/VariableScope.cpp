@@ -5,21 +5,20 @@
 using namespace AST;
 
 
-VariableScope::VariableScope() :
-	mother(nullptr)
+VariableScope::VariableScope()
+	: mother(nullptr)
+{
+
+}
+
+VariableScope::VariableScope( std::shared_ptr<VariableScope> variableScope )
+	: mother(variableScope)
 {
 }
 
-VariableScope::VariableScope( VariableScope & variableScope ) :
-	mother( &variableScope )
+void VariableScope::declareVariable(std::string identifiant, std::shared_ptr<AbstractExpression> variable)
 {
-	
-}
-
-void VariableScope::declareVariable(std::string identifiant, Value variable)
-{
-    std::shared_ptr<Value> sharedVariable = std::make_shared<Value>(variable);
-    auto pair = std::pair<std::string, std::shared_ptr<Value>>(identifiant, sharedVariable);
+    auto pair = std::pair<std::string, std::shared_ptr<AbstractExpression> >(identifiant, variable);
     auto result = scope.insert(pair);
     if (!result.second)
     {
@@ -27,7 +26,7 @@ void VariableScope::declareVariable(std::string identifiant, Value variable)
     }
 }
 
-std::shared_ptr<Value> VariableScope::findVariable(std::string identifiant)
+std::shared_ptr<AbstractExpression> VariableScope::findVariable(std::string identifiant)
 {
 	try
 	{
@@ -57,6 +56,10 @@ std::shared_ptr<Value> VariableScope::findVariable(std::string identifiant)
 	}	
 }
 
+std::shared_ptr<VariableScope> VariableScope::getMother() const
+{
+	return mother;
+}
 
 VariableScope::~VariableScope()
 {}

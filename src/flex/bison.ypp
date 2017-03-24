@@ -4,17 +4,16 @@
 #include <typeinfo>
 #include <memory>
 
-#include "Constant.h"
-#include "AbstractExpression.h"
-#include "ComposedInstruction.h"
-#include "AddExpression.h"
-#include "AbstractNode.h"
-
+#include "includeCommun.h"
 
 using namespace AST;
 
 extern int yylex(void);
 void yyerror(long int * param, const char * msg);
+
+std::shared_ptr<VariableScope> global = std::make_shared<VariableScope>();
+
+std::shared_ptr<VariableScope> current = global;
 
 %}
 
@@ -25,7 +24,11 @@ void yyerror(long int * param, const char * msg);
 	char * id;
 	long int eval;
 	AST::AbstractExpression* evalExpression;
+	AST::Block* block;
 	AST::ComposedInstruction* compInstruction; 
+	AST::UnitInstruction* unitInstruction;
+	AST::AbstractInstruction* abstractInstruction;
+	AST::SequenceInstruction* sequenceInstruction;
 }
 
 %token SHARP LINE_COM BEGIN_COM END_COM 
@@ -47,8 +50,10 @@ void yyerror(long int * param, const char * msg);
 %type <evalExpression> expr
 %type <evalExpression> uoperation
 %type <compInstruction> iintcomp
-%type <eval> iint
-%type <eval> seqint
+%type <unitInstruction> iintunit
+%type <block> bloc
+%type <abstractInstruction> iint
+%type <sequenceInstruction> seqint
 
 %left ID
 %right AFFECT AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD AFFECT_BIT_LEFT_SHIFT AFFECT_BIT_RIGHT_SHIFT AFFECT_BIT_AND AFFECT_BIT_XOR AFFECT_BIT_OR
@@ -76,10 +81,10 @@ void yyerror(long int * param, const char * msg);
 
 /* ===== TODO: TO SORT ===== */
 
-result : seqint {*renvoi = $1;}
+result : seqint {*renvoi = $1->evaluate().getValue().second; std::cout << std::endl; $1->printTree(0); delete $1; }
 	;
 
-/* ===== GENERAL ===== */
+/* ===== GENERAL ===== */ // TODO
 
 programme : liext mainbody liext {std::cout << "programme" << std::endl;}
     ;
@@ -104,7 +109,7 @@ iext : deffonc    {std::cout << "iext : deffonc" << std::endl;}
     | declvar   {std::cout << "iext : declvar" << std::endl;}
     ;
 
-/* ===== FONCTIONS ======*/
+/* ===== FONCTIONS ======*/ // TODO
 
 declfonc : debutfonc SEMICOLON  {std::cout << "declfonc : debutfonc ;" << std::endl;}
     ;
@@ -135,7 +140,7 @@ lparam : lparam COMMA ID    {std::cout << "lparam : lparam, ID "<< std::endl;}
     ;
     
 
-/* ===== VARIABLES ===== */
+/* ===== VARIABLES ===== */ // TODO
 
 declvar : sigvar AFFECT expr    {std::cout << "declvar : sigvar AFFECT expr "<< std::endl;}
 	| sigvar                    {std::cout << "declvar : sigvar "<< std::endl;}
@@ -146,7 +151,7 @@ type : CHAR {std::cout << "type : char "<< std::endl;}
 	| INT64	{std::cout << "type : int64 "<< std::endl;}
 	;
 
-/* ===== IDENTIFIANT ===== */
+/* ===== IDENTIFIANT ===== */ // TODO
 
 sigvar : type ID {std::cout << "sigvar : type ID "<< std::endl;}
 	;
@@ -159,40 +164,41 @@ sigfonc : type ID                           {std::cout << "sigfonc : type ID "<<
 
 /* ===== INSTRUCTIONS INTERIEURES ===== */
 
-bloc : LEFT_BRACKET seqint RIGHT_BRACKET    {std::cout << "bloc : { seqint } "<< std::endl;}
+bloc : LEFT_BRACES seqint RIGHT_BRACES    {$$ = new Block(current, std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($2) ))); current = $$->getScope();} // TODO
     ;
 
-seqint : seqint iint {$$ = $1 + $2;}
-	|  seqint declvar SEMICOLON {$$ = 0;}
-	| SEMICOLON {}
-	| /*epsilon*/ {$$ = 0;}
+seqint : seqint iint {$$->addInstruction(make_shared_instr($2)); delete $2;} // TODO
+	|  seqint declvar SEMICOLON {} // TODO
+	| SEMICOLON {$$->addInstruction(std::make_shared<ComposedInstruction>());} // TODO
+	| /*epsilon*/ {$$ = new SequenceInstruction();} // TODO
 	;
 	
-iint : iintcomp SEMICOLON {$$ = $1->evaluate().getValue().second; std::cout << std::endl; $1->printTree(0); delete $1; }
-	| iintunit {$$ = 0;}
+iint : iintcomp SEMICOLON {$$ = $1;}
+	| iintunit {$$ = $1;}
 	;
 
-iintunit : bloc {}
-	| structure {}
-	| ireturn {} 
+iintunit : bloc {$$ = new UnitInstruction(std::make_shared<Block>( *( static_cast< Block* >($1) ) ));
+					current = $1->getScope()->getMother();
+					delete $1;}
+	| structure {$$ = new UnitInstruction();} // TODO
+	| ireturn {$$ = new UnitInstruction();} // TODO
 	;
 	
-ireturn : RETURN iintcomp SEMICOLON {}
-	| RETURN SEMICOLON {}
+ireturn : RETURN iintcomp SEMICOLON {} // TODO
+	| RETURN SEMICOLON {} // TODO
 	;
 	
 iintcomp : iintcomp COMMA expr {$$ = $1; 
 								$$->addExpression(make_shared_expr($3)); 
 								delete $3;}
-	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = new ComposedInstruction(make_shared_expr($1)); delete $1; delete $3; delete $5;}
+	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = new ComposedInstruction(make_shared_expr($1)); delete $1; delete $3; delete $5;} // TODO
 	| expr {$$ = new ComposedInstruction(make_shared_expr($1));
 			delete $1;}
 	;
 
-/* ===== EXPRESSION ===== */
+/* ===== EXPRESSION ===== */ // TODO
 
-uoperation : SUB expr {//$$ = new AST::Constant(-($2->evaluate().getValue().second));
-						$$ = new Constant(-1*($2->evaluate().getValue().second));
+uoperation : SUB expr {$$ = new Constant(-1*($2->evaluate().getValue().second));
 						delete $2;}
 	| ADD expr {$$ = new Constant(($2->evaluate().getValue().second));
 				delete $2;}
@@ -206,65 +212,65 @@ uoperation : SUB expr {//$$ = new AST::Constant(-($2->evaluate().getValue().seco
 	;
 	
 expr : INT_VAL {$$ = new Constant($1);}
-	| uoperation {$$ = $1;}
-	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| uoperation {$$ = $1;} // TODO
+	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BOOL_AND expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BOOL_AND expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO 
 								delete $1;
 								delete $3;}
-	| expr BIT_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BIT_XOR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_XOR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BIT_AND expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_AND expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BOOL_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BOOL_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BOOL_DIF expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BOOL_DIF expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BOOL_LESS expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BOOL_LESS expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BOOL_GREATER expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BOOL_GREATER expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BOOL_LESS_OR_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BOOL_LESS_OR_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BIT_RIGHT_SHIFT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_RIGHT_SHIFT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BIT_LEFT_SHIFT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_LEFT_SHIFT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
 	| expr ADD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr SUB expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr SUB expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr MULT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr MULT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr DIV expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr DIV expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr MOD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr MOD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
 	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new Constant($2->evaluate().getValue().second); delete $2;} // TODO rajouter constructeur pour constante
 	;
 
-/* ===== AFFECTATION ===== */
+/* ===== AFFECTATION ===== */ // TODO
 
 affectation : ID SigneAff expr {}
 	;
@@ -282,7 +288,7 @@ SigneAff : AFFECT {}
 	| AFFECT_BIT_RIGHT_SHIFT {}
 	;
 
-/* ===== STRUCTURES ===== */ 
+/* ===== STRUCTURES ===== */  // TODO
 
 structure :  structureif { }
 	| structurewhile { } 

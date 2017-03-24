@@ -8,7 +8,7 @@
 
 namespace AST {
 	
-    class Block : AbstractNode
+    class Block : public AbstractNode
 	{
 	public:
         Block();
@@ -17,9 +17,9 @@ namespace AST {
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
         virtual void buildIR() const;
-		
-		
+     
     private:
+    	
         std::shared_ptr<SequenceInstruction> sequenceInstruction;
 	};
 	

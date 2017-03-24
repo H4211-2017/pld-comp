@@ -10,7 +10,7 @@ namespace AST {
     class SequenceInstruction : public AbstractNode
     {
     public:
-        SequenceInstruction(std::shared_ptr<AbstractInstruction> instruction);
+        SequenceInstruction();
 
         void addInstruction(std::shared_ptr<AbstractInstruction> instruction);
 

@@ -10,20 +10,23 @@ Block::Block()
 Block::Block(std::shared_ptr<VariableScope> variableScope, std::shared_ptr<SequenceInstruction> sequenceInstr)
     :AbstractNode("Block", variableScope), sequenceInstruction(sequenceInstr)
 {
-
+	this->value = sequenceInstruction->getValue();
 }
 
 void Block::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
     std::cout << std::endl;
-
-    sequenceInstruction->printTree(tabulationNumber + 1);
+    if(this->sequenceInstruction != nullptr)
+    	sequenceInstruction->printTree(tabulationNumber + 1);
 }
 
 Value Block::evaluate() const
 {
-    // TODO
+	if(this->sequenceInstruction != nullptr)
+    	return this->sequenceInstruction->evaluate();
+    else
+    	return Value();
 }
 
 void Block::buildIR() const

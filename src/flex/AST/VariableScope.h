@@ -11,7 +11,9 @@
 #include "Value.h"
 
 namespace AST{
-
+	
+	class AbstractExpression;	
+	
 	class UndeclaredIdException: public std::exception
 	{
 	  virtual const char* what() const throw()
@@ -27,23 +29,23 @@ namespace AST{
 	public:
 		VariableScope();
 		
-		VariableScope( VariableScope & );
+		VariableScope( std::shared_ptr<VariableScope> variableScope );
 		
 		VariableScope( const VariableScope & variableScope); // declared but not defined
 		
 		virtual ~VariableScope();
 		
-        void declareVariable(std::string identifiant, Value variable);
+        void declareVariable(std::string identifiant, std::shared_ptr<AbstractExpression> variable);
 		
-        std::shared_ptr<Value> findVariable(std::string identifiant);
+        std::shared_ptr<AbstractExpression> findVariable(std::string identifiant);
 		
-		
+		std::shared_ptr<VariableScope> getMother() const;
 		
 	protected:
 		//tree hierarchy
 		std::shared_ptr<VariableScope> mother;
 		
-		std::map< std::string, std::shared_ptr<Value> > scope;
+		std::map< std::string, std::shared_ptr<AbstractExpression> > scope;
     };
 }
 
