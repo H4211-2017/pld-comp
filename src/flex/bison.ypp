@@ -212,6 +212,7 @@ uoperation : SUB expr {$$ = new Constant(-1*($2->evaluate().getValue().second));
 	
 expr : INT_VAL {$$ = new Constant($1);}
 	| uoperation {$$ = $1;} // TODO
+	| affectation {$$ = new Constant(0);} // TODO
 	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
