@@ -10,15 +10,17 @@ namespace AST {
     class ArgumentList : public AbstractNode
     {
     public:
-        ArgumentList(VariableSignature variableSignature);
-        ArgumentList(VariableSignature variableSignature, ArgumentList argumentList);
+        ArgumentList(std::shared_ptr<VariableSignature> variableSignature);
+
+        void addArgument(std::shared_ptr<VariableSignature> argument);
+        bool checkValidForFunctionDefinition() const;
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
         virtual void buildIR() const;
 
     private:
-        std::vector<VariableSignature> variableSignatureList;
+        std::vector<std::shared_ptr<VariableSignature>> variableSignatureList;
     };
 }
 

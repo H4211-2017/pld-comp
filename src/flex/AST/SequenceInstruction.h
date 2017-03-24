@@ -11,7 +11,12 @@ namespace AST {
     {
     public:
         SequenceInstruction(std::shared_ptr<AbstractInstruction> instruction);
-        SequenceInstruction(std::shared_ptr<SequenceInstruction> sequenceInstruction, std::shared_ptr<AbstractInstruction> instruction);
+
+        void addInstruction(std::shared_ptr<AbstractInstruction> instruction);
+
+        virtual void printTree(int tabulationNumber) const;
+        virtual Value evaluate() const;
+        virtual void buildIR() const;
 
     private:
         std::vector<std::shared_ptr<AbstractInstruction>> instructionsList;

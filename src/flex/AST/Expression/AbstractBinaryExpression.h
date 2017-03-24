@@ -18,6 +18,8 @@ public:
 	virtual ~AbstractBinaryExpression();
 
     virtual void printTree(int tabulationNumber) const;
+    virtual Value evaluate() const =0;
+    virtual void buildIR() const =0;
 	
 protected:
     virtual void printOperator() const =0;
