@@ -1,5 +1,4 @@
 %{
-#include <map>
 #include <string>
 #include <iostream>
 #include <typeinfo>
@@ -23,7 +22,8 @@ void yyerror(long int * param, const char * msg);
 	char * sVal;
 	char * id;
 	long int eval;
-	struct ExprNode * evalExpression;
+	//struct ExprNode * evalExpression;
+	AST::AbstractExpression* evalExpression;
 }
 
 %token SHARP LINE_COM BEGIN_COM END_COM 
@@ -165,79 +165,84 @@ seqint : seqint iint {$$ = $2;}
 iint : iintcomp SEMICOLON {$$ = $1;}
 	;
 	
-iintcomp : iintcomp COMMA expr {$$ = $3->node->evaluate().getValue().second;}
-	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = $1->node->evaluate().getValue().second ? $3 : $5;}
-	| expr {$$ = $1->node->evaluate().getValue().second; std::cout << std::endl << std::endl << "=== PRINT TREE ===" << std::endl; $1->node->printTree(0);}
+iintcomp : iintcomp COMMA expr {$$ = $3->evaluate().getValue().second;}
+	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = $1->evaluate().getValue().second ? $3 : $5;}
+	| expr {$$ = $1->evaluate().getValue().second; std::cout << std::endl << std::endl << "=== PRINT TREE ===" << std::endl; $1->printTree(0);}
 	;
 
 /* ===== EXPRESSION ===== */
 
-uoperation : SUB expr {$$ = new ExprNode(std::make_shared<Constant>(-($2->node->evaluate().getValue().second)));}
-	| ADD expr {$$ = new ExprNode(std::make_shared<Constant>(($2->node->evaluate().getValue().second)));}
-	| BIT_NOT expr {$$ = new ExprNode(std::make_shared<Constant>(~($2->node->evaluate().getValue().second)));}
+uoperation : SUB expr {//$$ = new AST::Constant(-($2->evaluate().getValue().second));
+						$$ = new Constant(-1*($2->evaluate().getValue().second));
+						delete $2;}
+	| ADD expr {$$ = new Constant(($2->evaluate().getValue().second));
+				delete $2;}
+	| BIT_NOT expr {$$ = new Constant(~($2->evaluate().getValue().second));
+					delete $2;}
 	| BOOL_NOT expr {long int i = 0;
-					if($2->node->evaluate().getValue().second == 0)
+					if($2->evaluate().getValue().second == 0)
 							i = 1;
-					$$ = new ExprNode(std::make_shared<Constant>(i));}
+					$$ = new Constant(i);
+					delete $2;}
 	;
 	
-expr : INT_VAL {$$ = new ExprNode(std::make_shared<Constant>($1));}
+expr : INT_VAL {$$ = new Constant($1);}
 	| uoperation {$$ = $1;}
-	| expr BOOL_OR expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BOOL_OR expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_AND expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BOOL_AND expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BIT_OR expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BIT_OR expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BIT_XOR expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BIT_XOR expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BIT_AND expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BIT_AND expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_EQUAL expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BOOL_EQUAL expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_DIF expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BOOL_DIF expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_LESS expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BOOL_LESS expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_GREATER expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BOOL_GREATER expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_LESS_OR_EQUAL expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BOOL_LESS_OR_EQUAL expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BIT_RIGHT_SHIFT expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BIT_RIGHT_SHIFT expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr BIT_LEFT_SHIFT expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr BIT_LEFT_SHIFT expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr ADD expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr ADD expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr SUB expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr SUB expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr MULT expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr MULT expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr DIV expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr DIV expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| expr MOD expr {$$ = new ExprNode(std::make_shared<AddExpression>($1->node, $3->node));
+	| expr MOD expr {$$ = new AddExpression(std::make_shared<AbstractExpression>(*$1), std::make_shared<AbstractExpression>(*$3));
 								delete $1;
 								delete $3;}
-	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new ExprNode(std::make_shared<Constant>($2));}
+	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new Constant($2);}
 	;
 
 /* ===== AFFECTATION ===== */

@@ -2,14 +2,21 @@
 #include <map>
 #include "../include/fcBison.h"
 #include <memory>
+
+
+#include "Constant.h"
+#include "AbstractExpression.h"
+#include "AddExpression.h"
+#include "AbstractNode.h"
+
 #include "bison.tab.hpp"
 
-using namespace std;
+
 extern "C" int yylex();
 
 void yyerror(int * param, const char * msg)
 {
-	cout << msg << endl;
+	std::cout << msg << std::endl;
 }
 
 int main(void)
@@ -33,6 +40,6 @@ int main(void)
     long int i = 0;
 	
 	yyparse(&i);
-	cout << i << endl;
+	std::cout << i << std::endl;
 
 }
