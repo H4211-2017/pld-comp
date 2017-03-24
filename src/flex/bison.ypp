@@ -72,7 +72,7 @@ std::shared_ptr<VariableScope> current = global;
 %right BIT_NOT BOOL_NOT INCREMENT DECREMENT
 %right SEMICOLON
 
-%expect 1 // conflit if
+%expect 1 // conflit if 			
 
 %parse-param{long int *renvoi}
 
@@ -81,8 +81,7 @@ std::shared_ptr<VariableScope> current = global;
 
 /* ===== TODO: TO SORT ===== */
 
-result : seqint {*renvoi = $1->evaluate().getValue().second; std::cout << std::endl; $1->printTree(0); delete $1; }
-	;
+
 
 /* ===== GENERAL ===== */ // TODO
 
@@ -103,7 +102,7 @@ mainarg : VOID          {std::cout << "mainarg : void" << std::endl;}
 liext : liext iext  {std::cout << "liext : liext iext" << std::endl;}
     | /* epsilon */ {std::cout << "liext : epsilon" << std::endl;}
     ;
-iext : deffonc    {std::cout << "iext : deffonc" << std::endl;}
+iext : deffonc    {std::cout << "iext : deffonc1" << std::endl;}
     | declfonc    {std::cout << "iext : declfonc" << std::endl;}
     | SHARP     {std::cout << "iext : SHARP" << std::endl;}
     | declvar   {std::cout << "iext : declvar" << std::endl;}
