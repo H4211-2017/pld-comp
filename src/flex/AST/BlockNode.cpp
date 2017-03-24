@@ -3,12 +3,12 @@
 using namespace AST;
 
 BlockNode::BlockNode()
-	: AbstractNode()
-	{
-	}
+    : AbstractNode("BlockNode")
+{
+}
 
 BlockNode::BlockNode(std::shared_ptr<VariableScope> variableScope, std::shared_ptr<SequenceInstruction> sequenceInstr)
-	:AbstractNode(variableScope)
-	{
-		this->sequenceInstr = sequenceInstr;
-	}
+    :AbstractNode("BlockNode", variableScope), sequenceInstr(sequenceInstr)
+{
+
+}

@@ -3,6 +3,7 @@
 using namespace AST;
 
 MainBody::MainBody()
+    : AbstractNode("MainBody")
 {
 
 }

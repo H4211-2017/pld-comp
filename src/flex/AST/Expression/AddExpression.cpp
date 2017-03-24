@@ -5,7 +5,7 @@
 using namespace AST;
 
 AddExpression::AddExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
-    : AbstractBinaryExpression(rightMember, leftMember)
+    : AbstractBinaryExpression("AddExpression", leftMember, rightMember)
 {
 	
 }

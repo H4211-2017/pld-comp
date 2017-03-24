@@ -15,10 +15,9 @@ namespace AST {
 		BlockNode(std::shared_ptr<VariableScope>, std::shared_ptr<SequenceInstruction>);
 		
 		
-	protected:
+    private:
 		std::shared_ptr<SequenceInstruction> sequenceInstr;
-		
-		
+
 	};
 	
 	

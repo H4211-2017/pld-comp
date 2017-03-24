@@ -2,19 +2,20 @@
 
 using namespace AST;
 
-Constant::Constant() : AbstractExpression()
+Constant::Constant()
+    : AbstractExpression("Constant")
 {
 	
 }
 
 Constant::Constant(long int value)
-    : AbstractExpression(Type::INT_64, value)
+    : AbstractExpression("Constant", Type::INT_64, value)
 {
 
 }
 
 Constant::Constant(char value)
-    : AbstractExpression(Type::CHAR, value)
+    : AbstractExpression("Constant", Type::CHAR, value)
 {
 
 }

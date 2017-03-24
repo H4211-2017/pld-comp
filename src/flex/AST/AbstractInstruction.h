@@ -8,7 +8,7 @@ namespace AST {
 class AbstractInstruction : public AbstractNode
 {
 public:
-    AbstractInstruction();
+    AbstractInstruction(std::string name);
 };
 }
 

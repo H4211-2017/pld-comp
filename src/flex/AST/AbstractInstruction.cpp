@@ -2,7 +2,8 @@
 
 using namespace AST;
 
-AbstractInstruction::AbstractInstruction()
+AbstractInstruction::AbstractInstruction(std::string name)
+    : AbstractNode(name)
 {
 
 }

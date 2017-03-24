@@ -4,6 +4,7 @@
 #include <memory>
 #include <cstdlib>
 #include <iostream>
+#include <string>
 
 #include "Value.h"
 #include "VariableScope.h"
@@ -15,15 +16,15 @@ namespace AST{
     class AbstractNode
     {
     public:
-        AbstractNode();
-        AbstractNode(Value value);
-        AbstractNode(Type type, long int value);
-        AbstractNode(Type type);
+        AbstractNode(std::string name);
+        AbstractNode(std::string name, Value value);
+        AbstractNode(std::string name, Type type, long int value);
+        AbstractNode(std::string name, Type type);
 
-        AbstractNode(std::shared_ptr<VariableScope>);
-        AbstractNode(Value value, std::shared_ptr<VariableScope>);
-        AbstractNode(Type type, long int value, std::shared_ptr<VariableScope>);
-        AbstractNode(Type type, std::shared_ptr<VariableScope>);
+        AbstractNode(std::string name, std::shared_ptr<VariableScope>);
+        AbstractNode(std::string name, Value value, std::shared_ptr<VariableScope>);
+        AbstractNode(std::string name, Type type, long int value, std::shared_ptr<VariableScope>);
+        AbstractNode(std::string name, Type type, std::shared_ptr<VariableScope>);
 
         virtual ~AbstractNode();
 
@@ -51,6 +52,9 @@ namespace AST{
 
         Value value;
         std::shared_ptr<VariableScope> currentVariableScope;
+
+    private:
+        std::string name;
 
     };
 

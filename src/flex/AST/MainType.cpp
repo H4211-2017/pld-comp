@@ -3,6 +3,7 @@
 using namespace AST;
 
 MainType::MainType()
+    : AbstractNode("MainType")
 {
 
 }

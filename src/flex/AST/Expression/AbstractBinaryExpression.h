@@ -14,7 +14,7 @@ namespace AST{
 
 class AbstractBinaryExpression : public AbstractExpression{
 public:
-	AbstractBinaryExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<AbstractExpression> leftMember);
+    AbstractBinaryExpression(std::string name, std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
 	virtual ~AbstractBinaryExpression();
 
     virtual void printTree(int tabulationNumber) const;

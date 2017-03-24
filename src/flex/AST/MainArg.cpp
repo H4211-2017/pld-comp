@@ -3,6 +3,7 @@
 using namespace AST;
 
 MainArg::MainArg()
+    : AbstractNode("MainArg")
 {
 
 }

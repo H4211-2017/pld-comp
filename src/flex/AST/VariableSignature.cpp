@@ -3,7 +3,7 @@
 using namespace AST;
 
 VariableSignature::VariableSignature(std::string identifiant, Type type)
-    : AbstractNode(type), identifiant(identifiant)
+    : AbstractNode("VariableSignature", type), identifiant(identifiant)
 {
 
 }

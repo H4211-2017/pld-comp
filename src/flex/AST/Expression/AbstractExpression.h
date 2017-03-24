@@ -10,9 +10,9 @@ class AbstractExpression : public AbstractNode
 {
 	
 public:
-	AbstractExpression();
-	AbstractExpression(Value value);
-	AbstractExpression(Type type, long int value);
+    AbstractExpression(std::string name);
+    AbstractExpression(std::string name, Value value);
+    AbstractExpression(std::string name, Type type, long int value);
 };
 
 }

@@ -2,8 +2,8 @@
 
 using namespace AST;
 
-VariableAssignmentExpression::VariableAssignmentExpression(std::shared_ptr<AbstractExpression> rightMember,  std::shared_ptr<AbstractExpression> leftMember)
-    : AbstractBinaryExpression(rightMember,leftMember)
+VariableAssignmentExpression::VariableAssignmentExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
+    : AbstractBinaryExpression("VariableAssignmentExpression", leftMember, rightMember)
 {
 }
 

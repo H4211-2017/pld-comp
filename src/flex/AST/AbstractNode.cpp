@@ -2,31 +2,33 @@
 
 using namespace AST;
 
-AbstractNode::AbstractNode()
+AbstractNode::AbstractNode(std::string name)
+    : name(name)
 {
 }
 
-AbstractNode::AbstractNode(Value value)
-    : value(value)
-{
-
-}
-
-AbstractNode::AbstractNode(Type type, long int value)
-    : value(type, value)
+AbstractNode::AbstractNode(std::string name, Value value)
+    : name(name), value(value)
 {
 
 }
 
-AbstractNode::AbstractNode(Type type)
-    : value(type, 0)
+AbstractNode::AbstractNode(std::string name, Type type, long int value)
+    : name(name), value(type, value)
 {
 
 }
 
-AbstractNode::AbstractNode(std::shared_ptr<VariableScope> variableScope)
+AbstractNode::AbstractNode(std::string name, Type type)
+    : name(name), value(type, 0)
 {
-	this->currentVariableScope = variableScope;
+
+}
+
+AbstractNode::AbstractNode(std::string name, std::shared_ptr<VariableScope> variableScope)
+    : name(name), currentVariableScope(variableScope)
+{
+
 }
 
 AbstractNode::~AbstractNode()
@@ -60,4 +62,6 @@ void AbstractNode::printTree(int tabulationNumber) const
         std::cerr << "AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;
         break;
     }
+
+    std::cout << name << " ";
 }
