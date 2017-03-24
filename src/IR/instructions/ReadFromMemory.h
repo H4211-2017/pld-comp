@@ -9,6 +9,8 @@ namespace IR {
     public:
         ReadFromMemory(sh_Memory from, sh_Register to);
 
+        virtual std::string toLinuxX86() const;
+
     private:
         sh_Memory source;
         sh_Register destination;

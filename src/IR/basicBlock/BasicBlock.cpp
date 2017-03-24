@@ -58,11 +58,11 @@ void BasicBlock::pushInstructionBack(sh_AbsInstruction instruction)
     this->instructionsList.push_back(instruction);
 
     //add used memory/register to the map of this basicBlock
-    for(sh_Memory mem : instruction->getReadMemoryVector())
+    for(sh_AbstractData mem : instruction->getReadMemoryVector())
     {
         usedMemory[mem->getName()] = mem;
     }
-    for(sh_Memory mem : instruction->getWroteMemoryVector())
+    for(sh_AbstractData mem : instruction->getWroteMemoryVector())
     {
         usedMemory[mem->getName()] = mem;
     }

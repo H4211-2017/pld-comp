@@ -17,20 +17,20 @@ namespace IR {
     public:
         AbstractInstruction();
 
-        virtual std::string toAsm(int asmType) =0;
-        virtual std::string toLinuxX86() =0;
+        std::string toAsm(int asmType) const;
+        virtual std::string toLinuxX86() const =0;
 
-        std::vector<sh_Register > getReadRegisterVector() const;
-        std::vector<sh_Register > getWroteRegisterVector() const;
-        std::vector<sh_Memory > getReadMemoryVector() const;
-        std::vector<sh_Memory > getWroteMemoryVector() const;
+        std::vector<sh_Register> getReadRegisterVector() const;
+        std::vector<sh_Register> getWroteRegisterVector() const;
+        std::vector<sh_AbstractData> getReadMemoryVector() const;
+        std::vector<sh_AbstractData> getWroteMemoryVector() const;
 
     protected:
         std::vector<sh_Register> readRegisterVector;
         std::vector<sh_Register> wroteRegisterVector;
 
-        std::vector<sh_Memory> readMemoryVector;
-        std::vector<sh_Memory> wroteMemoryVector;
+        std::vector<sh_AbstractData> readMemoryVector;
+        std::vector<sh_AbstractData> wroteMemoryVector;
     };
 
     typedef std::shared_ptr<AbstractInstruction> sh_AbsInstruction;

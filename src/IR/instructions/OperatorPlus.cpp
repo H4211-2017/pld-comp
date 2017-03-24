@@ -9,3 +9,9 @@ OperatorPlus::OperatorPlus(sh_Register resultRegister,
 {
 
 }
+
+
+std::string OperatorPlus::toLinuxX86() const
+{
+
+}

@@ -32,7 +32,7 @@ namespace IR {
         std::shared_ptr<BasicBlock> nextBlockTrue;
         std::shared_ptr<BasicBlock> nextBlockFalse;
 
-        std::map<std::string, sh_Memory> usedMemory;
+        std::map<std::string, sh_AbstractData> usedMemory;
         std::map<std::string, sh_Register> usedRegister;
     };
 }

@@ -28,3 +28,8 @@ WriteToMemory::WriteToMemory(long value, sh_Memory to) : AbstractMemoryAcess(), 
 {
 
 }
+
+std::string WriteToMemory::toLinuxX86() const
+{
+
+}

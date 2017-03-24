@@ -12,6 +12,8 @@ namespace IR {
         WriteToMemory(int value, sh_Memory to);
         WriteToMemory(long value, sh_Memory to);
 
+        virtual std::string toLinuxX86() const;
+
     private:
         sh_Register source;
         sh_Memory destination;
