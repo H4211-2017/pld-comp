@@ -22,7 +22,6 @@ void yyerror(long int * param, const char * msg);
 	char * sVal;
 	char * id;
 	long int eval;
-	//struct ExprNode * evalExpression;
 	AST::AbstractExpression* evalExpression;
 }
 
