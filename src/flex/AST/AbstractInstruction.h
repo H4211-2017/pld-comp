@@ -4,12 +4,11 @@
 #include "AbstractNode.h"
 
 namespace AST {
-
-class AbstractInstruction : public AbstractNode
-{
-public:
-    AbstractInstruction(std::string name);
-};
+    class AbstractInstruction : public AbstractNode
+    {
+    public:
+        AbstractInstruction(std::string name);
+    };
 }
 
 #endif // ABSTRACTINSTRUCTION_H

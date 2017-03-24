@@ -41,6 +41,11 @@ Value AbstractNode::getValue() const
     return value;
 }
 
+std::string AbstractNode::getName() const
+{
+    return name;
+}
+
 void AbstractNode::printTree(int tabulationNumber) const
 {
     for (int i = 0; i < tabulationNumber; i++)

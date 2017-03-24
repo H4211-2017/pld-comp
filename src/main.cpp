@@ -32,7 +32,8 @@ int main(void)
 	
     long int i = 0;
 	
-	yyparse(&i);
-	cout << i << endl;
-
+    yyparse(&i);
+    cout << i << endl;
 }
+
+

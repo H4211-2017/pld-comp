@@ -5,16 +5,14 @@
 
 namespace AST
 {
-	
-class AbstractExpression : public AbstractNode
-{
-	
-public:
-    AbstractExpression(std::string name);
-    AbstractExpression(std::string name, Value value);
-    AbstractExpression(std::string name, Type type, long int value);
-};
+    class AbstractExpression : public AbstractNode
+    {
 
+    public:
+        AbstractExpression(std::string name);
+        AbstractExpression(std::string name, Value value);
+        AbstractExpression(std::string name, Type type, long int value);
+    };
 }
 
 struct ExprNode 

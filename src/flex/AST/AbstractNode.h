@@ -47,6 +47,7 @@ namespace AST{
         virtual void buildIR(/*std::shared_ptr<IR::BasicBloc>*/) const = 0;
 
         Value getValue() const;
+        std::string getName() const;
 
     protected:
 
