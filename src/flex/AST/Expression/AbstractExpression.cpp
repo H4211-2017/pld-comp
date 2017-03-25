@@ -5,6 +5,7 @@
 #include "AbstractExpression.h"
 #include "AddExpression.h"
 #include "IDExpression.h"
+#include "AffectationExpression.h"
 #include "Constant.h"
 
 using namespace AST;
@@ -34,11 +35,6 @@ AbstractExpression::AbstractExpression(std::string name, Type type, long int val
 	
 }
 
-void AbstractExpression::setType(Type type)
-{
-	this-> value = Value(type, this->value.getValue().second);
-}
-
 std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 {
 	std::string name = ptr->getName();
@@ -53,6 +49,10 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 	else if(name == "IDExpression")
 	{
 		return std::make_shared<IDExpression>( *( static_cast< IDExpression* >(ptr) ) );
+	}
+	else if(name == "AffectationExpression")
+	{
+		return std::make_shared<AffectationExpression>( *( static_cast< AffectationExpression* >(ptr) ) );
 	}
 	else
 	{	

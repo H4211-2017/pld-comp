@@ -32,6 +32,7 @@ std::shared_ptr<VariableScope> currentContext = global;
 	AST::VariableSignature* signatureV;
 	AST::Type* typeVar;
 	AST::VariableDeclaration* declVar;
+	enum AST::OPAffect* op;
 }
 
 %token SHARP LINE_COM BEGIN_COM END_COM 
@@ -52,6 +53,7 @@ std::shared_ptr<VariableScope> currentContext = global;
 %token <id> ID
 %type <evalExpression> expr
 %type <evalExpression> uoperation
+%type <evalExpression> affectation
 %type <compInstruction> iintcomp
 %type <unitInstruction> iintunit
 %type <block> bloc
@@ -60,6 +62,7 @@ std::shared_ptr<VariableScope> currentContext = global;
 %type <signatureV> sigvar
 %type <typeVar> type
 %type <declVar> declvar
+%type <op> signeaff
 
 %left ID
 %right AFFECT AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD AFFECT_BIT_LEFT_SHIFT AFFECT_BIT_RIGHT_SHIFT AFFECT_BIT_AND AFFECT_BIT_XOR AFFECT_BIT_OR
@@ -227,7 +230,7 @@ uoperation : SUB expr {$$ = new Constant(-1*($2->evaluate().getValue().second));
 expr : INT_VAL {$$ = new Constant($1);}
 	| ID {$$ = new IDExpression($1, currentContext);}
 	| uoperation {$$ = $1;} // TODO
-	| affectation {$$ = new Constant(0);} // TODO
+	| affectation {$$ = $1;} // TODO
 	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
@@ -287,20 +290,22 @@ expr : INT_VAL {$$ = new Constant($1);}
 
 /* ===== AFFECTATION ===== */ // TODO
 
-affectation : ID SigneAff expr {}
+affectation : ID signeaff expr {$$ = new AffectationExpression($1, *$2, make_shared_expr($3), currentContext); 
+								delete $2;
+								delete $3;}
 	;
 	
-SigneAff : AFFECT {}
-	| AFFECT_MULT {} 
-	| AFFECT_DIV  {}
-	| AFFECT_ADD  {}
-	| AFFECT_SUB  {}
-	| AFFECT_MOD  {}
-	| AFFECT_BIT_AND  {}
-	| AFFECT_BIT_OR  {}
-	| AFFECT_BIT_XOR   {}
-	| AFFECT_BIT_LEFT_SHIFT  {}
-	| AFFECT_BIT_RIGHT_SHIFT {}
+signeaff : AFFECT {$$ = new OPAffect(OPAffect::AFFECT);}
+	| AFFECT_MULT {$$ = new OPAffect(OPAffect::AFFECT_MULT);} 
+	| AFFECT_DIV  {$$ = new OPAffect(OPAffect::AFFECT_DIV);}
+	| AFFECT_ADD  {$$ = new OPAffect(OPAffect::AFFECT_ADD);}
+	| AFFECT_SUB  {$$ = new OPAffect(OPAffect::AFFECT_SUB);}
+	| AFFECT_MOD  {$$ = new OPAffect(OPAffect::AFFECT_MOD);}
+	| AFFECT_BIT_AND  {$$ = new OPAffect(OPAffect::AFFECT_BIT_AND);}
+	| AFFECT_BIT_OR  {$$ = new OPAffect(OPAffect::AFFECT_BIT_OR);}
+	| AFFECT_BIT_XOR   {$$ = new OPAffect(OPAffect::AFFECT_BIT_XOR);}
+	| AFFECT_BIT_LEFT_SHIFT  {$$ = new OPAffect(OPAffect::AFFECT_BIT_LEFT_SHIFT);}
+	| AFFECT_BIT_RIGHT_SHIFT {$$ = new OPAffect(OPAffect::AFFECT_BIT_RIGHT_SHIFT);}
 	;
 
 /* ===== STRUCTURES ===== */  // TODO

@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "VariableScope.h"
+#include "AbstractExpression.h"
 
 using namespace AST;
 
@@ -56,6 +57,37 @@ std::shared_ptr<AbstractExpression> VariableScope::findVariable(std::string iden
 	}	
 }
 
+void VariableScope::setVariable(std::string identifiant, std::shared_ptr<AbstractExpression> newExpr)
+{
+	try
+	{
+		auto it = scope.find(identifiant);
+		if( it == scope.end() )
+		{
+			if( mother == nullptr )
+			{
+				throw UndeclaredIdException();
+			}
+			else
+			{
+				mother->setVariable(identifiant, newExpr);
+			}
+		}
+		else
+		{
+			newExpr->setType(scope[identifiant]->getValue().getValue().first);
+			scope[identifiant] = newExpr;
+		}
+		
+		
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << "VariableScope::setVariable ( " << identifiant << " ) : "<< e.what() << std::endl;
+		exit(-1);
+	}	
+}
+        
 std::shared_ptr<VariableScope> VariableScope::getMother() const
 {
 	return mother;

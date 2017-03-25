@@ -16,7 +16,6 @@ namespace AST
         AbstractExpression(std::string name, Type type);
 		AbstractExpression(std::string name, Type type, long int value);
 		
-		void setType(Type type);
 	};
 
 }

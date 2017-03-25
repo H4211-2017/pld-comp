@@ -46,6 +46,11 @@ Value AbstractNode::getValue() const
     return value;
 }
 
+void AbstractNode::setType(Type type)
+{
+	this-> value = Value(type, this->value.getValue().second);
+}
+
 std::string AbstractNode::getName() const
 {
     return name;

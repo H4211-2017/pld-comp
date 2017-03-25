@@ -6,13 +6,12 @@
 #include <string>
 #include <exception>
 
-
 #include "AbstractNode.h"
 #include "Value.h"
 
-namespace AST{
+namespace AST{	
 	
-	class AbstractExpression;	
+	class AbstractExpression;
 	
 	class UndeclaredIdException: public std::exception
 	{
@@ -38,6 +37,8 @@ namespace AST{
         void declareVariable(std::string identifiant, std::shared_ptr<AbstractExpression> variable);
 		
         std::shared_ptr<AbstractExpression> findVariable(std::string identifiant);
+        
+        void setVariable(std::string identifiant, std::shared_ptr<AbstractExpression> newExpr);
 		
 		std::shared_ptr<VariableScope> getMother() const;
 		

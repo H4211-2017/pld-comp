@@ -49,6 +49,9 @@ namespace AST{
         virtual std::shared_ptr<VariableScope> getScope() const;
 
         Value getValue() const;
+        
+		virtual void setType(Type type);
+        
         std::string getName() const;
 
     protected:
