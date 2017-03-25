@@ -8,6 +8,8 @@ IDExpression::IDExpression(std::string id,  std::shared_ptr<VariableScope> scope
     : AbstractExpression("IDExpression")
 {
 	val = scope->findVariable(id);
+	
+	this->setType(val->getValue().getValue().first);
 }
 
 

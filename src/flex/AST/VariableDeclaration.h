@@ -2,6 +2,7 @@
 #define VARIABLEDECLARATION_H
 
 #include "AbstractInstruction.h"
+#include "AbstractExpression.h"
 #include "VariableSignature.h"
 
 namespace AST {
@@ -15,6 +16,10 @@ namespace AST {
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
         virtual void buildIR() const;
+        
+    protected:
+        std::shared_ptr<VariableSignature> sig;
+        std::shared_ptr<AbstractExpression> val;
     };
 }
 

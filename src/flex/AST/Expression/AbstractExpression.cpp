@@ -34,6 +34,11 @@ AbstractExpression::AbstractExpression(std::string name, Type type, long int val
 	
 }
 
+void AbstractExpression::setType(Type type)
+{
+	this-> value = Value(type, this->value.getValue().second);
+}
+
 std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 {
 	std::string name = ptr->getName();

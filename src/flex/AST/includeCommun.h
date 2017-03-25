@@ -14,5 +14,6 @@
 #include "Value.h"
 #include "VariableDeclaration.h"
 #include "IDExpression.h"
+#include "AffectationExpression.h"
 
 #endif
