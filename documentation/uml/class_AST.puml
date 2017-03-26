@@ -1,0 +1,25 @@
+@startuml
+
+package AST {
+    abstract class AbstractNode
+    class ArgumentList
+    class Block
+    class MainBody
+    class MainType
+    class Value
+    class VariableDeclaration
+    class VariableSignature
+    
+    class VariableScope
+    
+	
+    AbstractNode <|-- ArgumentList
+    AbstractNode <|-- Block
+    AbstractNode <|-- MainBody
+    AbstractNode <|-- MainType
+    AbstractNode <|-- Value
+    AbstractNode <|-- VariableDeclaration
+    AbstractNode <|-- VariableSignature
+}
+
+@enduml

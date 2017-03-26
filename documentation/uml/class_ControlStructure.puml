@@ -1,0 +1,20 @@
+@startuml
+
+package AST {
+    abstract class AbstractNode
+    
+    package ConstroleStructure {
+        abstract class AbstractControlStructure
+        class IfStructure
+        class ForStructure
+        class WhileStructure
+    }
+}
+        
+AbstractNode <|-- AbstractControlStructure
+
+AbstractControlStructure <|-- IfStructure
+AbstractControlStructure <|-- ForStructure
+AbstractControlStructure <|-- WhileStructure
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+
+package AST {
+    abstract class AbstractNode
+    
+    package Expression {
+        abstract class AbstractExpression
+        abstract class AbstractBinaryExpression
+        abstract class AbstractUnaryExpression
+        class AddExpression
+        class AffectationExpression
+        class Constant
+        class IDExpression
+        class PostIncrementExpression
+    }
+}
+
+AbstractNode <|-- AbstractExpression
+
+AbstractExpression <|-- AbstractBinaryExpression
+AbstractExpression <|-- AffectationExpression
+AbstractExpression <|-- Constant
+AbstractExpression <|-- IDExpression
+AbstractExpression <|-- AbstractUnaryExpression
+
+AbstractBinaryExpression <|-- AddExpression
+note on link : All other binary \noperator are subclasses \nof AbstractBinaryExpression
+
+AbstractUnaryExpression <|-- PostIncrementExpression
+note on link : All other unary \noperator are subclasses \nof AbstractUnaryExpression
+
+@enduml
