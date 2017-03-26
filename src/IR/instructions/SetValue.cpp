@@ -2,10 +2,15 @@
 
 using namespace IR;
 
-SetValue::SetValue(sh_Memory memory, Constant constant):
+SetValue::SetValue(Constant constant, sh_Register destRegister):
     AbstractInstruction(),
-    dest(memory),
+    dest(destRegister),
     value(constant)
 {
-    this->wroteMemoryVector.push_back(memory);
+    this->wroteRegisterVector.push_back(destRegister);
+}
+
+std::string SetValue::toLinuxX86() const
+{
+
 }

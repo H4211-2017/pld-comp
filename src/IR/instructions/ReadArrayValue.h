@@ -6,10 +6,12 @@
 #include "../data/MemoryArray.h"
 
 namespace IR {
-    class ReadArrayValue : AbstractInstruction
+    class ReadArrayValue : public AbstractInstruction
     {
     public:
         ReadArrayValue(sh_MemoryArray array, sh_Register caseNumber, sh_Register dest);
+
+        virtual std::string toLinuxX86() const;
 
     private:
         sh_MemoryArray arraySource;

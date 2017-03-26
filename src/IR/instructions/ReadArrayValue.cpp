@@ -12,3 +12,8 @@ ReadArrayValue::ReadArrayValue(sh_MemoryArray array, sh_Register caseNumber, sh_
     this->readRegisterVector.push_back(caseNumberRegister);
     this->wroteRegisterVector.push_back(destRegister);
 }
+
+std::string ReadArrayValue::toLinuxX86() const
+{
+
+}

@@ -5,13 +5,15 @@
 #include "AbstractInstruction.h"
 
 namespace IR {
-    class SetValue : AbstractInstruction
+    class SetValue : public AbstractInstruction
     {
     public:
-        SetValue(sh_Memory memory, Constant constant);
+        SetValue(Constant constant, sh_Register destRegister);
+
+        virtual std::string toLinuxX86() const;
 
     private:
-        sh_Memory dest;
+        sh_Register dest;
         Constant value;
     };
 }

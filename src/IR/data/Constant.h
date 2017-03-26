@@ -6,7 +6,7 @@
 #include "AbstractData.h"
 
 namespace IR {
-    class Constant : AbstractData
+    class Constant : public AbstractData
     {
     public:
         Constant(Type type, long value);
