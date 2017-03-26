@@ -11,7 +11,7 @@ package AST {
         class AffectationExpression
         class Constant
         class IDExpression
-        class PostIncrementExpression
+        class IncrementExpression
     }
 }
 
@@ -26,7 +26,7 @@ AbstractExpression <|-- AbstractUnaryExpression
 AbstractBinaryExpression <|-- AddExpression
 note on link : All other binary \noperator are subclasses \nof AbstractBinaryExpression
 
-AbstractUnaryExpression <|-- PostIncrementExpression
+AbstractUnaryExpression <|-- IncrementExpression
 note on link : All other unary \noperator are subclasses \nof AbstractUnaryExpression
 
 @enduml

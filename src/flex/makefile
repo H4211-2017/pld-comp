@@ -10,6 +10,7 @@ LIB_DIRECTORY=../../lib/
 INC_DIRECTORY=../../include/
 EXPR_DIRECTORY=$(BIN_DIRECTORY)Expression/
 INSTR_DIRECTORY=$(BIN_DIRECTORY)Instruction/
+FCT_DIRECTORY=$(BIN_DIRECTORY)Fonction/
 
 
 CPP_FLAGS=-std=c++11 -DYYDEBUG -g
@@ -28,9 +29,10 @@ BISON_FLAGS=-v -d
 ###############################################
 
 #To be updated after each change in list of files
+FCT=
 EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp Expression/IDExpression.cpp Expression/AffectationExpression.cpp
 INSTR=Instruction/AbstractInstruction.cpp Instruction/ComposedInstruction.cpp Instruction/SequenceInstruction.cpp Instruction/UnitInstruction.cpp
-SRC_AST_NOPATH =$(EXPR) $(INSTR) AbstractNode.cpp ArgumentList.cpp AssignationVariableExpression.cpp Block.cpp MainBody.cpp MainType.cpp Value.cpp VariableDeclaration.cpp VariableScope.cpp VariableSignature.cpp
+SRC_AST_NOPATH =$(EXPR) $(INSTR) $(FCT) AbstractNode.cpp ArgumentList.cpp AssignationVariableExpression.cpp Block.cpp MainBody.cpp MainType.cpp Value.cpp VariableDeclaration.cpp VariableScope.cpp VariableSignature.cpp
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
 OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
 HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)
@@ -40,7 +42,7 @@ HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)
 SRCS=$(SRC_RM) $(SRC_AST_NOPATH)
 OBJS=$(OBJ_RULE_MEMBER) $(OBJ_AST)
 HEADERS=$(HEADERS_RULE_MEMBER) $(HEADERS_AST)
-INCLUDE_DIRECTORIES=-I$(BIN_DIRECTORY) -I$(AST_DIRECTORY) -I$(AST_DIRECTORY)Expression -I$(BIN_DIRECTORY)Expression -I$(AST_DIRECTORY)Instruction -I$(BIN_DIRECTORY)Instruction
+INCLUDE_DIRECTORIES=-I$(BIN_DIRECTORY) -I$(AST_DIRECTORY) -I$(AST_DIRECTORY)Expression -I$(BIN_DIRECTORY)Expression -I$(AST_DIRECTORY)Instruction -I$(BIN_DIRECTORY)Instruction -I$(AST_DIRECTORY)Fonction -I$(BIN_DIRECTORY)Fonction
 
 EXE=$(BIN_DIRECTORY)CParser
 
@@ -67,6 +69,9 @@ $(EXPR_DIRECTORY)%.o: $(AST_DIRECTORY)Expression/%.cpp $(HEADERS_AST) $(BIN_DIRE
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 	
 $(INSTR_DIRECTORY)%.o: $(AST_DIRECTORY)Instruction/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(INSTR_DIRECTORY)
+	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
+	
+$(FCT_DIRECTORY)%.o: $(AST_DIRECTORY)Fonction/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(FCT_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 
 $(BIN_DIRECTORY):

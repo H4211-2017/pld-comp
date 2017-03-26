@@ -11,6 +11,7 @@ package AST {
     class VariableSignature
     
     class VariableScope
+    class FonctionScope
     
 	
     AbstractNode <|-- ArgumentList
