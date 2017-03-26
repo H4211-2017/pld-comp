@@ -7,3 +7,8 @@ Constant::Constant(Type type, long value):
 {
 
 }
+
+long Constant::getDataValue() const
+{
+    return dataValue;
+}

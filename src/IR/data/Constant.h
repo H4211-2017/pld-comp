@@ -11,6 +11,8 @@ namespace IR {
     public:
         Constant(Type type, long value);
 
+        long getDataValue() const;
+
     protected:
         long dataValue;
     };

@@ -29,6 +29,15 @@ WriteToMemory::WriteToMemory(long value, sh_Memory to) : AbstractMemoryAcess(), 
 
 }
 
+std::__cxx11::string WriteToMemory::toString() const
+{
+    std::string ret = "";
+    ret.append( source->getName() );
+    ret.append( " -> " );
+    ret.append( destination->getName() );
+    return ret;
+}
+
 std::string WriteToMemory::toLinuxX86() const
 {
 

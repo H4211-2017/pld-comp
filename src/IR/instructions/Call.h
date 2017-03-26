@@ -14,6 +14,8 @@ namespace IR {
     public:
         Call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> parameters);
 
+        virtual std::string toString() const;
+
         virtual std::string toLinuxX86() const;
 
     private:

@@ -9,6 +9,8 @@ namespace IR {
     public:
         AbstractFunction(std::string name);
 
+        std::string getFunctionName() const;
+
     private:
         std::string functionName;
     };

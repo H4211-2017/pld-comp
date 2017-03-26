@@ -17,6 +17,8 @@ namespace IR {
     public:
         AbstractInstruction();
 
+        virtual std::string toString() const =0;
+
         std::string toAsm(int asmType) const;
         virtual std::string toLinuxX86() const =0;
 
