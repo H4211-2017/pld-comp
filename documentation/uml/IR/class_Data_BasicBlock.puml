@@ -1,0 +1,18 @@
+@startuml
+
+package IR {
+    package Data {
+        abstract class AbstractData
+        class Memory
+        class Register
+    }
+    
+    package BasicBlock {
+        class BasicBlock
+    }
+}
+
+AbstractData <|-- Register
+AbstractData <|-- Memory
+
+@enduml
