@@ -10,7 +10,7 @@ AffectationExpression::AffectationExpression()
 	
 }
 
-AffectationExpression::AffectationExpression(std::string id, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<VariableScope> scope)
+AffectationExpression::AffectationExpression(std::string id, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope)
     : AbstractExpression("AffectationExpression"), idVar(id)
 {
 	switch(op)

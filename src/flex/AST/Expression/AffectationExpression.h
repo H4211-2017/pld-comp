@@ -29,7 +29,7 @@ namespace AST{
     {
     public:
         AffectationExpression();
-        AffectationExpression(std::string id, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<VariableScope> scope);
+        AffectationExpression(std::string id, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
         virtual ~AffectationExpression();
 
         virtual Value evaluate() const;

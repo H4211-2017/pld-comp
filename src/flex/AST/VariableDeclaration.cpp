@@ -3,16 +3,16 @@
 
 using namespace AST;
 
-VariableDeclaration::VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<VariableScope> variableScope)
+VariableDeclaration::VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<Scope> scope)
     : AbstractInstruction("VariableDeclaration"), sig(signature)
 {
-    variableScope->declareVariable(signature->getIdentifiant(), nullptr);
+    scope->declareVariable(signature->getIdentifiant(), nullptr);
 }
 
-VariableDeclaration::VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<VariableScope> variableScope)
+VariableDeclaration::VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope)
 	: AbstractInstruction("VariableDeclaration"), sig(signature), val(rightMember)
 {
-	variableScope->declareVariable(signature->getIdentifiant(), rightMember);
+	scope->declareVariable(signature->getIdentifiant(), rightMember);
 	rightMember->setType(signature->getValue().getValue().first);
 }
 

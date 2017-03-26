@@ -7,11 +7,10 @@
 #include <string>
 
 #include "Value.h"
-#include "VariableScope.h"
 
 namespace AST{
 
-    class VariableScope;
+    class Scope;
 
     class AbstractNode
     {
@@ -21,10 +20,10 @@ namespace AST{
         AbstractNode(std::string name, Type type, long int value);
         AbstractNode(std::string name, Type type);
 
-        AbstractNode(std::string name, std::shared_ptr<VariableScope>);
-        AbstractNode(std::string name, Value value, std::shared_ptr<VariableScope>);
-        AbstractNode(std::string name, Type type, long int value, std::shared_ptr<VariableScope>);
-        AbstractNode(std::string name, Type type, std::shared_ptr<VariableScope>);
+        AbstractNode(std::string name, std::shared_ptr<Scope>);
+        AbstractNode(std::string name, Value value, std::shared_ptr<Scope>);
+        AbstractNode(std::string name, Type type, long int value, std::shared_ptr<Scope>);
+        AbstractNode(std::string name, Type type, std::shared_ptr<Scope>);
 
         virtual ~AbstractNode();
 
@@ -46,7 +45,7 @@ namespace AST{
          */
         virtual void buildIR(/*std::shared_ptr<IR::BasicBloc>*/) const = 0;
         
-        virtual std::shared_ptr<VariableScope> getScope() const;
+        virtual std::shared_ptr<Scope> getScope() const;
 
         Value getValue() const;
         
@@ -57,7 +56,7 @@ namespace AST{
     protected:
 
         Value value;
-        std::shared_ptr<VariableScope> currentVariableScope;
+        std::shared_ptr<Scope> currentScope;
 
     private:
         std::string name;

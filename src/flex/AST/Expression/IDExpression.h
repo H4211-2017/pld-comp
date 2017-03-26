@@ -2,7 +2,7 @@
 #define ID_EXPRESSION_H
 #include "AbstractExpression.h"
 
-#include "VariableScope.h"
+#include "Scope.h"
 namespace AST {
 
 class IDExpression : public AbstractExpression 
@@ -10,7 +10,7 @@ class IDExpression : public AbstractExpression
 	
 public:
 
-    IDExpression(std::string id,  std::shared_ptr<VariableScope> scope);
+    IDExpression(std::string id,  std::shared_ptr<Scope> scope);
 	
 	virtual ~IDExpression();
 

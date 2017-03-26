@@ -28,8 +28,6 @@ namespace AST{
 	public:
 		VariableScope();
 		
-		VariableScope( std::shared_ptr<VariableScope> variableScope );
-		
 		VariableScope( const VariableScope & variableScope); // declared but not defined
 		
 		virtual ~VariableScope();
@@ -39,8 +37,6 @@ namespace AST{
         std::shared_ptr<AbstractExpression> findVariable(std::string identifiant);
         
         void setVariable(std::string identifiant, std::shared_ptr<AbstractExpression> newExpr);
-		
-		std::shared_ptr<VariableScope> getMother() const;
 		
 	protected:
 		//tree hierarchy

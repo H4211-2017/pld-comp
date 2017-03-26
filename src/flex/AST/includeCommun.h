@@ -8,7 +8,7 @@
 #include "AbstractNode.h"
 #include "Block.h"
 #include "Instruction/UnitInstruction.h"
-#include "VariableScope.h"
+#include "Scope.h"
 #include "Instruction/SequenceInstruction.h"
 #include "VariableSignature.h"
 #include "Value.h"

@@ -29,10 +29,10 @@ BISON_FLAGS=-v -d
 ###############################################
 
 #To be updated after each change in list of files
-FCT=
+FCT=Fonction/FonctionScope.cpp
 EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp Expression/IDExpression.cpp Expression/AffectationExpression.cpp
 INSTR=Instruction/AbstractInstruction.cpp Instruction/ComposedInstruction.cpp Instruction/SequenceInstruction.cpp Instruction/UnitInstruction.cpp
-SRC_AST_NOPATH =$(EXPR) $(INSTR) $(FCT) AbstractNode.cpp ArgumentList.cpp AssignationVariableExpression.cpp Block.cpp MainBody.cpp MainType.cpp Value.cpp VariableDeclaration.cpp VariableScope.cpp VariableSignature.cpp
+SRC_AST_NOPATH =$(EXPR) $(INSTR) $(FCT) AbstractNode.cpp ArgumentList.cpp AssignationVariableExpression.cpp Block.cpp MainBody.cpp MainType.cpp Value.cpp VariableDeclaration.cpp VariableScope.cpp Scope.cpp VariableSignature.cpp
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
 OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
 HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)

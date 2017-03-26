@@ -8,11 +8,10 @@
 
 namespace AST{	
 	
-	class Block;
 	class DeclarationFonction;
 	class ListArg;
 	
-	class UndeclaredIdException: public std::exception
+	class UndeclaredIdFctException: public std::exception
 	{
 	  virtual const char* what() const throw()
 	  {
@@ -33,17 +32,15 @@ namespace AST{
 		
 		virtual ~FonctionScope();
 		
-        void declareFonction(std::shared_ptr<DeclarationFonction> decl, std::shared_ptr<Block> bloc);
+        void declareFonction(std::string name, std::shared_ptr<DeclarationFonction> decl);
 		
-        std::shared_ptr<Block> findVariable(std::string identifiant, std::shared_ptr<ListArg> args);
-		
-		std::shared_ptr<FonctionScope> getMother() const;
+        std::shared_ptr<DeclarationFonction> findFonction(std::string identifiant, std::shared_ptr<ListArg> args);
+        
+        void setFonction(std::string identifiant, std::shared_ptr<DeclarationFonction> decl);
 		
 	protected:
-		//tree hierarchy
-		std::shared_ptr<FonctionScope> mother;
 		
-		std::map<std::pair<std::string,  std::shared_ptr<ListArg> args> decl, std::shared_ptr<Block> > scope; // TODO définir la clé de la map
+		std::multimap<std::string, std::shared_ptr<DeclarationFonction> > scope; // TODO définir la clé de la map
     };
 }
 

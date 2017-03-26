@@ -7,8 +7,8 @@ Block::Block()
 {
 }
 
-Block::Block(std::shared_ptr<VariableScope> variableScope, std::shared_ptr<SequenceInstruction> sequenceInstr)
-    :AbstractNode("Block", variableScope), sequenceInstruction(sequenceInstr)
+Block::Block(std::shared_ptr<Scope> scope, std::shared_ptr<SequenceInstruction> sequenceInstr)
+    :AbstractNode("Block", scope), sequenceInstruction(sequenceInstr)
 {
 	this->value = sequenceInstruction->getValue();
 }
@@ -29,9 +29,9 @@ Value Block::evaluate() const
     	return Value();
 }
 
-std::shared_ptr<VariableScope> Block::getScope() const
+std::shared_ptr<Scope> Block::getScope() const
 {
-    return std::make_shared<VariableScope>(currentVariableScope);
+    return std::make_shared<Scope>(currentScope);
 }
 
 void Block::buildIR() const

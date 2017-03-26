@@ -25,10 +25,10 @@ AbstractNode::AbstractNode(std::string name, Type type)
 
 }
 
-AbstractNode::AbstractNode(std::string name, std::shared_ptr<VariableScope> variableScope)
+AbstractNode::AbstractNode(std::string name, std::shared_ptr<Scope> scope)
     : name(name)
 {
-	currentVariableScope = variableScope;
+	currentScope = scope;
 }
 
 AbstractNode::~AbstractNode()
@@ -36,9 +36,9 @@ AbstractNode::~AbstractNode()
 	
 }
 
-std::shared_ptr<VariableScope> AbstractNode::getScope() const
+std::shared_ptr<Scope> AbstractNode::getScope() const
 {
-	return currentVariableScope;
+	return currentScope;
 }
 
 Value AbstractNode::getValue() const
