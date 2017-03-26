@@ -1,7 +1,7 @@
 #ifndef VARIABLEDECLARATION_H
 #define VARIABLEDECLARATION_H
 
-#include "AbstractInstruction.h"
+#include "Instruction/AbstractInstruction.h"
 #include "AbstractExpression.h"
 #include "VariableSignature.h"
 
