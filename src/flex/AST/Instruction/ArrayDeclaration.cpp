@@ -12,13 +12,8 @@ ArrayDeclaration::ArrayDeclaration(std::shared_ptr<VariableSignature> signature,
 void ArrayDeclaration::printTree(int tabulationNumber) const
 {
     AbstractDeclaration::printTree(tabulationNumber);
-       
-    if(this->val != nullptr)
-    {
-		std::cout << std::endl;
-		this->val->printTree(tabulationNumber + 1);
-    }
-
+    std::cout << "size :" << std::endl;
+    size->printTree(tabulationNumber + 1);
 }
 
 Value ArrayDeclaration::evaluate() const

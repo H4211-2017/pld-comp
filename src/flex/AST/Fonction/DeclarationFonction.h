@@ -1,7 +1,7 @@
 #ifndef DECLARATION_FONCTION_H
 #define DECLARATION_FONCTION_H
 
-#include "AbstractInstruction.h"
+#include "Instruction/AbstractInstruction.h"
 #include "Fonction.h"
 #include "FonctionSignature.h"
 

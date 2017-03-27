@@ -1,8 +1,8 @@
 #ifndef ABSTRACTDECLARATION_H
 #define ABSTRACTDECLARATION_H
 
-#include "Instruction.h"
-#include "VariableSignature.h"
+#include "Instruction/AbstractInstruction.h"
+#include "Instruction/VariableSignature.h"
 #include "Scope.h"
 
 namespace AST {
