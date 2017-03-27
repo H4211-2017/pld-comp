@@ -3,13 +3,13 @@
 
 #include "Constant.h"
 #include "AbstractExpression.h"
-#include "Instruction/ComposedInstruction.h"
+#include "ComposedInstruction.h"
 #include "AddExpression.h"
 #include "AbstractNode.h"
 #include "Block.h"
-#include "Instruction/UnitInstruction.h"
+#include "UnitInstruction.h"
 #include "Scope.h"
-#include "Instruction/SequenceInstruction.h"
+#include "SequenceInstruction.h"
 #include "VariableSignature.h"
 #include "Value.h"
 #include "VariableDeclaration.h"
@@ -19,5 +19,8 @@
 #include "LArguments.h"
 #include "Fonction.h"
 #include "DeclarationFonction.h"
+#include "Variable.h"
+#include "LParametres.h"
+#include "AppelFonction.h"
 
 #endif

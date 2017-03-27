@@ -52,8 +52,6 @@ namespace AST{
         std::shared_ptr<Variable> findVariable(std::string identifiant);
 		
 	protected:
-		//tree hierarchy
-		std::shared_ptr<VariableScope> mother;
 		
 		std::map< std::string, std::shared_ptr<Variable> > scope;
     };

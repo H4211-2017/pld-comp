@@ -1,5 +1,6 @@
 #ifndef ID_EXPRESSION_H
 #define ID_EXPRESSION_H
+#include "Variable.h"
 #include "AbstractExpression.h"
 
 #include "Scope.h"
@@ -23,7 +24,7 @@ public:
 
 protected:
     
-    std::shared_ptr<AbstractExpression> val;
+    std::shared_ptr<Variable> val;
 
 };
 

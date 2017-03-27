@@ -11,13 +11,15 @@ AffectationExpression::AffectationExpression()
 }
 
 AffectationExpression::AffectationExpression(std::string id, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope)
-    : AbstractExpression("AffectationExpression"), idVar(id)
+    : AbstractExpression("AffectationExpression")
 {
+	var = scope->findVariable(id);
 	switch(op)
 	{
 		
 		case AFFECT :
 			this->transformedExpr = rightMember;
+			var->noLongerDeclaration();
 			break;
 		case AFFECT_MULT :
 			break;
@@ -44,7 +46,6 @@ AffectationExpression::AffectationExpression(std::string id, enum OPAffect op, s
 			break;
 	}
 	
-	scope->setVariable(id, this->transformedExpr);
 	this->setType(this->transformedExpr->getValue().getValue().first);
 }
 
@@ -68,10 +69,9 @@ void AffectationExpression::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
     std::cout << std::endl;
-    for(int i = 0; i<= tabulationNumber; i++)
-    {
-    	std::cout << "\t";
-    }
-    std::cout << idVar << std::endl;
+    
+    this->var->printTree(tabulationNumber + 1);
+    std::cout << std::endl;
+    
     this->transformedExpr->printTree(tabulationNumber + 1);
 }

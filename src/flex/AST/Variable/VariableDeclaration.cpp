@@ -4,23 +4,24 @@
 using namespace AST;
 
 VariableDeclaration::VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<Scope> scope)
-    : AbstractInstruction("VariableDeclaration"), sig(signature)
+    : AbstractInstruction("VariableDeclaration")
 {
-    scope->declareVariable(signature->getIdentifiant(), nullptr);
+	var = std::make_shared<Variable>(signature, true);
+    scope->declareVariable(signature->getIdentifiant(), var);
 }
 
 VariableDeclaration::VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope)
-	: AbstractInstruction("VariableDeclaration"), sig(signature), val(rightMember)
+	: AbstractInstruction("VariableDeclaration"), val(rightMember)
 {
-	scope->declareVariable(signature->getIdentifiant(), rightMember);
-	rightMember->setType(signature->getValue().getValue().first);
+	var = std::make_shared<Variable>(signature, false);
+    scope->declareVariable(signature->getIdentifiant(), var);
 }
 
 void VariableDeclaration::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
     std::cout << std::endl;
-    this->sig->printTree(tabulationNumber + 1);
+    this->var->printTree(tabulationNumber + 1);
     
     if(this->val != nullptr)
     {
