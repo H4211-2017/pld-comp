@@ -27,7 +27,13 @@ bool ArgumentList::checkValidForFunctionDefinition() const
 
 void ArgumentList::printTree(int tabulationNumber) const
 {
+    AbstractNode::printTree(tabulationNumber);
+    std::cout << std::endl;
 
+    for (std::shared_ptr<VariableSignature> variableSignature : variableSignatureList)
+    {
+        variableSignature->printTree(tabulationNumber + 1);
+    }
 }
 
 Value ArgumentList::evaluate() const

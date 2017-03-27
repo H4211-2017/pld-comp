@@ -9,6 +9,8 @@ TEST_DIRECTORY=../../test/flex/
 LIB_DIRECTORY=../../lib/
 INC_DIRECTORY=../../include/
 EXPR_DIRECTORY=$(BIN_DIRECTORY)Expression/
+INSTR_DIRECTORY=$(BIN_DIRECTORY)Instruction/
+FCT_DIRECTORY=$(BIN_DIRECTORY)Fonction/
 
 
 CPP_FLAGS=-std=c++11 -DYYDEBUG -g
@@ -27,8 +29,10 @@ BISON_FLAGS=-v -d
 ###############################################
 
 #To be updated after each change in list of files
-EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp
-SRC_AST_NOPATH =$(EXPR) AbstractInstruction.cpp AbstractNode.cpp AssignationVariableExpression.cpp Block.cpp ComposedInstruction.cpp MainArg.cpp MainBody.cpp MainType.cpp SequenceInstruction.cpp UnitInstruction.cpp Value.cpp VariableAssignmentExpression.cpp VariableDeclaration.cpp VariableScope.cpp VariableSignature.cpp
+FCT=Fonction/FonctionScope.cpp Fonction/FonctionSignature.cpp Fonction/LArguments.cpp Fonction/Fonction.cpp Fonction/DeclarationFonction.cpp
+EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp Expression/IDExpression.cpp Expression/AffectationExpression.cpp
+INSTR=Instruction/AbstractInstruction.cpp Instruction/ComposedInstruction.cpp Instruction/SequenceInstruction.cpp Instruction/UnitInstruction.cpp
+SRC_AST_NOPATH =$(EXPR) $(INSTR) $(FCT) AbstractNode.cpp ArgumentList.cpp AssignationVariableExpression.cpp Block.cpp MainBody.cpp MainType.cpp Value.cpp VariableDeclaration.cpp VariableScope.cpp Scope.cpp VariableSignature.cpp
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
 OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
 HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)
@@ -38,14 +42,14 @@ HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)
 SRCS=$(SRC_RM) $(SRC_AST_NOPATH)
 OBJS=$(OBJ_RULE_MEMBER) $(OBJ_AST)
 HEADERS=$(HEADERS_RULE_MEMBER) $(HEADERS_AST)
-INCLUDE_DIRECTORIES=-I$(BIN_DIRECTORY) -I$(AST_DIRECTORY) -I$(AST_DIRECTORY)Expression -I$(BIN_DIRECTORY)Expression
+INCLUDE_DIRECTORIES=-I$(BIN_DIRECTORY) -I$(AST_DIRECTORY) -I$(AST_DIRECTORY)Expression -I$(BIN_DIRECTORY)Expression -I$(AST_DIRECTORY)Instruction -I$(BIN_DIRECTORY)Instruction -I$(AST_DIRECTORY)Fonction -I$(BIN_DIRECTORY)Fonction
 
 EXE=$(BIN_DIRECTORY)CParser
 
 all: $(EXE)
 
 $(EXE): $(SRC_DRECTORY)../main.cpp $(BIN_DIRECTORY)bison.tab.cpp $(BIN_DIRECTORY)lex.yy.cpp $(OBJS) $(HEADERS) $(BIN_DIRECTORY) 
-	echo $(OBJS)
+	echo ;
 	g++ $(CPP_FLAGS) -o $(BIN_DIRECTORY)CParser $(SRC_DIRECTORY)../main.cpp $(BIN_DIRECTORY)lex.yy.cpp $(BIN_DIRECTORY)bison.tab.cpp $(OBJS) $(INCLUDE_DIRECTORIES)
 
 flex: $(BIN_DIRECTORY)lex.yy.cpp 
@@ -56,27 +60,34 @@ $(BIN_DIRECTORY)lex.yy.cpp: $(SRC_DRECTORY)tokens.lex $(HEADERS) $(BIN_DIRECTORY
 	flex -o $@ $< 
 
 $(BIN_DIRECTORY)bison.tab.cpp: $(SRC_DRECTORY)bison.ypp $(HEADERS) $(BIN_DIRECTORY)
-	bison $(BISON_FLAGS) -Wno-other -o $@ $< 
-
-$(BIN_DIRECTORY)%.o: $(RULE_MEMBER_DIRECTORY)%.cpp $(HEADERS_RULE_MEMBER) $(BIN_DIRECTORY)
-	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
+	bison $(BISON_FLAGS) -Wno-other -Wconflicts-sr -o $@ $< 
 
 $(BIN_DIRECTORY)%.o: $(AST_DIRECTORY)%.cpp $(HEADERS_AST) $(BIN_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 	
-$(BIN_DIRECTORY)Expression/%.o: $(AST_DIRECTORY)Expression/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(EXPR_DIRECTORY)
+$(EXPR_DIRECTORY)%.o: $(AST_DIRECTORY)Expression/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(EXPR_DIRECTORY)
+	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
+	
+$(INSTR_DIRECTORY)%.o: $(AST_DIRECTORY)Instruction/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(INSTR_DIRECTORY)
+	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
+	
+$(FCT_DIRECTORY)%.o: $(AST_DIRECTORY)Fonction/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(FCT_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 
 $(BIN_DIRECTORY):
+	mkdir ../../bin
 	mkdir $(BIN_DIRECTORY)
 	
 $(EXPR_DIRECTORY):
 	mkdir $(EXPR_DIRECTORY)
+	
+$(INSTR_DIRECTORY):
+	mkdir $(INSTR_DIRECTORY)
 
 cleanAll: cleano cleanBison cleanFlex
 
 cleano:
-	rm $(BIN_DIRECTORY)*.o $(EXPR_DIRECTORY)*.o 
+	rm $(BIN_DIRECTORY)*.o $(EXPR_DIRECTORY)*.o $(INSTR_DIRECTORY)*.o 
 
 cleanBison:
 	rm $(BIN_DIRECTORY)bison.tab.cpp

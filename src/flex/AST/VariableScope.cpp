@@ -1,62 +1,55 @@
 #include <iostream>
 
 #include "VariableScope.h"
+#include "AbstractExpression.h"
 
 using namespace AST;
 
 
-VariableScope::VariableScope() :
-	mother(nullptr)
+VariableScope::VariableScope()
 {
+
 }
 
-VariableScope::VariableScope( VariableScope & variableScope ) :
-	mother( &variableScope )
+void VariableScope::declareVariable(std::string identifiant, std::shared_ptr<AbstractExpression> variable)
 {
-	
-}
-
-void VariableScope::declareVariable(std::string identifiant, Value variable)
-{
-    std::shared_ptr<Value> sharedVariable = std::make_shared<Value>(variable);
-    auto pair = std::pair<std::string, std::shared_ptr<Value>>(identifiant, sharedVariable);
+    auto pair = std::pair<std::string, std::shared_ptr<AbstractExpression> >(identifiant, variable);
     auto result = scope.insert(pair);
     if (!result.second)
     {
         std::cerr << "VariableScope::declareVariable : a variable already existed with name " << identifiant << std::endl;
+        exit(-1);
     }
 }
 
-std::shared_ptr<Value> VariableScope::findVariable(std::string identifiant)
+std::shared_ptr<AbstractExpression> VariableScope::findVariable(std::string identifiant)
 {
-	try
+	auto it = scope.find(identifiant);
+	if( it == scope.end() )
 	{
-		auto it = scope.find(identifiant);
-		if( it == scope.end() )
-		{
-			if( mother == nullptr )
-			{
-				throw UndeclaredIdException();
-			}
-			else
-			{
-				return mother->findVariable(identifiant);
-			}
-		}
-		else
-		{
-			return it->second;
-		}
-		
+		throw UndeclaredIdException();
 		
 	}
-	catch(std::exception& e)
+	else
 	{
-		std::cerr << "VariableScope::findVariable ( " << identifiant << " ) : "<< e.what() << std::endl;
-		exit(-1);
-	}	
+		return it->second;
+	}
+
 }
 
+void VariableScope::setVariable(std::string identifiant, std::shared_ptr<AbstractExpression> newExpr)
+{
+	auto it = scope.find(identifiant);
+	if( it == scope.end() )
+	{
+		throw UndeclaredIdException();
+	}
+	else
+	{
+		newExpr->setType(scope[identifiant]->getValue().getValue().first);
+		scope[identifiant] = newExpr;
+	}
+}
 
 VariableScope::~VariableScope()
 {}

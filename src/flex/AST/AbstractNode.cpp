@@ -25,10 +25,10 @@ AbstractNode::AbstractNode(std::string name, Type type)
 
 }
 
-AbstractNode::AbstractNode(std::string name, std::shared_ptr<VariableScope> variableScope)
-    : name(name), currentVariableScope(variableScope)
+AbstractNode::AbstractNode(std::string name, std::shared_ptr<Scope> scope)
+    : name(name)
 {
-
+	currentScope = scope;
 }
 
 AbstractNode::~AbstractNode()
@@ -36,9 +36,19 @@ AbstractNode::~AbstractNode()
 	
 }
 
+std::shared_ptr<Scope> AbstractNode::getScope() const
+{
+	return currentScope;
+}
+
 Value AbstractNode::getValue() const
 {
     return value;
+}
+
+void AbstractNode::setType(Type type)
+{
+	this-> value = Value(type, this->value.getValue().second);
 }
 
 std::string AbstractNode::getName() const
@@ -64,7 +74,7 @@ void AbstractNode::printTree(int tabulationNumber) const
         std::cout << "Char ";
         break;
     default:
-        std::cerr << "AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;
+        std::cerr << "ERROR ";//"AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;
         break;
     }
 

@@ -33,3 +33,4 @@ Value VariableSignature::getValue() const
 {
     return value;
 }
+

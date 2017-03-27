@@ -7,6 +7,7 @@ using namespace AST;
 AddExpression::AddExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractBinaryExpression("AddExpression", leftMember, rightMember)
 {
+	this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
 	
 }
 

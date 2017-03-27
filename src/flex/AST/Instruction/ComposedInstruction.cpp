@@ -2,15 +2,23 @@
 
 using namespace AST;
 
+ComposedInstruction::ComposedInstruction() 
+	: AbstractInstruction("ComposedInstruction")
+{
+
+}
+
 ComposedInstruction::ComposedInstruction(std::shared_ptr<AbstractExpression> abstractExpression)
-    : AbstractNode("ComposedInstruction")
+    : AbstractInstruction("ComposedInstruction")
 {
     listExpressions.push_back(abstractExpression);
+    this->value = abstractExpression->getValue();
 }
 
 void ComposedInstruction::addExpression(std::shared_ptr<AbstractExpression> expression)
 {
     listExpressions.push_back(expression);
+    this->value = expression->getValue();
 }
 
 void ComposedInstruction::printTree(int tabulationNumber) const
@@ -19,6 +27,7 @@ void ComposedInstruction::printTree(int tabulationNumber) const
 
     for (std::shared_ptr<AbstractExpression> expression : listExpressions)
     {
+		std::cout << std::endl;
         expression->printTree(tabulationNumber + 1);
     }
 }
@@ -26,7 +35,7 @@ void ComposedInstruction::printTree(int tabulationNumber) const
 // TODO
 Value ComposedInstruction::evaluate() const
 {
-
+	return listExpressions[listExpressions.size()-1]->evaluate();
 }
 
 // TODO

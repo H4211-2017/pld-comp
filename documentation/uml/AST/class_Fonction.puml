@@ -1,0 +1,21 @@
+@startuml
+
+package AST {
+    abstract class AbstractNode
+    
+    package Fonction {
+    
+    class FonctionDebut
+    class FonctionDeclaration
+    class FonctionSignature
+    class FonctionAppel
+    
+    }
+	
+    AbstractNode <|-- FonctionDebut
+    AbstractNode <|-- FonctionDeclaration
+    AbstractNode <|-- FonctionSignature
+    AbstractNode <|-- FonctionAppel
+}
+
+@enduml

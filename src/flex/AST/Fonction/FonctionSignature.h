@@ -1,5 +1,5 @@
-#ifndef VARIABLESIGNATURE_H
-#define VARIABLESIGNATURE_H
+#ifndef FONCTIONSIGNATURE_H
+#define FONCTIONSIGNATURE_H
 
 #include <string>
 
@@ -8,10 +8,12 @@
 
 namespace AST {
 
-    class VariableSignature : public AbstractNode
+    class FonctionSignature : public AbstractNode
     {
     public:
-        VariableSignature(std::string identifiant, Type type);
+    
+    	FonctionSignature(std::string identifiant);
+        FonctionSignature(std::string identifiant, Type type);
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
@@ -26,4 +28,4 @@ namespace AST {
     };
 }
 
-#endif // VARIABLESIGNATURE_H
+#endif // FONCTIONSIGNATURE_H

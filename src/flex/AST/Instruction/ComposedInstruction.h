@@ -4,13 +4,16 @@
 
 #include <vector>
 
-#include "AbstractNode.h"
+#include "AbstractInstruction.h"
 #include "AbstractExpression.h"
 
 namespace AST {
-    class ComposedInstruction : AbstractNode
+    class ComposedInstruction : public AbstractInstruction
     {
     public:
+    
+    	ComposedInstruction();
+    	
         ComposedInstruction(std::shared_ptr<AbstractExpression> abstractExpression);
 
         void addExpression(std::shared_ptr<AbstractExpression> expression);
