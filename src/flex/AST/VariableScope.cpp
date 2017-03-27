@@ -18,6 +18,7 @@ void VariableScope::declareVariable(std::string identifiant, std::shared_ptr<Abs
     if (!result.second)
     {
         std::cerr << "VariableScope::declareVariable : a variable already existed with name " << identifiant << std::endl;
+        exit(-1);
     }
 }
 

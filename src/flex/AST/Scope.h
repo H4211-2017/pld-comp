@@ -27,9 +27,9 @@ namespace AST{
         std::shared_ptr<AbstractExpression> findVariable(std::string identifiant);
         void setVariable(std::string identifiant, std::shared_ptr<AbstractExpression> newExpr);
         
-        void declareFonction(std::string identifiant, std::shared_ptr<DeclarationFonction> decl);
-        std::shared_ptr<DeclarationFonction> findFonction(std::string identifiant, std::shared_ptr<ListArg> args);
-        void setFonction(std::string name, std::shared_ptr<DeclarationFonction> decl);
+        void declareFonction(std::string identifiant, std::shared_ptr<Fonction> decl);
+        std::shared_ptr<Fonction> findFonction(std::string identifiant, std::shared_ptr<ListArg> args);
+        void setFonction(std::string name, std::shared_ptr<Fonction> decl);
 		
 		std::shared_ptr<Scope> getMother() const;
 		

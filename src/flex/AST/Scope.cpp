@@ -64,12 +64,12 @@ void Scope::setVariable(std::string identifiant, std::shared_ptr<AbstractExpress
 	}	
 }
 
-void Scope::declareFonction(std::string identifiant, std::shared_ptr<DeclarationFonction> decl)
+void Scope::declareFonction(std::string identifiant, std::shared_ptr<Fonction> decl)
 {
     fScope.declareFonction(identifiant, decl);
 }
 
-std::shared_ptr<DeclarationFonction> Scope::findFonction(std::string identifiant, std::shared_ptr<ListArg> args)
+std::shared_ptr<Fonction> Scope::findFonction(std::string identifiant, std::shared_ptr<ListArg> args)
 {
 	try
 	{
@@ -91,7 +91,7 @@ std::shared_ptr<DeclarationFonction> Scope::findFonction(std::string identifiant
 	}	
 }
 
-void Scope::setFonction(std::string identifiant, std::shared_ptr<DeclarationFonction> decl)
+void Scope::setFonction(std::string identifiant, std::shared_ptr<Fonction> decl)
 {
 	try
 	{
@@ -101,14 +101,9 @@ void Scope::setFonction(std::string identifiant, std::shared_ptr<DeclarationFonc
 	}
 	catch(UndeclaredIdFctException& e)
 	{
-		try {
-			return mother->setFonction(identifiant, decl);
-		}
-		catch(std::exception& e)
-		{
-			std::cerr << "FonctionScope::setFonction ( " << identifiant << " ) : "<< e.what() << std::endl;
-			exit(-1);
-		}	
+		std::cerr << "FonctionScope::setFonction ( " << identifiant << " ) : "<< e.what() << std::endl;
+		exit(-1);
+			
 	}	
 }
         

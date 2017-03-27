@@ -8,15 +8,30 @@
 
 namespace AST{	
 	
-	class DeclarationFonction;
+	class Fonction;
 	class ListArg;
 	
 	class UndeclaredIdFctException: public std::exception
 	{
-	  virtual const char* what() const throw()
-	  {
-		return "Error : Undeclared Function Identifier";
-	  }
+	public:
+	
+		UndeclaredIdFctException()
+		{
+			this->text = "Error : Undeclared Function Identifier";
+		}
+		
+		UndeclaredIdFctException(std::string text)
+		{
+			this->text = text;
+		}
+		
+		virtual const char* what() const throw()
+		{
+			return text.c_str();
+	    }
+	    
+	protected :
+		std::string text;    
 		
 	};
 
@@ -26,21 +41,19 @@ namespace AST{
 	public:
 		FonctionScope();
 		
-		FonctionScope( std::shared_ptr<FonctionScope> fonctionScope );
-		
 		FonctionScope( const FonctionScope & fonctionScope); // declared but not defined
 		
 		virtual ~FonctionScope();
 		
-        void declareFonction(std::string name, std::shared_ptr<DeclarationFonction> decl);
+        void declareFonction(std::string name, std::shared_ptr<Fonction> decl);
 		
-        std::shared_ptr<DeclarationFonction> findFonction(std::string identifiant, std::shared_ptr<ListArg> args);
+        std::shared_ptr<Fonction> findFonction(std::string identifiant, std::shared_ptr<ListArg> args);
         
-        void setFonction(std::string identifiant, std::shared_ptr<DeclarationFonction> decl);
+        void setFonction(std::string identifiant, std::shared_ptr<Fonction> decl);
 		
 	protected:
 		
-		std::multimap<std::string, std::shared_ptr<DeclarationFonction> > scope; // TODO définir la clé de la map
+		std::multimap<std::string, std::shared_ptr<Fonction> > scope; // TODO définir la clé de la map
     };
 }
 

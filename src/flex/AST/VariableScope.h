@@ -15,10 +15,25 @@ namespace AST{
 	
 	class UndeclaredIdException: public std::exception
 	{
-	  virtual const char* what() const throw()
-	  {
-		return "Error : Undeclared Identifier";
-	  }
+	public:
+	
+		UndeclaredIdException()
+		{
+			this->text = "Error : Undeclared Identifier";
+		}
+		
+		UndeclaredIdException(std::string text)
+		{
+			this->text = text;
+		}
+		
+		virtual const char* what() const throw()
+		{
+			return text.c_str();
+	    }
+	    
+	protected :
+		std::string text;    
 		
 	};
 

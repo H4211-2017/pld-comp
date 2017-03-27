@@ -15,5 +15,9 @@
 #include "VariableDeclaration.h"
 #include "IDExpression.h"
 #include "AffectationExpression.h"
+#include "FonctionSignature.h"
+#include "LArguments.h"
+#include "Fonction.h"
+#include "DeclarationFonction.h"
 
 #endif

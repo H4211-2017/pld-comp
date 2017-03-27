@@ -24,15 +24,22 @@ std::shared_ptr<Scope> currentContext = global;
 	char * id;
 	long int eval;
 	AST::AbstractExpression* evalExpression;
+	
 	AST::Block* block;
+	
 	AST::ComposedInstruction* compInstruction; 
 	AST::UnitInstruction* unitInstruction;
 	AST::AbstractInstruction* abstractInstruction;
 	AST::SequenceInstruction* sequenceInstruction;
+	
 	AST::VariableSignature* signatureV;
 	AST::Type* typeVar;
 	AST::VariableDeclaration* declVar;
 	enum AST::OPAffect* op;
+	
+	AST::FonctionSignature* signatureF;
+	AST::LArguments* fctArguments;
+	AST::DeclarationFonction* declFct;
 }
 
 %token SHARP LINE_COM BEGIN_COM END_COM 
@@ -51,18 +58,26 @@ std::shared_ptr<Scope> currentContext = global;
 %token <lVal> INT_VAL
 %token <sVal> CHAIN
 %token <id> ID
+
 %type <evalExpression> expr
 %type <evalExpression> uoperation
 %type <evalExpression> affectation
+
 %type <compInstruction> iintcomp
 %type <unitInstruction> iintunit
-%type <block> bloc
 %type <abstractInstruction> iint
 %type <sequenceInstruction> seqint
-%type <signatureV> sigvar
+
+%type <block> bloc
+
+%type <signatureV> sigvar arg
 %type <typeVar> type
 %type <declVar> declvar
 %type <op> signeaff
+
+%type <signatureF> sigfonc
+%type <fctArguments> larg
+%type <declFct> debutfonc declfonc
 
 %left ID
 %right AFFECT AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD AFFECT_BIT_LEFT_SHIFT AFFECT_BIT_RIGHT_SHIFT AFFECT_BIT_AND AFFECT_BIT_XOR AFFECT_BIT_OR
@@ -97,7 +112,7 @@ std::shared_ptr<Scope> currentContext = global;
 programme : liext mainbody liext {std::cout << "programme" << std::endl;}
     ;
     
-mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl; *renvoi = $6->evaluate().getValue().second; std::cout << std::endl; $6->printTree(0); delete $6;}
+mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl; *renvoi = 0; std::cout << std::endl; $6->printTree(0); delete $6;}
     ;
 maintype : type         {std::cout << "maintype: type" << std::endl;}
     | VOID              {std::cout << "maintype : void" << std::endl;}
@@ -119,24 +134,42 @@ iext : deffonc    {std::cout << "iext : deffonc1" << std::endl;}
 
 /* ===== FONCTIONS ======*/ // TODO
 
-declfonc : debutfonc SEMICOLON  {std::cout << "declfonc : debutfonc ;" << std::endl;}
+declfonc : debutfonc SEMICOLON  {$$ = $1;}
     ;
 deffonc : debutfonc bloc        {std::cout << "deffonc : debutfonc bloc" << std::endl;}
     ;
     
-debutfonc : sigfonc LEFT_PARENTHESIS larg RIGHT_PARENTHESIS     {std::cout << "debutfonc : sigfonc ( larg )" << std::endl;}
-    | sigfonc LEFT_PARENTHESIS RIGHT_PARENTHESIS                {std::cout << "debutfonc : sigfonc ( )" << std::endl;}
-    | sigfonc LEFT_PARENTHESIS VOID RIGHT_PARENTHESIS           {std::cout << "debutfonc : sigfonc ( VOID )" << std::endl;}
+debutfonc : sigfonc larg RIGHT_PARENTHESIS     {std::shared_ptr<Fonction> fct = std::make_shared<Fonction>(
+																					std::make_shared<FonctionSignature>( *( static_cast< FonctionSignature* >($1))),
+																					std::make_shared<LArguments>( *( static_cast< LArguments* >($2))));
+												$$ = new DeclarationFonction(std::make_shared<FonctionSignature>( *( static_cast< FonctionSignature* >($1) )), fct, currentContext);
+												delete $1;
+												delete $2;
+												}
+    | sigfonc RIGHT_PARENTHESIS                {std::shared_ptr<Fonction> fct = std::make_shared<Fonction>(
+																					std::make_shared<FonctionSignature>( *( static_cast< FonctionSignature* >($1))));
+												$$ = new DeclarationFonction(std::make_shared<FonctionSignature>( *( static_cast< FonctionSignature* >($1) )), fct, currentContext);
+												delete $1;
+												}
+    | sigfonc VOID RIGHT_PARENTHESIS           {std::shared_ptr<Fonction> fct = std::make_shared<Fonction>(
+																					std::make_shared<FonctionSignature>( *( static_cast< FonctionSignature* >($1))));
+												$$ = new DeclarationFonction(std::make_shared<FonctionSignature>( *( static_cast< FonctionSignature* >($1) )), fct, currentContext);
+												delete $1;
+												}
     ;
     
-larg : larg COMMA arg                               {std::cout << "larg : larg , arg "<< std::endl;}
-    | larg COMMA type                               {std::cout << "larg : larg , type "<< std::endl;}
+larg : larg COMMA arg                               {$$->addArgument(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($3))));
+														delete $3;}
+    | larg COMMA type                               {$$->addArgument(std::make_shared<VariableSignature>("", *$3));
+    													delete $3;}
     | larg COMMA type LEFT_BRACKET RIGHT_BRACKET    {std::cout << "larg : larg , type [ ] "<< std::endl;}
-    | arg                                           {std::cout << "larg : arg "<< std::endl;}
-    | type                                          {std::cout << "larg : type "<< std::endl;}
+    | arg                                           {$$ = new LArguments(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )));
+    													delete $1;}
+    | type                                          {$$ = new LArguments(std::make_shared<VariableSignature>("", *$1));
+    													delete $1;}
     | type LEFT_BRACKET RIGHT_BRACKET               {std::cout << "larg : type[] "<< std::endl;}
     ;
-arg : sigvar                                {std::cout << "arg : sigvar "<< std::endl;}
+arg : sigvar                                {$$ = $1;}
     | sigvar LEFT_BRACKET RIGHT_BRACKET     {std::cout << "arg : sigvar[] "<< std::endl;}
     ;
     
@@ -168,10 +201,11 @@ sigvar : type ID {$$ = new VariableSignature($2, *$1);
 					delete $1;}
 	;
 	
-sigfonc : type ID                           {std::cout << "sigfonc : type ID "<< std::endl;} // TODO
-    | VOID ID                               {std::cout << "sigfonc : void ID "<< std::endl;} // TODO
-    | type LEFT_BRACKET RIGHT_BRACKET ID    {std::cout << "sigfonc : type [] ID"<< std::endl;} // TODO
-    | ID                                    {std::cout << "sigfonc : ID "<< std::endl;} // TODO
+sigfonc : type ID LEFT_PARENTHESIS          {$$ = new FonctionSignature($2, *$1);
+												delete $1;} // TODO
+    | VOID ID LEFT_PARENTHESIS                              {$$ = new FonctionSignature($2);} 
+    | type LEFT_BRACKET RIGHT_BRACKET ID LEFT_PARENTHESIS   {std::cout << "sigfonc : type [] ID"<< std::endl;} // TODO
+    | ID LEFT_PARENTHESIS                                   {$$ = new FonctionSignature($1);} 
     ;
 
 /* ===== INSTRUCTIONS INTERIEURES ===== */
@@ -184,10 +218,11 @@ close_context : RIGHT_BRACES {currentContext = currentContext->getMother();}
 bloc : open_context seqint close_context    {$$ = new Block(currentContext, std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($2) )));}
     ;
 
-seqint : seqint iint {$$->addInstruction(make_shared_instr($2)); delete $2;} // TODO
-	|  seqint declvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;} // TODO
-	| SEMICOLON {$$->addInstruction(std::make_shared<ComposedInstruction>());} // TODO
-	| /*epsilon*/ {$$ = new SequenceInstruction();} // TODO
+seqint : seqint iint {$$->addInstruction(make_shared_instr($2)); delete $2;} 
+	|  seqint declvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;}
+	| seqint declfonc {$$->addInstruction(make_shared_instr($2)); delete $2;} 
+	| SEMICOLON {$$->addInstruction(std::make_shared<ComposedInstruction>());} 
+	| /*epsilon*/ {$$ = new SequenceInstruction();} 
 	;
 	
 iint : iintcomp SEMICOLON {$$ = $1;}
