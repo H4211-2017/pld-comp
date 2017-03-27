@@ -5,7 +5,7 @@
 #include <string>
 #include <exception>
 
-#include "VariableScope.h"
+#include "Instruction/VariableScope.h"
 #include "FonctionScope.h"
 
 namespace AST{	

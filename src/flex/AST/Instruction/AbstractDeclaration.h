@@ -1,28 +1,23 @@
-#ifndef VARIABLEDECLARATION_H
-#define VARIABLEDECLARATION_H
+#ifndef ABSTRACTDECLARATION_H
+#define ABSTRACTDECLARATION_H
 
 #include "Instruction.h"
-#include "AbstractExpression.h"
 #include "VariableSignature.h"
 #include "Scope.h"
 
 namespace AST {
-    class VariableDeclaration : public AbstractInstruction
+    class AbstractDeclaration : public AbstractInstruction
     {
     public:
-        VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<Scope> scope);
-        
-        VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
+        AbstractDeclaration(std::string name, std::shared_ptr<VariableSignature> signature);
         
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
-        virtual void buildIR() const;
         
     protected:
         std::shared_ptr<VariableSignature> sig;
-        std::shared_ptr<AbstractExpression> val;
     };
 }
 
 
-#endif // VARIABLEDECLARATION_H
+#endif // ABSTRACTDECLARATION_H

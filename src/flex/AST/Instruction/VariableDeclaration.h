@@ -1,13 +1,12 @@
 #ifndef VARIABLEDECLARATION_H
 #define VARIABLEDECLARATION_H
 
-#include "Instruction/AbstractInstruction.h"
+#include "AbstractDeclaration.h"
 #include "AbstractExpression.h"
-#include "VariableSignature.h"
 #include "Scope.h"
 
 namespace AST {
-    class VariableDeclaration : public AbstractInstruction
+    class VariableDeclaration : public AbstractDeclaration
     {
     public:
         VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<Scope> scope);
@@ -19,10 +18,8 @@ namespace AST {
         virtual void buildIR() const;
         
     protected:
-        std::shared_ptr<VariableSignature> sig;
         std::shared_ptr<AbstractExpression> val;
     };
 }
-
 
 #endif // VARIABLEDECLARATION_H
