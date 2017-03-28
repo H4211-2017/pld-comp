@@ -107,7 +107,8 @@ std::shared_ptr<FunctionSignature> Function::getSignature() const
 void Function::printTree(int tabulationNumber) const
 {
 	AbstractNode::printTree(tabulationNumber);
-	std::cout << std::endl;
+    std::cout << "| Name function : " << sig->getIdentifiant() << std::endl;
+
 	sig->printTree(tabulationNumber + 1);
 	if(args != nullptr)
 	{

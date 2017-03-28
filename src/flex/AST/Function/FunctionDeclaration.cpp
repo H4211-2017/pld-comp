@@ -16,8 +16,9 @@ void FunctionDeclaration::printTree(int tabulationNumber) const
     AbstractNode::printTree(tabulationNumber);
 
     std::cout << std::endl;
-    if(this->fct != nullptr)
+    if(this->fct != nullptr) {
         this->fct->printTree(tabulationNumber + 1);
+    }
 
 
 }

@@ -17,7 +17,6 @@ FunctionSignature::FunctionSignature(std::string identifiant, Type type)
 void FunctionSignature::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
-
 }
 
 Value FunctionSignature::evaluate() const

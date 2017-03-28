@@ -72,19 +72,22 @@ void AbstractNode::printTree(int tabulationNumber) const
 
     switch (value.getValue().first) {
     case INT_32:
-        std::cout << "Int_32 ";
+        std::cout << "TYPE : Int_32 ";
         break;
     case INT_64:
-        std::cout << "Int_64 ";
+        std::cout << "TYPE : Int_64 ";
         break;
     case CHAR:
-        std::cout << "Char ";
+        std::cout << "TYPE : Char ";
+        break;
+    case ERROR:
+        std::cout << "TYPE : Error ";
         break;
     default:
-        std::cerr << "ERROR ";//"AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;
+        std::cerr << "ERROR AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;
         break;
     }
 
-    std::cout << name << " ";
+    std::cout << "| Node name : " << name << " ";
 }
 

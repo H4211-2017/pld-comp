@@ -25,7 +25,7 @@ void Variable::noLongerDeclaration()
 void Variable::printTree(int tabulationNumber) const
 {
 	AbstractNode::printTree(tabulationNumber);
-	std::cout << std::endl;
+    std::cout << "| Name variable : " << sig->getIdentifiant() << std::endl;
 	sig->printTree(tabulationNumber + 1);
 }
 
