@@ -11,8 +11,6 @@ namespace AST
 		
 	public:
 		AbstractStructure(std::string name);
-		AbstractStructure(std::string name, Value value);
-		AbstractStructure(std::string name, Type type, long int value);
 	};
 
 }

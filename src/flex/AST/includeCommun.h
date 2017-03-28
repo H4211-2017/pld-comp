@@ -22,5 +22,8 @@
 #include "Variable.h"
 #include "LParametres.h"
 #include "AppelFonction.h"
+#include "AbstractStructure.h"
+#include "IfStructure.h"
+#include "ElseStructure.h"
 
 #endif
