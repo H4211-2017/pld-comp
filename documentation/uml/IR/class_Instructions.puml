@@ -1,0 +1,34 @@
+@startuml
+
+package IR {
+    package Instructions {
+        abstract class AbstractInstruction
+        abstract class AbstractMemoryAccess
+        abstract class AbstractOperator
+        class Call
+        class ReadArrayValue
+        class SetValue
+        
+        abstract class AbstractMemoryAccess
+        class ReadFromMemory
+        class WriteToMemory
+        
+        abstract class AbstractOperator
+        class OperatorBigger
+        
+    }
+}
+
+AbstractInstruction <|-- AbstractMemoryAccess
+AbstractInstruction <|-- Abstract AbstractOperator
+AbstractInstruction <|-- Call
+AbstractInstruction <|-- ReadArrayValue
+AbstractInstruction <|-- SetValue
+
+AbstractMemoryAccess <|-- ReadFromMemory
+AbstractMemoryAccess <|-- WriteToMemory
+
+AbstractOperator <|-- OperatorBigger
+note on link : All other operator \n are subclasses of \n AbstractOperator 
+@enduml
+
