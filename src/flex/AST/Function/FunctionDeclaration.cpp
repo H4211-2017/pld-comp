@@ -4,9 +4,9 @@
 using namespace AST;
 
 FunctionDeclaration::FunctionDeclaration(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Function> function, std::shared_ptr<Scope> scope)
-	: AbstractInstruction("DeclarationFonction")
+    : AbstractInstruction("FunctionDeclaration")
 {
-	sig = signature;
+    sig = signature;
     fct = function;
     scope->declareFunction(sig->getIdentifiant(), fct);
 }
@@ -14,21 +14,20 @@ FunctionDeclaration::FunctionDeclaration(std::shared_ptr<FunctionSignature> sign
 void FunctionDeclaration::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
-    
-	std::cout << std::endl;
-	if(this->fct != nullptr)
-		this->fct->printTree(tabulationNumber + 1);
-    
+
+    std::cout << std::endl;
+    if(this->fct != nullptr)
+        this->fct->printTree(tabulationNumber + 1);
+
 
 }
 
 Value FunctionDeclaration::evaluate() const
 {
-	return Value();
+    return Value();
 }
 
 void FunctionDeclaration::buildIR() const
 {
 
 }
-

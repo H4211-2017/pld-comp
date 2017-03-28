@@ -8,18 +8,18 @@
 namespace AST
 {
 
-	class Scope;
-	
+    class Scope;
+
     class FunctionDeclaration : public AbstractInstruction
-	{
-	public:
-        
+    {
+    public:
+
         FunctionDeclaration(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Function> function, std::shared_ptr<Scope> scope);
-        
+
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
         virtual void buildIR() const;
-        
+
     protected:
         std::shared_ptr<FunctionSignature> sig;
         std::shared_ptr<LArguments> args;
