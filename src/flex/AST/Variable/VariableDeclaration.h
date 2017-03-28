@@ -4,6 +4,7 @@
 #include "Instruction/AbstractInstruction.h"
 #include "AbstractExpression.h"
 #include "VariableSignature.h"
+#include "Variable.h"
 #include "Scope.h"
 
 namespace AST {
@@ -19,7 +20,7 @@ namespace AST {
         virtual void buildIR() const;
         
     protected:
-        std::shared_ptr<VariableSignature> sig;
+        std::shared_ptr<Variable> var;
         std::shared_ptr<AbstractExpression> val;
     };
 }

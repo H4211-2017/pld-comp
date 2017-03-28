@@ -23,15 +23,14 @@ namespace AST{
 		
 		virtual ~Scope();
 		
-        void declareVariable(std::string identifiant, std::shared_ptr<AbstractExpression> );
-        std::shared_ptr<AbstractExpression> findVariable(std::string identifiant);
-        void setVariable(std::string identifiant, std::shared_ptr<AbstractExpression> newExpr);
+        void declareVariable(std::string identifiant, std::shared_ptr<Variable> );
+        std::shared_ptr<Variable> findVariable(std::string identifiant);
         
         void declareFonction(std::string identifiant, std::shared_ptr<Fonction> decl);
-        std::shared_ptr<Fonction> findFonction(std::string identifiant, std::shared_ptr<ListArg> args);
-        void setFonction(std::string name, std::shared_ptr<Fonction> decl);
+        std::shared_ptr<Fonction> findFonction(std::string identifiant);
 		
 		std::shared_ptr<Scope> getMother() const;
+		void setMother(std::shared_ptr<Scope> newMother);
 		
 	protected:
 		//tree hierarchy

@@ -47,13 +47,11 @@ namespace AST{
 		
         void declareFonction(std::string name, std::shared_ptr<Fonction> decl);
 		
-        std::shared_ptr<Fonction> findFonction(std::string identifiant, std::shared_ptr<ListArg> args);
-        
-        void setFonction(std::string identifiant, std::shared_ptr<Fonction> decl);
+        std::shared_ptr<Fonction> findFonction(std::string identifiant);
 		
 	protected:
 		
-		std::multimap<std::string, std::shared_ptr<Fonction> > scope; // TODO définir la clé de la map
+		std::map<std::string, std::shared_ptr<Fonction> > scope; 
     };
 }
 

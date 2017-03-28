@@ -46,6 +46,8 @@ namespace AST{
         virtual void buildIR(/*std::shared_ptr<IR::BasicBloc>*/) const = 0;
         
         virtual std::shared_ptr<Scope> getScope() const;
+        
+        virtual void setParentScope(std::shared_ptr<Scope> scope);
 
         Value getValue() const;
         

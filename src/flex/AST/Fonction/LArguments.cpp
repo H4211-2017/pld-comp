@@ -1,5 +1,9 @@
 #include "LArguments.h"
 
+#include "Scope.h"
+#include "Variable.h"
+#include "LParametres.h"
+
 #include <iostream>
 #include <sstream>
 
@@ -40,6 +44,11 @@ void LArguments::addArgument(std::shared_ptr<VariableSignature> argument)
 		
 bool LArguments::compareSignature(std::shared_ptr<LArguments> larg2) const
 {
+	if(larg2 == nullptr)
+	{
+		return false;
+	}
+
 	for(int i = 0; i < arguments.size(); i++)
 	{
 		if(arguments[i]->getValue().getValue().first != larg2->arguments[i]->getValue().getValue().first)
@@ -51,9 +60,31 @@ bool LArguments::compareSignature(std::shared_ptr<LArguments> larg2) const
 	return true;
 }
 
+bool LArguments::checkParametres(std::shared_ptr<LParametres> params) const
+{
+	if(params == nullptr)
+	{
+		
+		return arguments.size() == 0;
+	}
+	if(arguments.size() == params->parametres.size())
+	{
+		return true;
+	}
+	return false;
+}
+
 bool LArguments::isForDeclaration() const
 {	
 	return isForDecl;
+}
+
+void LArguments::prepareScope(std::shared_ptr<Scope> scope) const
+{
+	for(int i=0; i < arguments.size(); i++)
+	{
+		scope->declareVariable(arguments[i]->getIdentifiant(), std::make_shared<Variable>(arguments[i], false));
+	}
 }
 		
 Value LArguments::evaluate() const

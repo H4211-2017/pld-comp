@@ -10,6 +10,12 @@ IDExpression::IDExpression(std::string id,  std::shared_ptr<Scope> scope)
 	val = scope->findVariable(id);
 	
 	this->setType(val->getValue().getValue().first);
+	
+	if(val->isDeclaration())
+	{
+		std::cerr << "ERROR : Variable is declared but not defined. " << std::endl;
+		exit(-1);
+	}
 }
 
 

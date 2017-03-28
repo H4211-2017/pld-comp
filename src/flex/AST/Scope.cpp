@@ -8,7 +8,6 @@ using namespace AST;
 Scope::Scope()
 	: mother(nullptr)
 {
-
 }
 
 Scope::Scope( std::shared_ptr<Scope> Scope )
@@ -16,12 +15,16 @@ Scope::Scope( std::shared_ptr<Scope> Scope )
 	mother = Scope;
 }
 
-void Scope::declareVariable(std::string identifiant, std::shared_ptr<AbstractExpression> variable)
+Scope::~Scope()
+{
+}
+
+void Scope::declareVariable(std::string identifiant, std::shared_ptr<Variable> variable)
 {
     vScope.declareVariable(identifiant, variable);
 }
 
-std::shared_ptr<AbstractExpression> Scope::findVariable(std::string identifiant)
+std::shared_ptr<Variable> Scope::findVariable(std::string identifiant)
 {
 	try
 	{
@@ -33,7 +36,10 @@ std::shared_ptr<AbstractExpression> Scope::findVariable(std::string identifiant)
 	catch(UndeclaredIdException& e)
 	{
 		try {
-			return mother->findVariable(identifiant);
+			if(mother != nullptr)
+				return mother->findVariable(identifiant);
+			else
+				throw UndeclaredIdException();
 		}
 		catch(std::exception& e)
 		{
@@ -43,37 +49,18 @@ std::shared_ptr<AbstractExpression> Scope::findVariable(std::string identifiant)
 	}	
 }
 
-void Scope::setVariable(std::string identifiant, std::shared_ptr<AbstractExpression> newExpr)
-{
-	try
-	{
-		vScope.setVariable(identifiant, newExpr);
-		
-		
-	}
-	catch(UndeclaredIdException& e)
-	{
-		try {
-			return mother->setVariable(identifiant, newExpr);
-		}
-		catch(std::exception& e)
-		{
-			std::cerr << "VariableScope::setVariable ( " << identifiant << " ) : "<< e.what() << std::endl;
-			exit(-1);
-		}	
-	}	
-}
+
 
 void Scope::declareFonction(std::string identifiant, std::shared_ptr<Fonction> decl)
 {
     fScope.declareFonction(identifiant, decl);
 }
 
-std::shared_ptr<Fonction> Scope::findFonction(std::string identifiant, std::shared_ptr<ListArg> args)
+std::shared_ptr<Fonction> Scope::findFonction(std::string identifiant)
 {
 	try
 	{
-		auto val = fScope.findFonction(identifiant, args);
+		auto val = fScope.findFonction(identifiant);
 		return val;
 		
 		
@@ -81,7 +68,10 @@ std::shared_ptr<Fonction> Scope::findFonction(std::string identifiant, std::shar
 	catch(UndeclaredIdFctException& e)
 	{
 		try {
-			return mother->findFonction(identifiant, args);
+			if(mother != nullptr)
+				return mother->findFonction(identifiant);
+			else
+				throw UndeclaredIdFctException();
 		}
 		catch(std::exception& e)
 		{
@@ -90,27 +80,14 @@ std::shared_ptr<Fonction> Scope::findFonction(std::string identifiant, std::shar
 		}	
 	}	
 }
-
-void Scope::setFonction(std::string identifiant, std::shared_ptr<Fonction> decl)
-{
-	try
-	{
-		fScope.setFonction(identifiant, decl);
-		
-		
-	}
-	catch(UndeclaredIdFctException& e)
-	{
-		std::cerr << "FonctionScope::setFonction ( " << identifiant << " ) : "<< e.what() << std::endl;
-		exit(-1);
-			
-	}	
-}
-        
+    
 std::shared_ptr<Scope> Scope::getMother() const
 {
 	return mother;
 }
 
-Scope::~Scope()
-{}
+void Scope::setMother(std::shared_ptr<Scope> newMother)
+{
+	mother = newMother;
+}
+
