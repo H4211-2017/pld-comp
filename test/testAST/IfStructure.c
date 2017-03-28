@@ -3,7 +3,7 @@ int32_t main(void)
     int32_t a = 0;
     if (a == 0)
     {
-        a = 1;
+        a = 1, a = 3;
     }
     else
     {
@@ -11,7 +11,5 @@ int32_t main(void)
     }
     
     if (a == 1)
-    {
         a = 3;
-    }
 }

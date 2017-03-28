@@ -1,5 +1,5 @@
-#ifndef ABSTRACTINSTRUCTION_H
-#define ABSTRACTINSTRUCTION_H
+#ifndef AST_ABSTRACTINSTRUCTION_H
+#define AST_ABSTRACTINSTRUCTION_H
 
 #include "AbstractNode.h"
 #include <memory>
@@ -18,4 +18,4 @@ namespace AST
 
 std::shared_ptr<AST::AbstractInstruction> make_shared_instr(AST::AbstractInstruction* ptr);
 
-#endif // ABSTRACTINSTRUCTION_H
+#endif // AST_ABSTRACTINSTRUCTION_H

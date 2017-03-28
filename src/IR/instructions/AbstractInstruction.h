@@ -1,5 +1,5 @@
-#ifndef ABSTRACTINSTRUCTION_H
-#define ABSTRACTINSTRUCTION_H
+#ifndef IR_ABSTRACTINSTRUCTION_H
+#define IR_ABSTRACTINSTRUCTION_H
 
 #include <string>
 #include <vector>
@@ -29,13 +29,13 @@ namespace IR {
 
     protected:
         std::vector<sh_Register> readRegisterVector;
-        std::vector<sh_Register> wroteRegisterVector;
+        std::vector<sh_Register> writtenRegisterVector;
 
         std::vector<sh_AbstractData> readMemoryVector;
-        std::vector<sh_AbstractData> wroteMemoryVector;
+        std::vector<sh_AbstractData> writtenMemoryVector;
     };
 
     typedef std::shared_ptr<AbstractInstruction> sh_AbsInstruction;
 }
 
-#endif // ABSTRACTINSTRUCTION_H
+#endif // IR_ABSTRACTINSTRUCTION_H

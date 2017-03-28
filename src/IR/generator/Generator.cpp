@@ -11,7 +11,7 @@ Generator::Generator()
 
 /**
  * @brief Generator::getNewUnusedMemmory get a raw memory
- * @param memoryType type of the wanted memory (it size)
+ * @param memoryType type of the wanted memory (its size)
  * @return the new memory
  */
 sh_Memory Generator::getNewUnusedMemmory(Type memoryType) const

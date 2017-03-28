@@ -14,7 +14,7 @@ std::vector<sh_Register > AbstractInstruction::getReadRegisterVector() const
 
 std::vector<sh_Register > AbstractInstruction::getWroteRegisterVector() const
 {
-    return wroteRegisterVector;
+    return writtenRegisterVector;
 }
 
 std::vector<sh_AbstractData> AbstractInstruction::getReadMemoryVector() const
@@ -24,7 +24,7 @@ std::vector<sh_AbstractData> AbstractInstruction::getReadMemoryVector() const
 
 std::vector<sh_AbstractData> AbstractInstruction::getWroteMemoryVector() const
 {
-    return wroteMemoryVector;
+    return writtenMemoryVector;
 }
 
 std::string AbstractInstruction::toAsm(int asmType) const
