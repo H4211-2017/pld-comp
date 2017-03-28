@@ -34,7 +34,7 @@ BISON_FLAGS=-v -d
 STRUCT=Structure/AbstractStructure.cpp  Structure/ElseStructure.cpp  Structure/IfStructure.cpp
 FCT=Function/FunctionScope.cpp Function/FunctionSignature.cpp Function/LArguments.cpp Function/Function.cpp Function/FunctionDeclaration.cpp Function/FunctionCall.cpp Function/LParametres.cpp
 VAR=Variable/VariableSignature.cpp Variable/VariableDeclaration.cpp Variable/VariableScope.cpp Variable/Variable.cpp
-EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp Expression/IDExpression.cpp Expression/AffectationExpression.cpp Expression/UnaryExpression.cpp
+EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp Expression/IDExpression.cpp Expression/AffectationExpression.cpp Expression/UnaryExpression.cpp Expression/ParenthesisExpression.cpp
 INSTR=Instruction/AbstractInstruction.cpp Instruction/ComposedInstruction.cpp Instruction/SequenceInstruction.cpp Instruction/UnitInstruction.cpp
 SRC_AST_NOPATH =$(EXPR) $(INSTR) $(FCT) $(VAR) $(STRUCT) AbstractNode.cpp Block.cpp Value.cpp  Scope.cpp 
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)

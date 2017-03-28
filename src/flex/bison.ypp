@@ -288,7 +288,7 @@ iintcomp : iintcomp COMMA expr {$$ = $1;
 			delete $1;}
 	;
 
-/* ===== EXPRESSION ===== */ // TODO
+/* ===== EXPRESSION ===== */
 
 uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UMINUS);
 						delete $2;}
@@ -302,7 +302,7 @@ uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::U
 	
 expr : INT_VAL {$$ = new Constant($1);}
 	| ID {$$ = new IDExpression($1, currentContext);}
-	| uoperation {$$ = $1;} // TODO
+	| uoperation {$$ = $1;} 
 	| affectation {$$ = $1;}
 	| appelfonc {$$ = $1;}
 	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
@@ -359,7 +359,7 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr MOD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new Constant($2->evaluate().getValue().second); delete $2;} // TODO rajouter constructeur pour constante
+	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new ParenthesisExpression(make_shared_instr($2)); delete $2;} // TODO rajouter constructeur pour constante
 	;
 
 /* ===== AFFECTATION ===== */ // TODO

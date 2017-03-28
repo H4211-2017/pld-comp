@@ -13,6 +13,7 @@
 #include "Expression/AddExpression.h"
 #include "Expression/IDExpression.h"
 #include "Expression/AffectationExpression.h"
+#include "Expression/ParenthesisExpression.h"
 
 #include "Instruction/ComposedInstruction.h"
 #include "Instruction/UnitInstruction.h"
