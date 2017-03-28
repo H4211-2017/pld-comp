@@ -3,7 +3,7 @@
 
 #include "AbstractNode.h"
 
-#include "AbstractInstruction.h"
+#include "Instruction/AbstractInstruction.h"
 
 namespace AST
 {
@@ -13,8 +13,6 @@ namespace AST
 	public:
 		ElseStructure();
 		ElseStructure(std::shared_ptr<AbstractInstruction> intInstruction);
-		ElseStructure(Value value, std::shared_ptr<AbstractInstruction> intInstruction);
-		ElseStructure(Type type, long int value, std::shared_ptr<AbstractInstruction> intInstruction);
 						
 		virtual Value evaluate() const;
 

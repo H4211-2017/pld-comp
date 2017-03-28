@@ -72,7 +72,8 @@ Thumbs.db
 
 #Qt Creator file
 *.user
-
+CMakeCache.txt
+CMakeFiles/*
 #Bison/Flex file
 *.tab.hpp
 *.tab.cpp

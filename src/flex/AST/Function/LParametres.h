@@ -15,7 +15,7 @@ namespace AST
 	public:
 		
 		friend class LArguments;
-		friend class Fonction;
+        friend class Function;
 		
 		LParametres();
 		LParametres(std::shared_ptr<AbstractExpression> parametre);

@@ -51,16 +51,16 @@ std::shared_ptr<Variable> Scope::findVariable(std::string identifiant)
 
 
 
-void Scope::declareFonction(std::string identifiant, std::shared_ptr<Fonction> decl)
+void Scope::declareFunction(std::string identifiant, std::shared_ptr<Function> decl)
 {
-    fScope.declareFonction(identifiant, decl);
+    fScope.declareFunction(identifiant, decl);
 }
 
-std::shared_ptr<Fonction> Scope::findFonction(std::string identifiant)
+std::shared_ptr<Function> Scope::findFunction(std::string identifiant)
 {
 	try
 	{
-		auto val = fScope.findFonction(identifiant);
+        auto val = fScope.findFunction(identifiant);
 		return val;
 		
 		
@@ -69,7 +69,7 @@ std::shared_ptr<Fonction> Scope::findFonction(std::string identifiant)
 	{
 		try {
 			if(mother != nullptr)
-				return mother->findFonction(identifiant);
+                return mother->findFunction(identifiant);
 			else
 				throw UndeclaredIdFctException();
 		}

@@ -8,7 +8,7 @@
 
 namespace AST{	
 	
-	class Fonction;
+	class Function;
 	class ListArg;
 	
 	class UndeclaredIdFctException: public std::exception
@@ -36,22 +36,22 @@ namespace AST{
 	};
 
 
-	class FonctionScope
+    class FunctionScope
 	{
 	public:
-		FonctionScope();
+        FunctionScope();
 		
-		FonctionScope( const FonctionScope & fonctionScope); // declared but not defined
+        FunctionScope( const FunctionScope & fonctionScope); // declared but not defined
 		
-		virtual ~FonctionScope();
+        virtual ~FunctionScope();
 		
-        void declareFonction(std::string name, std::shared_ptr<Fonction> decl);
+        void declareFunction(std::string name, std::shared_ptr<Function> decl);
 		
-        std::shared_ptr<Fonction> findFonction(std::string identifiant);
+        std::shared_ptr<Function> findFunction(std::string identifiant);
 		
 	protected:
 		
-		std::map<std::string, std::shared_ptr<Fonction> > scope; 
+		std::map<std::string, std::shared_ptr<Function> > scope; 
     };
 }
 
