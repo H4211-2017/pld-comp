@@ -290,23 +290,20 @@ iintcomp : iintcomp COMMA expr {$$ = $1;
 
 /* ===== EXPRESSION ===== */ // TODO
 
-uoperation : SUB expr {$$ = new Constant(-1*($2->evaluate().getValue().second));
+uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UMINUS);
 						delete $2;}
-	| ADD expr {$$ = new Constant(($2->evaluate().getValue().second));
+	| ADD expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UPLUS);
 				delete $2;}
-	| BIT_NOT expr {$$ = new Constant(~($2->evaluate().getValue().second));
+	| BIT_NOT expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UBITN);
 					delete $2;}
-	| BOOL_NOT expr {long int i = 0;
-					if($2->evaluate().getValue().second == 0)
-							i = 1;
-					$$ = new Constant(i);
+	| BOOL_NOT expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UBOOLN);
 					delete $2;}
 	;
 	
 expr : INT_VAL {$$ = new Constant($1);}
 	| ID {$$ = new IDExpression($1, currentContext);}
 	| uoperation {$$ = $1;} // TODO
-	| affectation {$$ = $1;} // TODO
+	| affectation {$$ = $1;}
 	| appelfonc {$$ = $1;}
 	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
