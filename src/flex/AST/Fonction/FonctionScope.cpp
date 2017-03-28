@@ -21,17 +21,17 @@ void FonctionScope::declareFonction(std::string name, std::shared_ptr<Fonction> 
 	{
 		scope.insert(std::pair<std::string, std::shared_ptr<Fonction> >(name, decl));
 	}
-	else if(it->second->compareArguments(decl) && (it->second->isDeclaration() == decl->isDeclaration() || decl->isDeclaration()))
+	else if(it->second->compareArguments(decl) && !decl->isDeclaration())
+	{
+		scope.erase(it);
+		scope.insert(std::pair<std::string, std::shared_ptr<Fonction> >(name, decl));
+	}
+	else
 	{
 		std::stringstream ss;
 		ss << "ERROR : multiple declaration of function <" << name << ">";
 		std::cerr << ss.str() << std::endl;
 		exit(-1);
-	} 
-	else if(it->second->compareArguments(decl) && !decl->isDeclaration())
-	{
-		scope.erase(it);
-		scope.insert(std::pair<std::string, std::shared_ptr<Fonction> >(name, decl));
 	}
     
 }
