@@ -37,12 +37,16 @@ std::shared_ptr<Scope> currentContext = global;
 	AST::VariableDeclaration* declVar;
 	enum AST::OPAffect* op;
 	
-        AST::FunctionSignature* signatureF;
+    AST::FunctionSignature* signatureF;
 	AST::LArguments* fctArguments;
-        AST::FunctionDeclaration* declFct;
-        AST::Function* fct;
+    AST::FunctionDeclaration* declFct;
+    AST::Function* fct;
 	AST::LParametres* params;
-        AST::FunctionCall * appelFct;
+	AST::FunctionCall * appelFct;
+	
+	AST::AbstractStructure* struc;
+	AST::IfStructure* ifStruc;
+	AST::ElseStructure* elseStruc;
 }
 
 %token SHARP LINE_COM BEGIN_COM END_COM 
@@ -85,6 +89,10 @@ std::shared_ptr<Scope> currentContext = global;
 %type <params> lparam
 %type <appelFct> appelfonc
 
+%type <struc> structure
+%type <ifStruc> structureif
+%type <elseStruc> structureelse
+
 %left ID
 %right AFFECT AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD AFFECT_BIT_LEFT_SHIFT AFFECT_BIT_RIGHT_SHIFT AFFECT_BIT_AND AFFECT_BIT_XOR AFFECT_BIT_OR
 %left COMMA
@@ -113,7 +121,7 @@ std::shared_ptr<Scope> currentContext = global;
 
 
 
-/* ===== GENERAL ===== */ // TODO
+/* ===== GENERAL ===== */ 
 
 programme : liext mainbody liext {std::cout << std::endl << "==== PRINT TREE ====" << std::endl; $1->printTree(0); $2->printTree(0); $3->printTree(0); delete $1; delete $2; delete $3;}
     ;
@@ -158,7 +166,7 @@ iext : deffonc    {$$ = $1;}
     | declvar   {$$ = $1;}
     ;
 
-/* ===== FONCTIONS ======*/ // TODO
+/* ===== FONCTIONS ======*/ 
 
 declfonc : debutfonc SEMICOLON  {$$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
 									delete $1;
@@ -200,11 +208,12 @@ larg : larg COMMA arg                               {$$->addArgument(std::make_s
     | type LEFT_BRACKET RIGHT_BRACKET               {std::cout << "larg : type[] "<< std::endl;}
     ;
 arg : sigvar                                {$$ = $1;}
-    | sigvar LEFT_BRACKET RIGHT_BRACKET     {std::cout << "arg : sigvar[] "<< std::endl;}
+    | sigvar LEFT_BRACKET RIGHT_BRACKET     {std::cout << "arg : sigvar[] "<< std::endl;} // TODO
     ;
     
-appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {$$ = new FunctionCall($1, nullptr, currentContext);}
+appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {$$ = new FunctionCall($1, std::make_shared<LParametres>(), currentContext);}
     | ID LEFT_PARENTHESIS lparam RIGHT_PARENTHESIS  {$$ = new FunctionCall($1, std::make_shared<LParametres>( *( static_cast< LParametres* >($3) )), currentContext);
+
     													delete $3;}
     ;
 lparam : lparam COMMA expr    {$$->addParametre(make_shared_expr($3));}
@@ -212,7 +221,7 @@ lparam : lparam COMMA expr    {$$->addParametre(make_shared_expr($3));}
     ;
     
 
-/* ===== VARIABLES ===== */ // TODO
+/* ===== VARIABLES ===== */ 
 
 declvar : sigvar AFFECT expr    {$$ = new VariableDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), make_shared_expr($3), currentContext);
 									delete $1;
@@ -251,6 +260,7 @@ bloc : open_context seqint close_context    {$$ = new Block(currentContext, std:
 seqint : seqint iint {$$->addInstruction(make_shared_instr($2)); delete $2;} 
 	|  seqint declvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;}
 	| seqint declfonc {$$->addInstruction(make_shared_instr($2)); delete $2;} 
+	| seqint deffonc {$$->addInstruction(make_shared_instr($2)); delete $2;}
 	| SEMICOLON {$$->addInstruction(std::make_shared<ComposedInstruction>());} 
 	| /*epsilon*/ {$$ = new SequenceInstruction();} 
 	;
@@ -261,7 +271,8 @@ iint : iintcomp SEMICOLON {$$ = $1;}
 
 iintunit : bloc {$$ = new UnitInstruction(std::make_shared<Block>( *( static_cast< Block* >($1) ) ));
 					delete $1;}
-	| structure {$$ = new UnitInstruction();} // TODO
+	| structure {$$ = new UnitInstruction(make_shared_struct($1));
+					delete $1;} 
 	| ireturn {$$ = new UnitInstruction();} // TODO
 	;
 	
@@ -279,23 +290,20 @@ iintcomp : iintcomp COMMA expr {$$ = $1;
 
 /* ===== EXPRESSION ===== */ // TODO
 
-uoperation : SUB expr {$$ = new Constant(-1*($2->evaluate().getValue().second));
+uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UMINUS);
 						delete $2;}
-	| ADD expr {$$ = new Constant(($2->evaluate().getValue().second));
+	| ADD expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UPLUS);
 				delete $2;}
-	| BIT_NOT expr {$$ = new Constant(~($2->evaluate().getValue().second));
+	| BIT_NOT expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UBITN);
 					delete $2;}
-	| BOOL_NOT expr {long int i = 0;
-					if($2->evaluate().getValue().second == 0)
-							i = 1;
-					$$ = new Constant(i);
+	| BOOL_NOT expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UBOOLN);
 					delete $2;}
 	;
 	
 expr : INT_VAL {$$ = new Constant($1);}
 	| ID {$$ = new IDExpression($1, currentContext);}
 	| uoperation {$$ = $1;} // TODO
-	| affectation {$$ = $1;} // TODO
+	| affectation {$$ = $1;}
 	| appelfonc {$$ = $1;}
 	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
@@ -376,16 +384,22 @@ signeaff : AFFECT {$$ = new OPAffect(OPAffect::AFFECT);}
 
 /* ===== STRUCTURES ===== */  // TODO
 
-structure :  structureif { }
+structure :  structureif {$$ = $1;}
 	| structurewhile { } 
 	| structurefor { } 
 	;
 
-structureif : IF LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint structureelse { std::cout << "IF ( IIntComp ) IInt "<< std::endl;}
+structureif : IF LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint structureelse {$$ = new IfStructure(std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),
+																										make_shared_instr($5),
+																										std::make_shared<ElseStructure>( *( static_cast< ElseStructure* >($6) )));
+																				delete $3;
+																				delete $5;
+																				delete $6;}
 	;
 
-structureelse : ELSE iint {std::cout << "ELSE IInt "<< std::endl;}
-	| /*epsilon*/ {}
+structureelse : ELSE iint {$$ = new ElseStructure(make_shared_instr($2)); 
+							delete $2;}
+	| /*epsilon*/ {$$ = new ElseStructure();}
 	;
 	
 structurewhile : WHILE LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint {std::cout << "WHILE ( IIntComp ) IInt "<< std::endl;}

@@ -3,6 +3,7 @@
 #include <stdexcept>
 
 #include "AbstractExpression.h"
+#include "UnaryExpression.h"
 #include "AddExpression.h"
 #include "IDExpression.h"
 #include "AffectationExpression.h"
@@ -42,6 +43,10 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 	if( name == "Constant")
 	{
 		return std::make_shared<Constant>( *( static_cast< Constant* >(ptr) ) );
+	}
+	else if(name == "UnaryExpression")
+	{
+		return std::make_shared<UnaryExpression>( *( static_cast< UnaryExpression* >(ptr) ) );
 	}
 	else if(name == "AddExpression")
 	{
