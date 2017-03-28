@@ -13,8 +13,15 @@ namespace AST {
     class SequenceInstruction : public AbstractNode
     {
     public:
+        /**
+         * @brief SequenceInstruction construtor, creates and empty sequence of instruction
+         */
         SequenceInstruction();
 
+        /**
+         * @brief addInstruction
+         * @param instruction th instrution to add
+         */
         void addInstruction(std::shared_ptr<AbstractInstruction> instruction);
 
         virtual void printTree(int tabulationNumber) const;

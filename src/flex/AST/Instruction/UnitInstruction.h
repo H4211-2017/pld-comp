@@ -12,7 +12,16 @@ namespace AST {
     {
     public:
         UnitInstruction();
+        /**
+         * @brief UnitInstruction construcor, if this instruction is a block
+         * @param block the bloc that is the main component of this instruction
+         */
         UnitInstruction(std::shared_ptr<Block> block);
+
+        /**
+         * @brief UnitInstruction construcor, if this instruction is a controle structure (if, while, for...)
+         * @param struc the struc that is the main component of this instruction
+         */
         UnitInstruction(std::shared_ptr<AbstractStructure> struc);
         
         

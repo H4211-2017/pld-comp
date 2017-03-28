@@ -14,9 +14,21 @@ namespace AST {
         Block();
         Block(std::shared_ptr<Scope>, std::shared_ptr<SequenceInstruction>);
 
-        virtual void printTree(int tabulationNumber) const;
+        /**
+         * @brief evaluate the Value of this node
+         * @return the value of its sequence of instructions
+         */
         virtual Value evaluate() const;
-        virtual void buildIR() const;
+        /**
+         * @brief printTree the tree corresponding to this node and it's children.
+         * @param tabulationNumber the tabulation of this current node.
+         */
+        virtual void printTree(int tabulationNumber) const;
+
+        /**
+         * @brief buildIR builds the blocs corresponding to this bloc, and it's children.
+         */
+        virtual void buildIR(/*std::shared_ptr<IR::BasicBloc>*/) const;
 
         virtual std::shared_ptr<Scope> getScope() const;
      
