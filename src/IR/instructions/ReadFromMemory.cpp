@@ -2,7 +2,10 @@
 
 using namespace IR;
 
-ReadFromMemory::ReadFromMemory(sh_Memory from, sh_Register to)
+ReadFromMemory::ReadFromMemory(sh_Memory from, sh_Register to):
+    AbstractMemoryAcess(),
+    source(from),
+    destination(to)
 {
     this->readMemoryVector.push_back(from);
     this->writtenRegisterVector.push_back(to);

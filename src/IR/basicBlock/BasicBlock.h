@@ -21,7 +21,6 @@ namespace IR {
 
         void pushInstructionBack(sh_AbsInstruction instruction);
         void pushInstructionBack(std::list<sh_AbsInstruction> instructions);
-        void setEndConditionnalInstruction(sh_AbsInstruction conditionalInstruction);
 
         void insertNextBlockTrue(sh_BasicBlock basicBlock);
         void insertNextBlockFalse(sh_BasicBlock basicBlock);
@@ -29,17 +28,30 @@ namespace IR {
         void setNextBlockTrue(sh_BasicBlock basicBlock);
         void setNextBlockFalse(sh_BasicBlock basicBlock);
 
-        void updateChildsPreviousBlock();
+        void updateChildPreviousBlock();
+
+        void printIr(std::ostream& os) const;
+
+        std::string getName() const;
+        void setName(const std::string &value);
+
+        sh_BasicBlock getNextBlockTrue() const;
+        sh_BasicBlock getNextBlockFalse() const;
 
     private:
+
+
+    private:
+        std::string name;
         std::list<sh_AbsInstruction> instructionsList;
-        sh_AbsInstruction endConditionnalInstruction;
         sh_BasicBlock nextBlockTrue;
         sh_BasicBlock nextBlockFalse;
         std::list<sh_BasicBlock> previousBlocks;
 
         std::map<std::string, sh_AbstractData> usedMemory;
         std::map<std::string, sh_Register> usedRegister;
+
+        sh_Register conditionnalJumpRegister;
     };
 
 
