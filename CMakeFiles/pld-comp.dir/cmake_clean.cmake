@@ -48,6 +48,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o"
+  "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o"

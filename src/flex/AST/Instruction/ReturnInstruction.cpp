@@ -14,10 +14,10 @@ ReturnInstruction::ReturnInstruction(std::shared_ptr<ComposedInstruction> compos
 
 }
 
-virtual void printTree(int tabulationNumber) const
+void ReturnInstruction::printTree(int tabulationNumber) const
 {
 	AbstractNode::printTree(tabulationNumber);
-	if(composedInstruction.getCount())
+	if(composedInstruction != nullptr)
 	{
 		composedInstruction->printTree(tabulationNumber + 1);
 	}
@@ -25,9 +25,9 @@ virtual void printTree(int tabulationNumber) const
 	std::cout << ";" << std::endl;
 }
 
-virtual Value evaluate() const
+Value ReturnInstruction::evaluate() const
 {
-	if(composedInstruction.getCount())
+	if(composedInstruction != nullptr)
 	{
 		composedInstruction->evaluate(); // verify if determinist function
 	}
@@ -38,7 +38,7 @@ virtual Value evaluate() const
 }
 
 // TODO
-virtual void buildIR() const
+void ReturnInstruction::buildIR() const
 {
 		
 }

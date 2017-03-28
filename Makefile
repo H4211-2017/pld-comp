@@ -1767,6 +1767,30 @@ src/flex/AST/Structure/ElseStructure.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.s
 .PHONY : src/flex/AST/Structure/ElseStructure.cpp.s
 
+src/flex/AST/Structure/ForStructure.o: src/flex/AST/Structure/ForStructure.cpp.o
+.PHONY : src/flex/AST/Structure/ForStructure.o
+
+# target to build an object file
+src/flex/AST/Structure/ForStructure.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o
+.PHONY : src/flex/AST/Structure/ForStructure.cpp.o
+
+src/flex/AST/Structure/ForStructure.i: src/flex/AST/Structure/ForStructure.cpp.i
+.PHONY : src/flex/AST/Structure/ForStructure.i
+
+# target to preprocess a source file
+src/flex/AST/Structure/ForStructure.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.i
+.PHONY : src/flex/AST/Structure/ForStructure.cpp.i
+
+src/flex/AST/Structure/ForStructure.s: src/flex/AST/Structure/ForStructure.cpp.s
+.PHONY : src/flex/AST/Structure/ForStructure.s
+
+# target to generate assembly for a file
+src/flex/AST/Structure/ForStructure.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.s
+.PHONY : src/flex/AST/Structure/ForStructure.cpp.s
+
 src/flex/AST/Structure/IfStructure.o: src/flex/AST/Structure/IfStructure.cpp.o
 .PHONY : src/flex/AST/Structure/IfStructure.o
 
@@ -2223,6 +2247,9 @@ help:
 	@echo "... src/flex/AST/Structure/ElseStructure.o"
 	@echo "... src/flex/AST/Structure/ElseStructure.i"
 	@echo "... src/flex/AST/Structure/ElseStructure.s"
+	@echo "... src/flex/AST/Structure/ForStructure.o"
+	@echo "... src/flex/AST/Structure/ForStructure.i"
+	@echo "... src/flex/AST/Structure/ForStructure.s"
 	@echo "... src/flex/AST/Structure/IfStructure.o"
 	@echo "... src/flex/AST/Structure/IfStructure.i"
 	@echo "... src/flex/AST/Structure/IfStructure.s"

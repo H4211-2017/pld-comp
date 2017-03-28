@@ -2,7 +2,7 @@
 #define UNITINSTRUCTION_H
 
 #include "AbstractInstruction.h"
-#include "UnitStructure/AbstractStructure.h"
+#include "Structure/AbstractStructure.h"
 #include "Block.h"
 #include "AbstractNode.h"
 

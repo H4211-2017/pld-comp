@@ -1119,9 +1119,32 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o.provides: CMa
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o
 
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: src/flex/AST/Structure/ForStructure.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_49)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/ForStructure.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/ForStructure.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/ForStructure.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o
+
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o: src/flex/AST/Structure/IfStructure.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_49)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_50)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/IfStructure.cpp
 
@@ -1144,7 +1167,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o.provides.build:
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o: src/flex/AST/Structure/WhileStructure.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_50)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_51)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/WhileStructure.cpp
 
@@ -1167,7 +1190,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.provides.bui
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o: src/flex/AST/Value.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_51)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_52)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Value.cpp
 
@@ -1190,7 +1213,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o.provides.build: CMakeFiles/pld-
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o: src/flex/AST/Variable/Array.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_52)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_53)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/Array.cpp
 
@@ -1213,7 +1236,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o.provides.build: CMakeF
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o: src/flex/AST/Variable/ArrayDeclaration.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_53)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_54)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/ArrayDeclaration.cpp
 
@@ -1236,7 +1259,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o.provides.bu
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o: src/flex/AST/Variable/Variable.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_54)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_55)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/Variable.cpp
 
@@ -1259,7 +1282,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o.provides.build: CMa
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o: src/flex/AST/Variable/VariableDeclaration.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_55)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_56)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/VariableDeclaration.cpp
 
@@ -1282,7 +1305,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o.provides
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o: src/flex/AST/Variable/VariableScope.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_56)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_57)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/VariableScope.cpp
 
@@ -1305,7 +1328,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o.provides.build
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o: src/flex/AST/Variable/VariableSignature.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_57)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_58)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/VariableSignature.cpp
 
@@ -1328,7 +1351,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o.provides.b
 
 CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o: src/IR/basicBlock/BasicBlock.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_58)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_59)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/basicBlock/BasicBlock.cpp
 
@@ -1351,7 +1374,7 @@ CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o.provides.build: CMake
 
 CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o: src/IR/data/AbstractData.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_59)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_60)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/data/AbstractData.cpp
 
@@ -1374,7 +1397,7 @@ CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o: src/IR/data/Memory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_60)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_61)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/data/Memory.cpp
 
@@ -1397,7 +1420,7 @@ CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o.provides.build: CMakeFiles/pld-
 
 CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o: src/IR/data/Register.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_61)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_62)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/data/Register.cpp
 
@@ -1420,7 +1443,7 @@ CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o.provides.build: CMakeFiles/pl
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o: src/IR/instructions/AbstractInstruction.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_62)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_63)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/AbstractInstruction.cpp
 
@@ -1443,7 +1466,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o.provides.b
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o: src/IR/instructions/AbstractMemoryAcess.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_63)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_64)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/AbstractMemoryAcess.cpp
 
@@ -1466,7 +1489,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o.provides.b
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o: src/IR/instructions/AbstractOperator.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_64)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_65)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/AbstractOperator.cpp
 
@@ -1489,7 +1512,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o.provides.buil
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o: src/IR/instructions/Jump.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_65)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_66)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/Jump.cpp
 
@@ -1512,7 +1535,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o: src/IR/instructions/Label.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_66)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_67)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/Label.cpp
 
@@ -1535,7 +1558,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o: src/IR/instructions/OperatorBigger.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_67)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_68)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorBigger.cpp
 
@@ -1558,7 +1581,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o.provides.build:
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o: src/IR/instructions/OperatorBiggerOrEqual.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_68)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_69)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorBiggerOrEqual.cpp
 
@@ -1581,7 +1604,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o.provides
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o: src/IR/instructions/OperatorDiv.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_69)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_70)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorDiv.cpp
 
@@ -1604,7 +1627,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o.provides.build: CM
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o: src/IR/instructions/OperatorEquals.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_70)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_71)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorEquals.cpp
 
@@ -1627,7 +1650,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o.provides.build:
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o: src/IR/instructions/OperatorMinus.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_71)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_72)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorMinus.cpp
 
@@ -1650,7 +1673,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o.provides.build: 
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o: src/IR/instructions/OperatorModulus.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_72)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_73)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorModulus.cpp
 
@@ -1673,7 +1696,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o.provides.build
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o: src/IR/instructions/OperatorMult.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_73)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_74)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorMult.cpp
 
@@ -1696,7 +1719,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o.provides.build: C
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o: src/IR/instructions/OperatorPlus.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_74)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_75)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorPlus.cpp
 
@@ -1719,7 +1742,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o.provides.build: C
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o: src/IR/instructions/OperatorSmaller.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_75)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_76)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorSmaller.cpp
 
@@ -1742,7 +1765,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o.provides.build
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o: src/IR/instructions/OperatorSmallerOrEqual.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_76)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_77)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorSmallerOrEqual.cpp
 
@@ -1765,7 +1788,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o.provide
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o: src/IR/instructions/ReadFromMemory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_77)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_78)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/ReadFromMemory.cpp
 
@@ -1788,7 +1811,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o.provides.build:
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o: src/IR/instructions/WriteToMemory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_78)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_79)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/WriteToMemory.cpp
 
@@ -1811,7 +1834,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o.provides.build: 
 
 CMakeFiles/pld-comp.dir/src/main.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/main.cpp.o: src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_79)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_80)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/main.cpp.o -c /home/pllefebvre/git/pld-comp/src/main.cpp
 
@@ -1834,7 +1857,7 @@ CMakeFiles/pld-comp.dir/src/main.cpp.o.provides.build: CMakeFiles/pld-comp.dir/s
 
 CMakeFiles/pld-comp.dir/bison.tab.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/bison.tab.cpp.o: bison.tab.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_80)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_81)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/bison.tab.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/bison.tab.cpp.o -c /home/pllefebvre/git/pld-comp/bison.tab.cpp
 
@@ -1858,7 +1881,7 @@ CMakeFiles/pld-comp.dir/bison.tab.cpp.o.provides.build: CMakeFiles/pld-comp.dir/
 CMakeFiles/pld-comp.dir/lex.yy.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/lex.yy.cpp.o: lex.yy.cpp
 CMakeFiles/pld-comp.dir/lex.yy.cpp.o: bison.tab.hpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_81)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_82)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/lex.yy.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/lex.yy.cpp.o -c /home/pllefebvre/git/pld-comp/lex.yy.cpp
 
@@ -1927,6 +1950,7 @@ pld__comp_OBJECTS = \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o" \
@@ -2010,6 +2034,7 @@ bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.c
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o
@@ -2098,6 +2123,7 @@ CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Instructi
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o.requires

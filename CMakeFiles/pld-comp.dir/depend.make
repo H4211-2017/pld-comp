@@ -627,6 +627,15 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o: src/flex/AST
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o: src/flex/AST/Instruction/AbstractInstruction.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o: src/flex/AST/Value.h
 
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: src/flex/AST/Structure/AbstractStructure.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: src/flex/AST/Structure/ForStructure.cpp
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: src/flex/AST/Structure/ForStructure.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: src/flex/AST/AbstractNode.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: src/flex/AST/Expression/AbstractExpression.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: src/flex/AST/Instruction/AbstractInstruction.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: src/flex/AST/Instruction/ComposedInstruction.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o: src/flex/AST/Value.h
+
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o: src/flex/AST/Structure/AbstractStructure.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o: src/flex/AST/Structure/IfStructure.cpp
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o: src/flex/AST/Structure/IfStructure.h
