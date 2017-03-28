@@ -9,8 +9,13 @@ CMakeFiles/pld-comp.dir/bison.tab.cpp.o
  src/flex/AST/Expression/AbstractExpression.h
  src/flex/AST/Expression/AddExpression.h
  src/flex/AST/Expression/AffectationExpression.h
+ src/flex/AST/Expression/BitwiseAndExpression.h
+ src/flex/AST/Expression/BitwiseOrExpression.h
+ src/flex/AST/Expression/BitwiseShiftLeftExpression.h
+ src/flex/AST/Expression/BitwiseXorExpression.h
  src/flex/AST/Expression/Constant.h
  src/flex/AST/Expression/IDExpression.h
+ src/flex/AST/Expression/ModuloExpression.h
  src/flex/AST/Expression/ParenthesisExpression.h
  src/flex/AST/Expression/UnaryExpression.h
  src/flex/AST/Function/Function.h
@@ -43,8 +48,13 @@ CMakeFiles/pld-comp.dir/lex.yy.cpp.o
  src/flex/AST/Expression/AbstractExpression.h
  src/flex/AST/Expression/AddExpression.h
  src/flex/AST/Expression/AffectationExpression.h
+ src/flex/AST/Expression/BitwiseAndExpression.h
+ src/flex/AST/Expression/BitwiseOrExpression.h
+ src/flex/AST/Expression/BitwiseShiftLeftExpression.h
+ src/flex/AST/Expression/BitwiseXorExpression.h
  src/flex/AST/Expression/Constant.h
  src/flex/AST/Expression/IDExpression.h
+ src/flex/AST/Expression/ModuloExpression.h
  src/flex/AST/Expression/ParenthesisExpression.h
  src/flex/AST/Expression/UnaryExpression.h
  src/flex/AST/Function/Function.h
@@ -221,8 +231,13 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AbstractExpression.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AddExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AffectationExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseAndExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseOrExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseShiftLeftExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseXorExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/Constant.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IDExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/ModuloExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/UnaryExpression.h
  src/flex/AST/AbstractNode.h
  src/flex/AST/Block.h
@@ -260,6 +275,13 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.o
  src/flex/AST/Variable/Variable.h
  src/flex/AST/Variable/VariableScope.h
  src/flex/AST/Variable/VariableSignature.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AndExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AndExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/ArrayExpression.cpp
@@ -272,38 +294,66 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o
  src/flex/AST/Variable/Variable.h
  src/flex/AST/Variable/VariableScope.h
  src/flex/AST/Variable/VariableSignature.h
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
- /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseAndExpression.cpp
- /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseAndExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseAndExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseAndExpression.h
  src/flex/AST/AbstractNode.h
  src/flex/AST/Value.h
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
- /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseOrExpression.cpp
- /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseOrExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseOrExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseOrExpression.h
  src/flex/AST/AbstractNode.h
  src/flex/AST/Value.h
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
- /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp
- /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseShiftLeftExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseShiftLeftExpression.h
  src/flex/AST/AbstractNode.h
  src/flex/AST/Value.h
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
- /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseXorExpression.cpp
- /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseXorExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseXorExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseXorExpression.h
  src/flex/AST/AbstractNode.h
  src/flex/AST/Value.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/Constant.cpp
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/Constant.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrLeftExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrLeftExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrRightExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrRightExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DivExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DivExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/EqExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/EqExpression.h
  src/flex/AST/AbstractNode.h
  src/flex/AST/Value.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o
@@ -317,11 +367,60 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o
  src/flex/AST/Variable/Variable.h
  src/flex/AST/Variable/VariableScope.h
  src/flex/AST/Variable/VariableSignature.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrLeftExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrLeftExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrRightExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrRightExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IneqExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IneqExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfEqExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfEqExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/ModuloExpression.cpp
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/ModuloExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/MultExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/MultExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/OrExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/OrExpression.h
  src/flex/AST/AbstractNode.h
  src/flex/AST/Value.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o
@@ -334,6 +433,27 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o
  src/flex/AST/Scope.h
  src/flex/AST/Value.h
  src/flex/AST/Variable/VariableScope.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SubExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SubExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupEqExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupEqExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractBinaryExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupExpression.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupExpression.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Value.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AbstractExpression.h
  /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/UnaryExpression.cpp
@@ -447,7 +567,6 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o
  src/flex/AST/Instruction/AbstractInstruction.h
  src/flex/AST/Instruction/SequenceInstruction.h
  src/flex/AST/Scope.h
- src/flex/AST/Structure/AbstractStructure.h
  src/flex/AST/Value.h
  src/flex/AST/Variable/Variable.h
  src/flex/AST/Variable/VariableDeclaration.h
@@ -459,6 +578,14 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/ComposedInstruction.h
  src/flex/AST/AbstractNode.h
  src/flex/AST/Expression/AbstractExpression.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/ReturnInstruction.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/ReturnInstruction.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Expression/AbstractExpression.h
+ src/flex/AST/Instruction/AbstractInstruction.h
+ src/flex/AST/Instruction/ComposedInstruction.h
  src/flex/AST/Value.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/AbstractInstruction.h
@@ -475,7 +602,6 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o
  src/flex/AST/Function/FunctionScope.h
  src/flex/AST/Instruction/SequenceInstruction.h
  src/flex/AST/Scope.h
- src/flex/AST/Structure/AbstractStructure.h
  src/flex/AST/Value.h
  src/flex/AST/Variable/VariableScope.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o
@@ -510,6 +636,15 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o
  src/flex/AST/Instruction/AbstractInstruction.h
  src/flex/AST/Instruction/ComposedInstruction.h
  src/flex/AST/Structure/ElseStructure.h
+ src/flex/AST/Value.h
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/AbstractStructure.h
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/WhileStructure.cpp
+ /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/WhileStructure.h
+ src/flex/AST/AbstractNode.h
+ src/flex/AST/Expression/AbstractExpression.h
+ src/flex/AST/Instruction/AbstractInstruction.h
+ src/flex/AST/Instruction/ComposedInstruction.h
  src/flex/AST/Value.h
 CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o
  /home/pllefebvre/git/pld-comp/src/flex/AST/Value.cpp
@@ -574,8 +709,13 @@ CMakeFiles/pld-comp.dir/src/main.cpp.o
  src/flex/AST/Expression/AbstractExpression.h
  src/flex/AST/Expression/AddExpression.h
  src/flex/AST/Expression/AffectationExpression.h
+ src/flex/AST/Expression/BitwiseAndExpression.h
+ src/flex/AST/Expression/BitwiseOrExpression.h
+ src/flex/AST/Expression/BitwiseShiftLeftExpression.h
+ src/flex/AST/Expression/BitwiseXorExpression.h
  src/flex/AST/Expression/Constant.h
  src/flex/AST/Expression/IDExpression.h
+ src/flex/AST/Expression/ModuloExpression.h
  src/flex/AST/Expression/ParenthesisExpression.h
  src/flex/AST/Expression/UnaryExpression.h
  src/flex/AST/Function/Function.h

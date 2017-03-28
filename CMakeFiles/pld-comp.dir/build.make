@@ -199,9 +199,32 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.o.prov
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.o
 
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o: src/flex/AST/Expression/AndExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AndExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AndExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/AndExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o
+
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o: src/flex/AST/Expression/ArrayExpression.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/ArrayExpression.cpp
 
@@ -222,101 +245,101 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o.provides: 
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o: src/flex/AST/Expression/BitewiseAndExpression.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_10)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseAndExpression.cpp
-
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseAndExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.i
-
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseAndExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.s
-
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o.requires:
-.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o.requires
-
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o.provides.build
-.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o.provides
-
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o
-
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o: src/flex/AST/Expression/BitewiseOrExpression.cpp
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o: src/flex/AST/Expression/BitwiseAndExpression.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_11)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseOrExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseAndExpression.cpp
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseOrExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.i
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseAndExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.i
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseOrExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.s
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseAndExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.s
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o.requires:
-.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o.requires
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o.provides.build
-.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o.provides
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o.provides
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o: src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o: src/flex/AST/Expression/BitwiseOrExpression.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_12)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseOrExpression.cpp
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseOrExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.i
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseOrExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.s
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o.requires:
-.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o.requires
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o.provides.build
-.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o.provides
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o.provides
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o: src/flex/AST/Expression/BitewiseXorExpression.cpp
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o: src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_13)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseXorExpression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseXorExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.i
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.i
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitewiseXorExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.s
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.s
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o.requires:
-.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o.requires
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o.requires
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o.provides.build
-.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o.provides
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o.provides
 
-CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o: src/flex/AST/Expression/BitwiseXorExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_14)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseXorExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseXorExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/BitwiseXorExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o: src/flex/AST/Expression/Constant.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_14)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/Constant.cpp
 
@@ -337,9 +360,101 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o.provides: CMakeFi
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o
 
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o: src/flex/AST/Expression/DecrLeftExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_16)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrLeftExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrLeftExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrLeftExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o: src/flex/AST/Expression/DecrRightExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_17)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrRightExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrRightExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DecrRightExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o: src/flex/AST/Expression/DivExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_18)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DivExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DivExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/DivExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o: src/flex/AST/Expression/EqExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_19)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/EqExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/EqExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/EqExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o
+
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o: src/flex/AST/Expression/IDExpression.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IDExpression.cpp
 
@@ -360,9 +475,124 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o.provides: CMa
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o
 
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o: src/flex/AST/Expression/IncrLeftExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_21)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrLeftExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrLeftExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrLeftExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o: src/flex/AST/Expression/IncrRightExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_22)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrRightExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrRightExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IncrRightExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o: src/flex/AST/Expression/IneqExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_23)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IneqExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IneqExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/IneqExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o: src/flex/AST/Expression/InfEqExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_24)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfEqExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfEqExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfEqExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o: src/flex/AST/Expression/InfExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_25)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/InfExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o
+
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o: src/flex/AST/Expression/ModuloExpression.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_26)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/ModuloExpression.cpp
 
@@ -383,9 +613,55 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o.provides:
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o
 
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o: src/flex/AST/Expression/MultExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_27)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/MultExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/MultExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/MultExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o: src/flex/AST/Expression/OrExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_28)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/OrExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/OrExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/OrExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o
+
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o: src/flex/AST/Expression/ParenthesisExpression.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_29)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/ParenthesisExpression.cpp
 
@@ -406,9 +682,78 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o.prov
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o
 
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o: src/flex/AST/Expression/SubExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_30)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SubExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SubExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SubExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o: src/flex/AST/Expression/SupEqExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_31)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupEqExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupEqExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupEqExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o: src/flex/AST/Expression/SupExpression.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_32)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupExpression.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupExpression.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/SupExpression.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o
+
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o: src/flex/AST/Expression/UnaryExpression.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_33)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Expression/UnaryExpression.cpp
 
@@ -431,7 +776,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o.provides.b
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.o: src/flex/AST/Function/Function.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_34)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Function/Function.cpp
 
@@ -454,7 +799,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.o.provides.build: CMa
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.o: src/flex/AST/Function/FunctionCall.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_35)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Function/FunctionCall.cpp
 
@@ -477,7 +822,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.o.provides.build:
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionDeclaration.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionDeclaration.cpp.o: src/flex/AST/Function/FunctionDeclaration.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_21)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_36)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionDeclaration.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionDeclaration.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Function/FunctionDeclaration.cpp
 
@@ -500,7 +845,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionDeclaration.cpp.o.provides
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionScope.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionScope.cpp.o: src/flex/AST/Function/FunctionScope.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_22)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_37)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionScope.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionScope.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Function/FunctionScope.cpp
 
@@ -523,7 +868,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionScope.cpp.o.provides.build
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionSignature.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionSignature.cpp.o: src/flex/AST/Function/FunctionSignature.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_38)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionSignature.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionSignature.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Function/FunctionSignature.cpp
 
@@ -546,7 +891,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionSignature.cpp.o.provides.b
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/LArguments.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/LArguments.cpp.o: src/flex/AST/Function/LArguments.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_24)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_39)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Function/LArguments.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Function/LArguments.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Function/LArguments.cpp
 
@@ -569,7 +914,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Function/LArguments.cpp.o.provides.build: C
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.o: src/flex/AST/Function/LParametres.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_25)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_40)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Function/LParametres.cpp
 
@@ -592,7 +937,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.o.provides.build: 
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o: src/flex/AST/Instruction/AbstractInstruction.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_26)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_41)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/AbstractInstruction.cpp
 
@@ -615,7 +960,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o.provi
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o: src/flex/AST/Instruction/ComposedInstruction.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_27)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_42)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/ComposedInstruction.cpp
 
@@ -636,9 +981,32 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o.provi
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o
 
+CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o: src/flex/AST/Instruction/ReturnInstruction.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_43)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/ReturnInstruction.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/ReturnInstruction.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/ReturnInstruction.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o
+
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o: src/flex/AST/Instruction/SequenceInstruction.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_28)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_44)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/SequenceInstruction.cpp
 
@@ -661,7 +1029,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o.provi
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o: src/flex/AST/Instruction/UnitInstruction.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_29)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_45)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Instruction/UnitInstruction.cpp
 
@@ -684,7 +1052,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o.provides.
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o: src/flex/AST/Scope.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_30)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_46)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Scope.cpp
 
@@ -707,7 +1075,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o.provides.build: CMakeFiles/pld-
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o: src/flex/AST/Structure/AbstractStructure.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_31)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_47)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/AbstractStructure.cpp
 
@@ -730,7 +1098,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o.provides.
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o: src/flex/AST/Structure/ElseStructure.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_32)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_48)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/ElseStructure.cpp
 
@@ -753,7 +1121,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o.provides.buil
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o: src/flex/AST/Structure/IfStructure.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_33)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_49)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/IfStructure.cpp
 
@@ -774,9 +1142,32 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o.provides: CMake
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o
 
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o: CMakeFiles/pld-comp.dir/flags.make
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o: src/flex/AST/Structure/WhileStructure.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_50)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/WhileStructure.cpp
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/WhileStructure.cpp > CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.i
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pllefebvre/git/pld-comp/src/flex/AST/Structure/WhileStructure.cpp -o CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.s
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.requires:
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.requires
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.provides: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.provides.build
+.PHONY : CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.provides
+
+CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.provides.build: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o
+
 CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o: src/flex/AST/Value.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_34)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_51)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Value.cpp
 
@@ -799,7 +1190,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o.provides.build: CMakeFiles/pld-
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o: src/flex/AST/Variable/Array.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_35)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_52)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/Array.cpp
 
@@ -822,7 +1213,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o.provides.build: CMakeF
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o: src/flex/AST/Variable/ArrayDeclaration.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_36)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_53)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/ArrayDeclaration.cpp
 
@@ -845,7 +1236,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o.provides.bu
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o: src/flex/AST/Variable/Variable.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_37)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_54)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/Variable.cpp
 
@@ -868,7 +1259,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o.provides.build: CMa
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o: src/flex/AST/Variable/VariableDeclaration.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_38)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_55)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/VariableDeclaration.cpp
 
@@ -891,7 +1282,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o.provides
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o: src/flex/AST/Variable/VariableScope.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_39)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_56)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/VariableScope.cpp
 
@@ -914,7 +1305,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o.provides.build
 
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o: src/flex/AST/Variable/VariableSignature.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_40)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_57)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o -c /home/pllefebvre/git/pld-comp/src/flex/AST/Variable/VariableSignature.cpp
 
@@ -937,7 +1328,7 @@ CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o.provides.b
 
 CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o: src/IR/basicBlock/BasicBlock.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_41)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_58)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/basicBlock/BasicBlock.cpp
 
@@ -960,7 +1351,7 @@ CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.o.provides.build: CMake
 
 CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o: src/IR/data/AbstractData.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_42)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_59)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/data/AbstractData.cpp
 
@@ -983,7 +1374,7 @@ CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o: src/IR/data/Memory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_43)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_60)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/data/Memory.cpp
 
@@ -1006,7 +1397,7 @@ CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.o.provides.build: CMakeFiles/pld-
 
 CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o: src/IR/data/Register.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_44)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_61)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/data/Register.cpp
 
@@ -1029,7 +1420,7 @@ CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.o.provides.build: CMakeFiles/pl
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o: src/IR/instructions/AbstractInstruction.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_45)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_62)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/AbstractInstruction.cpp
 
@@ -1052,7 +1443,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractInstruction.cpp.o.provides.b
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o: src/IR/instructions/AbstractMemoryAcess.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_46)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_63)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/AbstractMemoryAcess.cpp
 
@@ -1075,7 +1466,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractMemoryAcess.cpp.o.provides.b
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o: src/IR/instructions/AbstractOperator.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_47)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_64)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/AbstractOperator.cpp
 
@@ -1098,7 +1489,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.o.provides.buil
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o: src/IR/instructions/Jump.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_48)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_65)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/Jump.cpp
 
@@ -1121,7 +1512,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o: src/IR/instructions/Label.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_49)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_66)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/Label.cpp
 
@@ -1144,7 +1535,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o: src/IR/instructions/OperatorBigger.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_50)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_67)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorBigger.cpp
 
@@ -1167,7 +1558,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBigger.cpp.o.provides.build:
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o: src/IR/instructions/OperatorBiggerOrEqual.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_51)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_68)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorBiggerOrEqual.cpp
 
@@ -1190,7 +1581,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.o.provides
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o: src/IR/instructions/OperatorDiv.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_52)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_69)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorDiv.cpp
 
@@ -1213,7 +1604,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorDiv.cpp.o.provides.build: CM
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o: src/IR/instructions/OperatorEquals.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_53)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_70)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorEquals.cpp
 
@@ -1236,7 +1627,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorEquals.cpp.o.provides.build:
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o: src/IR/instructions/OperatorMinus.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_54)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_71)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorMinus.cpp
 
@@ -1259,7 +1650,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMinus.cpp.o.provides.build: 
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o: src/IR/instructions/OperatorModulus.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_55)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_72)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorModulus.cpp
 
@@ -1282,7 +1673,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorModulus.cpp.o.provides.build
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o: src/IR/instructions/OperatorMult.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_56)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_73)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorMult.cpp
 
@@ -1305,7 +1696,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorMult.cpp.o.provides.build: C
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o: src/IR/instructions/OperatorPlus.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_57)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_74)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorPlus.cpp
 
@@ -1328,7 +1719,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorPlus.cpp.o.provides.build: C
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o: src/IR/instructions/OperatorSmaller.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_58)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_75)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorSmaller.cpp
 
@@ -1351,7 +1742,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmaller.cpp.o.provides.build
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o: src/IR/instructions/OperatorSmallerOrEqual.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_59)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_76)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/OperatorSmallerOrEqual.cpp
 
@@ -1374,7 +1765,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.o.provide
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o: src/IR/instructions/ReadFromMemory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_60)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_77)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/ReadFromMemory.cpp
 
@@ -1397,7 +1788,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.o.provides.build:
 
 CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o: src/IR/instructions/WriteToMemory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_61)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_78)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o -c /home/pllefebvre/git/pld-comp/src/IR/instructions/WriteToMemory.cpp
 
@@ -1420,7 +1811,7 @@ CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.o.provides.build: 
 
 CMakeFiles/pld-comp.dir/src/main.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/src/main.cpp.o: src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_62)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_79)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/src/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/src/main.cpp.o -c /home/pllefebvre/git/pld-comp/src/main.cpp
 
@@ -1443,7 +1834,7 @@ CMakeFiles/pld-comp.dir/src/main.cpp.o.provides.build: CMakeFiles/pld-comp.dir/s
 
 CMakeFiles/pld-comp.dir/bison.tab.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/bison.tab.cpp.o: bison.tab.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_63)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_80)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/bison.tab.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/bison.tab.cpp.o -c /home/pllefebvre/git/pld-comp/bison.tab.cpp
 
@@ -1467,7 +1858,7 @@ CMakeFiles/pld-comp.dir/bison.tab.cpp.o.provides.build: CMakeFiles/pld-comp.dir/
 CMakeFiles/pld-comp.dir/lex.yy.cpp.o: CMakeFiles/pld-comp.dir/flags.make
 CMakeFiles/pld-comp.dir/lex.yy.cpp.o: lex.yy.cpp
 CMakeFiles/pld-comp.dir/lex.yy.cpp.o: bison.tab.hpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_64)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pllefebvre/git/pld-comp/CMakeFiles $(CMAKE_PROGRESS_81)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pld-comp.dir/lex.yy.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pld-comp.dir/lex.yy.cpp.o -c /home/pllefebvre/git/pld-comp/lex.yy.cpp
 
@@ -1496,15 +1887,30 @@ pld__comp_OBJECTS = \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AbstractExpression.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AddExpression.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o" \
-"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o" \
-"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o" \
-"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o" \
-"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.o" \
@@ -1515,12 +1921,14 @@ pld__comp_OBJECTS = \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o" \
+"CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o" \
 "CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o" \
@@ -1562,15 +1970,30 @@ bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AbstractBinaryExpr
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AbstractExpression.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AddExpression.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o
-bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o
-bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o
-bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o
-bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.o
@@ -1581,12 +2004,14 @@ bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Function/LArguments.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o
+bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o
 bin/pld-comp: CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o
@@ -1633,15 +2058,30 @@ CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expressio
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AbstractExpression.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AddExpression.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o.requires
-CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o.requires
-CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o.requires
-CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o.requires
-CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.o.requires
@@ -1652,12 +2092,14 @@ CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Function/
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.o.requires
+CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o.requires
 CMakeFiles/pld-comp.dir/requires: CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o.requires
