@@ -31,7 +31,7 @@ Value SequenceInstruction::evaluate() const
 }
 
 // TODO
-void SequenceInstruction::buildIR() const
+void SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

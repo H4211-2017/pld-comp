@@ -26,7 +26,7 @@ Value SupEqExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void SupEqExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void SupEqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

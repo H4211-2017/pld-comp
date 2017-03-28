@@ -23,7 +23,7 @@ Value BitwiseOrExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void BitwiseOrExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void BitwiseOrExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

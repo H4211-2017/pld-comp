@@ -22,7 +22,7 @@ Value Array::evaluate() const
 	return Value();
 }
 
-void Array::buildIR() const
+void Array::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

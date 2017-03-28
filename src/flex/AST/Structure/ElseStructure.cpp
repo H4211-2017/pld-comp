@@ -31,7 +31,7 @@ void ElseStructure::printTree(int tabulationNumber) const
 	}
 }
 
-void ElseStructure::buildIR(/*std::shared_ptr<IR::BasicBloc>*/) const
+void ElseStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	
+    this->intInstruction->buildIR(currentBasicBlock);
 }

@@ -24,7 +24,7 @@ Value FunctionSignature::evaluate() const
 
 }
 
-void FunctionSignature::buildIR() const
+void FunctionSignature::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

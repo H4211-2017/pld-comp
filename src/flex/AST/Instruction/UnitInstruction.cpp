@@ -55,7 +55,7 @@ Value UnitInstruction::evaluate() const
 }
 
 // TODO
-void UnitInstruction::buildIR() const
+void UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

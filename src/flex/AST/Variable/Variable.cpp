@@ -41,7 +41,7 @@ Value Variable::evaluate() const
 	return Value();
 }
 
-void Variable::buildIR() const
+void Variable::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

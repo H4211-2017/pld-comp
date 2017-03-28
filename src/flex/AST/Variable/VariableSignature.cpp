@@ -25,7 +25,7 @@ Value VariableSignature::evaluate() const
 
 }
 
-void VariableSignature::buildIR() const
+void VariableSignature::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

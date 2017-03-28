@@ -87,6 +87,6 @@ Value UnaryExpression::evaluate() const
 	return ret;
 }
 
-void UnaryExpression::buildIR() const
+void UnaryExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 }

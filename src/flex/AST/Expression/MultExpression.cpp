@@ -25,7 +25,7 @@ Value MultExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void MultExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void MultExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

@@ -39,7 +39,7 @@ Value ComposedInstruction::evaluate() const
 }
 
 // TODO
-void ComposedInstruction::buildIR() const
+void ComposedInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

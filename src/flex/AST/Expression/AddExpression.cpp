@@ -24,8 +24,7 @@ Value AddExpression::evaluate() const
 	return ret;
 }
 
-// TODO : create class CFG and replace comment below.
-void AddExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void AddExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	
 }

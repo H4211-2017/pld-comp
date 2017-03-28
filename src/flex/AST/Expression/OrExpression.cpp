@@ -25,7 +25,7 @@ Value OrExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void OrExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void OrExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

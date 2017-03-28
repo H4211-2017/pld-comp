@@ -28,7 +28,7 @@ void ParenthesisExpression::printTree(int tabulationNumber) const
 }
 
 // TODO : create class CFG and replace comment below.
-void ParenthesisExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void ParenthesisExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	
 }

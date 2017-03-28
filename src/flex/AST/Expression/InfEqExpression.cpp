@@ -26,7 +26,7 @@ Value InfEqExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void InfEqExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void InfEqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

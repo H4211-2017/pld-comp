@@ -36,7 +36,7 @@ Value VariableDeclaration::evaluate() const
 	return Value();
 }
 
-void VariableDeclaration::buildIR() const
+void VariableDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

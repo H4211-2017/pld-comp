@@ -16,7 +16,7 @@ public:
 
     virtual void printTree(int tabulationNumber) const;
 
-    virtual void buildIR(/*std::shared_ptr<IR::BasicBloc>*/) const;
+    virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
 protected:
     std::shared_ptr<ComposedInstruction> condition;

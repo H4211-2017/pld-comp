@@ -28,7 +28,7 @@ Value FunctionDeclaration::evaluate() const
     return Value();
 }
 
-void FunctionDeclaration::buildIR() const
+void FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

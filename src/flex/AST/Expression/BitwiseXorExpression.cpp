@@ -23,7 +23,7 @@ Value BitwiseXorExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void BitwiseXorExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void BitwiseXorExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

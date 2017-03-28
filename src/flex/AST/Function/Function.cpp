@@ -126,7 +126,7 @@ Value Function::evaluate() const
 	return Value();
 }
 
-void Function::buildIR() const
+void Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

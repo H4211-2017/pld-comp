@@ -24,7 +24,7 @@
 //}
 
 //// TODO : create class CFG and replace comment below.
-//void IncrLeftExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+//void IncrLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 //{
 
 //}

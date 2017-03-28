@@ -29,7 +29,7 @@ Value Constant::evaluate() const
     return value;
 }
  
-void Constant::buildIR() const
+void Constant::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	//TODO Complete IR
 }

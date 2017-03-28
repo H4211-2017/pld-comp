@@ -23,7 +23,7 @@ Value BitwiseShiftLeftExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void BitwiseShiftLeftExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void BitwiseShiftLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

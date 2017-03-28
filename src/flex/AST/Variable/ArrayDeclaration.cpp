@@ -22,7 +22,7 @@ Value ArrayDeclaration::evaluate() const
 	return Value();
 }
 
-void ArrayDeclaration::buildIR() const
+void ArrayDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

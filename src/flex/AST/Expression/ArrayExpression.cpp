@@ -29,7 +29,7 @@ void ArrayExpression::printTree(int tabulationNumber) const
 }
 
 // TODO : create class CFG and replace comment below.
-void ArrayExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void ArrayExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	
 }

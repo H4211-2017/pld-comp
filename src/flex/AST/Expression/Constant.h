@@ -1,5 +1,5 @@
-#ifndef CONSTANT_H
-#define CONSTANT_H
+#ifndef AST_CONSTANT_H
+#define AST_CONSTANT_H
 
 #include <memory>
 #include "AbstractExpression.h"
@@ -19,11 +19,11 @@ namespace AST{
          * or empty shared pointer else
          */
 
-        virtual void buildIR() const;
+        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
         virtual void printTree(int tabulationNumber) const;
 
     };
 
 }
-#endif // EXPRCONSTANT_H
+#endif // AST_CONSTANT_H

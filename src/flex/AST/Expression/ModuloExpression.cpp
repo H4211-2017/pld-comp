@@ -29,7 +29,7 @@ Value ModuloExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void ModuloExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void ModuloExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

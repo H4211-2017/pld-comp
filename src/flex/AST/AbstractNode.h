@@ -44,7 +44,7 @@ namespace AST{
         /**
          * @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
          */
-        virtual void buildIR(/*std::shared_ptr<IR::BasicBlock>*/) const = 0;
+        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const = 0;
         
         virtual std::shared_ptr<Scope> getScope() const;
         
