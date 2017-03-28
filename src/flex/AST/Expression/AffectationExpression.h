@@ -3,7 +3,7 @@
 
 #include <memory>
 #include "AbstractExpression.h"
-#include "Variable.h"
+#include "Variable/Variable.h"
 #include <string>
 
 namespace AST {

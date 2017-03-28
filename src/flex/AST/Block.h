@@ -4,7 +4,7 @@
 #include "Value.h"
 #include "Scope.h"
 #include "AbstractNode.h"
-#include "Instruction/SequenceInstruction.h"
+#include "SequenceInstruction.h"
 
 namespace AST {
 	

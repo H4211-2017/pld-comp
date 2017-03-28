@@ -3,11 +3,12 @@
 #include <stdexcept>
 
 #include "AbstractExpression.h"
+#include "UnaryExpression.h"
 #include "AddExpression.h"
 #include "IDExpression.h"
 #include "AffectationExpression.h"
 #include "Constant.h"
-#include "AppelFonction.h"
+#include "Function/FunctionCall.h"
 
 using namespace AST;
 
@@ -43,6 +44,10 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 	{
 		return std::make_shared<Constant>( *( static_cast< Constant* >(ptr) ) );
 	}
+	else if(name == "UnaryExpression")
+	{
+		return std::make_shared<UnaryExpression>( *( static_cast< UnaryExpression* >(ptr) ) );
+	}
 	else if(name == "AddExpression")
 	{
 		return std::make_shared<AddExpression>( *( static_cast< AddExpression* >(ptr) ) );
@@ -55,9 +60,9 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 	{
 		return std::make_shared<AffectationExpression>( *( static_cast< AffectationExpression* >(ptr) ) );
 	}
-	else if(name == "AppelFonction")
+    else if(name == "FunctionCall")
 	{
-		return std::make_shared<AppelFonction>( *( static_cast< AppelFonction* >(ptr) ) );
+        return std::make_shared<FunctionCall>( *( static_cast< FunctionCall* >(ptr) ) );
 	}
 	else
 	{	
