@@ -20,7 +20,7 @@ Value BitewiseAndExpression::evaluate() const
 {
         Value leftVal= this->leftMember->evaluate();
         Value rightVal = this->rightMember->evaluate();
-        Value ret(std::max(leftV.getValue().first, rightVal.getValue().first), leftV.getValue().second & rightVal.getValue().second);
+        Value ret(std::max(leftVal.getValue().first, rightVal.getValue().first), leftVal.getValue().second & rightVal.getValue().second);
         return ret;
 }
 

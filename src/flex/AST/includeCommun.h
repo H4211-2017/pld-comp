@@ -1,7 +1,6 @@
 #ifndef INCLUDE_COMMUN_H
 #define INCLUDE_COMMUN_H
 
-
 #include "AbstractNode.h"
 #include "Block.h"
 #include "Scope.h"

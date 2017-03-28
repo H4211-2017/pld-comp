@@ -5,7 +5,7 @@
 
 #include "Instruction/AbstractInstruction.h"
 #include "Instruction/ComposedInstruction.h"
-#include "ElseStructure.h"
+#include "Structure/ElseStructure.h"
 
 namespace AST
 {
