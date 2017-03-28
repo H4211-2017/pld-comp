@@ -1,20 +1,20 @@
-#include "BitewiseShiftLeftExpression.h"
+#include "BitwiseShiftLeftExpression.h"
 
 using namespace AST;
 
-BitewiseShiftLeftExpression::BitewiseShiftLeftExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
-    : AbstractBinaryExpression("BitewiseShiftLeftExpression", leftMember, rightMember)
+BitwiseShiftLeftExpression::BitwiseShiftLeftExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
+    : AbstractBinaryExpression("BitwiseShiftLeftExpression", leftMember, rightMember)
 {
         this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
 
 }
 
 
-BitewiseShiftLeftExpression::~BitewiseShiftLeftExpression() {
+BitwiseShiftLeftExpression::~BitwiseShiftLeftExpression() {
         // TODO Auto-generated destructor stub
 }
 
-Value BitewiseShiftLeftExpression::evaluate() const
+Value BitwiseShiftLeftExpression::evaluate() const
 {
         Value leftVal = this->leftMember->evaluate();
         Value rightVal = this->rightMember->evaluate();
@@ -23,12 +23,12 @@ Value BitewiseShiftLeftExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void BitewiseShiftLeftExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void BitwiseShiftLeftExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
 {
 
 }
 
-void BitewiseShiftLeftExpression::printOperator() const
+void BitwiseShiftLeftExpression::printOperator() const
 {
     std::cout << "<<";
 }

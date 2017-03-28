@@ -4,3 +4,4 @@ flex/src/AST
 flex/bin
 .
 flex/src
+src/flex/AST/Expression

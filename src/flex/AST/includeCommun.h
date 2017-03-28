@@ -1,7 +1,6 @@
 #ifndef INCLUDE_COMMUN_H
 #define INCLUDE_COMMUN_H
 
-
 #include "AbstractNode.h"
 #include "Block.h"
 #include "Scope.h"
@@ -14,6 +13,11 @@
 #include "Expression/IDExpression.h"
 #include "Expression/AffectationExpression.h"
 #include "Expression/ParenthesisExpression.h"
+#include "Expression/BitwiseAndExpression.h"
+#include "Expression/BitwiseOrExpression.h"
+#include "Expression/BitwiseShiftLeftExpression.h"
+#include "Expression/BitwiseXorExpression.h"
+#include "Expression/ModuloExpression.h"
 
 #include "Instruction/ComposedInstruction.h"
 #include "Instruction/UnitInstruction.h"

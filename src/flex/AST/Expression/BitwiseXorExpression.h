@@ -4,12 +4,12 @@
 #include "AbstractBinaryExpression.h"
 
 namespace AST{
-class BitewiseXorExpression : public AbstractBinaryExpression
+class BitwiseXorExpression : public AbstractBinaryExpression
 {
 public:
-    BitewiseXorExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
+    BitwiseXorExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
 
-        virtual ~BitewiseXorExpression();
+        virtual ~BitwiseXorExpression();
 
         virtual Value evaluate() const;
 
