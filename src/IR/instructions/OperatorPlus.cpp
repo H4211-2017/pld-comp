@@ -10,6 +10,17 @@ OperatorPlus::OperatorPlus(sh_Register resultRegister,
 
 }
 
+std::string OperatorPlus::toString() const
+{
+    std::string ret = "";
+    ret.append( destination->getName() );
+    ret.append( " = ");
+    ret.append( this->firstValue->getName() );
+    ret.append( " + ");
+    ret.append( this->secondValue->getName() );
+    return ret;
+}
+
 
 std::string OperatorPlus::toLinuxX86() const
 {
