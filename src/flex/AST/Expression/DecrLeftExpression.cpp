@@ -19,7 +19,7 @@ DecrLeftExpression::~DecrLeftExpression() {
 Value DecrLeftExpression::evaluate() const
 {
     Value right = this->rightMember->evaluate();
-    Value ret(right.getValue().first, ++right.getValue().second);
+    Value ret();
     return ret;
 }
 

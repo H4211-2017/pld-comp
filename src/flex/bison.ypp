@@ -308,10 +308,10 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| uoperation {$$ = $1;} 
 	| affectation {$$ = $1;}
 	| appelfonc {$$ = $1;}
-	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BOOL_OR expr {$$ = new OrExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_AND expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO 
+	| expr BOOL_AND expr {$$ = new AndExpression(make_shared_expr($1), make_shared_expr($3)); 
 								delete $1;
 								delete $3;}
 	| expr BIT_OR expr {$$ = new BitwiseOrExpression(make_shared_expr($1), make_shared_expr($3));
@@ -323,22 +323,22 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr BIT_AND expr {$$ = new BitwiseAndExpression(make_shared_expr($1), make_shared_expr($3)); 
 								delete $1;
 								delete $3;}
-	| expr BOOL_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BOOL_EQUAL expr {$$ = new EqExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_DIF expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BOOL_DIF expr {$$ = new IneqExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_LESS expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BOOL_LESS expr {$$ = new InfExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_GREATER expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BOOL_GREATER expr {$$ = new SupExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_LESS_OR_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BOOL_LESS_OR_EQUAL expr {$$ = new InfEqExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new SupEqExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
 	| expr BIT_RIGHT_SHIFT expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
@@ -350,16 +350,16 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr ADD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr SUB expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr SUB expr {$$ = new SubExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr MULT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr MULT expr {$$ = new MultExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr DIV expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr DIV expr {$$ = new DivExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr MOD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr MOD expr {$$ = new ModuloExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
 	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new ParenthesisExpression(make_shared_instr($2)); delete $2;} 
