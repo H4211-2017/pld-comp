@@ -29,20 +29,19 @@ hextail				({digit}|{alphahex})+
 hex		    		0[xX]{hextail}
 anyinlinechain		(.)*
 anymultilinechain	(.|\n|\r)*
-//etat de lexing
+/*Etat pendant qu on est dans un commentaire multiligne*/
 %x comment
 
 %%
-			int comment_caller;
+
 
 "/*"      				  	{printf("MULTILINE COMMENT : %s",yytext);
-								comment_caller = INITIAL;
-								BEGIN(comment);}
+								BEGIN(comment);}/*switch to comment state*/
 <comment>[^*\n]*        	{printf("%s",yytext);}/* eat anything that's not a '*' */
-<comment>"*"+[^/\n]*	   	{printf("%s",yytext);}//* eat up '*'s not followed by '/'s */
+<comment>"*"+[^/\n]*	   	{printf("%s",yytext);}/* eat up '*'s not followed by '/'s */
 <comment>"\n"            	{printf("%s",yytext);}
 <comment>"*"+"/"        	{printf("%s\nEND OF MULTILINE COMMENT",yytext);
-								BEGIN(comment_caller);}
+								BEGIN(INITIAL);}/*switch back to initial state*/
 
 "#"{anyinlinechain}"\n" 	{printf("PREPROCESSOR : %s", yytext);}
 "//"{anyinlinechain}"\n"	{printf("LINE_COM : %s", yytext);}
