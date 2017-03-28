@@ -7,10 +7,13 @@
 #include "../data/Memory.h"
 #include "../data/Register.h"
 
-class AbstractMemoryAcess : public AbstractInstruction
-{
-public:
-    AbstractMemoryAcess();
-};
+namespace IR {
+    class AbstractMemoryAcess : public AbstractInstruction
+    {
+    public:
+        AbstractMemoryAcess();
+    };
+}
+
 
 #endif // ABSTRACTMEMORYACESS_H

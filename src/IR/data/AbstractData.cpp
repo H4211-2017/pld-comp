@@ -1,6 +1,19 @@
 #include "AbstractData.h"
 
-AbstractData::AbstractData()
+using namespace IR;
+
+AbstractData::AbstractData(Type type, std::string name):
+    dataName(name), dataType(type)
 {
 
+}
+
+std::string AbstractData::getName() const
+{
+    return dataName;
+}
+
+Type AbstractData::getType() const
+{
+    return dataType;
 }

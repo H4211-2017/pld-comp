@@ -3,7 +3,9 @@
 package IR {
     package Data {
         abstract class AbstractData
+        class Constant
         class Memory
+        class MemoryArray
         class Register
     }
     
@@ -14,5 +16,8 @@ package IR {
 
 AbstractData <|-- Register
 AbstractData <|-- Memory
+
+AbstractData <|-- MemoryArray
+AbstractData <|-- Constant
 
 @enduml

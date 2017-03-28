@@ -82,5 +82,5 @@ CMakeFiles/*
 
 bin/*
 
-#puml output files
+#plantuml output files
 *.png

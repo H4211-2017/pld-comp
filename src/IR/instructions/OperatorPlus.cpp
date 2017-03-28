@@ -1,9 +1,17 @@
 #include "OperatorPlus.h"
 
-OperatorPlus::OperatorPlus(std::shared_ptr<Register> resultRegister,
-                           std::shared_ptr<Register> firstValueRegister,
-                           std::shared_ptr<Register> secondValueRegister):
+using namespace IR;
+
+OperatorPlus::OperatorPlus(sh_Register resultRegister,
+                           sh_Register firstValueRegister,
+                           sh_Register secondValueRegister):
     AbstractOperator(resultRegister,firstValueRegister,secondValueRegister)
+{
+
+}
+
+
+std::string OperatorPlus::toLinuxX86() const
 {
 
 }

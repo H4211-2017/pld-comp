@@ -3,10 +3,13 @@
 
 #include "AbstractOperator.h"
 
-class OperatorBigger : public AbstractOperator
-{
-public:
-    OperatorBigger(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister);
-};
+namespace IR {
+    class OperatorBigger : public AbstractOperator
+    {
+    public:
+        OperatorBigger(sh_Register resultRegister, sh_Register firstValueRegister, sh_Register secondValueRegister);
+    };
+}
+
 
 #endif // OperatorBigger_H

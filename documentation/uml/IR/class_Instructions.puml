@@ -5,6 +5,11 @@ package IR {
         abstract class AbstractInstruction
         abstract class AbstractMemoryAccess
         abstract class AbstractOperator
+
+        class Call
+        class ReadArrayValue
+        class SetValue
+
         
         abstract class AbstractMemoryAccess
         class ReadFromMemory
@@ -18,6 +23,9 @@ package IR {
 
 AbstractInstruction <|-- AbstractMemoryAccess
 AbstractInstruction <|-- Abstract AbstractOperator
+AbstractInstruction <|-- Call
+AbstractInstruction <|-- ReadArrayValue
+AbstractInstruction <|-- SetValue
 
 AbstractMemoryAccess <|-- ReadFromMemory
 AbstractMemoryAccess <|-- WriteToMemory
@@ -25,3 +33,4 @@ AbstractMemoryAccess <|-- WriteToMemory
 AbstractOperator <|-- OperatorBigger
 note on link : All other operator \n are subclasses of \n AbstractOperator 
 @enduml
+

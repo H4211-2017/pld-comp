@@ -3,14 +3,20 @@
 
 #include "AbstractMemoryAcess.h"
 
-class ReadFromMemory : public AbstractMemoryAcess
-{
-public:
-    ReadFromMemory(std::shared_ptr<Memory> from, std::shared_ptr<Register> to);
+namespace IR {
+    class ReadFromMemory : public AbstractMemoryAcess
+    {
+    public:
+        ReadFromMemory(sh_Memory from, sh_Register to);
 
-private:
-    std::shared_ptr<Memory> source;
-    std::shared_ptr<Register> destination;
-};
+        virtual std::string toString() const;
+        virtual std::string toLinuxX86() const;
+
+    private:
+        sh_Memory source;
+        sh_Register destination;
+    };
+}
+
 
 #endif // READFROMMEMORY_H
