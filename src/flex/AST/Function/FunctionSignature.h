@@ -8,12 +8,12 @@
 
 namespace AST {
 
-    class FonctionSignature : public AbstractNode
+    class FunctionSignature : public AbstractNode
     {
     public:
     
-    	FonctionSignature(std::string identifiant);
-        FonctionSignature(std::string identifiant, Type type);
+        FunctionSignature(std::string identifiant);
+        FunctionSignature(std::string identifiant, Type type);
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;

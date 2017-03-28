@@ -3,7 +3,7 @@
 
 #include "AbstractNode.h"
 
-#include "AbstractInstruction.h"
+#include "Instruction/AbstractInstruction.h"
 
 namespace AST
 {

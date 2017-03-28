@@ -1,7 +1,7 @@
 #include "LArguments.h"
 
 #include "Scope.h"
-#include "Variable.h"
+#include "Variable/Variable.h"
 #include "LParametres.h"
 
 #include <iostream>
