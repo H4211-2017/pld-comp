@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iostream>
 
 #include "BasicBlock.h"
 
@@ -6,7 +7,10 @@ using namespace IR;
 
 BasicBlock::BasicBlock()
 {
-
+    static int basicBlockNumber = 0;
+    name = "!bb";
+    name.append( std::to_string(basicBlockNumber) );
+    basicBlockNumber++;
 }
 
 /**
@@ -78,6 +82,13 @@ void BasicBlock::pushInstructionBack(sh_AbsInstruction instruction)
     {
         usedRegister[reg->getName()] = reg;
     }
+
+    //set the conditionnal register using the register wrote by this instruciton (if it exist)
+    //the first register is used as no instruction can wrote two register
+    if(instruction->getWroteRegisterVector().size() > 0)
+    {
+        conditionnalJumpRegister = instruction->getWroteRegisterVector().front();
+    }
 }
 
 /**
@@ -93,48 +104,81 @@ void BasicBlock::pushInstructionBack(std::list<sh_AbsInstruction> instructions)
 }
 
 /**
- * @brief BasicBlock::setEndConditionnalInstruction set the instruction used to choose the next BasicBlock.
- * @param conditionalInstruction the instruction to use to choose.
- */
-void BasicBlock::setEndConditionnalInstruction(sh_AbsInstruction conditionalInstruction)
-{
-    this->endConditionnalInstruction = conditionalInstruction;
-}
-
-/**
- * @brief BasicBlock::updateChildsPreviousBlock recursivelly update the previous block list
- * of every child of this block.
- * Compartement is unknow if called second time after a change in the basic block tree.
+ * @brief BasicBlock::updateChildPreviousBlock update the previous block list of the two child
+ * of this block.
+ * Compartement is unknow if called a second time.
  * (must be call only once the basic block tree is finished)
  */
-void BasicBlock::updateChildsPreviousBlock()
+void BasicBlock::updateChildPreviousBlock()
 {
     ///insert in the False next block
     if(nextBlockFalse != nullptr)
     {
-        //insert only if not already in the list
-        std::list<sh_BasicBlock> & list = nextBlockFalse->previousBlocks;
-        auto it = std::find(list.begin(), list.end(), this->shared_from_this());
-        if(it == list.end())
-        {
-            list.push_back(this->shared_from_this());
-            //recursive call to update the child child (in the if in order to handle loop)
-            nextBlockFalse->updateChildsPreviousBlock();
-        }
+        //insert in the list (do not check if not already in the list)
+        nextBlockFalse->previousBlocks.push_back(this->shared_from_this());
     }
     ///insert in the True next block
     if(nextBlockTrue != nullptr)
     {
-        //insert only if not already in the list
-        std::list<sh_BasicBlock> & list = nextBlockTrue->previousBlocks;
-        auto it = std::find(list.begin(), list.end(), this->shared_from_this());
-        if(it == list.end())
-        {
-            list.push_back(this->shared_from_this());
-            //recursive call to update the child child (in the if in order to handle loop)
-            nextBlockTrue->updateChildsPreviousBlock();
-        }
+        //insert in the list (do not check if not already in the list)
+        nextBlockTrue->previousBlocks.push_back(this->shared_from_this());
     }
+}
+
+/**
+ * @brief BasicBlock::printIr print to the given stream the IR code of the basic block
+ * @param os stream where the IR code will be printed
+ */
+void BasicBlock::printIr(std::ostream &os) const
+{
+    os << "label: " << name << std::endl;
+
+    for(sh_AbsInstruction inst : instructionsList )
+    {
+        os << inst->toString() << std::endl;
+    }
+
+    if(nextBlockFalse == nullptr && nextBlockTrue == nullptr)
+    {
+        //if none of the two posibility is set
+
+    }
+    //if only one is set, no need to check any things
+    else if(nextBlockFalse != nullptr)
+    {
+        os << "Jump to: " << nextBlockFalse->getName() << std::endl;
+    }
+    else if(nextBlockTrue != nullptr)
+    {
+        os << "Jump to: " << nextBlockTrue->getName() << std::endl;
+    }
+    else
+    {
+        //else the two are set, need to do a conditionnal jump
+        os << "if " << conditionnalJumpRegister->getName() << " == 0 -> Jump to: "
+           << nextBlockFalse->getName() << " (False block)" << std::endl;
+        os << "Jump to: " << nextBlockTrue->getName() << std::endl;
+    }
+}
+
+std::string BasicBlock::getName() const
+{
+    return name;
+}
+
+void BasicBlock::setName(const std::string &value)
+{
+    name = value;
+}
+
+sh_BasicBlock BasicBlock::getNextBlockTrue() const
+{
+    return nextBlockTrue;
+}
+
+sh_BasicBlock BasicBlock::getNextBlockFalse() const
+{
+    return nextBlockFalse;
 }
 
 
