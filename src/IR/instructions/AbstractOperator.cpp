@@ -8,5 +8,5 @@ AbstractOperator::AbstractOperator(sh_Register resultRegister, sh_Register first
     this->readRegisterVector.push_back(firstValueRegister);
     this->readRegisterVector.push_back(secondValueRegister);
 
-    this->wroteRegisterVector.push_back(resultRegister);
+    this->writtenRegisterVector.push_back(resultRegister);
 }

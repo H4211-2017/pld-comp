@@ -6,7 +6,7 @@
 
 namespace IR {
     enum Type{
-        Char, Integer, Long
+        CHAR, INT_32, INT_64
     };
 
     class AbstractData

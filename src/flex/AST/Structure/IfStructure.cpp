@@ -20,20 +20,15 @@ Value IfStructure::evaluate() const
 
 void IfStructure::printTree(int tabulationNumber) const
 {
-	AbstractNode::printTree(tabulationNumber);
-	if(condition != nullptr)
-	{	
-		std::cout << std::endl;
-		condition->printTree(tabulationNumber + 1);
-	}
-	if(intInstruction != nullptr)
-	{	
-		std::cout << std::endl;
-		intInstruction->printTree(tabulationNumber + 1);
-	}
+	AbstractNode::printTree(tabulationNumber);	
+    std::cout << std::endl;
+    condition->printTree(tabulationNumber + 1);
+    std::cout << std::endl;
+
+    intInstruction->printTree(tabulationNumber + 1);
+
 	if(elseStructure != nullptr)
 	{	
-		std::cout << std::endl;
 		elseStructure->printTree(tabulationNumber + 1);
 	}
 }

@@ -11,7 +11,7 @@ WriteToMemory::WriteToMemory(sh_Register from, sh_Memory to) :
     AbstractMemoryAcess(), destination(to), source(from), type(MEMORY_TYPE)
 {
     this->readRegisterVector.push_back(from);
-    this->wroteMemoryVector.push_back(to);
+    this->writtenMemoryVector.push_back(to);
 }
 
 WriteToMemory::WriteToMemory(char value, sh_Memory to) : AbstractMemoryAcess(), charValue(value), type(CHAR_TYPE)

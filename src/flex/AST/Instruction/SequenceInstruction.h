@@ -7,6 +7,9 @@
 #include "AbstractInstruction.h"
 
 namespace AST {
+
+    class AbstractInstruction;
+
     class SequenceInstruction : public AbstractNode
     {
     public:

@@ -6,8 +6,8 @@
 #include "Scope.h"
 #include "Value.h"
 
-#include "Expression/Constant.h"
 #include "Expression/AbstractExpression.h"
+#include "Expression/Constant.h"
 #include "Expression/UnaryExpression.h"
 #include "Expression/AddExpression.h"
 #include "Expression/IDExpression.h"

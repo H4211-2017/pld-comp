@@ -67,7 +67,7 @@ void AbstractNode::printTree(int tabulationNumber) const
 {
     for (int i = 0; i < tabulationNumber; i++)
     {
-        std::cout << "\t";
+        std::cout << "  ";
     }
 
     switch (value.getValue().first) {
