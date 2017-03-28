@@ -9,6 +9,11 @@
 #include "AffectationExpression.h"
 #include "Constant.h"
 #include "Function/FunctionCall.h"
+#include "BitwiseAndExpression.h"
+#include "BitwiseOrExpression.h"
+#include "BitwiseShiftLeftExpression.h"
+#include "BitwiseXorExpression.h"
+#include "ModuloExpression.h"
 
 using namespace AST;
 
@@ -51,6 +56,26 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 	else if(name == "AddExpression")
 	{
 		return std::make_shared<AddExpression>( *( static_cast< AddExpression* >(ptr) ) );
+	}
+	else if(name == "BitwiseAndExpression")
+	{
+		return std::make_shared<BitwiseAndExpression>( *( static_cast< BitwiseAndExpression* >(ptr) ) );
+	}
+	else if(name == "BitwiseOrExpression")
+	{
+		return std::make_shared<BitwiseOrExpression>( *( static_cast< BitwiseOrExpression* >(ptr) ) );
+	}
+	else if(name == "BitwiseShiftLeftExpression")
+	{
+		return std::make_shared<BitwiseShiftLeftExpression>( *( static_cast< BitwiseShiftLeftExpression* >(ptr) ) );
+	}
+	else if(name == "BitwiseXorExpression")
+	{
+		return std::make_shared<BitwiseXorExpression>( *( static_cast< BitwiseXorExpression* >(ptr) ) );
+	}
+	else if(name == "ModuloExpression")
+	{
+		return std::make_shared<ModuloExpression>( *( static_cast< ModuloExpression* >(ptr) ) );
 	}
 	else if(name == "IDExpression")
 	{

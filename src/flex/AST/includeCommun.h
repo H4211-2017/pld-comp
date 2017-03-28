@@ -14,6 +14,11 @@
 #include "Expression/IDExpression.h"
 #include "Expression/AffectationExpression.h"
 #include "Expression/ParenthesisExpression.h"
+#include "Expression/BitwiseAndExpression.h"
+#include "Expression/BitwiseOrExpression.h"
+#include "Expression/BitwiseShiftLeftExpression.h"
+#include "Expression/BitwiseXorExpression.h"
+#include "Expression/ModuloExpression.h"
 
 #include "Instruction/ComposedInstruction.h"
 #include "Instruction/UnitInstruction.h"

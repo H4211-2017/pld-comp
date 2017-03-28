@@ -4,13 +4,13 @@
 #include "AbstractBinaryExpression.h"
 
 namespace AST{
-class BitewiseAndExpression : public AbstractBinaryExpression
+class BitwiseAndExpression : public AbstractBinaryExpression
 {
 public:
 
-    BitewiseAndExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
+    BitwiseAndExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
 
-        virtual ~BitewiseAndExpression();
+        virtual ~BitwiseAndExpression();
 
         virtual Value evaluate() const;
 
