@@ -2,7 +2,7 @@
 
 #include "ComposedInstruction.h"
 #include "UnitInstruction.h"
-#include "VariableDeclaration.h"
+#include "Variable/VariableDeclaration.h"
 #include "Fonction/DeclarationFonction.h"
 
 using namespace AST;

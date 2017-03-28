@@ -95,7 +95,6 @@ bool Fonction::isDeclaration() const
 
 void Fonction::setBlock(std::shared_ptr<Block> content)
 {
-	
 	this->content = content;
 }
 

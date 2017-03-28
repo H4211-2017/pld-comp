@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "AbstractNode.h"
-#include "Instruction/VariableSignature.h"
+#include "Variable/VariableSignature.h"
 
 namespace AST {
     class ArgumentList : public AbstractNode

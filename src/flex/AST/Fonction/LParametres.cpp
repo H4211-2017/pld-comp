@@ -1,7 +1,7 @@
 #include "LParametres.h"
 
 #include "Scope.h"
-#include "Variable.h"
+#include "Variable/Variable.h"
 
 #include <iostream>
 
