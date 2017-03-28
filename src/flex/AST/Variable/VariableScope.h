@@ -17,20 +17,10 @@ namespace AST{
 	{
 	public:
 	
-		UndeclaredIdException()
-		{
-			this->text = "Error : Undeclared Identifier";
-		}
+        UndeclaredIdException();
+        UndeclaredIdException(std::string text);
 		
-		UndeclaredIdException(std::string text)
-		{
-			this->text = text;
-		}
-		
-		virtual const char* what() const throw()
-		{
-			return text.c_str();
-	    }
+        virtual const char* what() const throw();
 	    
 	protected :
 		std::string text;    
@@ -42,17 +32,13 @@ namespace AST{
 	{
 	public:
 		VariableScope();
-		
-		VariableScope( const VariableScope & variableScope); // declared but not defined
-		
+		VariableScope( const VariableScope & variableScope); // declared but not defined		
 		virtual ~VariableScope();
-		
+
         void declareVariable(std::string identifiant, std::shared_ptr<Variable> variable);
-		
         std::shared_ptr<Variable> findVariable(std::string identifiant);
 		
 	protected:
-		
 		std::map< std::string, std::shared_ptr<Variable> > scope;
     };
 }
