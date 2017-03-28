@@ -9,7 +9,7 @@ int32_t main()
 on
 several lines*/
 int32_t bar;
-/* // some twisted
-things*/
+/** // *some twisted* 
+things**/
 int32_t a;
 }

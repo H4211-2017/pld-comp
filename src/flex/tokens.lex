@@ -29,12 +29,23 @@ hextail				({digit}|{alphahex})+
 hex		    		0[xX]{hextail}
 anyinlinechain		(.)*
 anymultilinechain	(.|\n|\r)*
+//etat de lexing
+%x comment
 
 %%
-"#"{anyinlinechain}"\n" 	{printf("PREPOCESSOR : %s", yytext);}
+			int comment_caller;
+
+"/*"      				  	{printf("MULTILINE COMMENT : %s",yytext);
+								comment_caller = INITIAL;
+								BEGIN(comment);}
+<comment>[^*\n]*        	{printf("%s",yytext);}/* eat anything that's not a '*' */
+<comment>"*"+[^/\n]*	   	{printf("%s",yytext);}//* eat up '*'s not followed by '/'s */
+<comment>"\n"            	{printf("%s",yytext);}
+<comment>"*"+"/"        	{printf("%s\nEND OF MULTILINE COMMENT",yytext);
+								BEGIN(comment_caller);}
+
+"#"{anyinlinechain}"\n" 	{printf("PREPROCESSOR : %s", yytext);}
 "//"{anyinlinechain}"\n"	{printf("LINE_COM : %s", yytext);}
-"/*"      					{printf("BEGIN_COM "); return BEGIN_COM;}
-"*/"						{printf("END_COM "); return END_COM;}
 "if"      					{printf("IF "); return IF;}
 "else"    					{printf("ELSE "); return ELSE;}
 "while"   					{printf("WHILE "); return WHILE;}
