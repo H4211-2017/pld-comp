@@ -54,8 +54,16 @@ Value UnitInstruction::evaluate() const
 	}
 }
 
-// TODO
 void UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+    switch (content) {
+    case Content::BLOCK:
+        block->buildIR(currentBasicBlock);
+        break;
+    case Content::STRUCT:
+        struc->buildIR(currentBasicBlock);
+        break;
+    default:
+        break;
+    }
 }

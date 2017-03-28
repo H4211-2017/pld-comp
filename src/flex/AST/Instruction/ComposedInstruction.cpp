@@ -38,8 +38,11 @@ Value ComposedInstruction::evaluate() const
 	return listExpressions[listExpressions.size()-1]->evaluate();
 }
 
-// TODO
+
 void ComposedInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+    for(std::shared_ptr<AbstractExpression> instruction : listExpressions)
+    {
+        instruction->buildIR(currentBasicBlock);
+    }
 }
