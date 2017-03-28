@@ -16,9 +16,9 @@ BitewiseXorExpression::~BitewiseXorExpression() {
 
 Value BitewiseXorExpression::evaluate() const
 {
-        Value left = this->leftMember->evaluate();
-        Value right = this->rightMember->evaluate();
-        Value ret(std::max(left.getValue().first, right.getValue().first), left.getValue().second + right.getValue().second);
+        Value leftVal = this->leftMember->evaluate();
+        Value rightVal = this->rightMember->evaluate();
+        Value ret(std::max(leftVal.getValue().first, rightVal.getValue().first), leftVal.getValue().second ^ rightVal.getValue().second);
         return ret;
 }
 
