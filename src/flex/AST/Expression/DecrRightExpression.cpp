@@ -1,35 +1,34 @@
-#include "DecrRightExpression.h"
+//#include "DecrRightExpression.h"
 
-#include <algorithm>
+//#include <algorithm>
 
-using namespace AST;
+//using namespace AST;
 
-DecrRightExpression::DecrRightExpression(std::shared_ptr<AbstractExpression> leftMember)
-    : AbstractBinaryExpression("DecrRightExpression", leftMember)
-{
-    this->setType(leftMember->getValue().getValue().first);
+//DecrRightExpression::DecrRightExpression(std::shared_ptr<AbstractExpression> leftMember)
+//    : AbstractBinaryExpression("DecrRightExpression", leftMember)
+//{
+//    this->setType(leftMember->getValue().getValue().first);
 
-}
+//}
 
 
-DecrRightExpression::~DecrRightExpression() {
-    // TODO Auto-generated destructor stub
-}
+//DecrRightExpression::~DecrRightExpression() {
+//    // TODO Auto-generated destructor stub
+//}
+//Value DecrRightExpression::evaluate() const
+//{
+//    Value leftVal = this->leftMember->evaluate();
+//    Value ret(leftVal.getValue().first, leftVal.getValue().second--);
+//    return ret;
+//}
 
-Value DecrRightExpression::evaluate() const
-{
-    Value leftVal = this->leftMember->evaluate();
-    Value ret();
-    return ret;
-}
+//// TODO : create class CFG and replace comment below.
+//void DecrRightExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+//{
 
-// TODO : create class CFG and replace comment below.
-void DecrRightExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
-{
+//}
 
-}
-
-void DecrRightExpression::printOperator() const
-{
-    std::cout << "--";
-}
+//void DecrRightExpression::printOperator() const
+//{
+//    std::cout << "--";
+//}
