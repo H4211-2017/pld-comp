@@ -10,6 +10,10 @@ namespace AST
 	{
 		
 	public:
+        /**
+         * @brief AbstractStructure constructor of an Abstract structure.
+         * @param name the name of the structure we are creating, used when printing the tree.
+         */
 		AbstractStructure(std::string name);
 	};
 

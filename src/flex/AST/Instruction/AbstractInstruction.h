@@ -11,6 +11,10 @@ namespace AST
     {
     
     public:
+        /**
+         * @brief AbstractInstruction constructor
+         * @param name the name of the node
+         */
         AbstractInstruction(std::string name);
         
     };

@@ -16,15 +16,65 @@ namespace AST{
     class AbstractNode
     {
     public:
+        /**
+         * @brief AbstractNode constructor
+         * @param name the type of the node (used by printTree)
+         */
         AbstractNode(std::string name);
+
+        /**
+         * @brief AbstractNode constructor
+         * @param name the name of the node
+         * @param value setting the Value of this node, with its type.
+         */
         AbstractNode(std::string name, Value value);
+
+        /**
+         * @brief AbstractNode constructor
+         * @param name the name of this node (used by printTree)
+         * @param type type of the value of this node
+         * @param value the integer value of this node
+         */
         AbstractNode(std::string name, Type type, long int value);
+
+        /**
+         * @brief AbstractNode constructor
+         * @param name the name of the node (used by printTree)
+         * @param type the type of the Value of this node, sets the integer value to 0.
+         */
         AbstractNode(std::string name, Type type);
 
-        AbstractNode(std::string name, std::shared_ptr<Scope>);
-        AbstractNode(std::string name, Value value, std::shared_ptr<Scope>);
-        AbstractNode(std::string name, Type type, long int value, std::shared_ptr<Scope>);
-        AbstractNode(std::string name, Type type, std::shared_ptr<Scope>);
+        /**
+         * @brief AbstractNode constructor
+         * @param name name of this node (used by printTree)
+         * @param scope of this node
+         */
+        AbstractNode(std::string name, std::shared_ptr<Scope> scope);
+
+        /**
+         * @brief AbstractNode constructor
+         * @param name name of this node (used by printTree)
+         * @param value the Value of this node
+         * @param scope of this node
+         */
+        AbstractNode(std::string name, Value value, std::shared_ptr<Scope> scope);
+
+        /**
+         * @brief AbstractNode constructor
+         * @param name name of this node (used by printTree)
+         * @param type type of the value of this node
+         * @param value the integer value of this node
+         * @param scope of this node
+         */
+        AbstractNode(std::string name, Type type, long int value, std::shared_ptr<Scope> scope);
+
+        /**
+         * @brief AbstractNode constructor
+         * @param name name of this node (used by printTree)
+         * @param type the type of the Value of this node, sets the integer value to 0.
+         * @param scope of this node
+         */
+        AbstractNode(std::string name, Type type, std::shared_ptr<Scope> scope);
 
         virtual ~AbstractNode();
 

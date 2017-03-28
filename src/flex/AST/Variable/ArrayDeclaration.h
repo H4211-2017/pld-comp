@@ -1,5 +1,5 @@
-#ifndef VARIABLEDECLARATION_H
-#define VARIABLEDECLARATION_H
+#ifndef ARRAYDECLARATION_h
+#define ARRAYDECLARATION_h
 
 #include "Instruction/AbstractInstruction.h"
 
@@ -55,4 +55,4 @@ namespace AST {
 }
 
 
-#endif // VARIABLEDECLARATION_H
+#endif // ARRAYDECLARATION_H
