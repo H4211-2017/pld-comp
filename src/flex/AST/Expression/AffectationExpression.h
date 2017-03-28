@@ -3,6 +3,7 @@
 
 #include <memory>
 #include "AbstractExpression.h"
+#include "Variable.h"
 #include <string>
 
 namespace AST {
@@ -43,7 +44,7 @@ namespace AST{
         virtual void printTree(int tabulationNumber) const;
         
     protected :
-    	std::string idVar;
+    	std::shared_ptr<Variable> var;
 		std::shared_ptr<AbstractExpression> transformedExpr;
     };
 

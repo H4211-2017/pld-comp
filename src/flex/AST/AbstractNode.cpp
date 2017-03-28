@@ -1,5 +1,7 @@
 #include "AbstractNode.h"
 
+#include "Scope.h"
+
 using namespace AST;
 
 AbstractNode::AbstractNode(std::string name)
@@ -39,6 +41,11 @@ AbstractNode::~AbstractNode()
 std::shared_ptr<Scope> AbstractNode::getScope() const
 {
 	return currentScope;
+}
+
+void AbstractNode::setParentScope(std::shared_ptr<Scope> scope)
+{
+	currentScope->setMother(scope);
 }
 
 Value AbstractNode::getValue() const

@@ -7,6 +7,7 @@
 #include "IDExpression.h"
 #include "AffectationExpression.h"
 #include "Constant.h"
+#include "AppelFonction.h"
 
 using namespace AST;
 
@@ -53,6 +54,10 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 	else if(name == "AffectationExpression")
 	{
 		return std::make_shared<AffectationExpression>( *( static_cast< AffectationExpression* >(ptr) ) );
+	}
+	else if(name == "AppelFonction")
+	{
+		return std::make_shared<AppelFonction>( *( static_cast< AppelFonction* >(ptr) ) );
 	}
 	else
 	{	

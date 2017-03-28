@@ -3,11 +3,11 @@
 
 #include "Constant.h"
 #include "AbstractExpression.h"
-#include "Instruction/ComposedInstruction.h"
+#include "ComposedInstruction.h"
 #include "AddExpression.h"
 #include "AbstractNode.h"
 #include "Block.h"
-#include "Instruction/UnitInstruction.h"
+#include "UnitInstruction.h"
 #include "Scope.h"
 #include "Instruction/SequenceInstruction.h"
 #include "Instruction/VariableSignature.h"
