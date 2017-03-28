@@ -17,7 +17,7 @@ PlusExpression::~PlusExpression() {
 Value PlusExpression::evaluate() const
 {
         Value rightVal = this->rightMember->evaluate();
-        Value ret(rightVal.getValue().first, - rightVal.getValue().second);
+        Value ret(rightVal.getValue().first, + rightVal.getValue().second);
         return ret;
 }
 
