@@ -5,8 +5,8 @@
 #include <string>
 #include <exception>
 
-#include "VariableScope.h"
-#include "FonctionScope.h"
+#include "Variable/VariableScope.h"
+#include "Function/FunctionScope.h"
 
 namespace AST{	
 	
@@ -26,8 +26,8 @@ namespace AST{
         void declareVariable(std::string identifiant, std::shared_ptr<Variable> );
         std::shared_ptr<Variable> findVariable(std::string identifiant);
         
-        void declareFonction(std::string identifiant, std::shared_ptr<Fonction> decl);
-        std::shared_ptr<Fonction> findFonction(std::string identifiant);
+        void declareFunction(std::string identifiant, std::shared_ptr<Function> decl);
+        std::shared_ptr<Function> findFunction(std::string identifiant);
 		
 		std::shared_ptr<Scope> getMother() const;
 		void setMother(std::shared_ptr<Scope> newMother);
@@ -37,7 +37,7 @@ namespace AST{
 		std::shared_ptr<Scope> mother;
 		
 		VariableScope vScope;
-		FonctionScope fScope;
+        FunctionScope fScope;
     };
 }
 

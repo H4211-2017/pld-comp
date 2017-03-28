@@ -1,13 +1,13 @@
-#include "AppelFonction.h"
+#include "FunctionCall.h"
 
 #include <algorithm>
 
 using namespace AST;
 
-AppelFonction::AppelFonction(std::string id,  std::shared_ptr<LParametres> params, std::shared_ptr<Scope> scope)
-    : AbstractExpression("AppelFonction")
+FunctionCall::FunctionCall(std::string id,  std::shared_ptr<LParametres> params, std::shared_ptr<Scope> scope)
+    : AbstractExpression("FunctionCall")
 {
-	fct = scope->findFonction(id);
+    fct = scope->findFunction(id);
 	parametres = params;
 	
 	if(!fct->checkParametres(parametres))
@@ -20,16 +20,16 @@ AppelFonction::AppelFonction(std::string id,  std::shared_ptr<LParametres> param
 }
 
 
-AppelFonction::~AppelFonction() {
+FunctionCall::~FunctionCall() {
 	// TODO Auto-generated destructor stub
 }
 
-Value AppelFonction::evaluate() const
+Value FunctionCall::evaluate() const
 {
 	return Value();
 }
 
-void AppelFonction::printTree(int tabulationNumber) const
+void FunctionCall::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
     std::cout << std::endl;
@@ -37,7 +37,7 @@ void AppelFonction::printTree(int tabulationNumber) const
 }
 
 // TODO : create class CFG and replace comment below.
-void AppelFonction::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void FunctionCall::buildIR(/*std::shared_ptr<BasicBlock>*/) const
 {
 	
 }

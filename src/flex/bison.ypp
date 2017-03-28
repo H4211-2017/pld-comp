@@ -37,12 +37,13 @@ std::shared_ptr<Scope> currentContext = global;
 	AST::VariableDeclaration* declVar;
 	enum AST::OPAffect* op;
 	
-	AST::FonctionSignature* signatureF;
+    AST::FunctionSignature* signatureF;
 	AST::LArguments* fctArguments;
-	AST::DeclarationFonction* declFct;
-	AST::Fonction* fct;
+    AST::FunctionDeclaration* declFct;
+    AST::Function* fct;
 	AST::LParametres* params;
-	AST::AppelFonction* appelFct;
+	AST::FunctionCall * appelFct;
+	
 	AST::AbstractStructure* struc;
 	AST::IfStructure* ifStruc;
 	AST::ElseStructure* elseStruc;
@@ -126,7 +127,7 @@ programme : liext mainbody liext {$1->printTree(0); $2->printTree(0); $3->printT
     ;
     
 mainbody : maindecl bloc {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
-							$$ = new DeclarationFonction($1->getSignature(), std::make_shared<Fonction>( *( static_cast< Fonction* >($1))), currentContext->getMother());
+                                                        $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
 							delete $1;
 							delete $2;
 							currentContext = currentContext->getMother();}
@@ -134,14 +135,14 @@ mainbody : maindecl bloc {$1->setBlock(std::make_shared<Block>( *( static_cast< 
 
 maindecl : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS {if($4 != nullptr)
 																		{
-																			$$ = new Fonction(std::make_shared<FonctionSignature>("main", *$1),
+                                                                                                                                                        $$ = new Function(std::make_shared<FunctionSignature>("main", *$1),
 																					std::make_shared<LArguments>( *( static_cast< LArguments* >($4))), currentContext);	
 																			delete $1;
 																			delete $4;
 																		}
 																		else
 																		{
-																			$$ = new Fonction(std::make_shared<FonctionSignature>("main", *$1), currentContext);
+                                                                                                                                                        $$ = new Function(std::make_shared<FunctionSignature>("main", *$1), currentContext);
 																			delete $1;	
 																		}			
 																		currentContext = $$->getScope();
@@ -167,29 +168,29 @@ iext : deffonc    {$$ = $1;}
 
 /* ===== FONCTIONS ======*/ 
 
-declfonc : debutfonc SEMICOLON  {$$ = new DeclarationFonction($1->getSignature(), std::make_shared<Fonction>( *( static_cast< Fonction* >($1))), currentContext->getMother());
+declfonc : debutfonc SEMICOLON  {$$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
 									delete $1;
 									currentContext = currentContext->getMother();}
     ;
 deffonc : debutfonc bloc        {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
-									$$ = new DeclarationFonction($1->getSignature(), std::make_shared<Fonction>( *( static_cast< Fonction* >($1))), currentContext->getMother());
+                                                                        $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
 									delete $1;
 									delete $2;
 									currentContext = currentContext->getMother();
 								}
     ;
     
-debutfonc : sigfonc larg RIGHT_PARENTHESIS     {$$ = new Fonction(std::make_shared<FonctionSignature>( *( static_cast< FonctionSignature* >($1))),
+debutfonc : sigfonc larg RIGHT_PARENTHESIS     {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))),
 																				std::make_shared<LArguments>( *( static_cast< LArguments* >($2))), currentContext);
 												delete $1;
 												delete $2;
 												currentContext = $$->getScope();
 												}
-    | sigfonc RIGHT_PARENTHESIS                {$$ = new Fonction(std::make_shared<FonctionSignature>( *( static_cast< FonctionSignature* >($1))), currentContext);
+    | sigfonc RIGHT_PARENTHESIS                {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
 												delete $1;
 												currentContext = $$->getScope();
 												}
-    | sigfonc VOID RIGHT_PARENTHESIS           {$$ = new Fonction(std::make_shared<FonctionSignature>( *( static_cast< FonctionSignature* >($1))), currentContext);
+    | sigfonc VOID RIGHT_PARENTHESIS           {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
 												delete $1;
 												currentContext = $$->getScope();
 												}
@@ -210,8 +211,9 @@ arg : sigvar                                {$$ = $1;}
     | sigvar LEFT_BRACKET RIGHT_BRACKET     {std::cout << "arg : sigvar[] "<< std::endl;} // TODO
     ;
     
-appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {$$ = new AppelFonction($1, std::make_shared<LParametres>(), currentContext);}
-    | ID LEFT_PARENTHESIS lparam RIGHT_PARENTHESIS  {$$ = new AppelFonction($1, std::make_shared<LParametres>( *( static_cast< LParametres* >($3) )), currentContext);
+appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {$$ = new FunctionCall($1, std::make_shared<LParametres>(), currentContext);}
+    | ID LEFT_PARENTHESIS lparam RIGHT_PARENTHESIS  {$$ = new FunctionCall($1, std::make_shared<LParametres>( *( static_cast< LParametres* >($3) )), currentContext);
+
     													delete $3;}
     ;
 lparam : lparam COMMA expr    {$$->addParametre(make_shared_expr($3));}
@@ -239,9 +241,9 @@ sigvar : type ID {$$ = new VariableSignature($2, *$1);
 					delete $1;}
 	;
 	
-sigfonc : type ID LEFT_PARENTHESIS          {$$ = new FonctionSignature($2, *$1);
+sigfonc : type ID LEFT_PARENTHESIS          {$$ = new FunctionSignature($2, *$1);
 												delete $1;} // TODO
-    | VOID ID LEFT_PARENTHESIS                              {$$ = new FonctionSignature($2);} 
+    | VOID ID LEFT_PARENTHESIS                              {$$ = new FunctionSignature($2);}
     | type LEFT_BRACKET RIGHT_BRACKET ID LEFT_PARENTHESIS   {std::cout << "sigfonc : type [] ID"<< std::endl;} // TODO
     ;
 

@@ -3,8 +3,8 @@
 
 #include "AbstractStructure.h"
 
-#include "AbstractInstruction.h"
-#include "ComposedInstruction.h"
+#include "Instruction/AbstractInstruction.h"
+#include "Instruction/ComposedInstruction.h"
 #include "ElseStructure.h"
 
 namespace AST

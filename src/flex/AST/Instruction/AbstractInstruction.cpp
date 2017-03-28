@@ -2,8 +2,8 @@
 
 #include "ComposedInstruction.h"
 #include "UnitInstruction.h"
-#include "VariableDeclaration.h"
-#include "DeclarationFonction.h"
+#include "Variable/VariableDeclaration.h"
+#include "Function/FunctionDeclaration.h"
 
 using namespace AST;
 
@@ -28,9 +28,9 @@ std::shared_ptr<AbstractInstruction> make_shared_instr(AbstractInstruction* ptr)
 	{
 		return std::make_shared<VariableDeclaration>( *( static_cast< VariableDeclaration* >(ptr) ) );
 	}
-	else if(name == "DeclarationFonction")
+    else if(name == "FunctionDeclaration")
 	{
-		return std::make_shared<DeclarationFonction>( *( static_cast< DeclarationFonction* >(ptr) ) );
+        return std::make_shared<FunctionDeclaration>( *( static_cast< FunctionDeclaration* >(ptr) ) );
 	}
 	else
 	{	

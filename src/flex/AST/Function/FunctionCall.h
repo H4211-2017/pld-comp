@@ -1,20 +1,20 @@
 #ifndef APPEL_FONCTION_H
 #define APPEL_FONCTION_H
-#include "Fonction.h"
+#include "Function.h"
 #include "LParametres.h"
 #include "AbstractExpression.h"
 
 #include "Scope.h"
 namespace AST {
 
-class AppelFonction : public AbstractExpression 
+class FunctionCall : public AbstractExpression
 {
 	
 public:
 
-    AppelFonction(std::string id,  std::shared_ptr<LParametres> params, std::shared_ptr<Scope> scope);
+    FunctionCall(std::string id,  std::shared_ptr<LParametres> params, std::shared_ptr<Scope> scope);
 	
-	virtual ~AppelFonction();
+    virtual ~FunctionCall();
 
 	virtual Value evaluate() const;
 
@@ -25,7 +25,7 @@ public:
 
 protected:
     
-    std::shared_ptr<Fonction> fct;
+    std::shared_ptr<Function> fct;
     std::shared_ptr<LParametres> parametres;
 
 };

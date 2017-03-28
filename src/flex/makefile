@@ -10,7 +10,7 @@ LIB_DIRECTORY=../../lib/
 INC_DIRECTORY=../../include/
 EXPR_DIRECTORY=$(BIN_DIRECTORY)Expression/
 INSTR_DIRECTORY=$(BIN_DIRECTORY)Instruction/
-FCT_DIRECTORY=$(BIN_DIRECTORY)Fonction/
+FCT_DIRECTORY=$(BIN_DIRECTORY)Function/
 VAR_DIRECTORY=$(BIN_DIRECTORY)Variable/
 STRUCT_DIRECTORY=$(BIN_DIRECTORY)Structure/
 
@@ -32,7 +32,7 @@ BISON_FLAGS=-v -d
 
 #To be updated after each change in list of files
 STRUCT=Structure/AbstractStructure.cpp  Structure/ElseStructure.cpp  Structure/IfStructure.cpp
-FCT=Fonction/FonctionScope.cpp Fonction/FonctionSignature.cpp Fonction/LArguments.cpp Fonction/Fonction.cpp Fonction/DeclarationFonction.cpp Fonction/AppelFonction.cpp Fonction/LParametres.cpp
+FCT=Function/FunctionScope.cpp Function/FunctionSignature.cpp Function/LArguments.cpp Function/Function.cpp Function/FunctionDeclaration.cpp Function/FunctionCall.cpp Function/LParametres.cpp
 VAR=Variable/VariableSignature.cpp Variable/VariableDeclaration.cpp Variable/VariableScope.cpp Variable/Variable.cpp
 EXPR=Expression/AbstractBinaryExpression.cpp Expression/AbstractExpression.cpp Expression/AddExpression.cpp Expression/Constant.cpp Expression/IDExpression.cpp Expression/AffectationExpression.cpp
 INSTR=Instruction/AbstractInstruction.cpp Instruction/ComposedInstruction.cpp Instruction/SequenceInstruction.cpp Instruction/UnitInstruction.cpp
@@ -46,7 +46,7 @@ HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)
 SRCS=$(SRC_RM) $(SRC_AST_NOPATH)
 OBJS=$(OBJ_RULE_MEMBER) $(OBJ_AST)
 HEADERS=$(HEADERS_RULE_MEMBER) $(HEADERS_AST)
-INCLUDE_DIRECTORIES=-I$(BIN_DIRECTORY) -I$(AST_DIRECTORY) -I$(AST_DIRECTORY)Expression -I$(BIN_DIRECTORY)Expression -I$(AST_DIRECTORY)Instruction -I$(BIN_DIRECTORY)Instruction -I$(AST_DIRECTORY)Fonction -I$(BIN_DIRECTORY)Fonction -I$(AST_DIRECTORY)Variable -I$(BIN_DIRECTORY)Variable -I$(AST_DIRECTORY)Structure -I$(BIN_DIRECTORY)Structure
+INCLUDE_DIRECTORIES=-I$(BIN_DIRECTORY) -I$(AST_DIRECTORY) -I$(AST_DIRECTORY)Expression -I$(BIN_DIRECTORY)Expression -I$(AST_DIRECTORY)Instruction -I$(BIN_DIRECTORY)Instruction -I$(AST_DIRECTORY)Function -I$(BIN_DIRECTORY)Function -I$(AST_DIRECTORY)Variable -I$(BIN_DIRECTORY)Variable -I$(AST_DIRECTORY)Structure -I$(BIN_DIRECTORY)Structure
 
 EXE=$(BIN_DIRECTORY)CParser
 
@@ -75,13 +75,13 @@ $(EXPR_DIRECTORY)%.o: $(AST_DIRECTORY)Expression/%.cpp $(HEADERS_AST) $(BIN_DIRE
 $(INSTR_DIRECTORY)%.o: $(AST_DIRECTORY)Instruction/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(INSTR_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 	
-$(FCT_DIRECTORY)%.o: $(AST_DIRECTORY)Fonction/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(FCT_DIRECTORY)
+$(FCT_DIRECTORY)%.o: $(AST_DIRECTORY)Function/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(FCT_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 	
-$(VAR_DIRECTORY)%.o: $(AST_DIRECTORY)Fonction/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(VAR_DIRECTORY)
+$(VAR_DIRECTORY)%.o: $(AST_DIRECTORY)Function/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(VAR_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 	
-$(STRUCT_DIRECTORY)%.o: $(AST_DIRECTORY)Fonction/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(STRUCT_DIRECTORY)
+$(STRUCT_DIRECTORY)%.o: $(AST_DIRECTORY)Function/%.cpp $(HEADERS_AST) $(BIN_DIRECTORY) $(STRUCT_DIRECTORY)
 	g++ $(CPP_FLAGS) -o $@ $(CPP_FLAGS_OBJ) $< $(INCLUDE_DIRECTORIES)
 
 $(BIN_DIRECTORY):

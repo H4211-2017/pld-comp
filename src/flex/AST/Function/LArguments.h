@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "AbstractNode.h"
-#include "VariableSignature.h"
+#include "Variable/VariableSignature.h"
 
 namespace AST
 {

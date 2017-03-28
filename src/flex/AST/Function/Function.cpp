@@ -1,4 +1,4 @@
-#include "Fonction.h"
+#include "Function.h"
 
 #include "LParametres.h"
 
@@ -7,8 +7,8 @@
 
 using namespace AST;
 
-Fonction::Fonction(std::shared_ptr<FonctionSignature> signature, std::shared_ptr<Scope> parentScope)
-	: AbstractNode("Fonction")
+Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Scope> parentScope)
+    : AbstractNode("Function")
 {
 	currentScope = std::make_shared<Scope>(parentScope);
 	sig = signature;
@@ -17,8 +17,8 @@ Fonction::Fonction(std::shared_ptr<FonctionSignature> signature, std::shared_ptr
 	content = nullptr;
 }
 
-Fonction::Fonction(std::shared_ptr<FonctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Scope> parentScope)
-	: Fonction(signature, parentScope)
+Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Scope> parentScope)
+    : Function(signature, parentScope)
 {
 	args = arguments;
 	if(args != nullptr && args->isForDeclaration())
@@ -34,15 +34,15 @@ Fonction::Fonction(std::shared_ptr<FonctionSignature> signature, std::shared_ptr
 	}
 }
 
-Fonction::Fonction(std::shared_ptr<FonctionSignature> signature, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
-	: Fonction(signature, parentScope)
+Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
+    : Function(signature, parentScope)
 {
 	currentScope = std::make_shared<Scope>(parentScope);
 	this->setBlock(content);
 }
 
-Fonction::Fonction(std::shared_ptr<FonctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
-	: Fonction(signature, arguments, parentScope)
+Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
+    : Function(signature, arguments, parentScope)
 {
 	
 	currentScope = std::make_shared<Scope>(parentScope);
@@ -61,7 +61,7 @@ Fonction::Fonction(std::shared_ptr<FonctionSignature> signature, std::shared_ptr
 	}
 }
 
-bool Fonction::compareArguments(std::shared_ptr<Fonction> f2) const
+bool Function::compareArguments(std::shared_ptr<Function> f2) const
 {
 	if(args == nullptr ^ f2->args == nullptr)
 	{
@@ -74,7 +74,7 @@ bool Fonction::compareArguments(std::shared_ptr<Fonction> f2) const
 	return args->compareSignature(f2->args);
 }
 
-bool Fonction::checkParametres(std::shared_ptr<LParametres> params) const
+bool Function::checkParametres(std::shared_ptr<LParametres> params) const
 {
 	if(args == nullptr && params == nullptr)
 	{
@@ -88,23 +88,23 @@ bool Fonction::checkParametres(std::shared_ptr<LParametres> params) const
 	
 }
 
-bool Fonction::isDeclaration() const
+bool Function::isDeclaration() const
 {
 	return content == nullptr;
 }
 
-void Fonction::setBlock(std::shared_ptr<Block> content)
+void Function::setBlock(std::shared_ptr<Block> content)
 {
 	
 	this->content = content;
 }
 
-std::shared_ptr<FonctionSignature> Fonction::getSignature() const
+std::shared_ptr<FunctionSignature> Function::getSignature() const
 {
 	return sig;
 }
         
-void Fonction::printTree(int tabulationNumber) const
+void Function::printTree(int tabulationNumber) const
 {
 	AbstractNode::printTree(tabulationNumber);
 	std::cout << std::endl;
@@ -121,12 +121,12 @@ void Fonction::printTree(int tabulationNumber) const
 	}
 }
 
-Value Fonction::evaluate() const
+Value Function::evaluate() const
 {
 	return Value();
 }
 
-void Fonction::buildIR() const
+void Function::buildIR() const
 {
 
 }
