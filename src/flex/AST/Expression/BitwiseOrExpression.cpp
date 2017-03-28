@@ -1,20 +1,20 @@
-#include "BitewiseOrExpression.h"
+#include "BitwiseOrExpression.h"
 
 using namespace AST;
 
-BitewiseOrExpression::BitewiseOrExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
-    : AbstractBinaryExpression("BitewiseOrExpression", leftMember, rightMember)
+BitwiseOrExpression::BitwiseOrExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
+    : AbstractBinaryExpression("BitwiseOrExpression", leftMember, rightMember)
 {
         this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
 
 }
 
 
-BitewiseOrExpression::~BitewiseOrExpression() {
+BitwiseOrExpression::~BitwiseOrExpression() {
         // TODO Auto-generated destructor stub
 }
 
-Value BitewiseOrExpression::evaluate() const
+Value BitwiseOrExpression::evaluate() const
 {
         Value leftVal = this->leftMember->evaluate();
         Value rightVal = this->rightMember->evaluate();
@@ -23,12 +23,12 @@ Value BitewiseOrExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void BitewiseOrExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void BitwiseOrExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
 {
 
 }
 
-void BitewiseOrExpression::printOperator() const
+void BitwiseOrExpression::printOperator() const
 {
     std::cout << "|";
 }

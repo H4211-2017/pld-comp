@@ -11,10 +11,12 @@ VariableSignature::VariableSignature(std::string identifiant, Type type)
 void VariableSignature::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
+
     if(identifiant != "")
     {
         std::cout << " | Variable name : " << identifiant;
     }
+
 
 }
 

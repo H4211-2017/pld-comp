@@ -135,14 +135,14 @@ mainbody : maindecl bloc {$1->setBlock(std::make_shared<Block>( *( static_cast< 
 
 maindecl : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS {if($4 != nullptr)
 																		{
-                                                                                                                                                        $$ = new Function(std::make_shared<FunctionSignature>("main", *$1),
+                                                                            $$ = new Function(std::make_shared<FunctionSignature>("main", *$1),
 																					std::make_shared<LArguments>( *( static_cast< LArguments* >($4))), currentContext);	
 																			delete $1;
 																			delete $4;
 																		}
 																		else
 																		{
-                                                                                                                                                        $$ = new Function(std::make_shared<FunctionSignature>("main", *$1), currentContext);
+                                                                            $$ = new Function(std::make_shared<FunctionSignature>("main", *$1), currentContext);
 																			delete $1;	
 																		}			
 																		currentContext = $$->getScope();
@@ -235,6 +235,9 @@ type : CHAR {$$ = new Type(Type::CHAR);}
 	| INT64	{$$ = new Type(Type::INT_64);}
 	;
 
+var : ID {} // TODO
+	| ID LEFT_BRACKET expr RIGHT_BRACKET {} // TODO
+
 /* ===== IDENTIFIANT ===== */ 
 
 sigvar : type ID {$$ = new VariableSignature($2, *$1);
@@ -242,7 +245,7 @@ sigvar : type ID {$$ = new VariableSignature($2, *$1);
 	;
 	
 sigfonc : type ID LEFT_PARENTHESIS          {$$ = new FunctionSignature($2, *$1);
-												delete $1;} // TODO
+												delete $1;} 
     | VOID ID LEFT_PARENTHESIS                              {$$ = new FunctionSignature($2);}
     | type LEFT_BRACKET RIGHT_BRACKET ID LEFT_PARENTHESIS   {std::cout << "sigfonc : type [] ID"<< std::endl;} // TODO
     ;
@@ -288,7 +291,7 @@ iintcomp : iintcomp COMMA expr {$$ = $1;
 			delete $1;}
 	;
 
-/* ===== EXPRESSION ===== */ // TODO
+/* ===== EXPRESSION ===== */
 
 uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UMINUS);
 						delete $2;}
@@ -302,7 +305,7 @@ uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::U
 	
 expr : INT_VAL {$$ = new Constant($1);}
 	| ID {$$ = new IDExpression($1, currentContext);}
-	| uoperation {$$ = $1;} // TODO
+	| uoperation {$$ = $1;} 
 	| affectation {$$ = $1;}
 	| appelfonc {$$ = $1;}
 	| expr BOOL_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
@@ -311,13 +314,13 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr BOOL_AND expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO 
 								delete $1;
 								delete $3;}
-	| expr BIT_OR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BIT_OR expr {$$ = new BitwiseOrExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_XOR expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BIT_XOR expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_AND expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BIT_AND expr {$$ = new BitwiseAndExpression(make_shared_expr($1), make_shared_expr($3)); 
 								delete $1;
 								delete $3;}
 	| expr BOOL_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
@@ -338,10 +341,10 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BIT_RIGHT_SHIFT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BIT_RIGHT_SHIFT expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| expr BIT_LEFT_SHIFT expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BIT_LEFT_SHIFT expr {$$ = new BitwiseShiftLeftExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
 	| expr ADD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
@@ -359,10 +362,15 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr MOD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
 								delete $1;
 								delete $3;}
-	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new Constant($2->evaluate().getValue().second); delete $2;} // TODO rajouter constructeur pour constante
+	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new ParenthesisExpression(make_shared_instr($2)); delete $2;} 
+	| var INCREMENT {} // TODO
+	| var DECREMENT {} // TODO
+	| INCREMENT var {} // TODO
+	| DECREMENT var {} // TODO
 	;
-
-/* ===== AFFECTATION ===== */ // TODO
+	
+	
+/* ===== AFFECTATION ===== */ 
 
 affectation : ID signeaff expr {$$ = new AffectationExpression($1, *$2, make_shared_expr($3), currentContext); 
 								delete $2;
@@ -370,23 +378,23 @@ affectation : ID signeaff expr {$$ = new AffectationExpression($1, *$2, make_sha
 	;
 	
 signeaff : AFFECT {$$ = new OPAffect(OPAffect::AFFECT);}
-	| AFFECT_MULT {$$ = new OPAffect(OPAffect::AFFECT_MULT);} 
-	| AFFECT_DIV  {$$ = new OPAffect(OPAffect::AFFECT_DIV);}
+	| AFFECT_MULT {$$ = new OPAffect(OPAffect::AFFECT_MULT);} // TODO
+	| AFFECT_DIV  {$$ = new OPAffect(OPAffect::AFFECT_DIV);} // TODO
 	| AFFECT_ADD  {$$ = new OPAffect(OPAffect::AFFECT_ADD);}
-	| AFFECT_SUB  {$$ = new OPAffect(OPAffect::AFFECT_SUB);}
-	| AFFECT_MOD  {$$ = new OPAffect(OPAffect::AFFECT_MOD);}
-	| AFFECT_BIT_AND  {$$ = new OPAffect(OPAffect::AFFECT_BIT_AND);}
-	| AFFECT_BIT_OR  {$$ = new OPAffect(OPAffect::AFFECT_BIT_OR);}
-	| AFFECT_BIT_XOR   {$$ = new OPAffect(OPAffect::AFFECT_BIT_XOR);}
-	| AFFECT_BIT_LEFT_SHIFT  {$$ = new OPAffect(OPAffect::AFFECT_BIT_LEFT_SHIFT);}
-	| AFFECT_BIT_RIGHT_SHIFT {$$ = new OPAffect(OPAffect::AFFECT_BIT_RIGHT_SHIFT);}
+	| AFFECT_SUB  {$$ = new OPAffect(OPAffect::AFFECT_SUB);} // TODO
+	| AFFECT_MOD  {$$ = new OPAffect(OPAffect::AFFECT_MOD);} // TODO
+	| AFFECT_BIT_AND  {$$ = new OPAffect(OPAffect::AFFECT_BIT_AND);} // TODO
+	| AFFECT_BIT_OR  {$$ = new OPAffect(OPAffect::AFFECT_BIT_OR);} // TODO
+	| AFFECT_BIT_XOR   {$$ = new OPAffect(OPAffect::AFFECT_BIT_XOR);} // TODO
+	| AFFECT_BIT_LEFT_SHIFT  {$$ = new OPAffect(OPAffect::AFFECT_BIT_LEFT_SHIFT);} // TODO
+	| AFFECT_BIT_RIGHT_SHIFT {$$ = new OPAffect(OPAffect::AFFECT_BIT_RIGHT_SHIFT);} // TODO
 	;
 
-/* ===== STRUCTURES ===== */  // TODO
+/* ===== STRUCTURES ===== */ 
 
 structure :  structureif {$$ = $1;}
-	| structurewhile { } 
-	| structurefor { } 
+	| structurewhile { } // TODO
+	| structurefor { } // TODO
 	;
 
 structureif : IF LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint structureelse {$$ = new IfStructure(std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),

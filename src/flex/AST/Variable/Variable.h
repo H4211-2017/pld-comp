@@ -11,6 +11,7 @@ namespace AST
 	public:
         
         Variable(std::shared_ptr<VariableSignature> signature, bool decl);
+        Variable(std::string name, std::shared_ptr<VariableSignature> signature, bool decl);
         
         bool isDeclaration() const;
         void noLongerDeclaration();

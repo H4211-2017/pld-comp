@@ -1,20 +1,20 @@
-#include "BitewiseXorExpression.h"
+#include "BitwiseXorExpression.h"
 
 using namespace AST;
 
-BitewiseXorExpression::BitewiseXorExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
-    : AbstractBinaryExpression("BitewiseXorExpression", leftMember, rightMember)
+BitwiseXorExpression::BitwiseXorExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
+    : AbstractBinaryExpression("BitwiseXorExpression", leftMember, rightMember)
 {
         this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
 
 }
 
 
-BitewiseXorExpression::~BitewiseXorExpression() {
+BitwiseXorExpression::~BitwiseXorExpression() {
         // TODO Auto-generated destructor stub
 }
 
-Value BitewiseXorExpression::evaluate() const
+Value BitwiseXorExpression::evaluate() const
 {
         Value leftVal = this->leftMember->evaluate();
         Value rightVal = this->rightMember->evaluate();
@@ -23,12 +23,12 @@ Value BitewiseXorExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void BitewiseXorExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void BitwiseXorExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
 {
 
 }
 
-void BitewiseXorExpression::printOperator() const
+void BitwiseXorExpression::printOperator() const
 {
     std::cout << "^";
 }
