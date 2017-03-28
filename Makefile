@@ -663,30 +663,6 @@ src/IR/instructions/WriteToMemory.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/WriteToMemory.cpp.s
 .PHONY : src/IR/instructions/WriteToMemory.cpp.s
 
-src/flex/AST/AbstractInstruction.o: src/flex/AST/AbstractInstruction.cpp.o
-.PHONY : src/flex/AST/AbstractInstruction.o
-
-# target to build an object file
-src/flex/AST/AbstractInstruction.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/AbstractInstruction.cpp.o
-.PHONY : src/flex/AST/AbstractInstruction.cpp.o
-
-src/flex/AST/AbstractInstruction.i: src/flex/AST/AbstractInstruction.cpp.i
-.PHONY : src/flex/AST/AbstractInstruction.i
-
-# target to preprocess a source file
-src/flex/AST/AbstractInstruction.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/AbstractInstruction.cpp.i
-.PHONY : src/flex/AST/AbstractInstruction.cpp.i
-
-src/flex/AST/AbstractInstruction.s: src/flex/AST/AbstractInstruction.cpp.s
-.PHONY : src/flex/AST/AbstractInstruction.s
-
-# target to generate assembly for a file
-src/flex/AST/AbstractInstruction.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/AbstractInstruction.cpp.s
-.PHONY : src/flex/AST/AbstractInstruction.cpp.s
-
 src/flex/AST/AbstractNode.o: src/flex/AST/AbstractNode.cpp.o
 .PHONY : src/flex/AST/AbstractNode.o
 
@@ -711,54 +687,6 @@ src/flex/AST/AbstractNode.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/AbstractNode.cpp.s
 .PHONY : src/flex/AST/AbstractNode.cpp.s
 
-src/flex/AST/ArgumentList.o: src/flex/AST/ArgumentList.cpp.o
-.PHONY : src/flex/AST/ArgumentList.o
-
-# target to build an object file
-src/flex/AST/ArgumentList.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/ArgumentList.cpp.o
-.PHONY : src/flex/AST/ArgumentList.cpp.o
-
-src/flex/AST/ArgumentList.i: src/flex/AST/ArgumentList.cpp.i
-.PHONY : src/flex/AST/ArgumentList.i
-
-# target to preprocess a source file
-src/flex/AST/ArgumentList.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/ArgumentList.cpp.i
-.PHONY : src/flex/AST/ArgumentList.cpp.i
-
-src/flex/AST/ArgumentList.s: src/flex/AST/ArgumentList.cpp.s
-.PHONY : src/flex/AST/ArgumentList.s
-
-# target to generate assembly for a file
-src/flex/AST/ArgumentList.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/ArgumentList.cpp.s
-.PHONY : src/flex/AST/ArgumentList.cpp.s
-
-src/flex/AST/AssignationVariableExpression.o: src/flex/AST/AssignationVariableExpression.cpp.o
-.PHONY : src/flex/AST/AssignationVariableExpression.o
-
-# target to build an object file
-src/flex/AST/AssignationVariableExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/AssignationVariableExpression.cpp.o
-.PHONY : src/flex/AST/AssignationVariableExpression.cpp.o
-
-src/flex/AST/AssignationVariableExpression.i: src/flex/AST/AssignationVariableExpression.cpp.i
-.PHONY : src/flex/AST/AssignationVariableExpression.i
-
-# target to preprocess a source file
-src/flex/AST/AssignationVariableExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/AssignationVariableExpression.cpp.i
-.PHONY : src/flex/AST/AssignationVariableExpression.cpp.i
-
-src/flex/AST/AssignationVariableExpression.s: src/flex/AST/AssignationVariableExpression.cpp.s
-.PHONY : src/flex/AST/AssignationVariableExpression.s
-
-# target to generate assembly for a file
-src/flex/AST/AssignationVariableExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/AssignationVariableExpression.cpp.s
-.PHONY : src/flex/AST/AssignationVariableExpression.cpp.s
-
 src/flex/AST/Block.o: src/flex/AST/Block.cpp.o
 .PHONY : src/flex/AST/Block.o
 
@@ -782,30 +710,6 @@ src/flex/AST/Block.s: src/flex/AST/Block.cpp.s
 src/flex/AST/Block.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Block.cpp.s
 .PHONY : src/flex/AST/Block.cpp.s
-
-src/flex/AST/ComposedInstruction.o: src/flex/AST/ComposedInstruction.cpp.o
-.PHONY : src/flex/AST/ComposedInstruction.o
-
-# target to build an object file
-src/flex/AST/ComposedInstruction.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/ComposedInstruction.cpp.o
-.PHONY : src/flex/AST/ComposedInstruction.cpp.o
-
-src/flex/AST/ComposedInstruction.i: src/flex/AST/ComposedInstruction.cpp.i
-.PHONY : src/flex/AST/ComposedInstruction.i
-
-# target to preprocess a source file
-src/flex/AST/ComposedInstruction.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/ComposedInstruction.cpp.i
-.PHONY : src/flex/AST/ComposedInstruction.cpp.i
-
-src/flex/AST/ComposedInstruction.s: src/flex/AST/ComposedInstruction.cpp.s
-.PHONY : src/flex/AST/ComposedInstruction.s
-
-# target to generate assembly for a file
-src/flex/AST/ComposedInstruction.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/ComposedInstruction.cpp.s
-.PHONY : src/flex/AST/ComposedInstruction.cpp.s
 
 src/flex/AST/Expression/AbstractBinaryExpression.o: src/flex/AST/Expression/AbstractBinaryExpression.cpp.o
 .PHONY : src/flex/AST/Expression/AbstractBinaryExpression.o
@@ -879,6 +783,150 @@ src/flex/AST/Expression/AddExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AddExpression.cpp.s
 .PHONY : src/flex/AST/Expression/AddExpression.cpp.s
 
+src/flex/AST/Expression/AffectationExpression.o: src/flex/AST/Expression/AffectationExpression.cpp.o
+.PHONY : src/flex/AST/Expression/AffectationExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/AffectationExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.o
+.PHONY : src/flex/AST/Expression/AffectationExpression.cpp.o
+
+src/flex/AST/Expression/AffectationExpression.i: src/flex/AST/Expression/AffectationExpression.cpp.i
+.PHONY : src/flex/AST/Expression/AffectationExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/AffectationExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.i
+.PHONY : src/flex/AST/Expression/AffectationExpression.cpp.i
+
+src/flex/AST/Expression/AffectationExpression.s: src/flex/AST/Expression/AffectationExpression.cpp.s
+.PHONY : src/flex/AST/Expression/AffectationExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/AffectationExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.s
+.PHONY : src/flex/AST/Expression/AffectationExpression.cpp.s
+
+src/flex/AST/Expression/ArrayExpression.o: src/flex/AST/Expression/ArrayExpression.cpp.o
+.PHONY : src/flex/AST/Expression/ArrayExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/ArrayExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o
+.PHONY : src/flex/AST/Expression/ArrayExpression.cpp.o
+
+src/flex/AST/Expression/ArrayExpression.i: src/flex/AST/Expression/ArrayExpression.cpp.i
+.PHONY : src/flex/AST/Expression/ArrayExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/ArrayExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.i
+.PHONY : src/flex/AST/Expression/ArrayExpression.cpp.i
+
+src/flex/AST/Expression/ArrayExpression.s: src/flex/AST/Expression/ArrayExpression.cpp.s
+.PHONY : src/flex/AST/Expression/ArrayExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/ArrayExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.s
+.PHONY : src/flex/AST/Expression/ArrayExpression.cpp.s
+
+src/flex/AST/Expression/BitewiseAndExpression.o: src/flex/AST/Expression/BitewiseAndExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitewiseAndExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/BitewiseAndExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitewiseAndExpression.cpp.o
+
+src/flex/AST/Expression/BitewiseAndExpression.i: src/flex/AST/Expression/BitewiseAndExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitewiseAndExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/BitewiseAndExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitewiseAndExpression.cpp.i
+
+src/flex/AST/Expression/BitewiseAndExpression.s: src/flex/AST/Expression/BitewiseAndExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitewiseAndExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/BitewiseAndExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitewiseAndExpression.cpp.s
+
+src/flex/AST/Expression/BitewiseOrExpression.o: src/flex/AST/Expression/BitewiseOrExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitewiseOrExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/BitewiseOrExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitewiseOrExpression.cpp.o
+
+src/flex/AST/Expression/BitewiseOrExpression.i: src/flex/AST/Expression/BitewiseOrExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitewiseOrExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/BitewiseOrExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitewiseOrExpression.cpp.i
+
+src/flex/AST/Expression/BitewiseOrExpression.s: src/flex/AST/Expression/BitewiseOrExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitewiseOrExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/BitewiseOrExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitewiseOrExpression.cpp.s
+
+src/flex/AST/Expression/BitewiseShiftLeftExpression.o: src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o
+
+src/flex/AST/Expression/BitewiseShiftLeftExpression.i: src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i
+
+src/flex/AST/Expression/BitewiseShiftLeftExpression.s: src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s
+
+src/flex/AST/Expression/BitewiseXorExpression.o: src/flex/AST/Expression/BitewiseXorExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitewiseXorExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/BitewiseXorExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitewiseXorExpression.cpp.o
+
+src/flex/AST/Expression/BitewiseXorExpression.i: src/flex/AST/Expression/BitewiseXorExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitewiseXorExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/BitewiseXorExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitewiseXorExpression.cpp.i
+
+src/flex/AST/Expression/BitewiseXorExpression.s: src/flex/AST/Expression/BitewiseXorExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitewiseXorExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/BitewiseXorExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitewiseXorExpression.cpp.s
+
 src/flex/AST/Expression/Constant.o: src/flex/AST/Expression/Constant.cpp.o
 .PHONY : src/flex/AST/Expression/Constant.o
 
@@ -903,101 +951,389 @@ src/flex/AST/Expression/Constant.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.s
 .PHONY : src/flex/AST/Expression/Constant.cpp.s
 
-src/flex/AST/Expression/VariableAssignmentExpression.o: src/flex/AST/Expression/VariableAssignmentExpression.cpp.o
-.PHONY : src/flex/AST/Expression/VariableAssignmentExpression.o
+src/flex/AST/Expression/IDExpression.o: src/flex/AST/Expression/IDExpression.cpp.o
+.PHONY : src/flex/AST/Expression/IDExpression.o
 
 # target to build an object file
-src/flex/AST/Expression/VariableAssignmentExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/VariableAssignmentExpression.cpp.o
-.PHONY : src/flex/AST/Expression/VariableAssignmentExpression.cpp.o
+src/flex/AST/Expression/IDExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.o
+.PHONY : src/flex/AST/Expression/IDExpression.cpp.o
 
-src/flex/AST/Expression/VariableAssignmentExpression.i: src/flex/AST/Expression/VariableAssignmentExpression.cpp.i
-.PHONY : src/flex/AST/Expression/VariableAssignmentExpression.i
+src/flex/AST/Expression/IDExpression.i: src/flex/AST/Expression/IDExpression.cpp.i
+.PHONY : src/flex/AST/Expression/IDExpression.i
 
 # target to preprocess a source file
-src/flex/AST/Expression/VariableAssignmentExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/VariableAssignmentExpression.cpp.i
-.PHONY : src/flex/AST/Expression/VariableAssignmentExpression.cpp.i
+src/flex/AST/Expression/IDExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.i
+.PHONY : src/flex/AST/Expression/IDExpression.cpp.i
 
-src/flex/AST/Expression/VariableAssignmentExpression.s: src/flex/AST/Expression/VariableAssignmentExpression.cpp.s
-.PHONY : src/flex/AST/Expression/VariableAssignmentExpression.s
+src/flex/AST/Expression/IDExpression.s: src/flex/AST/Expression/IDExpression.cpp.s
+.PHONY : src/flex/AST/Expression/IDExpression.s
 
 # target to generate assembly for a file
-src/flex/AST/Expression/VariableAssignmentExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/VariableAssignmentExpression.cpp.s
-.PHONY : src/flex/AST/Expression/VariableAssignmentExpression.cpp.s
+src/flex/AST/Expression/IDExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.s
+.PHONY : src/flex/AST/Expression/IDExpression.cpp.s
 
-src/flex/AST/MainBody.o: src/flex/AST/MainBody.cpp.o
-.PHONY : src/flex/AST/MainBody.o
+src/flex/AST/Expression/ModuloExpression.o: src/flex/AST/Expression/ModuloExpression.cpp.o
+.PHONY : src/flex/AST/Expression/ModuloExpression.o
 
 # target to build an object file
-src/flex/AST/MainBody.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/MainBody.cpp.o
-.PHONY : src/flex/AST/MainBody.cpp.o
+src/flex/AST/Expression/ModuloExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.o
+.PHONY : src/flex/AST/Expression/ModuloExpression.cpp.o
 
-src/flex/AST/MainBody.i: src/flex/AST/MainBody.cpp.i
-.PHONY : src/flex/AST/MainBody.i
+src/flex/AST/Expression/ModuloExpression.i: src/flex/AST/Expression/ModuloExpression.cpp.i
+.PHONY : src/flex/AST/Expression/ModuloExpression.i
 
 # target to preprocess a source file
-src/flex/AST/MainBody.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/MainBody.cpp.i
-.PHONY : src/flex/AST/MainBody.cpp.i
+src/flex/AST/Expression/ModuloExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.i
+.PHONY : src/flex/AST/Expression/ModuloExpression.cpp.i
 
-src/flex/AST/MainBody.s: src/flex/AST/MainBody.cpp.s
-.PHONY : src/flex/AST/MainBody.s
+src/flex/AST/Expression/ModuloExpression.s: src/flex/AST/Expression/ModuloExpression.cpp.s
+.PHONY : src/flex/AST/Expression/ModuloExpression.s
 
 # target to generate assembly for a file
-src/flex/AST/MainBody.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/MainBody.cpp.s
-.PHONY : src/flex/AST/MainBody.cpp.s
+src/flex/AST/Expression/ModuloExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.s
+.PHONY : src/flex/AST/Expression/ModuloExpression.cpp.s
 
-src/flex/AST/MainType.o: src/flex/AST/MainType.cpp.o
-.PHONY : src/flex/AST/MainType.o
+src/flex/AST/Expression/ParenthesisExpression.o: src/flex/AST/Expression/ParenthesisExpression.cpp.o
+.PHONY : src/flex/AST/Expression/ParenthesisExpression.o
 
 # target to build an object file
-src/flex/AST/MainType.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/MainType.cpp.o
-.PHONY : src/flex/AST/MainType.cpp.o
+src/flex/AST/Expression/ParenthesisExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.o
+.PHONY : src/flex/AST/Expression/ParenthesisExpression.cpp.o
 
-src/flex/AST/MainType.i: src/flex/AST/MainType.cpp.i
-.PHONY : src/flex/AST/MainType.i
+src/flex/AST/Expression/ParenthesisExpression.i: src/flex/AST/Expression/ParenthesisExpression.cpp.i
+.PHONY : src/flex/AST/Expression/ParenthesisExpression.i
 
 # target to preprocess a source file
-src/flex/AST/MainType.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/MainType.cpp.i
-.PHONY : src/flex/AST/MainType.cpp.i
+src/flex/AST/Expression/ParenthesisExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.i
+.PHONY : src/flex/AST/Expression/ParenthesisExpression.cpp.i
 
-src/flex/AST/MainType.s: src/flex/AST/MainType.cpp.s
-.PHONY : src/flex/AST/MainType.s
+src/flex/AST/Expression/ParenthesisExpression.s: src/flex/AST/Expression/ParenthesisExpression.cpp.s
+.PHONY : src/flex/AST/Expression/ParenthesisExpression.s
 
 # target to generate assembly for a file
-src/flex/AST/MainType.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/MainType.cpp.s
-.PHONY : src/flex/AST/MainType.cpp.s
+src/flex/AST/Expression/ParenthesisExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.s
+.PHONY : src/flex/AST/Expression/ParenthesisExpression.cpp.s
 
-src/flex/AST/SequenceInstruction.o: src/flex/AST/SequenceInstruction.cpp.o
-.PHONY : src/flex/AST/SequenceInstruction.o
+src/flex/AST/Expression/UnaryExpression.o: src/flex/AST/Expression/UnaryExpression.cpp.o
+.PHONY : src/flex/AST/Expression/UnaryExpression.o
 
 # target to build an object file
-src/flex/AST/SequenceInstruction.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/SequenceInstruction.cpp.o
-.PHONY : src/flex/AST/SequenceInstruction.cpp.o
+src/flex/AST/Expression/UnaryExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.o
+.PHONY : src/flex/AST/Expression/UnaryExpression.cpp.o
 
-src/flex/AST/SequenceInstruction.i: src/flex/AST/SequenceInstruction.cpp.i
-.PHONY : src/flex/AST/SequenceInstruction.i
+src/flex/AST/Expression/UnaryExpression.i: src/flex/AST/Expression/UnaryExpression.cpp.i
+.PHONY : src/flex/AST/Expression/UnaryExpression.i
 
 # target to preprocess a source file
-src/flex/AST/SequenceInstruction.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/SequenceInstruction.cpp.i
-.PHONY : src/flex/AST/SequenceInstruction.cpp.i
+src/flex/AST/Expression/UnaryExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.i
+.PHONY : src/flex/AST/Expression/UnaryExpression.cpp.i
 
-src/flex/AST/SequenceInstruction.s: src/flex/AST/SequenceInstruction.cpp.s
-.PHONY : src/flex/AST/SequenceInstruction.s
+src/flex/AST/Expression/UnaryExpression.s: src/flex/AST/Expression/UnaryExpression.cpp.s
+.PHONY : src/flex/AST/Expression/UnaryExpression.s
 
 # target to generate assembly for a file
-src/flex/AST/SequenceInstruction.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/SequenceInstruction.cpp.s
-.PHONY : src/flex/AST/SequenceInstruction.cpp.s
+src/flex/AST/Expression/UnaryExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/UnaryExpression.cpp.s
+.PHONY : src/flex/AST/Expression/UnaryExpression.cpp.s
+
+src/flex/AST/Function/Function.o: src/flex/AST/Function/Function.cpp.o
+.PHONY : src/flex/AST/Function/Function.o
+
+# target to build an object file
+src/flex/AST/Function/Function.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.o
+.PHONY : src/flex/AST/Function/Function.cpp.o
+
+src/flex/AST/Function/Function.i: src/flex/AST/Function/Function.cpp.i
+.PHONY : src/flex/AST/Function/Function.i
+
+# target to preprocess a source file
+src/flex/AST/Function/Function.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.i
+.PHONY : src/flex/AST/Function/Function.cpp.i
+
+src/flex/AST/Function/Function.s: src/flex/AST/Function/Function.cpp.s
+.PHONY : src/flex/AST/Function/Function.s
+
+# target to generate assembly for a file
+src/flex/AST/Function/Function.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/Function.cpp.s
+.PHONY : src/flex/AST/Function/Function.cpp.s
+
+src/flex/AST/Function/FunctionCall.o: src/flex/AST/Function/FunctionCall.cpp.o
+.PHONY : src/flex/AST/Function/FunctionCall.o
+
+# target to build an object file
+src/flex/AST/Function/FunctionCall.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.o
+.PHONY : src/flex/AST/Function/FunctionCall.cpp.o
+
+src/flex/AST/Function/FunctionCall.i: src/flex/AST/Function/FunctionCall.cpp.i
+.PHONY : src/flex/AST/Function/FunctionCall.i
+
+# target to preprocess a source file
+src/flex/AST/Function/FunctionCall.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.i
+.PHONY : src/flex/AST/Function/FunctionCall.cpp.i
+
+src/flex/AST/Function/FunctionCall.s: src/flex/AST/Function/FunctionCall.cpp.s
+.PHONY : src/flex/AST/Function/FunctionCall.s
+
+# target to generate assembly for a file
+src/flex/AST/Function/FunctionCall.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionCall.cpp.s
+.PHONY : src/flex/AST/Function/FunctionCall.cpp.s
+
+src/flex/AST/Function/FunctionDeclaration.o: src/flex/AST/Function/FunctionDeclaration.cpp.o
+.PHONY : src/flex/AST/Function/FunctionDeclaration.o
+
+# target to build an object file
+src/flex/AST/Function/FunctionDeclaration.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionDeclaration.cpp.o
+.PHONY : src/flex/AST/Function/FunctionDeclaration.cpp.o
+
+src/flex/AST/Function/FunctionDeclaration.i: src/flex/AST/Function/FunctionDeclaration.cpp.i
+.PHONY : src/flex/AST/Function/FunctionDeclaration.i
+
+# target to preprocess a source file
+src/flex/AST/Function/FunctionDeclaration.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionDeclaration.cpp.i
+.PHONY : src/flex/AST/Function/FunctionDeclaration.cpp.i
+
+src/flex/AST/Function/FunctionDeclaration.s: src/flex/AST/Function/FunctionDeclaration.cpp.s
+.PHONY : src/flex/AST/Function/FunctionDeclaration.s
+
+# target to generate assembly for a file
+src/flex/AST/Function/FunctionDeclaration.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionDeclaration.cpp.s
+.PHONY : src/flex/AST/Function/FunctionDeclaration.cpp.s
+
+src/flex/AST/Function/FunctionScope.o: src/flex/AST/Function/FunctionScope.cpp.o
+.PHONY : src/flex/AST/Function/FunctionScope.o
+
+# target to build an object file
+src/flex/AST/Function/FunctionScope.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionScope.cpp.o
+.PHONY : src/flex/AST/Function/FunctionScope.cpp.o
+
+src/flex/AST/Function/FunctionScope.i: src/flex/AST/Function/FunctionScope.cpp.i
+.PHONY : src/flex/AST/Function/FunctionScope.i
+
+# target to preprocess a source file
+src/flex/AST/Function/FunctionScope.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionScope.cpp.i
+.PHONY : src/flex/AST/Function/FunctionScope.cpp.i
+
+src/flex/AST/Function/FunctionScope.s: src/flex/AST/Function/FunctionScope.cpp.s
+.PHONY : src/flex/AST/Function/FunctionScope.s
+
+# target to generate assembly for a file
+src/flex/AST/Function/FunctionScope.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionScope.cpp.s
+.PHONY : src/flex/AST/Function/FunctionScope.cpp.s
+
+src/flex/AST/Function/FunctionSignature.o: src/flex/AST/Function/FunctionSignature.cpp.o
+.PHONY : src/flex/AST/Function/FunctionSignature.o
+
+# target to build an object file
+src/flex/AST/Function/FunctionSignature.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionSignature.cpp.o
+.PHONY : src/flex/AST/Function/FunctionSignature.cpp.o
+
+src/flex/AST/Function/FunctionSignature.i: src/flex/AST/Function/FunctionSignature.cpp.i
+.PHONY : src/flex/AST/Function/FunctionSignature.i
+
+# target to preprocess a source file
+src/flex/AST/Function/FunctionSignature.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionSignature.cpp.i
+.PHONY : src/flex/AST/Function/FunctionSignature.cpp.i
+
+src/flex/AST/Function/FunctionSignature.s: src/flex/AST/Function/FunctionSignature.cpp.s
+.PHONY : src/flex/AST/Function/FunctionSignature.s
+
+# target to generate assembly for a file
+src/flex/AST/Function/FunctionSignature.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/FunctionSignature.cpp.s
+.PHONY : src/flex/AST/Function/FunctionSignature.cpp.s
+
+src/flex/AST/Function/LArguments.o: src/flex/AST/Function/LArguments.cpp.o
+.PHONY : src/flex/AST/Function/LArguments.o
+
+# target to build an object file
+src/flex/AST/Function/LArguments.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/LArguments.cpp.o
+.PHONY : src/flex/AST/Function/LArguments.cpp.o
+
+src/flex/AST/Function/LArguments.i: src/flex/AST/Function/LArguments.cpp.i
+.PHONY : src/flex/AST/Function/LArguments.i
+
+# target to preprocess a source file
+src/flex/AST/Function/LArguments.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/LArguments.cpp.i
+.PHONY : src/flex/AST/Function/LArguments.cpp.i
+
+src/flex/AST/Function/LArguments.s: src/flex/AST/Function/LArguments.cpp.s
+.PHONY : src/flex/AST/Function/LArguments.s
+
+# target to generate assembly for a file
+src/flex/AST/Function/LArguments.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/LArguments.cpp.s
+.PHONY : src/flex/AST/Function/LArguments.cpp.s
+
+src/flex/AST/Function/LParametres.o: src/flex/AST/Function/LParametres.cpp.o
+.PHONY : src/flex/AST/Function/LParametres.o
+
+# target to build an object file
+src/flex/AST/Function/LParametres.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.o
+.PHONY : src/flex/AST/Function/LParametres.cpp.o
+
+src/flex/AST/Function/LParametres.i: src/flex/AST/Function/LParametres.cpp.i
+.PHONY : src/flex/AST/Function/LParametres.i
+
+# target to preprocess a source file
+src/flex/AST/Function/LParametres.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.i
+.PHONY : src/flex/AST/Function/LParametres.cpp.i
+
+src/flex/AST/Function/LParametres.s: src/flex/AST/Function/LParametres.cpp.s
+.PHONY : src/flex/AST/Function/LParametres.s
+
+# target to generate assembly for a file
+src/flex/AST/Function/LParametres.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Function/LParametres.cpp.s
+.PHONY : src/flex/AST/Function/LParametres.cpp.s
+
+src/flex/AST/Instruction/AbstractInstruction.o: src/flex/AST/Instruction/AbstractInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/AbstractInstruction.o
+
+# target to build an object file
+src/flex/AST/Instruction/AbstractInstruction.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/AbstractInstruction.cpp.o
+
+src/flex/AST/Instruction/AbstractInstruction.i: src/flex/AST/Instruction/AbstractInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/AbstractInstruction.i
+
+# target to preprocess a source file
+src/flex/AST/Instruction/AbstractInstruction.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/AbstractInstruction.cpp.i
+
+src/flex/AST/Instruction/AbstractInstruction.s: src/flex/AST/Instruction/AbstractInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/AbstractInstruction.s
+
+# target to generate assembly for a file
+src/flex/AST/Instruction/AbstractInstruction.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/AbstractInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/AbstractInstruction.cpp.s
+
+src/flex/AST/Instruction/ComposedInstruction.o: src/flex/AST/Instruction/ComposedInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/ComposedInstruction.o
+
+# target to build an object file
+src/flex/AST/Instruction/ComposedInstruction.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/ComposedInstruction.cpp.o
+
+src/flex/AST/Instruction/ComposedInstruction.i: src/flex/AST/Instruction/ComposedInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/ComposedInstruction.i
+
+# target to preprocess a source file
+src/flex/AST/Instruction/ComposedInstruction.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/ComposedInstruction.cpp.i
+
+src/flex/AST/Instruction/ComposedInstruction.s: src/flex/AST/Instruction/ComposedInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/ComposedInstruction.s
+
+# target to generate assembly for a file
+src/flex/AST/Instruction/ComposedInstruction.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/ComposedInstruction.cpp.s
+
+src/flex/AST/Instruction/SequenceInstruction.o: src/flex/AST/Instruction/SequenceInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/SequenceInstruction.o
+
+# target to build an object file
+src/flex/AST/Instruction/SequenceInstruction.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/SequenceInstruction.cpp.o
+
+src/flex/AST/Instruction/SequenceInstruction.i: src/flex/AST/Instruction/SequenceInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/SequenceInstruction.i
+
+# target to preprocess a source file
+src/flex/AST/Instruction/SequenceInstruction.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/SequenceInstruction.cpp.i
+
+src/flex/AST/Instruction/SequenceInstruction.s: src/flex/AST/Instruction/SequenceInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/SequenceInstruction.s
+
+# target to generate assembly for a file
+src/flex/AST/Instruction/SequenceInstruction.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/SequenceInstruction.cpp.s
+
+src/flex/AST/Instruction/UnitInstruction.o: src/flex/AST/Instruction/UnitInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/UnitInstruction.o
+
+# target to build an object file
+src/flex/AST/Instruction/UnitInstruction.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/UnitInstruction.cpp.o
+
+src/flex/AST/Instruction/UnitInstruction.i: src/flex/AST/Instruction/UnitInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/UnitInstruction.i
+
+# target to preprocess a source file
+src/flex/AST/Instruction/UnitInstruction.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/UnitInstruction.cpp.i
+
+src/flex/AST/Instruction/UnitInstruction.s: src/flex/AST/Instruction/UnitInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/UnitInstruction.s
+
+# target to generate assembly for a file
+src/flex/AST/Instruction/UnitInstruction.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/UnitInstruction.cpp.s
+
+src/flex/AST/Scope.o: src/flex/AST/Scope.cpp.o
+.PHONY : src/flex/AST/Scope.o
+
+# target to build an object file
+src/flex/AST/Scope.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o
+.PHONY : src/flex/AST/Scope.cpp.o
+
+src/flex/AST/Scope.i: src/flex/AST/Scope.cpp.i
+.PHONY : src/flex/AST/Scope.i
+
+# target to preprocess a source file
+src/flex/AST/Scope.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.i
+.PHONY : src/flex/AST/Scope.cpp.i
+
+src/flex/AST/Scope.s: src/flex/AST/Scope.cpp.s
+.PHONY : src/flex/AST/Scope.s
+
+# target to generate assembly for a file
+src/flex/AST/Scope.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.s
+.PHONY : src/flex/AST/Scope.cpp.s
 
 src/flex/AST/Structure/AbstractStructure.o: src/flex/AST/Structure/AbstractStructure.cpp.o
 .PHONY : src/flex/AST/Structure/AbstractStructure.o
@@ -1071,30 +1407,6 @@ src/flex/AST/Structure/IfStructure.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.s
 .PHONY : src/flex/AST/Structure/IfStructure.cpp.s
 
-src/flex/AST/UnitInstruction.o: src/flex/AST/UnitInstruction.cpp.o
-.PHONY : src/flex/AST/UnitInstruction.o
-
-# target to build an object file
-src/flex/AST/UnitInstruction.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/UnitInstruction.cpp.o
-.PHONY : src/flex/AST/UnitInstruction.cpp.o
-
-src/flex/AST/UnitInstruction.i: src/flex/AST/UnitInstruction.cpp.i
-.PHONY : src/flex/AST/UnitInstruction.i
-
-# target to preprocess a source file
-src/flex/AST/UnitInstruction.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/UnitInstruction.cpp.i
-.PHONY : src/flex/AST/UnitInstruction.cpp.i
-
-src/flex/AST/UnitInstruction.s: src/flex/AST/UnitInstruction.cpp.s
-.PHONY : src/flex/AST/UnitInstruction.s
-
-# target to generate assembly for a file
-src/flex/AST/UnitInstruction.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/UnitInstruction.cpp.s
-.PHONY : src/flex/AST/UnitInstruction.cpp.s
-
 src/flex/AST/Value.o: src/flex/AST/Value.cpp.o
 .PHONY : src/flex/AST/Value.o
 
@@ -1119,77 +1431,149 @@ src/flex/AST/Value.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.s
 .PHONY : src/flex/AST/Value.cpp.s
 
-src/flex/AST/VariableDeclaration.o: src/flex/AST/VariableDeclaration.cpp.o
-.PHONY : src/flex/AST/VariableDeclaration.o
+src/flex/AST/Variable/Array.o: src/flex/AST/Variable/Array.cpp.o
+.PHONY : src/flex/AST/Variable/Array.o
 
 # target to build an object file
-src/flex/AST/VariableDeclaration.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/VariableDeclaration.cpp.o
-.PHONY : src/flex/AST/VariableDeclaration.cpp.o
+src/flex/AST/Variable/Array.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.o
+.PHONY : src/flex/AST/Variable/Array.cpp.o
 
-src/flex/AST/VariableDeclaration.i: src/flex/AST/VariableDeclaration.cpp.i
-.PHONY : src/flex/AST/VariableDeclaration.i
+src/flex/AST/Variable/Array.i: src/flex/AST/Variable/Array.cpp.i
+.PHONY : src/flex/AST/Variable/Array.i
 
 # target to preprocess a source file
-src/flex/AST/VariableDeclaration.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/VariableDeclaration.cpp.i
-.PHONY : src/flex/AST/VariableDeclaration.cpp.i
+src/flex/AST/Variable/Array.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.i
+.PHONY : src/flex/AST/Variable/Array.cpp.i
 
-src/flex/AST/VariableDeclaration.s: src/flex/AST/VariableDeclaration.cpp.s
-.PHONY : src/flex/AST/VariableDeclaration.s
+src/flex/AST/Variable/Array.s: src/flex/AST/Variable/Array.cpp.s
+.PHONY : src/flex/AST/Variable/Array.s
 
 # target to generate assembly for a file
-src/flex/AST/VariableDeclaration.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/VariableDeclaration.cpp.s
-.PHONY : src/flex/AST/VariableDeclaration.cpp.s
+src/flex/AST/Variable/Array.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Array.cpp.s
+.PHONY : src/flex/AST/Variable/Array.cpp.s
 
-src/flex/AST/VariableScope.o: src/flex/AST/VariableScope.cpp.o
-.PHONY : src/flex/AST/VariableScope.o
+src/flex/AST/Variable/ArrayDeclaration.o: src/flex/AST/Variable/ArrayDeclaration.cpp.o
+.PHONY : src/flex/AST/Variable/ArrayDeclaration.o
 
 # target to build an object file
-src/flex/AST/VariableScope.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/VariableScope.cpp.o
-.PHONY : src/flex/AST/VariableScope.cpp.o
+src/flex/AST/Variable/ArrayDeclaration.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.o
+.PHONY : src/flex/AST/Variable/ArrayDeclaration.cpp.o
 
-src/flex/AST/VariableScope.i: src/flex/AST/VariableScope.cpp.i
-.PHONY : src/flex/AST/VariableScope.i
+src/flex/AST/Variable/ArrayDeclaration.i: src/flex/AST/Variable/ArrayDeclaration.cpp.i
+.PHONY : src/flex/AST/Variable/ArrayDeclaration.i
 
 # target to preprocess a source file
-src/flex/AST/VariableScope.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/VariableScope.cpp.i
-.PHONY : src/flex/AST/VariableScope.cpp.i
+src/flex/AST/Variable/ArrayDeclaration.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.i
+.PHONY : src/flex/AST/Variable/ArrayDeclaration.cpp.i
 
-src/flex/AST/VariableScope.s: src/flex/AST/VariableScope.cpp.s
-.PHONY : src/flex/AST/VariableScope.s
+src/flex/AST/Variable/ArrayDeclaration.s: src/flex/AST/Variable/ArrayDeclaration.cpp.s
+.PHONY : src/flex/AST/Variable/ArrayDeclaration.s
 
 # target to generate assembly for a file
-src/flex/AST/VariableScope.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/VariableScope.cpp.s
-.PHONY : src/flex/AST/VariableScope.cpp.s
+src/flex/AST/Variable/ArrayDeclaration.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/ArrayDeclaration.cpp.s
+.PHONY : src/flex/AST/Variable/ArrayDeclaration.cpp.s
 
-src/flex/AST/VariableSignature.o: src/flex/AST/VariableSignature.cpp.o
-.PHONY : src/flex/AST/VariableSignature.o
+src/flex/AST/Variable/Variable.o: src/flex/AST/Variable/Variable.cpp.o
+.PHONY : src/flex/AST/Variable/Variable.o
 
 # target to build an object file
-src/flex/AST/VariableSignature.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/VariableSignature.cpp.o
-.PHONY : src/flex/AST/VariableSignature.cpp.o
+src/flex/AST/Variable/Variable.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.o
+.PHONY : src/flex/AST/Variable/Variable.cpp.o
 
-src/flex/AST/VariableSignature.i: src/flex/AST/VariableSignature.cpp.i
-.PHONY : src/flex/AST/VariableSignature.i
+src/flex/AST/Variable/Variable.i: src/flex/AST/Variable/Variable.cpp.i
+.PHONY : src/flex/AST/Variable/Variable.i
 
 # target to preprocess a source file
-src/flex/AST/VariableSignature.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/VariableSignature.cpp.i
-.PHONY : src/flex/AST/VariableSignature.cpp.i
+src/flex/AST/Variable/Variable.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.i
+.PHONY : src/flex/AST/Variable/Variable.cpp.i
 
-src/flex/AST/VariableSignature.s: src/flex/AST/VariableSignature.cpp.s
-.PHONY : src/flex/AST/VariableSignature.s
+src/flex/AST/Variable/Variable.s: src/flex/AST/Variable/Variable.cpp.s
+.PHONY : src/flex/AST/Variable/Variable.s
 
 # target to generate assembly for a file
-src/flex/AST/VariableSignature.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/VariableSignature.cpp.s
-.PHONY : src/flex/AST/VariableSignature.cpp.s
+src/flex/AST/Variable/Variable.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/Variable.cpp.s
+.PHONY : src/flex/AST/Variable/Variable.cpp.s
+
+src/flex/AST/Variable/VariableDeclaration.o: src/flex/AST/Variable/VariableDeclaration.cpp.o
+.PHONY : src/flex/AST/Variable/VariableDeclaration.o
+
+# target to build an object file
+src/flex/AST/Variable/VariableDeclaration.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.o
+.PHONY : src/flex/AST/Variable/VariableDeclaration.cpp.o
+
+src/flex/AST/Variable/VariableDeclaration.i: src/flex/AST/Variable/VariableDeclaration.cpp.i
+.PHONY : src/flex/AST/Variable/VariableDeclaration.i
+
+# target to preprocess a source file
+src/flex/AST/Variable/VariableDeclaration.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.i
+.PHONY : src/flex/AST/Variable/VariableDeclaration.cpp.i
+
+src/flex/AST/Variable/VariableDeclaration.s: src/flex/AST/Variable/VariableDeclaration.cpp.s
+.PHONY : src/flex/AST/Variable/VariableDeclaration.s
+
+# target to generate assembly for a file
+src/flex/AST/Variable/VariableDeclaration.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableDeclaration.cpp.s
+.PHONY : src/flex/AST/Variable/VariableDeclaration.cpp.s
+
+src/flex/AST/Variable/VariableScope.o: src/flex/AST/Variable/VariableScope.cpp.o
+.PHONY : src/flex/AST/Variable/VariableScope.o
+
+# target to build an object file
+src/flex/AST/Variable/VariableScope.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.o
+.PHONY : src/flex/AST/Variable/VariableScope.cpp.o
+
+src/flex/AST/Variable/VariableScope.i: src/flex/AST/Variable/VariableScope.cpp.i
+.PHONY : src/flex/AST/Variable/VariableScope.i
+
+# target to preprocess a source file
+src/flex/AST/Variable/VariableScope.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.i
+.PHONY : src/flex/AST/Variable/VariableScope.cpp.i
+
+src/flex/AST/Variable/VariableScope.s: src/flex/AST/Variable/VariableScope.cpp.s
+.PHONY : src/flex/AST/Variable/VariableScope.s
+
+# target to generate assembly for a file
+src/flex/AST/Variable/VariableScope.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableScope.cpp.s
+.PHONY : src/flex/AST/Variable/VariableScope.cpp.s
+
+src/flex/AST/Variable/VariableSignature.o: src/flex/AST/Variable/VariableSignature.cpp.o
+.PHONY : src/flex/AST/Variable/VariableSignature.o
+
+# target to build an object file
+src/flex/AST/Variable/VariableSignature.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.o
+.PHONY : src/flex/AST/Variable/VariableSignature.cpp.o
+
+src/flex/AST/Variable/VariableSignature.i: src/flex/AST/Variable/VariableSignature.cpp.i
+.PHONY : src/flex/AST/Variable/VariableSignature.i
+
+# target to preprocess a source file
+src/flex/AST/Variable/VariableSignature.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.i
+.PHONY : src/flex/AST/Variable/VariableSignature.cpp.i
+
+src/flex/AST/Variable/VariableSignature.s: src/flex/AST/Variable/VariableSignature.cpp.s
+.PHONY : src/flex/AST/Variable/VariableSignature.s
+
+# target to generate assembly for a file
+src/flex/AST/Variable/VariableSignature.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/VariableSignature.cpp.s
+.PHONY : src/flex/AST/Variable/VariableSignature.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -1293,24 +1677,12 @@ help:
 	@echo "... src/IR/instructions/WriteToMemory.o"
 	@echo "... src/IR/instructions/WriteToMemory.i"
 	@echo "... src/IR/instructions/WriteToMemory.s"
-	@echo "... src/flex/AST/AbstractInstruction.o"
-	@echo "... src/flex/AST/AbstractInstruction.i"
-	@echo "... src/flex/AST/AbstractInstruction.s"
 	@echo "... src/flex/AST/AbstractNode.o"
 	@echo "... src/flex/AST/AbstractNode.i"
 	@echo "... src/flex/AST/AbstractNode.s"
-	@echo "... src/flex/AST/ArgumentList.o"
-	@echo "... src/flex/AST/ArgumentList.i"
-	@echo "... src/flex/AST/ArgumentList.s"
-	@echo "... src/flex/AST/AssignationVariableExpression.o"
-	@echo "... src/flex/AST/AssignationVariableExpression.i"
-	@echo "... src/flex/AST/AssignationVariableExpression.s"
 	@echo "... src/flex/AST/Block.o"
 	@echo "... src/flex/AST/Block.i"
 	@echo "... src/flex/AST/Block.s"
-	@echo "... src/flex/AST/ComposedInstruction.o"
-	@echo "... src/flex/AST/ComposedInstruction.i"
-	@echo "... src/flex/AST/ComposedInstruction.s"
 	@echo "... src/flex/AST/Expression/AbstractBinaryExpression.o"
 	@echo "... src/flex/AST/Expression/AbstractBinaryExpression.i"
 	@echo "... src/flex/AST/Expression/AbstractBinaryExpression.s"
@@ -1320,21 +1692,75 @@ help:
 	@echo "... src/flex/AST/Expression/AddExpression.o"
 	@echo "... src/flex/AST/Expression/AddExpression.i"
 	@echo "... src/flex/AST/Expression/AddExpression.s"
+	@echo "... src/flex/AST/Expression/AffectationExpression.o"
+	@echo "... src/flex/AST/Expression/AffectationExpression.i"
+	@echo "... src/flex/AST/Expression/AffectationExpression.s"
+	@echo "... src/flex/AST/Expression/ArrayExpression.o"
+	@echo "... src/flex/AST/Expression/ArrayExpression.i"
+	@echo "... src/flex/AST/Expression/ArrayExpression.s"
+	@echo "... src/flex/AST/Expression/BitewiseAndExpression.o"
+	@echo "... src/flex/AST/Expression/BitewiseAndExpression.i"
+	@echo "... src/flex/AST/Expression/BitewiseAndExpression.s"
+	@echo "... src/flex/AST/Expression/BitewiseOrExpression.o"
+	@echo "... src/flex/AST/Expression/BitewiseOrExpression.i"
+	@echo "... src/flex/AST/Expression/BitewiseOrExpression.s"
+	@echo "... src/flex/AST/Expression/BitewiseShiftLeftExpression.o"
+	@echo "... src/flex/AST/Expression/BitewiseShiftLeftExpression.i"
+	@echo "... src/flex/AST/Expression/BitewiseShiftLeftExpression.s"
+	@echo "... src/flex/AST/Expression/BitewiseXorExpression.o"
+	@echo "... src/flex/AST/Expression/BitewiseXorExpression.i"
+	@echo "... src/flex/AST/Expression/BitewiseXorExpression.s"
 	@echo "... src/flex/AST/Expression/Constant.o"
 	@echo "... src/flex/AST/Expression/Constant.i"
 	@echo "... src/flex/AST/Expression/Constant.s"
-	@echo "... src/flex/AST/Expression/VariableAssignmentExpression.o"
-	@echo "... src/flex/AST/Expression/VariableAssignmentExpression.i"
-	@echo "... src/flex/AST/Expression/VariableAssignmentExpression.s"
-	@echo "... src/flex/AST/MainBody.o"
-	@echo "... src/flex/AST/MainBody.i"
-	@echo "... src/flex/AST/MainBody.s"
-	@echo "... src/flex/AST/MainType.o"
-	@echo "... src/flex/AST/MainType.i"
-	@echo "... src/flex/AST/MainType.s"
-	@echo "... src/flex/AST/SequenceInstruction.o"
-	@echo "... src/flex/AST/SequenceInstruction.i"
-	@echo "... src/flex/AST/SequenceInstruction.s"
+	@echo "... src/flex/AST/Expression/IDExpression.o"
+	@echo "... src/flex/AST/Expression/IDExpression.i"
+	@echo "... src/flex/AST/Expression/IDExpression.s"
+	@echo "... src/flex/AST/Expression/ModuloExpression.o"
+	@echo "... src/flex/AST/Expression/ModuloExpression.i"
+	@echo "... src/flex/AST/Expression/ModuloExpression.s"
+	@echo "... src/flex/AST/Expression/ParenthesisExpression.o"
+	@echo "... src/flex/AST/Expression/ParenthesisExpression.i"
+	@echo "... src/flex/AST/Expression/ParenthesisExpression.s"
+	@echo "... src/flex/AST/Expression/UnaryExpression.o"
+	@echo "... src/flex/AST/Expression/UnaryExpression.i"
+	@echo "... src/flex/AST/Expression/UnaryExpression.s"
+	@echo "... src/flex/AST/Function/Function.o"
+	@echo "... src/flex/AST/Function/Function.i"
+	@echo "... src/flex/AST/Function/Function.s"
+	@echo "... src/flex/AST/Function/FunctionCall.o"
+	@echo "... src/flex/AST/Function/FunctionCall.i"
+	@echo "... src/flex/AST/Function/FunctionCall.s"
+	@echo "... src/flex/AST/Function/FunctionDeclaration.o"
+	@echo "... src/flex/AST/Function/FunctionDeclaration.i"
+	@echo "... src/flex/AST/Function/FunctionDeclaration.s"
+	@echo "... src/flex/AST/Function/FunctionScope.o"
+	@echo "... src/flex/AST/Function/FunctionScope.i"
+	@echo "... src/flex/AST/Function/FunctionScope.s"
+	@echo "... src/flex/AST/Function/FunctionSignature.o"
+	@echo "... src/flex/AST/Function/FunctionSignature.i"
+	@echo "... src/flex/AST/Function/FunctionSignature.s"
+	@echo "... src/flex/AST/Function/LArguments.o"
+	@echo "... src/flex/AST/Function/LArguments.i"
+	@echo "... src/flex/AST/Function/LArguments.s"
+	@echo "... src/flex/AST/Function/LParametres.o"
+	@echo "... src/flex/AST/Function/LParametres.i"
+	@echo "... src/flex/AST/Function/LParametres.s"
+	@echo "... src/flex/AST/Instruction/AbstractInstruction.o"
+	@echo "... src/flex/AST/Instruction/AbstractInstruction.i"
+	@echo "... src/flex/AST/Instruction/AbstractInstruction.s"
+	@echo "... src/flex/AST/Instruction/ComposedInstruction.o"
+	@echo "... src/flex/AST/Instruction/ComposedInstruction.i"
+	@echo "... src/flex/AST/Instruction/ComposedInstruction.s"
+	@echo "... src/flex/AST/Instruction/SequenceInstruction.o"
+	@echo "... src/flex/AST/Instruction/SequenceInstruction.i"
+	@echo "... src/flex/AST/Instruction/SequenceInstruction.s"
+	@echo "... src/flex/AST/Instruction/UnitInstruction.o"
+	@echo "... src/flex/AST/Instruction/UnitInstruction.i"
+	@echo "... src/flex/AST/Instruction/UnitInstruction.s"
+	@echo "... src/flex/AST/Scope.o"
+	@echo "... src/flex/AST/Scope.i"
+	@echo "... src/flex/AST/Scope.s"
 	@echo "... src/flex/AST/Structure/AbstractStructure.o"
 	@echo "... src/flex/AST/Structure/AbstractStructure.i"
 	@echo "... src/flex/AST/Structure/AbstractStructure.s"
@@ -1344,21 +1770,27 @@ help:
 	@echo "... src/flex/AST/Structure/IfStructure.o"
 	@echo "... src/flex/AST/Structure/IfStructure.i"
 	@echo "... src/flex/AST/Structure/IfStructure.s"
-	@echo "... src/flex/AST/UnitInstruction.o"
-	@echo "... src/flex/AST/UnitInstruction.i"
-	@echo "... src/flex/AST/UnitInstruction.s"
 	@echo "... src/flex/AST/Value.o"
 	@echo "... src/flex/AST/Value.i"
 	@echo "... src/flex/AST/Value.s"
-	@echo "... src/flex/AST/VariableDeclaration.o"
-	@echo "... src/flex/AST/VariableDeclaration.i"
-	@echo "... src/flex/AST/VariableDeclaration.s"
-	@echo "... src/flex/AST/VariableScope.o"
-	@echo "... src/flex/AST/VariableScope.i"
-	@echo "... src/flex/AST/VariableScope.s"
-	@echo "... src/flex/AST/VariableSignature.o"
-	@echo "... src/flex/AST/VariableSignature.i"
-	@echo "... src/flex/AST/VariableSignature.s"
+	@echo "... src/flex/AST/Variable/Array.o"
+	@echo "... src/flex/AST/Variable/Array.i"
+	@echo "... src/flex/AST/Variable/Array.s"
+	@echo "... src/flex/AST/Variable/ArrayDeclaration.o"
+	@echo "... src/flex/AST/Variable/ArrayDeclaration.i"
+	@echo "... src/flex/AST/Variable/ArrayDeclaration.s"
+	@echo "... src/flex/AST/Variable/Variable.o"
+	@echo "... src/flex/AST/Variable/Variable.i"
+	@echo "... src/flex/AST/Variable/Variable.s"
+	@echo "... src/flex/AST/Variable/VariableDeclaration.o"
+	@echo "... src/flex/AST/Variable/VariableDeclaration.i"
+	@echo "... src/flex/AST/Variable/VariableDeclaration.s"
+	@echo "... src/flex/AST/Variable/VariableScope.o"
+	@echo "... src/flex/AST/Variable/VariableScope.i"
+	@echo "... src/flex/AST/Variable/VariableScope.s"
+	@echo "... src/flex/AST/Variable/VariableSignature.o"
+	@echo "... src/flex/AST/Variable/VariableSignature.i"
+	@echo "... src/flex/AST/Variable/VariableSignature.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

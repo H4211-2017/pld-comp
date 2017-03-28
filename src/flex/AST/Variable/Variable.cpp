@@ -12,6 +12,13 @@ Variable::Variable(std::shared_ptr<VariableSignature> signature, bool decl)
 	this->setType(sig->getValue().getValue().first);
 }
 
+Variable::Variable(std::string name, std::shared_ptr<VariableSignature> signature, bool decl)
+	: AbstractNode(name), declaration(decl)
+{
+	sig = signature;
+	this->setType(sig->getValue().getValue().first);
+}
+
 bool Variable::isDeclaration() const
 {
 	return declaration;
