@@ -16,13 +16,6 @@ namespace AST
 		IfStructure(std::shared_ptr<ComposedInstruction> condition,
 				std::shared_ptr<AbstractInstruction> intInstruction, 
 				std::shared_ptr<ElseStructure> elseStructure);
-		IfStructure(Value value, std::shared_ptr<ComposedInstruction> condtion,
-				std::shared_ptr<AbstractInstruction> intInstruction, 
-				std::shared_ptr<ElseStructure> elseStructure);
-		IfStructure(Type type, long int value,
-				std::shared_ptr<ComposedInstruction> condtion,
-				std::shared_ptr<AbstractInstruction> intInstruction, 
-				std::shared_ptr<ElseStructure> elseStructure);
 				
 		virtual Value evaluate() const;
 

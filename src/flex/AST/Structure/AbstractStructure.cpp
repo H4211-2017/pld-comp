@@ -12,18 +12,6 @@ AbstractStructure::AbstractStructure(std::string name)
 	
 }
 
-AbstractStructure::AbstractStructure(std::string name, Value value)
-    : AbstractNode(name, value)
-{
-	
-}
-
-AbstractStructure::AbstractStructure(std::string name, Type type, long int value)
-    : AbstractNode(name, type, value)
-{
-	
-}
-
 std::shared_ptr<AbstractStructure> make_shared_struct(AbstractStructure *ptr)
 {
 	std::string name = ptr->getName();
@@ -38,3 +26,5 @@ std::shared_ptr<AbstractStructure> make_shared_struct(AbstractStructure *ptr)
 		throw std::runtime_error("Runtime Error");
 	}
 }
+
+
