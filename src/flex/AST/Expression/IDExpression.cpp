@@ -5,7 +5,14 @@
 using namespace AST;
 
 IDExpression::IDExpression(std::string id, std::shared_ptr<Scope> scope)
-    : AbstractExpression("IDExpression")
+    : IDExpression("IDExpression", id, scope)
+{
+
+}
+
+IDExpression::IDExpression(std::string name, std::string id, 
+		std::shared_ptr<Scope> scope)
+    : AbstractExpression(name)
 {
 	val = scope->findVariable(id);
 	

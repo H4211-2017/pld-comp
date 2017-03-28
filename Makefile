@@ -855,6 +855,30 @@ src/flex/AST/Expression/AffectationExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.s
 .PHONY : src/flex/AST/Expression/AffectationExpression.cpp.s
 
+src/flex/AST/Expression/ArrayExpression.o: src/flex/AST/Expression/ArrayExpression.cpp.o
+.PHONY : src/flex/AST/Expression/ArrayExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/ArrayExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.o
+.PHONY : src/flex/AST/Expression/ArrayExpression.cpp.o
+
+src/flex/AST/Expression/ArrayExpression.i: src/flex/AST/Expression/ArrayExpression.cpp.i
+.PHONY : src/flex/AST/Expression/ArrayExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/ArrayExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.i
+.PHONY : src/flex/AST/Expression/ArrayExpression.cpp.i
+
+src/flex/AST/Expression/ArrayExpression.s: src/flex/AST/Expression/ArrayExpression.cpp.s
+.PHONY : src/flex/AST/Expression/ArrayExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/ArrayExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.s
+.PHONY : src/flex/AST/Expression/ArrayExpression.cpp.s
+
 src/flex/AST/Expression/Constant.o: src/flex/AST/Expression/Constant.cpp.o
 .PHONY : src/flex/AST/Expression/Constant.o
 
@@ -1605,6 +1629,9 @@ help:
 	@echo "... src/flex/AST/Expression/AffectationExpression.o"
 	@echo "... src/flex/AST/Expression/AffectationExpression.i"
 	@echo "... src/flex/AST/Expression/AffectationExpression.s"
+	@echo "... src/flex/AST/Expression/ArrayExpression.o"
+	@echo "... src/flex/AST/Expression/ArrayExpression.i"
+	@echo "... src/flex/AST/Expression/ArrayExpression.s"
 	@echo "... src/flex/AST/Expression/Constant.o"
 	@echo "... src/flex/AST/Expression/Constant.i"
 	@echo "... src/flex/AST/Expression/Constant.s"
