@@ -1,5 +1,5 @@
-#ifndef CONSTANT_H
-#define CONSTANT_H
+#ifndef ASTCONSTANT_H
+#define ASTCONSTANT_H
 
 #include <memory>
 #include "AbstractExpression.h"
