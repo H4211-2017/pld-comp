@@ -19,7 +19,6 @@ namespace AST {
 
         std::string getIdentifiant() const;
         Value getValue() const;
-        
 
     private:
         std::string identifiant;

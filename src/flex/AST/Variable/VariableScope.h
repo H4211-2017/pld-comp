@@ -11,13 +11,14 @@
 
 namespace AST{	
 	
-	class Variable;
+	class AbstractVariable;
 	
 	class UndeclaredIdException: public std::exception
 	{
 	public:
 	
         UndeclaredIdException();
+        
         UndeclaredIdException(std::string text);
 		
         virtual const char* what() const throw()
@@ -38,11 +39,11 @@ namespace AST{
 		VariableScope( const VariableScope & variableScope); // declared but not defined		
 		virtual ~VariableScope();
 
-        void declareVariable(std::string identifiant, std::shared_ptr<Variable> variable);
-        std::shared_ptr<Variable> findVariable(std::string identifiant);
+        void declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable);
+        std::shared_ptr<AbstractVariable> findVariable(std::string identifiant);
 		
 	protected:
-		std::map< std::string, std::shared_ptr<Variable> > scope;
+		std::map< std::string, std::shared_ptr<AbstractVariable> > scope;
     };
 }
 

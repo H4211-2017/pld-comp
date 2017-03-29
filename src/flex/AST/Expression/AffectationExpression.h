@@ -44,7 +44,7 @@ namespace AST{
         virtual void printTree(int tabulationNumber) const;
         
     protected :
-    	std::shared_ptr<Variable> var;
+    	std::shared_ptr<AbstractVariable> var;
 		std::shared_ptr<AbstractExpression> transformedExpr;
     };
 

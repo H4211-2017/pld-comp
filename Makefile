@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pllefebvre/git/pld-comp
+CMAKE_SOURCE_DIR = /home/pl/git/pld-comp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pllefebvre/git/pld-comp
+CMAKE_BINARY_DIR = /home/pl/git/pld-comp
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pllefebvre/git/pld-comp/CMakeFiles /home/pllefebvre/git/pld-comp/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pl/git/pld-comp/CMakeFiles /home/pl/git/pld-comp/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pllefebvre/git/pld-comp/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pl/git/pld-comp/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -207,6 +207,30 @@ src/IR/data/AbstractData.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/data/AbstractData.cpp.s
 .PHONY : src/IR/data/AbstractData.cpp.s
 
+src/IR/data/Constant.o: src/IR/data/Constant.cpp.o
+.PHONY : src/IR/data/Constant.o
+
+# target to build an object file
+src/IR/data/Constant.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/data/Constant.cpp.o
+.PHONY : src/IR/data/Constant.cpp.o
+
+src/IR/data/Constant.i: src/IR/data/Constant.cpp.i
+.PHONY : src/IR/data/Constant.i
+
+# target to preprocess a source file
+src/IR/data/Constant.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/data/Constant.cpp.i
+.PHONY : src/IR/data/Constant.cpp.i
+
+src/IR/data/Constant.s: src/IR/data/Constant.cpp.s
+.PHONY : src/IR/data/Constant.s
+
+# target to generate assembly for a file
+src/IR/data/Constant.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/data/Constant.cpp.s
+.PHONY : src/IR/data/Constant.cpp.s
+
 src/IR/data/Memory.o: src/IR/data/Memory.cpp.o
 .PHONY : src/IR/data/Memory.o
 
@@ -231,6 +255,30 @@ src/IR/data/Memory.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/data/Memory.cpp.s
 .PHONY : src/IR/data/Memory.cpp.s
 
+src/IR/data/MemoryArray.o: src/IR/data/MemoryArray.cpp.o
+.PHONY : src/IR/data/MemoryArray.o
+
+# target to build an object file
+src/IR/data/MemoryArray.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/data/MemoryArray.cpp.o
+.PHONY : src/IR/data/MemoryArray.cpp.o
+
+src/IR/data/MemoryArray.i: src/IR/data/MemoryArray.cpp.i
+.PHONY : src/IR/data/MemoryArray.i
+
+# target to preprocess a source file
+src/IR/data/MemoryArray.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/data/MemoryArray.cpp.i
+.PHONY : src/IR/data/MemoryArray.cpp.i
+
+src/IR/data/MemoryArray.s: src/IR/data/MemoryArray.cpp.s
+.PHONY : src/IR/data/MemoryArray.s
+
+# target to generate assembly for a file
+src/IR/data/MemoryArray.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/data/MemoryArray.cpp.s
+.PHONY : src/IR/data/MemoryArray.cpp.s
+
 src/IR/data/Register.o: src/IR/data/Register.cpp.o
 .PHONY : src/IR/data/Register.o
 
@@ -254,6 +302,102 @@ src/IR/data/Register.s: src/IR/data/Register.cpp.s
 src/IR/data/Register.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/data/Register.cpp.s
 .PHONY : src/IR/data/Register.cpp.s
+
+src/IR/function/AbstractFunction.o: src/IR/function/AbstractFunction.cpp.o
+.PHONY : src/IR/function/AbstractFunction.o
+
+# target to build an object file
+src/IR/function/AbstractFunction.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/function/AbstractFunction.cpp.o
+.PHONY : src/IR/function/AbstractFunction.cpp.o
+
+src/IR/function/AbstractFunction.i: src/IR/function/AbstractFunction.cpp.i
+.PHONY : src/IR/function/AbstractFunction.i
+
+# target to preprocess a source file
+src/IR/function/AbstractFunction.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/function/AbstractFunction.cpp.i
+.PHONY : src/IR/function/AbstractFunction.cpp.i
+
+src/IR/function/AbstractFunction.s: src/IR/function/AbstractFunction.cpp.s
+.PHONY : src/IR/function/AbstractFunction.s
+
+# target to generate assembly for a file
+src/IR/function/AbstractFunction.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/function/AbstractFunction.cpp.s
+.PHONY : src/IR/function/AbstractFunction.cpp.s
+
+src/IR/function/ExternalFunction.o: src/IR/function/ExternalFunction.cpp.o
+.PHONY : src/IR/function/ExternalFunction.o
+
+# target to build an object file
+src/IR/function/ExternalFunction.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/function/ExternalFunction.cpp.o
+.PHONY : src/IR/function/ExternalFunction.cpp.o
+
+src/IR/function/ExternalFunction.i: src/IR/function/ExternalFunction.cpp.i
+.PHONY : src/IR/function/ExternalFunction.i
+
+# target to preprocess a source file
+src/IR/function/ExternalFunction.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/function/ExternalFunction.cpp.i
+.PHONY : src/IR/function/ExternalFunction.cpp.i
+
+src/IR/function/ExternalFunction.s: src/IR/function/ExternalFunction.cpp.s
+.PHONY : src/IR/function/ExternalFunction.s
+
+# target to generate assembly for a file
+src/IR/function/ExternalFunction.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/function/ExternalFunction.cpp.s
+.PHONY : src/IR/function/ExternalFunction.cpp.s
+
+src/IR/function/FunctionBlock.o: src/IR/function/FunctionBlock.cpp.o
+.PHONY : src/IR/function/FunctionBlock.o
+
+# target to build an object file
+src/IR/function/FunctionBlock.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/function/FunctionBlock.cpp.o
+.PHONY : src/IR/function/FunctionBlock.cpp.o
+
+src/IR/function/FunctionBlock.i: src/IR/function/FunctionBlock.cpp.i
+.PHONY : src/IR/function/FunctionBlock.i
+
+# target to preprocess a source file
+src/IR/function/FunctionBlock.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/function/FunctionBlock.cpp.i
+.PHONY : src/IR/function/FunctionBlock.cpp.i
+
+src/IR/function/FunctionBlock.s: src/IR/function/FunctionBlock.cpp.s
+.PHONY : src/IR/function/FunctionBlock.s
+
+# target to generate assembly for a file
+src/IR/function/FunctionBlock.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/function/FunctionBlock.cpp.s
+.PHONY : src/IR/function/FunctionBlock.cpp.s
+
+src/IR/generator/Generator.o: src/IR/generator/Generator.cpp.o
+.PHONY : src/IR/generator/Generator.o
+
+# target to build an object file
+src/IR/generator/Generator.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/generator/Generator.cpp.o
+.PHONY : src/IR/generator/Generator.cpp.o
+
+src/IR/generator/Generator.i: src/IR/generator/Generator.cpp.i
+.PHONY : src/IR/generator/Generator.i
+
+# target to preprocess a source file
+src/IR/generator/Generator.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/generator/Generator.cpp.i
+.PHONY : src/IR/generator/Generator.cpp.i
+
+src/IR/generator/Generator.s: src/IR/generator/Generator.cpp.s
+.PHONY : src/IR/generator/Generator.s
+
+# target to generate assembly for a file
+src/IR/generator/Generator.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/generator/Generator.cpp.s
+.PHONY : src/IR/generator/Generator.cpp.s
 
 src/IR/instructions/AbstractInstruction.o: src/IR/instructions/AbstractInstruction.cpp.o
 .PHONY : src/IR/instructions/AbstractInstruction.o
@@ -327,53 +471,29 @@ src/IR/instructions/AbstractOperator.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/AbstractOperator.cpp.s
 .PHONY : src/IR/instructions/AbstractOperator.cpp.s
 
-src/IR/instructions/Jump.o: src/IR/instructions/Jump.cpp.o
-.PHONY : src/IR/instructions/Jump.o
+src/IR/instructions/Call.o: src/IR/instructions/Call.cpp.o
+.PHONY : src/IR/instructions/Call.o
 
 # target to build an object file
-src/IR/instructions/Jump.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.o
-.PHONY : src/IR/instructions/Jump.cpp.o
+src/IR/instructions/Call.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Call.cpp.o
+.PHONY : src/IR/instructions/Call.cpp.o
 
-src/IR/instructions/Jump.i: src/IR/instructions/Jump.cpp.i
-.PHONY : src/IR/instructions/Jump.i
-
-# target to preprocess a source file
-src/IR/instructions/Jump.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.i
-.PHONY : src/IR/instructions/Jump.cpp.i
-
-src/IR/instructions/Jump.s: src/IR/instructions/Jump.cpp.s
-.PHONY : src/IR/instructions/Jump.s
-
-# target to generate assembly for a file
-src/IR/instructions/Jump.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Jump.cpp.s
-.PHONY : src/IR/instructions/Jump.cpp.s
-
-src/IR/instructions/Label.o: src/IR/instructions/Label.cpp.o
-.PHONY : src/IR/instructions/Label.o
-
-# target to build an object file
-src/IR/instructions/Label.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.o
-.PHONY : src/IR/instructions/Label.cpp.o
-
-src/IR/instructions/Label.i: src/IR/instructions/Label.cpp.i
-.PHONY : src/IR/instructions/Label.i
+src/IR/instructions/Call.i: src/IR/instructions/Call.cpp.i
+.PHONY : src/IR/instructions/Call.i
 
 # target to preprocess a source file
-src/IR/instructions/Label.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.i
-.PHONY : src/IR/instructions/Label.cpp.i
+src/IR/instructions/Call.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Call.cpp.i
+.PHONY : src/IR/instructions/Call.cpp.i
 
-src/IR/instructions/Label.s: src/IR/instructions/Label.cpp.s
-.PHONY : src/IR/instructions/Label.s
+src/IR/instructions/Call.s: src/IR/instructions/Call.cpp.s
+.PHONY : src/IR/instructions/Call.s
 
 # target to generate assembly for a file
-src/IR/instructions/Label.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Label.cpp.s
-.PHONY : src/IR/instructions/Label.cpp.s
+src/IR/instructions/Call.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Call.cpp.s
+.PHONY : src/IR/instructions/Call.cpp.s
 
 src/IR/instructions/OperatorBigger.o: src/IR/instructions/OperatorBigger.cpp.o
 .PHONY : src/IR/instructions/OperatorBigger.o
@@ -615,6 +735,30 @@ src/IR/instructions/OperatorSmallerOrEqual.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorSmallerOrEqual.cpp.s
 .PHONY : src/IR/instructions/OperatorSmallerOrEqual.cpp.s
 
+src/IR/instructions/ReadArrayValue.o: src/IR/instructions/ReadArrayValue.cpp.o
+.PHONY : src/IR/instructions/ReadArrayValue.o
+
+# target to build an object file
+src/IR/instructions/ReadArrayValue.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/ReadArrayValue.cpp.o
+.PHONY : src/IR/instructions/ReadArrayValue.cpp.o
+
+src/IR/instructions/ReadArrayValue.i: src/IR/instructions/ReadArrayValue.cpp.i
+.PHONY : src/IR/instructions/ReadArrayValue.i
+
+# target to preprocess a source file
+src/IR/instructions/ReadArrayValue.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/ReadArrayValue.cpp.i
+.PHONY : src/IR/instructions/ReadArrayValue.cpp.i
+
+src/IR/instructions/ReadArrayValue.s: src/IR/instructions/ReadArrayValue.cpp.s
+.PHONY : src/IR/instructions/ReadArrayValue.s
+
+# target to generate assembly for a file
+src/IR/instructions/ReadArrayValue.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/ReadArrayValue.cpp.s
+.PHONY : src/IR/instructions/ReadArrayValue.cpp.s
+
 src/IR/instructions/ReadFromMemory.o: src/IR/instructions/ReadFromMemory.cpp.o
 .PHONY : src/IR/instructions/ReadFromMemory.o
 
@@ -638,6 +782,30 @@ src/IR/instructions/ReadFromMemory.s: src/IR/instructions/ReadFromMemory.cpp.s
 src/IR/instructions/ReadFromMemory.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/ReadFromMemory.cpp.s
 .PHONY : src/IR/instructions/ReadFromMemory.cpp.s
+
+src/IR/instructions/SetValue.o: src/IR/instructions/SetValue.cpp.o
+.PHONY : src/IR/instructions/SetValue.o
+
+# target to build an object file
+src/IR/instructions/SetValue.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/SetValue.cpp.o
+.PHONY : src/IR/instructions/SetValue.cpp.o
+
+src/IR/instructions/SetValue.i: src/IR/instructions/SetValue.cpp.i
+.PHONY : src/IR/instructions/SetValue.i
+
+# target to preprocess a source file
+src/IR/instructions/SetValue.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/SetValue.cpp.i
+.PHONY : src/IR/instructions/SetValue.cpp.i
+
+src/IR/instructions/SetValue.s: src/IR/instructions/SetValue.cpp.s
+.PHONY : src/IR/instructions/SetValue.s
+
+# target to generate assembly for a file
+src/IR/instructions/SetValue.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/SetValue.cpp.s
+.PHONY : src/IR/instructions/SetValue.cpp.s
 
 src/IR/instructions/WriteToMemory.o: src/IR/instructions/WriteToMemory.cpp.o
 .PHONY : src/IR/instructions/WriteToMemory.o
@@ -807,6 +975,30 @@ src/flex/AST/Expression/AffectationExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AffectationExpression.cpp.s
 .PHONY : src/flex/AST/Expression/AffectationExpression.cpp.s
 
+src/flex/AST/Expression/AndExpression.o: src/flex/AST/Expression/AndExpression.cpp.o
+.PHONY : src/flex/AST/Expression/AndExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/AndExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.o
+.PHONY : src/flex/AST/Expression/AndExpression.cpp.o
+
+src/flex/AST/Expression/AndExpression.i: src/flex/AST/Expression/AndExpression.cpp.i
+.PHONY : src/flex/AST/Expression/AndExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/AndExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.i
+.PHONY : src/flex/AST/Expression/AndExpression.cpp.i
+
+src/flex/AST/Expression/AndExpression.s: src/flex/AST/Expression/AndExpression.cpp.s
+.PHONY : src/flex/AST/Expression/AndExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/AndExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/AndExpression.cpp.s
+.PHONY : src/flex/AST/Expression/AndExpression.cpp.s
+
 src/flex/AST/Expression/ArrayExpression.o: src/flex/AST/Expression/ArrayExpression.cpp.o
 .PHONY : src/flex/AST/Expression/ArrayExpression.o
 
@@ -831,101 +1023,101 @@ src/flex/AST/Expression/ArrayExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ArrayExpression.cpp.s
 .PHONY : src/flex/AST/Expression/ArrayExpression.cpp.s
 
-src/flex/AST/Expression/BitewiseAndExpression.o: src/flex/AST/Expression/BitewiseAndExpression.cpp.o
-.PHONY : src/flex/AST/Expression/BitewiseAndExpression.o
+src/flex/AST/Expression/BitwiseAndExpression.o: src/flex/AST/Expression/BitwiseAndExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitwiseAndExpression.o
 
 # target to build an object file
-src/flex/AST/Expression/BitewiseAndExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.o
-.PHONY : src/flex/AST/Expression/BitewiseAndExpression.cpp.o
+src/flex/AST/Expression/BitwiseAndExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitwiseAndExpression.cpp.o
 
-src/flex/AST/Expression/BitewiseAndExpression.i: src/flex/AST/Expression/BitewiseAndExpression.cpp.i
-.PHONY : src/flex/AST/Expression/BitewiseAndExpression.i
+src/flex/AST/Expression/BitwiseAndExpression.i: src/flex/AST/Expression/BitwiseAndExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitwiseAndExpression.i
 
 # target to preprocess a source file
-src/flex/AST/Expression/BitewiseAndExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.i
-.PHONY : src/flex/AST/Expression/BitewiseAndExpression.cpp.i
+src/flex/AST/Expression/BitwiseAndExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitwiseAndExpression.cpp.i
 
-src/flex/AST/Expression/BitewiseAndExpression.s: src/flex/AST/Expression/BitewiseAndExpression.cpp.s
-.PHONY : src/flex/AST/Expression/BitewiseAndExpression.s
+src/flex/AST/Expression/BitwiseAndExpression.s: src/flex/AST/Expression/BitwiseAndExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitwiseAndExpression.s
 
 # target to generate assembly for a file
-src/flex/AST/Expression/BitewiseAndExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseAndExpression.cpp.s
-.PHONY : src/flex/AST/Expression/BitewiseAndExpression.cpp.s
+src/flex/AST/Expression/BitwiseAndExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseAndExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitwiseAndExpression.cpp.s
 
-src/flex/AST/Expression/BitewiseOrExpression.o: src/flex/AST/Expression/BitewiseOrExpression.cpp.o
-.PHONY : src/flex/AST/Expression/BitewiseOrExpression.o
+src/flex/AST/Expression/BitwiseOrExpression.o: src/flex/AST/Expression/BitwiseOrExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitwiseOrExpression.o
 
 # target to build an object file
-src/flex/AST/Expression/BitewiseOrExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.o
-.PHONY : src/flex/AST/Expression/BitewiseOrExpression.cpp.o
+src/flex/AST/Expression/BitwiseOrExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitwiseOrExpression.cpp.o
 
-src/flex/AST/Expression/BitewiseOrExpression.i: src/flex/AST/Expression/BitewiseOrExpression.cpp.i
-.PHONY : src/flex/AST/Expression/BitewiseOrExpression.i
+src/flex/AST/Expression/BitwiseOrExpression.i: src/flex/AST/Expression/BitwiseOrExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitwiseOrExpression.i
 
 # target to preprocess a source file
-src/flex/AST/Expression/BitewiseOrExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.i
-.PHONY : src/flex/AST/Expression/BitewiseOrExpression.cpp.i
+src/flex/AST/Expression/BitwiseOrExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitwiseOrExpression.cpp.i
 
-src/flex/AST/Expression/BitewiseOrExpression.s: src/flex/AST/Expression/BitewiseOrExpression.cpp.s
-.PHONY : src/flex/AST/Expression/BitewiseOrExpression.s
+src/flex/AST/Expression/BitwiseOrExpression.s: src/flex/AST/Expression/BitwiseOrExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitwiseOrExpression.s
 
 # target to generate assembly for a file
-src/flex/AST/Expression/BitewiseOrExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseOrExpression.cpp.s
-.PHONY : src/flex/AST/Expression/BitewiseOrExpression.cpp.s
+src/flex/AST/Expression/BitwiseOrExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseOrExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitwiseOrExpression.cpp.s
 
-src/flex/AST/Expression/BitewiseShiftLeftExpression.o: src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o
-.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.o
+src/flex/AST/Expression/BitwiseShiftLeftExpression.o: src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitwiseShiftLeftExpression.o
 
 # target to build an object file
-src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o
-.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.o
+src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.o
 
-src/flex/AST/Expression/BitewiseShiftLeftExpression.i: src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i
-.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.i
+src/flex/AST/Expression/BitwiseShiftLeftExpression.i: src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitwiseShiftLeftExpression.i
 
 # target to preprocess a source file
-src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i
-.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.i
+src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.i
 
-src/flex/AST/Expression/BitewiseShiftLeftExpression.s: src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s
-.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.s
+src/flex/AST/Expression/BitwiseShiftLeftExpression.s: src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitwiseShiftLeftExpression.s
 
 # target to generate assembly for a file
-src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s
-.PHONY : src/flex/AST/Expression/BitewiseShiftLeftExpression.cpp.s
+src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitwiseShiftLeftExpression.cpp.s
 
-src/flex/AST/Expression/BitewiseXorExpression.o: src/flex/AST/Expression/BitewiseXorExpression.cpp.o
-.PHONY : src/flex/AST/Expression/BitewiseXorExpression.o
+src/flex/AST/Expression/BitwiseXorExpression.o: src/flex/AST/Expression/BitwiseXorExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitwiseXorExpression.o
 
 # target to build an object file
-src/flex/AST/Expression/BitewiseXorExpression.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.o
-.PHONY : src/flex/AST/Expression/BitewiseXorExpression.cpp.o
+src/flex/AST/Expression/BitwiseXorExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.o
+.PHONY : src/flex/AST/Expression/BitwiseXorExpression.cpp.o
 
-src/flex/AST/Expression/BitewiseXorExpression.i: src/flex/AST/Expression/BitewiseXorExpression.cpp.i
-.PHONY : src/flex/AST/Expression/BitewiseXorExpression.i
+src/flex/AST/Expression/BitwiseXorExpression.i: src/flex/AST/Expression/BitwiseXorExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitwiseXorExpression.i
 
 # target to preprocess a source file
-src/flex/AST/Expression/BitewiseXorExpression.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.i
-.PHONY : src/flex/AST/Expression/BitewiseXorExpression.cpp.i
+src/flex/AST/Expression/BitwiseXorExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.i
+.PHONY : src/flex/AST/Expression/BitwiseXorExpression.cpp.i
 
-src/flex/AST/Expression/BitewiseXorExpression.s: src/flex/AST/Expression/BitewiseXorExpression.cpp.s
-.PHONY : src/flex/AST/Expression/BitewiseXorExpression.s
+src/flex/AST/Expression/BitwiseXorExpression.s: src/flex/AST/Expression/BitwiseXorExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitwiseXorExpression.s
 
 # target to generate assembly for a file
-src/flex/AST/Expression/BitewiseXorExpression.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitewiseXorExpression.cpp.s
-.PHONY : src/flex/AST/Expression/BitewiseXorExpression.cpp.s
+src/flex/AST/Expression/BitwiseXorExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/BitwiseXorExpression.cpp.s
+.PHONY : src/flex/AST/Expression/BitwiseXorExpression.cpp.s
 
 src/flex/AST/Expression/Constant.o: src/flex/AST/Expression/Constant.cpp.o
 .PHONY : src/flex/AST/Expression/Constant.o
@@ -951,6 +1143,102 @@ src/flex/AST/Expression/Constant.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Constant.cpp.s
 .PHONY : src/flex/AST/Expression/Constant.cpp.s
 
+src/flex/AST/Expression/DecrLeftExpression.o: src/flex/AST/Expression/DecrLeftExpression.cpp.o
+.PHONY : src/flex/AST/Expression/DecrLeftExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/DecrLeftExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.o
+.PHONY : src/flex/AST/Expression/DecrLeftExpression.cpp.o
+
+src/flex/AST/Expression/DecrLeftExpression.i: src/flex/AST/Expression/DecrLeftExpression.cpp.i
+.PHONY : src/flex/AST/Expression/DecrLeftExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/DecrLeftExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.i
+.PHONY : src/flex/AST/Expression/DecrLeftExpression.cpp.i
+
+src/flex/AST/Expression/DecrLeftExpression.s: src/flex/AST/Expression/DecrLeftExpression.cpp.s
+.PHONY : src/flex/AST/Expression/DecrLeftExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/DecrLeftExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrLeftExpression.cpp.s
+.PHONY : src/flex/AST/Expression/DecrLeftExpression.cpp.s
+
+src/flex/AST/Expression/DecrRightExpression.o: src/flex/AST/Expression/DecrRightExpression.cpp.o
+.PHONY : src/flex/AST/Expression/DecrRightExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/DecrRightExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.o
+.PHONY : src/flex/AST/Expression/DecrRightExpression.cpp.o
+
+src/flex/AST/Expression/DecrRightExpression.i: src/flex/AST/Expression/DecrRightExpression.cpp.i
+.PHONY : src/flex/AST/Expression/DecrRightExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/DecrRightExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.i
+.PHONY : src/flex/AST/Expression/DecrRightExpression.cpp.i
+
+src/flex/AST/Expression/DecrRightExpression.s: src/flex/AST/Expression/DecrRightExpression.cpp.s
+.PHONY : src/flex/AST/Expression/DecrRightExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/DecrRightExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DecrRightExpression.cpp.s
+.PHONY : src/flex/AST/Expression/DecrRightExpression.cpp.s
+
+src/flex/AST/Expression/DivExpression.o: src/flex/AST/Expression/DivExpression.cpp.o
+.PHONY : src/flex/AST/Expression/DivExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/DivExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.o
+.PHONY : src/flex/AST/Expression/DivExpression.cpp.o
+
+src/flex/AST/Expression/DivExpression.i: src/flex/AST/Expression/DivExpression.cpp.i
+.PHONY : src/flex/AST/Expression/DivExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/DivExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.i
+.PHONY : src/flex/AST/Expression/DivExpression.cpp.i
+
+src/flex/AST/Expression/DivExpression.s: src/flex/AST/Expression/DivExpression.cpp.s
+.PHONY : src/flex/AST/Expression/DivExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/DivExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/DivExpression.cpp.s
+.PHONY : src/flex/AST/Expression/DivExpression.cpp.s
+
+src/flex/AST/Expression/EqExpression.o: src/flex/AST/Expression/EqExpression.cpp.o
+.PHONY : src/flex/AST/Expression/EqExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/EqExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.o
+.PHONY : src/flex/AST/Expression/EqExpression.cpp.o
+
+src/flex/AST/Expression/EqExpression.i: src/flex/AST/Expression/EqExpression.cpp.i
+.PHONY : src/flex/AST/Expression/EqExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/EqExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.i
+.PHONY : src/flex/AST/Expression/EqExpression.cpp.i
+
+src/flex/AST/Expression/EqExpression.s: src/flex/AST/Expression/EqExpression.cpp.s
+.PHONY : src/flex/AST/Expression/EqExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/EqExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/EqExpression.cpp.s
+.PHONY : src/flex/AST/Expression/EqExpression.cpp.s
+
 src/flex/AST/Expression/IDExpression.o: src/flex/AST/Expression/IDExpression.cpp.o
 .PHONY : src/flex/AST/Expression/IDExpression.o
 
@@ -974,6 +1262,126 @@ src/flex/AST/Expression/IDExpression.s: src/flex/AST/Expression/IDExpression.cpp
 src/flex/AST/Expression/IDExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IDExpression.cpp.s
 .PHONY : src/flex/AST/Expression/IDExpression.cpp.s
+
+src/flex/AST/Expression/IncrLeftExpression.o: src/flex/AST/Expression/IncrLeftExpression.cpp.o
+.PHONY : src/flex/AST/Expression/IncrLeftExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/IncrLeftExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.o
+.PHONY : src/flex/AST/Expression/IncrLeftExpression.cpp.o
+
+src/flex/AST/Expression/IncrLeftExpression.i: src/flex/AST/Expression/IncrLeftExpression.cpp.i
+.PHONY : src/flex/AST/Expression/IncrLeftExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/IncrLeftExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.i
+.PHONY : src/flex/AST/Expression/IncrLeftExpression.cpp.i
+
+src/flex/AST/Expression/IncrLeftExpression.s: src/flex/AST/Expression/IncrLeftExpression.cpp.s
+.PHONY : src/flex/AST/Expression/IncrLeftExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/IncrLeftExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrLeftExpression.cpp.s
+.PHONY : src/flex/AST/Expression/IncrLeftExpression.cpp.s
+
+src/flex/AST/Expression/IncrRightExpression.o: src/flex/AST/Expression/IncrRightExpression.cpp.o
+.PHONY : src/flex/AST/Expression/IncrRightExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/IncrRightExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.o
+.PHONY : src/flex/AST/Expression/IncrRightExpression.cpp.o
+
+src/flex/AST/Expression/IncrRightExpression.i: src/flex/AST/Expression/IncrRightExpression.cpp.i
+.PHONY : src/flex/AST/Expression/IncrRightExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/IncrRightExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.i
+.PHONY : src/flex/AST/Expression/IncrRightExpression.cpp.i
+
+src/flex/AST/Expression/IncrRightExpression.s: src/flex/AST/Expression/IncrRightExpression.cpp.s
+.PHONY : src/flex/AST/Expression/IncrRightExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/IncrRightExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IncrRightExpression.cpp.s
+.PHONY : src/flex/AST/Expression/IncrRightExpression.cpp.s
+
+src/flex/AST/Expression/IneqExpression.o: src/flex/AST/Expression/IneqExpression.cpp.o
+.PHONY : src/flex/AST/Expression/IneqExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/IneqExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.o
+.PHONY : src/flex/AST/Expression/IneqExpression.cpp.o
+
+src/flex/AST/Expression/IneqExpression.i: src/flex/AST/Expression/IneqExpression.cpp.i
+.PHONY : src/flex/AST/Expression/IneqExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/IneqExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.i
+.PHONY : src/flex/AST/Expression/IneqExpression.cpp.i
+
+src/flex/AST/Expression/IneqExpression.s: src/flex/AST/Expression/IneqExpression.cpp.s
+.PHONY : src/flex/AST/Expression/IneqExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/IneqExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/IneqExpression.cpp.s
+.PHONY : src/flex/AST/Expression/IneqExpression.cpp.s
+
+src/flex/AST/Expression/InfEqExpression.o: src/flex/AST/Expression/InfEqExpression.cpp.o
+.PHONY : src/flex/AST/Expression/InfEqExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/InfEqExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.o
+.PHONY : src/flex/AST/Expression/InfEqExpression.cpp.o
+
+src/flex/AST/Expression/InfEqExpression.i: src/flex/AST/Expression/InfEqExpression.cpp.i
+.PHONY : src/flex/AST/Expression/InfEqExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/InfEqExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.i
+.PHONY : src/flex/AST/Expression/InfEqExpression.cpp.i
+
+src/flex/AST/Expression/InfEqExpression.s: src/flex/AST/Expression/InfEqExpression.cpp.s
+.PHONY : src/flex/AST/Expression/InfEqExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/InfEqExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfEqExpression.cpp.s
+.PHONY : src/flex/AST/Expression/InfEqExpression.cpp.s
+
+src/flex/AST/Expression/InfExpression.o: src/flex/AST/Expression/InfExpression.cpp.o
+.PHONY : src/flex/AST/Expression/InfExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/InfExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.o
+.PHONY : src/flex/AST/Expression/InfExpression.cpp.o
+
+src/flex/AST/Expression/InfExpression.i: src/flex/AST/Expression/InfExpression.cpp.i
+.PHONY : src/flex/AST/Expression/InfExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/InfExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.i
+.PHONY : src/flex/AST/Expression/InfExpression.cpp.i
+
+src/flex/AST/Expression/InfExpression.s: src/flex/AST/Expression/InfExpression.cpp.s
+.PHONY : src/flex/AST/Expression/InfExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/InfExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/InfExpression.cpp.s
+.PHONY : src/flex/AST/Expression/InfExpression.cpp.s
 
 src/flex/AST/Expression/ModuloExpression.o: src/flex/AST/Expression/ModuloExpression.cpp.o
 .PHONY : src/flex/AST/Expression/ModuloExpression.o
@@ -999,6 +1407,54 @@ src/flex/AST/Expression/ModuloExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ModuloExpression.cpp.s
 .PHONY : src/flex/AST/Expression/ModuloExpression.cpp.s
 
+src/flex/AST/Expression/MultExpression.o: src/flex/AST/Expression/MultExpression.cpp.o
+.PHONY : src/flex/AST/Expression/MultExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/MultExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.o
+.PHONY : src/flex/AST/Expression/MultExpression.cpp.o
+
+src/flex/AST/Expression/MultExpression.i: src/flex/AST/Expression/MultExpression.cpp.i
+.PHONY : src/flex/AST/Expression/MultExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/MultExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.i
+.PHONY : src/flex/AST/Expression/MultExpression.cpp.i
+
+src/flex/AST/Expression/MultExpression.s: src/flex/AST/Expression/MultExpression.cpp.s
+.PHONY : src/flex/AST/Expression/MultExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/MultExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/MultExpression.cpp.s
+.PHONY : src/flex/AST/Expression/MultExpression.cpp.s
+
+src/flex/AST/Expression/OrExpression.o: src/flex/AST/Expression/OrExpression.cpp.o
+.PHONY : src/flex/AST/Expression/OrExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/OrExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.o
+.PHONY : src/flex/AST/Expression/OrExpression.cpp.o
+
+src/flex/AST/Expression/OrExpression.i: src/flex/AST/Expression/OrExpression.cpp.i
+.PHONY : src/flex/AST/Expression/OrExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/OrExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.i
+.PHONY : src/flex/AST/Expression/OrExpression.cpp.i
+
+src/flex/AST/Expression/OrExpression.s: src/flex/AST/Expression/OrExpression.cpp.s
+.PHONY : src/flex/AST/Expression/OrExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/OrExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/OrExpression.cpp.s
+.PHONY : src/flex/AST/Expression/OrExpression.cpp.s
+
 src/flex/AST/Expression/ParenthesisExpression.o: src/flex/AST/Expression/ParenthesisExpression.cpp.o
 .PHONY : src/flex/AST/Expression/ParenthesisExpression.o
 
@@ -1022,6 +1478,78 @@ src/flex/AST/Expression/ParenthesisExpression.s: src/flex/AST/Expression/Parenth
 src/flex/AST/Expression/ParenthesisExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/ParenthesisExpression.cpp.s
 .PHONY : src/flex/AST/Expression/ParenthesisExpression.cpp.s
+
+src/flex/AST/Expression/SubExpression.o: src/flex/AST/Expression/SubExpression.cpp.o
+.PHONY : src/flex/AST/Expression/SubExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/SubExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.o
+.PHONY : src/flex/AST/Expression/SubExpression.cpp.o
+
+src/flex/AST/Expression/SubExpression.i: src/flex/AST/Expression/SubExpression.cpp.i
+.PHONY : src/flex/AST/Expression/SubExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/SubExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.i
+.PHONY : src/flex/AST/Expression/SubExpression.cpp.i
+
+src/flex/AST/Expression/SubExpression.s: src/flex/AST/Expression/SubExpression.cpp.s
+.PHONY : src/flex/AST/Expression/SubExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/SubExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SubExpression.cpp.s
+.PHONY : src/flex/AST/Expression/SubExpression.cpp.s
+
+src/flex/AST/Expression/SupEqExpression.o: src/flex/AST/Expression/SupEqExpression.cpp.o
+.PHONY : src/flex/AST/Expression/SupEqExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/SupEqExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.o
+.PHONY : src/flex/AST/Expression/SupEqExpression.cpp.o
+
+src/flex/AST/Expression/SupEqExpression.i: src/flex/AST/Expression/SupEqExpression.cpp.i
+.PHONY : src/flex/AST/Expression/SupEqExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/SupEqExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.i
+.PHONY : src/flex/AST/Expression/SupEqExpression.cpp.i
+
+src/flex/AST/Expression/SupEqExpression.s: src/flex/AST/Expression/SupEqExpression.cpp.s
+.PHONY : src/flex/AST/Expression/SupEqExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/SupEqExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupEqExpression.cpp.s
+.PHONY : src/flex/AST/Expression/SupEqExpression.cpp.s
+
+src/flex/AST/Expression/SupExpression.o: src/flex/AST/Expression/SupExpression.cpp.o
+.PHONY : src/flex/AST/Expression/SupExpression.o
+
+# target to build an object file
+src/flex/AST/Expression/SupExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.o
+.PHONY : src/flex/AST/Expression/SupExpression.cpp.o
+
+src/flex/AST/Expression/SupExpression.i: src/flex/AST/Expression/SupExpression.cpp.i
+.PHONY : src/flex/AST/Expression/SupExpression.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/SupExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.i
+.PHONY : src/flex/AST/Expression/SupExpression.cpp.i
+
+src/flex/AST/Expression/SupExpression.s: src/flex/AST/Expression/SupExpression.cpp.s
+.PHONY : src/flex/AST/Expression/SupExpression.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/SupExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.s
+.PHONY : src/flex/AST/Expression/SupExpression.cpp.s
 
 src/flex/AST/Expression/UnaryExpression.o: src/flex/AST/Expression/UnaryExpression.cpp.o
 .PHONY : src/flex/AST/Expression/UnaryExpression.o
@@ -1383,6 +1911,30 @@ src/flex/AST/Structure/ElseStructure.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.s
 .PHONY : src/flex/AST/Structure/ElseStructure.cpp.s
 
+src/flex/AST/Structure/ForStructure.o: src/flex/AST/Structure/ForStructure.cpp.o
+.PHONY : src/flex/AST/Structure/ForStructure.o
+
+# target to build an object file
+src/flex/AST/Structure/ForStructure.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.o
+.PHONY : src/flex/AST/Structure/ForStructure.cpp.o
+
+src/flex/AST/Structure/ForStructure.i: src/flex/AST/Structure/ForStructure.cpp.i
+.PHONY : src/flex/AST/Structure/ForStructure.i
+
+# target to preprocess a source file
+src/flex/AST/Structure/ForStructure.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.i
+.PHONY : src/flex/AST/Structure/ForStructure.cpp.i
+
+src/flex/AST/Structure/ForStructure.s: src/flex/AST/Structure/ForStructure.cpp.s
+.PHONY : src/flex/AST/Structure/ForStructure.s
+
+# target to generate assembly for a file
+src/flex/AST/Structure/ForStructure.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ForStructure.cpp.s
+.PHONY : src/flex/AST/Structure/ForStructure.cpp.s
+
 src/flex/AST/Structure/IfStructure.o: src/flex/AST/Structure/IfStructure.cpp.o
 .PHONY : src/flex/AST/Structure/IfStructure.o
 
@@ -1407,6 +1959,30 @@ src/flex/AST/Structure/IfStructure.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/IfStructure.cpp.s
 .PHONY : src/flex/AST/Structure/IfStructure.cpp.s
 
+src/flex/AST/Structure/WhileStructure.o: src/flex/AST/Structure/WhileStructure.cpp.o
+.PHONY : src/flex/AST/Structure/WhileStructure.o
+
+# target to build an object file
+src/flex/AST/Structure/WhileStructure.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.o
+.PHONY : src/flex/AST/Structure/WhileStructure.cpp.o
+
+src/flex/AST/Structure/WhileStructure.i: src/flex/AST/Structure/WhileStructure.cpp.i
+.PHONY : src/flex/AST/Structure/WhileStructure.i
+
+# target to preprocess a source file
+src/flex/AST/Structure/WhileStructure.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.i
+.PHONY : src/flex/AST/Structure/WhileStructure.cpp.i
+
+src/flex/AST/Structure/WhileStructure.s: src/flex/AST/Structure/WhileStructure.cpp.s
+.PHONY : src/flex/AST/Structure/WhileStructure.s
+
+# target to generate assembly for a file
+src/flex/AST/Structure/WhileStructure.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Structure/WhileStructure.cpp.s
+.PHONY : src/flex/AST/Structure/WhileStructure.cpp.s
+
 src/flex/AST/Value.o: src/flex/AST/Value.cpp.o
 .PHONY : src/flex/AST/Value.o
 
@@ -1430,6 +2006,30 @@ src/flex/AST/Value.s: src/flex/AST/Value.cpp.s
 src/flex/AST/Value.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Value.cpp.s
 .PHONY : src/flex/AST/Value.cpp.s
+
+src/flex/AST/Variable/AbstractVariable.o: src/flex/AST/Variable/AbstractVariable.cpp.o
+.PHONY : src/flex/AST/Variable/AbstractVariable.o
+
+# target to build an object file
+src/flex/AST/Variable/AbstractVariable.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/AbstractVariable.cpp.o
+.PHONY : src/flex/AST/Variable/AbstractVariable.cpp.o
+
+src/flex/AST/Variable/AbstractVariable.i: src/flex/AST/Variable/AbstractVariable.cpp.i
+.PHONY : src/flex/AST/Variable/AbstractVariable.i
+
+# target to preprocess a source file
+src/flex/AST/Variable/AbstractVariable.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/AbstractVariable.cpp.i
+.PHONY : src/flex/AST/Variable/AbstractVariable.cpp.i
+
+src/flex/AST/Variable/AbstractVariable.s: src/flex/AST/Variable/AbstractVariable.cpp.s
+.PHONY : src/flex/AST/Variable/AbstractVariable.s
+
+# target to generate assembly for a file
+src/flex/AST/Variable/AbstractVariable.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Variable/AbstractVariable.cpp.s
+.PHONY : src/flex/AST/Variable/AbstractVariable.cpp.s
 
 src/flex/AST/Variable/Array.o: src/flex/AST/Variable/Array.cpp.o
 .PHONY : src/flex/AST/Variable/Array.o
@@ -1620,12 +2220,30 @@ help:
 	@echo "... src/IR/data/AbstractData.o"
 	@echo "... src/IR/data/AbstractData.i"
 	@echo "... src/IR/data/AbstractData.s"
+	@echo "... src/IR/data/Constant.o"
+	@echo "... src/IR/data/Constant.i"
+	@echo "... src/IR/data/Constant.s"
 	@echo "... src/IR/data/Memory.o"
 	@echo "... src/IR/data/Memory.i"
 	@echo "... src/IR/data/Memory.s"
+	@echo "... src/IR/data/MemoryArray.o"
+	@echo "... src/IR/data/MemoryArray.i"
+	@echo "... src/IR/data/MemoryArray.s"
 	@echo "... src/IR/data/Register.o"
 	@echo "... src/IR/data/Register.i"
 	@echo "... src/IR/data/Register.s"
+	@echo "... src/IR/function/AbstractFunction.o"
+	@echo "... src/IR/function/AbstractFunction.i"
+	@echo "... src/IR/function/AbstractFunction.s"
+	@echo "... src/IR/function/ExternalFunction.o"
+	@echo "... src/IR/function/ExternalFunction.i"
+	@echo "... src/IR/function/ExternalFunction.s"
+	@echo "... src/IR/function/FunctionBlock.o"
+	@echo "... src/IR/function/FunctionBlock.i"
+	@echo "... src/IR/function/FunctionBlock.s"
+	@echo "... src/IR/generator/Generator.o"
+	@echo "... src/IR/generator/Generator.i"
+	@echo "... src/IR/generator/Generator.s"
 	@echo "... src/IR/instructions/AbstractInstruction.o"
 	@echo "... src/IR/instructions/AbstractInstruction.i"
 	@echo "... src/IR/instructions/AbstractInstruction.s"
@@ -1635,12 +2253,9 @@ help:
 	@echo "... src/IR/instructions/AbstractOperator.o"
 	@echo "... src/IR/instructions/AbstractOperator.i"
 	@echo "... src/IR/instructions/AbstractOperator.s"
-	@echo "... src/IR/instructions/Jump.o"
-	@echo "... src/IR/instructions/Jump.i"
-	@echo "... src/IR/instructions/Jump.s"
-	@echo "... src/IR/instructions/Label.o"
-	@echo "... src/IR/instructions/Label.i"
-	@echo "... src/IR/instructions/Label.s"
+	@echo "... src/IR/instructions/Call.o"
+	@echo "... src/IR/instructions/Call.i"
+	@echo "... src/IR/instructions/Call.s"
 	@echo "... src/IR/instructions/OperatorBigger.o"
 	@echo "... src/IR/instructions/OperatorBigger.i"
 	@echo "... src/IR/instructions/OperatorBigger.s"
@@ -1671,9 +2286,15 @@ help:
 	@echo "... src/IR/instructions/OperatorSmallerOrEqual.o"
 	@echo "... src/IR/instructions/OperatorSmallerOrEqual.i"
 	@echo "... src/IR/instructions/OperatorSmallerOrEqual.s"
+	@echo "... src/IR/instructions/ReadArrayValue.o"
+	@echo "... src/IR/instructions/ReadArrayValue.i"
+	@echo "... src/IR/instructions/ReadArrayValue.s"
 	@echo "... src/IR/instructions/ReadFromMemory.o"
 	@echo "... src/IR/instructions/ReadFromMemory.i"
 	@echo "... src/IR/instructions/ReadFromMemory.s"
+	@echo "... src/IR/instructions/SetValue.o"
+	@echo "... src/IR/instructions/SetValue.i"
+	@echo "... src/IR/instructions/SetValue.s"
 	@echo "... src/IR/instructions/WriteToMemory.o"
 	@echo "... src/IR/instructions/WriteToMemory.i"
 	@echo "... src/IR/instructions/WriteToMemory.s"
@@ -1695,33 +2316,78 @@ help:
 	@echo "... src/flex/AST/Expression/AffectationExpression.o"
 	@echo "... src/flex/AST/Expression/AffectationExpression.i"
 	@echo "... src/flex/AST/Expression/AffectationExpression.s"
+	@echo "... src/flex/AST/Expression/AndExpression.o"
+	@echo "... src/flex/AST/Expression/AndExpression.i"
+	@echo "... src/flex/AST/Expression/AndExpression.s"
 	@echo "... src/flex/AST/Expression/ArrayExpression.o"
 	@echo "... src/flex/AST/Expression/ArrayExpression.i"
 	@echo "... src/flex/AST/Expression/ArrayExpression.s"
-	@echo "... src/flex/AST/Expression/BitewiseAndExpression.o"
-	@echo "... src/flex/AST/Expression/BitewiseAndExpression.i"
-	@echo "... src/flex/AST/Expression/BitewiseAndExpression.s"
-	@echo "... src/flex/AST/Expression/BitewiseOrExpression.o"
-	@echo "... src/flex/AST/Expression/BitewiseOrExpression.i"
-	@echo "... src/flex/AST/Expression/BitewiseOrExpression.s"
-	@echo "... src/flex/AST/Expression/BitewiseShiftLeftExpression.o"
-	@echo "... src/flex/AST/Expression/BitewiseShiftLeftExpression.i"
-	@echo "... src/flex/AST/Expression/BitewiseShiftLeftExpression.s"
-	@echo "... src/flex/AST/Expression/BitewiseXorExpression.o"
-	@echo "... src/flex/AST/Expression/BitewiseXorExpression.i"
-	@echo "... src/flex/AST/Expression/BitewiseXorExpression.s"
+	@echo "... src/flex/AST/Expression/BitwiseAndExpression.o"
+	@echo "... src/flex/AST/Expression/BitwiseAndExpression.i"
+	@echo "... src/flex/AST/Expression/BitwiseAndExpression.s"
+	@echo "... src/flex/AST/Expression/BitwiseOrExpression.o"
+	@echo "... src/flex/AST/Expression/BitwiseOrExpression.i"
+	@echo "... src/flex/AST/Expression/BitwiseOrExpression.s"
+	@echo "... src/flex/AST/Expression/BitwiseShiftLeftExpression.o"
+	@echo "... src/flex/AST/Expression/BitwiseShiftLeftExpression.i"
+	@echo "... src/flex/AST/Expression/BitwiseShiftLeftExpression.s"
+	@echo "... src/flex/AST/Expression/BitwiseXorExpression.o"
+	@echo "... src/flex/AST/Expression/BitwiseXorExpression.i"
+	@echo "... src/flex/AST/Expression/BitwiseXorExpression.s"
 	@echo "... src/flex/AST/Expression/Constant.o"
 	@echo "... src/flex/AST/Expression/Constant.i"
 	@echo "... src/flex/AST/Expression/Constant.s"
+	@echo "... src/flex/AST/Expression/DecrLeftExpression.o"
+	@echo "... src/flex/AST/Expression/DecrLeftExpression.i"
+	@echo "... src/flex/AST/Expression/DecrLeftExpression.s"
+	@echo "... src/flex/AST/Expression/DecrRightExpression.o"
+	@echo "... src/flex/AST/Expression/DecrRightExpression.i"
+	@echo "... src/flex/AST/Expression/DecrRightExpression.s"
+	@echo "... src/flex/AST/Expression/DivExpression.o"
+	@echo "... src/flex/AST/Expression/DivExpression.i"
+	@echo "... src/flex/AST/Expression/DivExpression.s"
+	@echo "... src/flex/AST/Expression/EqExpression.o"
+	@echo "... src/flex/AST/Expression/EqExpression.i"
+	@echo "... src/flex/AST/Expression/EqExpression.s"
 	@echo "... src/flex/AST/Expression/IDExpression.o"
 	@echo "... src/flex/AST/Expression/IDExpression.i"
 	@echo "... src/flex/AST/Expression/IDExpression.s"
+	@echo "... src/flex/AST/Expression/IncrLeftExpression.o"
+	@echo "... src/flex/AST/Expression/IncrLeftExpression.i"
+	@echo "... src/flex/AST/Expression/IncrLeftExpression.s"
+	@echo "... src/flex/AST/Expression/IncrRightExpression.o"
+	@echo "... src/flex/AST/Expression/IncrRightExpression.i"
+	@echo "... src/flex/AST/Expression/IncrRightExpression.s"
+	@echo "... src/flex/AST/Expression/IneqExpression.o"
+	@echo "... src/flex/AST/Expression/IneqExpression.i"
+	@echo "... src/flex/AST/Expression/IneqExpression.s"
+	@echo "... src/flex/AST/Expression/InfEqExpression.o"
+	@echo "... src/flex/AST/Expression/InfEqExpression.i"
+	@echo "... src/flex/AST/Expression/InfEqExpression.s"
+	@echo "... src/flex/AST/Expression/InfExpression.o"
+	@echo "... src/flex/AST/Expression/InfExpression.i"
+	@echo "... src/flex/AST/Expression/InfExpression.s"
 	@echo "... src/flex/AST/Expression/ModuloExpression.o"
 	@echo "... src/flex/AST/Expression/ModuloExpression.i"
 	@echo "... src/flex/AST/Expression/ModuloExpression.s"
+	@echo "... src/flex/AST/Expression/MultExpression.o"
+	@echo "... src/flex/AST/Expression/MultExpression.i"
+	@echo "... src/flex/AST/Expression/MultExpression.s"
+	@echo "... src/flex/AST/Expression/OrExpression.o"
+	@echo "... src/flex/AST/Expression/OrExpression.i"
+	@echo "... src/flex/AST/Expression/OrExpression.s"
 	@echo "... src/flex/AST/Expression/ParenthesisExpression.o"
 	@echo "... src/flex/AST/Expression/ParenthesisExpression.i"
 	@echo "... src/flex/AST/Expression/ParenthesisExpression.s"
+	@echo "... src/flex/AST/Expression/SubExpression.o"
+	@echo "... src/flex/AST/Expression/SubExpression.i"
+	@echo "... src/flex/AST/Expression/SubExpression.s"
+	@echo "... src/flex/AST/Expression/SupEqExpression.o"
+	@echo "... src/flex/AST/Expression/SupEqExpression.i"
+	@echo "... src/flex/AST/Expression/SupEqExpression.s"
+	@echo "... src/flex/AST/Expression/SupExpression.o"
+	@echo "... src/flex/AST/Expression/SupExpression.i"
+	@echo "... src/flex/AST/Expression/SupExpression.s"
 	@echo "... src/flex/AST/Expression/UnaryExpression.o"
 	@echo "... src/flex/AST/Expression/UnaryExpression.i"
 	@echo "... src/flex/AST/Expression/UnaryExpression.s"
@@ -1767,12 +2433,21 @@ help:
 	@echo "... src/flex/AST/Structure/ElseStructure.o"
 	@echo "... src/flex/AST/Structure/ElseStructure.i"
 	@echo "... src/flex/AST/Structure/ElseStructure.s"
+	@echo "... src/flex/AST/Structure/ForStructure.o"
+	@echo "... src/flex/AST/Structure/ForStructure.i"
+	@echo "... src/flex/AST/Structure/ForStructure.s"
 	@echo "... src/flex/AST/Structure/IfStructure.o"
 	@echo "... src/flex/AST/Structure/IfStructure.i"
 	@echo "... src/flex/AST/Structure/IfStructure.s"
+	@echo "... src/flex/AST/Structure/WhileStructure.o"
+	@echo "... src/flex/AST/Structure/WhileStructure.i"
+	@echo "... src/flex/AST/Structure/WhileStructure.s"
 	@echo "... src/flex/AST/Value.o"
 	@echo "... src/flex/AST/Value.i"
 	@echo "... src/flex/AST/Value.s"
+	@echo "... src/flex/AST/Variable/AbstractVariable.o"
+	@echo "... src/flex/AST/Variable/AbstractVariable.i"
+	@echo "... src/flex/AST/Variable/AbstractVariable.s"
 	@echo "... src/flex/AST/Variable/Array.o"
 	@echo "... src/flex/AST/Variable/Array.i"
 	@echo "... src/flex/AST/Variable/Array.s"
