@@ -49,8 +49,3 @@ UndeclaredIdException::UndeclaredIdException(std::__cxx11::string text)
 {
     this->text = text;
 }
-
-const char *UndeclaredIdException::what() const
-{
-    return text.c_str();
-}

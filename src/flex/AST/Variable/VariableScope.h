@@ -20,8 +20,11 @@ namespace AST{
         UndeclaredIdException();
         UndeclaredIdException(std::string text);
 		
-        virtual const char* what() const throw();
-	    
+        virtual const char* what() const throw()
+        {
+            return text.c_str();
+        }
+
 	protected :
 		std::string text;    
 		
