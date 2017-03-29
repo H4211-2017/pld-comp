@@ -39,3 +39,18 @@ std::shared_ptr<Variable> VariableScope::findVariable(std::string identifiant)
 
 VariableScope::~VariableScope()
 {}
+
+UndeclaredIdException::UndeclaredIdException()
+{
+    this->text = "Error : Undeclared Identifier";
+}
+
+UndeclaredIdException::UndeclaredIdException(std::__cxx11::string text)
+{
+    this->text = text;
+}
+
+const char *UndeclaredIdException::what() const
+{
+    return text.c_str();
+}
