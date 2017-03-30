@@ -15,7 +15,6 @@
 //DecrRightExpression::~DecrRightExpression() {
 //    // TODO Auto-generated destructor stub
 //}
-
 //Value DecrRightExpression::evaluate() const
 //{
 //    Value leftVal = this->leftMember->evaluate();

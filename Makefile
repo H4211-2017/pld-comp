@@ -1791,6 +1791,30 @@ src/flex/AST/Instruction/ComposedInstruction.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ComposedInstruction.cpp.s
 .PHONY : src/flex/AST/Instruction/ComposedInstruction.cpp.s
 
+src/flex/AST/Instruction/ReturnInstruction.o: src/flex/AST/Instruction/ReturnInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/ReturnInstruction.o
+
+# target to build an object file
+src/flex/AST/Instruction/ReturnInstruction.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o
+.PHONY : src/flex/AST/Instruction/ReturnInstruction.cpp.o
+
+src/flex/AST/Instruction/ReturnInstruction.i: src/flex/AST/Instruction/ReturnInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/ReturnInstruction.i
+
+# target to preprocess a source file
+src/flex/AST/Instruction/ReturnInstruction.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.i
+.PHONY : src/flex/AST/Instruction/ReturnInstruction.cpp.i
+
+src/flex/AST/Instruction/ReturnInstruction.s: src/flex/AST/Instruction/ReturnInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/ReturnInstruction.s
+
+# target to generate assembly for a file
+src/flex/AST/Instruction/ReturnInstruction.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.s
+.PHONY : src/flex/AST/Instruction/ReturnInstruction.cpp.s
+
 src/flex/AST/Instruction/SequenceInstruction.o: src/flex/AST/Instruction/SequenceInstruction.cpp.o
 .PHONY : src/flex/AST/Instruction/SequenceInstruction.o
 
@@ -2418,6 +2442,9 @@ help:
 	@echo "... src/flex/AST/Instruction/ComposedInstruction.o"
 	@echo "... src/flex/AST/Instruction/ComposedInstruction.i"
 	@echo "... src/flex/AST/Instruction/ComposedInstruction.s"
+	@echo "... src/flex/AST/Instruction/ReturnInstruction.o"
+	@echo "... src/flex/AST/Instruction/ReturnInstruction.i"
+	@echo "... src/flex/AST/Instruction/ReturnInstruction.s"
 	@echo "... src/flex/AST/Instruction/SequenceInstruction.o"
 	@echo "... src/flex/AST/Instruction/SequenceInstruction.i"
 	@echo "... src/flex/AST/Instruction/SequenceInstruction.s"
