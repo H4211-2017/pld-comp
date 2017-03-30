@@ -10,8 +10,8 @@ const int WriteToMemory::LONG_TYPE   = 3;
 WriteToMemory::WriteToMemory(sh_Register from, sh_Memory to) :
     AbstractMemoryAcess(), destination(to), source(from), type(MEMORY_TYPE)
 {
-    this->readRegisterVector.push_back(from);
-    this->writtenMemoryVector.push_back(to);
+    this->readRegisterList.push_back(from);
+    this->writtenMemoryList.push_back(to);
 }
 
 WriteToMemory::WriteToMemory(char value, sh_Memory to) : AbstractMemoryAcess(), charValue(value), type(CHAR_TYPE)

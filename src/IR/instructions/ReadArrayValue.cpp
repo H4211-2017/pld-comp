@@ -8,9 +8,9 @@ ReadArrayValue::ReadArrayValue(sh_MemoryArray array, sh_Register caseNumber, sh_
     caseNumberRegister(caseNumber),
     destRegister(dest)
 {
-    this->readMemoryVector.push_back(arraySource);
-    this->readRegisterVector.push_back(caseNumberRegister);
-    this->writtenRegisterVector.push_back(destRegister);
+    this->readMemoryList.push_back(arraySource);
+    this->readRegisterList.push_back(caseNumberRegister);
+    this->writtenRegisterList.push_back(destRegister);
 }
 
 std::string ReadArrayValue::toString() const
