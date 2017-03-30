@@ -23,7 +23,6 @@ Variable::Variable(std::shared_ptr<VariableSignature> signature, bool decl, cons
 			std::cerr << "ERROR Constructor Variable : Error in value of type : " << value.getValue().first << "Of Variable " << signature->getName() << std::endl;
 			break;
 	}
-
 }
 
 Value Variable::evaluate() const
