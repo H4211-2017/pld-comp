@@ -1,7 +1,9 @@
 #include <algorithm>
 #include <iostream>
 #include <assert.h>
+#include <deque>
 
+#include "../config/config.h"
 #include "FunctionBlock.h"
 
 using namespace IR;
@@ -25,6 +27,23 @@ void FunctionBlock::generateBasicBlockList()
     exploreBasicBlock(functionInit);
 }
 
+/**
+ * @brief FunctionBlock::affectPreviousBasicBlock ask every basic block of the function to set himself as the previous of his childs
+ * @remark The list of function basic block must be generated (FunctionBlock::generateBasicBlockList())
+ */
+void FunctionBlock::affectPreviousBasicBlock()
+{
+    functionInit->updateChildPreviousBlock();
+    for(sh_BasicBlock bb : coreList)
+    {
+        bb->updateChildPreviousBlock();
+    }
+}
+
+/**
+ * @brief FunctionBlock::getMemoryFromBasicBlock get the memory used by every basic block
+ * @remark The list of function basic block must be generated (FunctionBlock::generateBasicBlockList())
+ */
 void FunctionBlock::getMemoryFromBasicBlock()
 {
     usedMemory.clear();
@@ -41,6 +60,8 @@ void FunctionBlock::getMemoryFromBasicBlock()
 /**
  * @brief FunctionBlock::aliveRegistryDetection set the list of alive registry
  * of every instructions of the function, by calling exploreBasicBlockToFindAliveRegister.
+ * @remarks The list of function basic block must be generated (FunctionBlock::generateBasicBlockList())
+ * @remarks The previous basic block of every core basic block must be set
  */
 void FunctionBlock::aliveRegistryDetection()
 {
@@ -81,6 +102,33 @@ void FunctionBlock::affectRegistry(std::queue<std::string> asmRegistryAvailable)
 
 }
 
+/**
+ * @brief FunctionBlock::affectMemory set base pointer offset for every Memory of the function.
+ * @remark FunctionBlock::getMemoryFromBasicBlock() must be run before calling this function.
+ */
+void FunctionBlock::affectMemory()
+{
+    std::list<sh_Memory> memoryList;
+    //copy the memory map to a memory list
+    for(auto pair : usedMemory)
+    {
+        const sh_Memory &mem = pair.second;
+        memoryList.push_back(mem);
+    }
+    //sort the list so that the smaller element come first
+    memoryList.sort([](const sh_AbstractData &a, const sh_AbstractData &b)
+                            {return a->getSizeInMemory() < b->getSizeInMemory();});
+    int currentOffset = FIRST_MEMORY_FUNCTION_OFFSET;
+    //affect an offset to each memory
+    for(sh_Memory mem : memoryList)
+    {
+        //move the offset to the next (1/2/4) byte depending on the data type
+        currentOffset += currentOffset % mem->getType();
+        mem->setAsmBasePointerOffset(currentOffset);
+        currentOffset += mem->getSizeInMemory();
+    }
+}
+
 sh_BasicBlock FunctionBlock::getFunctionCore() const
 {
     return functionCore;
@@ -104,6 +152,43 @@ void FunctionBlock::printIR(std::ostream & os) const
     {
         bb->printIr(os);
     }
+}
+
+void FunctionBlock::printASM(std::ostream &os, AsmType asmType) const
+{
+
+}
+
+void FunctionBlock::generateIR()
+{
+    generateBasicBlockList();
+}
+
+/**
+ * @brief FunctionBlock::generateASM Generate the asm of the given type of this function.
+ * @param asmType the type of ASM wanted.
+ * @remark This function must be called only once ! the beaviour is undefined if multliple call
+ * are made on the same object.
+ */
+void FunctionBlock::generateASM(AsmType asmType)
+{
+    generateBasicBlockList();
+    affectPreviousBasicBlock();
+    getMemoryFromBasicBlock();
+    aliveRegistryDetection();
+    affectMemory();
+    std::deque<std::string> regList;
+    switch (asmType) {
+    case AsmType::X86Linux:
+        regList = ASM_X86_REGISTER_LIST;
+        break;
+    default:
+        std::cerr << "Unknow ASM type: " << asmType << std::endl;
+        exit(-1);
+        break;
+    }
+    std::queue<std::string> regQueue(regList);
+    affectRegistry(regQueue);
 }
 
 /**
@@ -148,6 +233,7 @@ bool FunctionBlock::isBasicBlockAlreadyExplored(sh_BasicBlock currentBlock) cons
  * the previous basic block of the given one.
  * @param basicBlock the basic block one whith the algorithm is run
  * @param aliveRegister the map of alive register when entering the given basic block
+ * @remark The list of basic block must be set before execution (FunctionBlock::generateBasicBlockList())
  */
 void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::string,sh_Register> aliveRegister)
 {

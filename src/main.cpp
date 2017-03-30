@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     IR::sh_Memory memC = gen.getNewUnusedMemmory(IR::Type::INT_64);
     std::list<IR::sh_AbsInstruction> instList = gen.binaryOperator<IR::OperatorPlus>(memA,memB,memC);
     mainFunction.getFunctionCore()->pushInstructionBack(instList);
-    mainFunction.generateBasicBlockList();
+    mainFunction.generateIR();
     mainFunction.printIR(std::cout);
     return 0;
 }

@@ -66,11 +66,11 @@ void BasicBlock::pushInstructionBack(sh_AbsInstruction instruction)
     this->instructionsList.push_back(instruction);
 
     //add used memory/register to the map of this basicBlock
-    for(sh_AbstractData mem : instruction->getReadMemoryList())
+    for(sh_Memory mem : instruction->getReadMemoryList())
     {
         usedMemory[mem->getName()] = mem;
     }
-    for(sh_AbstractData mem : instruction->getWroteMemoryList())
+    for(sh_Memory mem : instruction->getWroteMemoryList())
     {
         usedMemory[mem->getName()] = mem;
     }
@@ -278,7 +278,7 @@ sh_BasicBlock BasicBlock::getNextBlockFalse() const
     return nextBlockFalse;
 }
 
-std::map<std::string, sh_AbstractData> BasicBlock::getUsedMemory() const
+std::map<std::string, sh_Memory> BasicBlock::getUsedMemory() const
 {
     return usedMemory;
 }

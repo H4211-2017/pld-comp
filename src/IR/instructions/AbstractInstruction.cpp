@@ -17,12 +17,12 @@ std::list<sh_Register > AbstractInstruction::getWroteRegisterList() const
     return writtenRegisterList;
 }
 
-std::list<sh_AbstractData> AbstractInstruction::getReadMemoryList() const
+std::list<sh_Memory> AbstractInstruction::getReadMemoryList() const
 {
     return readMemoryList;
 }
 
-std::list<sh_AbstractData> AbstractInstruction::getWroteMemoryList() const
+std::list<sh_Memory> AbstractInstruction::getWroteMemoryList() const
 {
     return writtenMemoryList;
 }
@@ -55,11 +55,11 @@ void AbstractInstruction::clearAliveRegister()
     aliveRegister.clear();
 }
 
-std::string AbstractInstruction::toAsm(int asmType) const
+std::string AbstractInstruction::toAsm(AsmType asmType) const
 {
     std::string ret;
     switch (asmType) {
-    case ASM_TYPE_X86_LINUX:
+    case AsmType::X86Linux:
         ret = toLinuxX86();
         break;
     default:
