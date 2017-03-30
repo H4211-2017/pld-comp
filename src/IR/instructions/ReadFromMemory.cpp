@@ -7,8 +7,8 @@ ReadFromMemory::ReadFromMemory(sh_Memory from, sh_Register to):
     source(from),
     destination(to)
 {
-    this->readMemoryVector.push_back(from);
-    this->writtenRegisterVector.push_back(to);
+    this->readMemoryList.push_back(from);
+    this->writtenRegisterList.push_back(to);
 }
 
 std::string ReadFromMemory::toString() const

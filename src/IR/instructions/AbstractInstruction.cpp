@@ -7,24 +7,52 @@ AbstractInstruction::AbstractInstruction()
 
 }
 
-std::vector<sh_Register > AbstractInstruction::getReadRegisterVector() const
+std::list<sh_Register > AbstractInstruction::getReadRegisterList() const
 {
-    return readRegisterVector;
+    return readRegisterList;
 }
 
-std::vector<sh_Register > AbstractInstruction::getWroteRegisterVector() const
+std::list<sh_Register > AbstractInstruction::getWroteRegisterList() const
 {
-    return writtenRegisterVector;
+    return writtenRegisterList;
 }
 
-std::vector<sh_AbstractData> AbstractInstruction::getReadMemoryVector() const
+std::list<sh_AbstractData> AbstractInstruction::getReadMemoryList() const
 {
-    return readMemoryVector;
+    return readMemoryList;
 }
 
-std::vector<sh_AbstractData> AbstractInstruction::getWroteMemoryVector() const
+std::list<sh_AbstractData> AbstractInstruction::getWroteMemoryList() const
 {
-    return writtenMemoryVector;
+    return writtenMemoryList;
+}
+
+std::map<std::string, sh_Register> AbstractInstruction::getAliveRegister() const
+{
+    return aliveRegister;
+}
+
+/**
+ * @brief AbstractInstruction::pushToAliveRegister add the given register to the alive list if needed
+ * @param reg the register to add
+ * @return true if the register is added and false if the register was already on the list (map)
+ */
+bool AbstractInstruction::pushToAliveRegister(const sh_Register &reg)
+{
+    if(aliveRegister.find(reg->getName()) == aliveRegister.end())
+    {
+        aliveRegister[reg->getName()] = reg;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void AbstractInstruction::clearAliveRegister()
+{
+    aliveRegister.clear();
 }
 
 std::string AbstractInstruction::toAsm(int asmType) const

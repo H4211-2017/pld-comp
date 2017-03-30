@@ -65,29 +65,29 @@ void BasicBlock::pushInstructionBack(sh_AbsInstruction instruction)
     this->instructionsList.push_back(instruction);
 
     //add used memory/register to the map of this basicBlock
-    for(sh_AbstractData mem : instruction->getReadMemoryVector())
+    for(sh_AbstractData mem : instruction->getReadMemoryList())
     {
         usedMemory[mem->getName()] = mem;
     }
-    for(sh_AbstractData mem : instruction->getWroteMemoryVector())
+    for(sh_AbstractData mem : instruction->getWroteMemoryList())
     {
         usedMemory[mem->getName()] = mem;
     }
 
-    for(sh_Register reg : instruction->getReadRegisterVector())
+    for(sh_Register reg : instruction->getReadRegisterList())
     {
         usedRegister[reg->getName()] = reg;
     }
-    for(sh_Register reg : instruction->getWroteRegisterVector())
+    for(sh_Register reg : instruction->getWroteRegisterList())
     {
         usedRegister[reg->getName()] = reg;
     }
 
     //set the conditionnal register using the register wrote by this instruciton (if it exist)
     //the first register is used as no instruction can wrote two register
-    if(instruction->getWroteRegisterVector().size() > 0)
+    if(instruction->getWroteRegisterList().size() > 0)
     {
-        conditionnalJumpRegister = instruction->getWroteRegisterVector().front();
+        conditionnalJumpRegister = instruction->getWroteRegisterList().front();
     }
 }
 
@@ -179,6 +179,21 @@ sh_BasicBlock BasicBlock::getNextBlockTrue() const
 sh_BasicBlock BasicBlock::getNextBlockFalse() const
 {
     return nextBlockFalse;
+}
+
+std::map<std::string, sh_AbstractData> BasicBlock::getUsedMemory() const
+{
+    return usedMemory;
+}
+
+std::list<sh_AbsInstruction> BasicBlock::getInstructionsList() const
+{
+    return instructionsList;
+}
+
+std::list<sh_BasicBlock> BasicBlock::getPreviousBlocks() const
+{
+    return previousBlocks;
 }
 
 
