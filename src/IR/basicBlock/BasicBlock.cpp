@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <assert.h>
 
 #include "BasicBlock.h"
 
@@ -111,18 +112,114 @@ void BasicBlock::pushInstructionBack(std::list<sh_AbsInstruction> instructions)
  */
 void BasicBlock::updateChildPreviousBlock()
 {
-    ///insert in the False next block
+    //insert in the False next block
     if(nextBlockFalse != nullptr)
     {
         //insert in the list (do not check if not already in the list)
         nextBlockFalse->previousBlocks.push_back(this->shared_from_this());
     }
-    ///insert in the True next block
+    //insert in the True next block
     if(nextBlockTrue != nullptr)
     {
         //insert in the list (do not check if not already in the list)
         nextBlockTrue->previousBlocks.push_back(this->shared_from_this());
     }
+}
+
+/**
+ * @brief BasicBlock::affectRegistry affect registry on the current BasicBlock.
+ * @param availableAsmRegistry list of the available registry for affectation
+ * @remark This require the alive register to be set for every instructions and
+ * the alive registry of this block to have their asm name set (can be checked
+ * using BasicBlock::isRegistryAfectable)
+ */
+void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
+{
+    ///Init: set list as they must be
+    //get the list of alive register at the begining of the block form it first instruction
+    std::list<sh_Register> aliveRegisters;
+    const sh_AbsInstruction &firstInstruction = *instructionsList.begin();
+    const std::map<std::string, sh_Register> &aliveMap = firstInstruction->getAliveRegister();
+    transform(aliveMap.begin(),
+              aliveMap.end(),
+              back_inserter(aliveRegisters),
+              [](const std::map<std::string, sh_Register>::value_type& val){return val.second;} );
+    //if BasicBlock::isRegistryAfectable() is called before execution, this should never be false
+    assert(aliveMap.find("") == aliveMap.end());
+    //remove from the queue the used register
+    unsigned sizeOfList = availableAsmRegistry.size(); //copy the value as the size of the list may change during loop
+    for(unsigned i=0 ; i<sizeOfList ; i++)
+    {
+        const std::string &regAsmName = availableAsmRegistry.front();
+
+        //if regAsmName is afected to one alive register, this name in not available
+        if(aliveMap.find(regAsmName) != aliveMap.end())
+        {
+            availableAsmRegistry.pop();
+        }
+        else
+        {
+            //else the name can be used, we push it back to the end of the queue
+            availableAsmRegistry.pop();
+            availableAsmRegistry.push(regAsmName);
+        }
+    }
+    ///Affect asm name the the registry
+    for(sh_AbsInstruction inst : instructionsList)
+    {
+        for(sh_Register reg : inst->getWroteRegisterList())
+        {
+            //if we wrote into a register and it does'nt have an ASM name yet, we give it one
+            if(reg->getAsmRegisterName() == "" )
+            {
+                //give an asm name to the register
+                std::string regName = availableAsmRegistry.front();
+                reg->setAsmRegisterName(regName);
+                availableAsmRegistry.pop();
+                //add it to the alive register list
+                aliveRegisters.push_back(reg);
+            }
+        }
+        for(std::list<sh_Register>::iterator it=aliveRegisters.begin() ; it!=aliveRegisters.end() ; it++)
+        {
+            if(inst->getAliveRegister().find((*it)->getName()) == inst->getAliveRegister().end())
+            {
+                //save iterator to allow for loop to continue properly
+                auto newIt = it;
+                newIt--;
+                //add the unused register asm name to the available register name
+                availableAsmRegistry.push((*it)->getAsmRegisterName());
+                //remove the register from alive register list
+                aliveRegisters.erase(it);
+                //set it back to a valid value
+                it = newIt;
+            }
+        }
+    }
+}
+
+/**
+ * @brief BasicBlock::isRegistryAfectable check if BasicBlock::affectRegistry can be called
+ * @return true if the block can give adresse to his registry.
+ * (i.e. if the alive registry at block start have their asm name set)
+ */
+bool BasicBlock::isRegistryAfectable() const
+{
+    //alive register at the block start are the ones alive for first instruction
+    const sh_AbsInstruction &firstInstruction = *instructionsList.begin();
+    //for every alive register check if it has a asm name
+    for(auto pair : firstInstruction->getAliveRegister())
+    {
+        const sh_Register &reg = pair.second;
+        if(reg->getAsmRegisterName() == "")
+        {
+            //if one of the needed alive register is not yet set this block cannot affect his register properly
+            //registery must by set first
+            return false;
+        }
+    }
+    //every alive registry are set, this block is ready
+    return true;
 }
 
 /**
@@ -194,6 +291,16 @@ std::list<sh_AbsInstruction> BasicBlock::getInstructionsList() const
 std::list<sh_BasicBlock> BasicBlock::getPreviousBlocks() const
 {
     return previousBlocks;
+}
+
+bool BasicBlock::isConditionnal() const
+{
+    return nextBlockFalse != nullptr && nextBlockTrue != nullptr;
+}
+
+sh_Register BasicBlock::getConditionnalJumpRegister() const
+{
+    return conditionnalJumpRegister;
 }
 
 

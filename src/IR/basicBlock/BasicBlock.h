@@ -4,6 +4,7 @@
 #include <list>
 #include <memory>
 #include <map>
+#include <queue>
 
 #include "../instructions/AbstractInstruction.h"
 #include "../data/Memory.h"
@@ -29,6 +30,8 @@ namespace IR {
         void setNextBlockFalse(sh_BasicBlock basicBlock);
 
         void updateChildPreviousBlock();
+        void affectRegistry(std::queue<std::string> availableAsmRegistry);
+        bool isRegistryAfectable() const;
 
         void printIr(std::ostream& os) const;
 
@@ -40,6 +43,10 @@ namespace IR {
         std::map<std::string, sh_AbstractData> getUsedMemory() const;
         std::list<sh_AbsInstruction> getInstructionsList() const;
         std::list<sh_BasicBlock> getPreviousBlocks() const;
+        sh_Register getConditionnalJumpRegister() const;
+
+        bool isConditionnal() const;
+
 
     private:
 

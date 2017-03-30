@@ -2,6 +2,7 @@
 #define FUNCTIONBLOCK_H
 
 #include <memory>
+#include <queue>
 
 #include "AbstractFunction.h"
 #include "../basicBlock/BasicBlock.h"
@@ -15,6 +16,7 @@ namespace IR {
         void generateBasicBlockList();
         void getMemoryFromBasicBlock();
         void aliveRegistryDetection();
+        void affectRegistry(std::queue<std::string> asmRegistryAvailable);
 
         sh_BasicBlock getFunctionCore() const;
         void setFunctionCore(const sh_BasicBlock &value);

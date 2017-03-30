@@ -48,6 +48,39 @@ void FunctionBlock::aliveRegistryDetection()
     exploreBasicBlockToFindAliveRegister(this->functionReturn, aliveRegisters);
 }
 
+/**
+ * @brief FunctionBlock::affectRegistry affect registry to every basic block of the function
+ * @param asmRegistryAvailable list of the available register name in ASM
+ * @remarks The end of this function is not guarranted but I never found an example of such case...
+ * @remarks The list of function basic block must be generated (FunctionBlock::generateBasicBlockList())
+ * @remarks The basic block must have their alive registry set (FunctionBlock::aliveRegistryDetection())
+ */
+void FunctionBlock::affectRegistry(std::queue<std::string> asmRegistryAvailable)
+{
+    std::list<sh_BasicBlock> waitingForAffectation = coreList;
+    while (waitingForAffectation.size() > 0) {
+        for(auto it=waitingForAffectation.begin() ; it!=waitingForAffectation.end() ; it++)
+        {
+            const sh_BasicBlock &bb = *it;
+            //if the current basic block is ready
+            if(bb->isRegistryAfectable())
+            {
+                //then affect his register
+                bb->affectRegistry(asmRegistryAvailable);
+                //save the value of it
+                auto newIt = it;
+                newIt--;
+                //erase the basic block from the list
+                waitingForAffectation.erase(it);
+                //set back a safe value to it
+                it = newIt;
+            }
+        }
+        //do that again until no more basic block left...
+    }
+
+}
+
 sh_BasicBlock FunctionBlock::getFunctionCore() const
 {
     return functionCore;
@@ -119,6 +152,13 @@ bool FunctionBlock::isBasicBlockAlreadyExplored(sh_BasicBlock currentBlock) cons
 void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::string,sh_Register> aliveRegister)
 {
     bool changeDuringLoop = false;
+    //if the basic block use a regsiter for is jump
+    if(basicBlock->isConditionnal())
+    {
+        //se this register as alive
+        const sh_Register &reg = basicBlock->getConditionnalJumpRegister();
+        aliveRegister[reg->getName()] = reg;
+    }
     auto instList = basicBlock->getInstructionsList();
     //loop on every basic block instruction from the last one to the first (using reverse iterator)
     for(auto it = instList.rbegin() ; it != instList.rend() ; it++ )
@@ -128,7 +168,7 @@ void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBloc
         for(sh_Register reg : inst->getWroteRegisterList())
         {
             auto it = aliveRegister.find(reg->getName());
-            assert(it != aliveRegister.end()); // reg must be alive !
+            assert(it != aliveRegister.end()); // reg must be alive ! (optimisation may create unused register)
             aliveRegister.erase(it);
         }
         //add the read registry to the alive list (map)
