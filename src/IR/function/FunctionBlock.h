@@ -28,7 +28,7 @@ namespace IR {
     protected:
         void exploreBasicBlock(sh_BasicBlock currentBlock);
         bool isBasicBlockAlreadyExplored(sh_BasicBlock currentBlock) const;
-        void exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::__cxx11::string, sh_Register> aliveRegister);
+        void exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::string, sh_Register> aliveRegister);
 
     private:
         sh_BasicBlock functionInit;
@@ -37,7 +37,7 @@ namespace IR {
 
         std::list<sh_BasicBlock> coreList;
 
-        std::map<std::string,sh_AbstractData> usedMemory;
+        std::map< std::string, sh_AbstractData > usedMemory;
     };
 }
 
