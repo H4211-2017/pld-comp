@@ -18,7 +18,7 @@ int32_t main()
 	
 	while(1){}
 	int32_t i;
-	for(i=1;i=20;i+=1) a=i;
+	for(i=1;i<20;i++) --a;
 	for(;;);
 }
 

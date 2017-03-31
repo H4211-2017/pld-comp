@@ -61,8 +61,8 @@ anymultilinechain	(.|\n|\r)*
 "!="						{printf("BOOL_DIF "); return BOOL_DIF;}
 "<="						{printf("BOOL_LESS_OR_EQUAL "); return BOOL_LESS_OR_EQUAL;}
 ">="						{printf("BOOL_GREATER_OR_EQUAL "); return BOOL_GREATER_OR_EQUAL;}
-"< "						{printf("BOOL_LESS "); return BOOL_LESS;}
-"> "						{printf("BOOL_GREATER "); return BOOL_GREATER;}
+"<"							{printf("BOOL_LESS "); return BOOL_LESS;}
+">"							{printf("BOOL_GREATER "); return BOOL_GREATER;}
 "?"							{printf("TERNARY_ASK "); return TERNARY_ASK;}
 ":"							{printf("TERNARY_CHOOSE "); return TERNARY_CHOOSE;}
 "+="						{printf("AFFECT_ADD "); return AFFECT_ADD;}

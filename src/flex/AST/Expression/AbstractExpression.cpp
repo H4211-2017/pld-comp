@@ -146,7 +146,7 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
     {
         return std::make_shared<FunctionCall>( *( static_cast< FunctionCall* >(ptr) ) );
     }
-    else if (name == "DecrIncrLeftExression")
+    else if (name == "DecrIncrLeftExpression")
     {
         return std::make_shared<DecrIncrLeftExpression>( *( static_cast< DecrIncrLeftExpression* >(ptr) ) );
     }

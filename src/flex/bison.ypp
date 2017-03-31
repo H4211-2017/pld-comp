@@ -405,10 +405,14 @@ expr : INT_VAL {$$ = new Constant($1);}
 								delete $1;
 								delete $3;}
 	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new ParenthesisExpression(make_shared_instr($2)); delete $2;} 
-	| var INCREMENT {} // TODO
-	| var DECREMENT {} // TODO
-	| INCREMENT var {} // TODO
-	| DECREMENT var {} // TODO
+	| var INCREMENT {$$ = new DecrIncrRightExpression(*$1, 1);
+						delete $1;}
+	| var DECREMENT {$$ = new DecrIncrRightExpression(*$1, -1);
+						delete $1;} 
+	| INCREMENT var {$$ = new DecrIncrLeftExpression(*$2, 1);
+						delete $2;}
+	| DECREMENT var {$$ = new DecrIncrLeftExpression(*$2, -1);
+						delete $2;} 
 	;
 	
 	
