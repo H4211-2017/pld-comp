@@ -13,6 +13,8 @@ namespace IR {
         FunctionBlock(std::string name);
 
         void generateBasicBlockList();
+        void getMemoryFromBasicBlock();
+        void aliveRegistryDetection();
 
         sh_BasicBlock getFunctionCore() const;
         void setFunctionCore(const sh_BasicBlock &value);
@@ -26,6 +28,7 @@ namespace IR {
     protected:
         void exploreBasicBlock(sh_BasicBlock currentBlock);
         bool isBasicBlockAlreadyExplored(sh_BasicBlock currentBlock) const;
+        void exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::string, sh_Register> aliveRegister);
 
     private:
         sh_BasicBlock functionInit;
@@ -33,6 +36,8 @@ namespace IR {
         sh_BasicBlock functionReturn;
 
         std::list<sh_BasicBlock> coreList;
+
+        std::map< std::string, sh_AbstractData > usedMemory;
     };
 }
 

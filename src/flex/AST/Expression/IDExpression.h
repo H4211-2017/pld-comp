@@ -12,7 +12,7 @@ class IDExpression : public AbstractExpression
 	
 public:
 
-    IDExpression(std::string id,  std::shared_ptr<Scope> scope);
+    IDExpression(std::string id, std::shared_ptr<Scope> scope);
     IDExpression(std::string name, std::string id,  std::shared_ptr<Scope> scope);
 	
 	virtual ~IDExpression();
@@ -26,7 +26,7 @@ public:
 
 protected:
     
-    std::shared_ptr<Variable> val;
+    std::shared_ptr<AbstractVariable> val;
 
 };
 

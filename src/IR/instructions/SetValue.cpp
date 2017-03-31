@@ -7,10 +7,10 @@ SetValue::SetValue(Constant constant, sh_Register destRegister):
     dest(destRegister),
     value(constant)
 {
-    this->writtenRegisterVector.push_back(destRegister);
+    this->writtenRegisterList.push_back(destRegister);
 }
 
-std::__cxx11::string SetValue::toString() const
+std::string SetValue::toString() const
 {
     std::string ret = "";
     ret.append( std::to_string(value.getDataValue()) );

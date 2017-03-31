@@ -83,7 +83,7 @@ void LArguments::prepareScope(std::shared_ptr<Scope> scope) const
 {
 	for(int i=0; i < arguments.size(); i++)
 	{
-		scope->declareVariable(arguments[i]->getIdentifiant(), std::make_shared<Variable>(arguments[i], false));
+		scope->declareVariable(arguments[i]->getIdentifiant(), std::make_shared<Variable>(arguments[i], false, scope->getGenerator()));
 	}
 }
 		

@@ -15,6 +15,18 @@
 #include "BitwiseXorExpression.h"
 #include "ModuloExpression.h"
 
+#include "AndExpression.h"
+#include "DivExpression.h"
+#include "EqExpression.h"
+#include "IneqExpression.h"
+#include "InfEqExpression.h"
+#include "InfExpression.h"
+#include "MultExpression.h"
+#include "OrExpression.h"
+#include "SubExpression.h"
+#include "SupEqExpression.h"
+#include "SupExpression.h"
+
 using namespace AST;
 
 
@@ -72,6 +84,49 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 	else if(name == "BitwiseXorExpression")
 	{
 		return std::make_shared<BitwiseXorExpression>( *( static_cast< BitwiseXorExpression* >(ptr) ) );
+	}
+	else if(name == "AndExpression")
+	{
+		return std::make_shared<AndExpression>( *( static_cast< AndExpression* >(ptr) ) );
+	}else if(name == "DivExpression")
+	{
+		return std::make_shared<DivExpression>( *( static_cast< DivExpression* >(ptr) ) );
+	}
+	else if(name == "EqExpression")
+	{
+		return std::make_shared<EqExpression>( *( static_cast< EqExpression* >(ptr) ) );
+	}
+	else if(name == "IneqExpression")
+	{
+		return std::make_shared<IneqExpression>( *( static_cast< IneqExpression* >(ptr) ) );
+	}
+	else if(name == "InfEqExpression")
+	{
+		return std::make_shared<InfEqExpression>( *( static_cast< InfEqExpression* >(ptr) ) );
+	}
+	else if(name == "InfExpression")
+	{
+		return std::make_shared<InfExpression>( *( static_cast< InfExpression* >(ptr) ) );
+	}
+	else if(name == "MultExpression")
+	{
+		return std::make_shared<MultExpression>( *( static_cast< MultExpression* >(ptr) ) );
+	}
+	else if(name == "OrExpression")
+	{
+		return std::make_shared<OrExpression>( *( static_cast< OrExpression* >(ptr) ) );
+	}
+	else if(name == "SubExpression")
+	{
+		return std::make_shared<SubExpression>( *( static_cast< SubExpression* >(ptr) ) );
+	}
+	else if(name == "SupEqExpression")
+	{
+		return std::make_shared<SupEqExpression>( *( static_cast< SupEqExpression* >(ptr) ) );
+	}
+	else if(name == "SupExpression")
+	{
+		return std::make_shared<SupExpression>( *( static_cast< SupExpression* >(ptr) ) );
 	}
 	else if(name == "ModuloExpression")
 	{
