@@ -40,5 +40,10 @@ std::__cxx11::string WriteToMemory::toString() const
 
 std::string WriteToMemory::toLinuxX86() const
 {
-
+    std::string ret = "\tmovq\t";
+    ret.append( source->getAsmRegisterName() );
+    ret.append( ", " );
+    ret.append( std::to_string(destination->getAsmBasePointerOffset()) );
+    ret.append( "(%rbp)");
+    return ret;
 }

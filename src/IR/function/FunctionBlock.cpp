@@ -66,7 +66,8 @@ void FunctionBlock::getMemoryFromBasicBlock()
 void FunctionBlock::aliveRegistryDetection()
 {
     std::map<std::string, sh_Register> aliveRegisters;
-    exploreBasicBlockToFindAliveRegister(this->functionReturn, aliveRegisters);
+    std::map<std::string, sh_BasicBlock> greyBasicBlock;
+    exploreBasicBlockToFindAliveRegister(this->functionReturn, aliveRegisters, greyBasicBlock);
 }
 
 /**
@@ -123,9 +124,9 @@ void FunctionBlock::affectMemory()
     for(sh_Memory mem : memoryList)
     {
         //move the offset to the next (1/2/4) byte depending on the data type
-        currentOffset += currentOffset % mem->getType();
+        currentOffset -= (-currentOffset) % mem->getType();
         mem->setAsmBasePointerOffset(currentOffset);
-        currentOffset += mem->getSizeInMemory();
+        currentOffset -= mem->getSizeInMemory();
     }
 }
 
@@ -156,7 +157,11 @@ void FunctionBlock::printIR(std::ostream & os) const
 
 void FunctionBlock::printASM(std::ostream &os, AsmType asmType) const
 {
-
+    //the first basicBlock of the list is the functionInit
+    for(sh_BasicBlock bb : coreList)
+    {
+        bb->printAsm(os, asmType);
+    }
 }
 
 void FunctionBlock::generateIR()
@@ -235,7 +240,7 @@ bool FunctionBlock::isBasicBlockAlreadyExplored(sh_BasicBlock currentBlock) cons
  * @param aliveRegister the map of alive register when entering the given basic block
  * @remark The list of basic block must be set before execution (FunctionBlock::generateBasicBlockList())
  */
-void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::string,sh_Register> aliveRegister)
+void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::string,sh_Register> aliveRegister, std::map<std::string, sh_BasicBlock> & greyBasicBlock)
 {
     bool changeDuringLoop = false;
     //if the basic block use a regsiter for is jump
@@ -273,15 +278,18 @@ void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBloc
             }
         }
     }
+    //if it's the first passage on this block or
     //if something s changed during this loop we must propage the change to the previous blocks (recursive call)
-    if(changeDuringLoop && basicBlock != functionInit)
+    if( (changeDuringLoop == true || greyBasicBlock.find(basicBlock->getName()) == greyBasicBlock.end()) && basicBlock != functionInit)
     {
+        //add the current basic block to the seen list
+        greyBasicBlock[basicBlock->getName()] = basicBlock;
         //run (or re-run) the exploration on the previous basic blocks
         //performance optimisation: find less ordering
         for(sh_BasicBlock nextBB : basicBlock->getPreviousBlocks())
         {
             //explore with the current alive register
-            exploreBasicBlockToFindAliveRegister(nextBB, aliveRegister);
+            exploreBasicBlockToFindAliveRegister(nextBB, aliveRegister, greyBasicBlock);
         }
     }
 }

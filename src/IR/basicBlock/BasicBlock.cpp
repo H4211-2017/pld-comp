@@ -135,6 +135,8 @@ void BasicBlock::updateChildPreviousBlock()
  */
 void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
 {
+    if(instructionsList.size() == 0)
+        return;
     ///Init: set list as they must be
     //get the list of alive register at the begining of the block form it first instruction
     std::list<sh_Register> aliveRegisters;
@@ -167,6 +169,26 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
     ///Affect asm name the the registry
     for(sh_AbsInstruction inst : instructionsList)
     {
+        //update avaibleRegistry queue by adding now unused register
+        for(std::list<sh_Register>::iterator it=aliveRegisters.begin() ; it!=aliveRegisters.end() ; it++)
+        {
+            const sh_Register &reg = *it;
+            const auto instAliveRegister = inst->getAliveRegister();
+            //if the alive register is not in the inst alive register list
+            if(instAliveRegister.find(reg->getName()) == instAliveRegister.end())
+            {
+                //save iterator to allow for loop to continue properly
+                auto newIt = it;
+                newIt--;
+                //add the unused register asm name to the available register name
+                availableAsmRegistry.push((*it)->getAsmRegisterName());
+                //remove the register from alive register list
+                aliveRegisters.erase(it);
+                //set it back to a valid value
+                it = newIt;
+            }
+        }
+        //affect registry to newly used register
         for(sh_Register reg : inst->getWroteRegisterList())
         {
             //if we wrote into a register and it does'nt have an ASM name yet, we give it one
@@ -180,21 +202,7 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
                 aliveRegisters.push_back(reg);
             }
         }
-        for(std::list<sh_Register>::iterator it=aliveRegisters.begin() ; it!=aliveRegisters.end() ; it++)
-        {
-            if(inst->getAliveRegister().find((*it)->getName()) == inst->getAliveRegister().end())
-            {
-                //save iterator to allow for loop to continue properly
-                auto newIt = it;
-                newIt--;
-                //add the unused register asm name to the available register name
-                availableAsmRegistry.push((*it)->getAsmRegisterName());
-                //remove the register from alive register list
-                aliveRegisters.erase(it);
-                //set it back to a valid value
-                it = newIt;
-            }
-        }
+
     }
 }
 
@@ -205,6 +213,10 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
  */
 bool BasicBlock::isRegistryAfectable() const
 {
+    if(instructionsList.size() == 0)
+    {
+        return true;
+    }
     //alive register at the block start are the ones alive for first instruction
     const sh_AbsInstruction &firstInstruction = *instructionsList.begin();
     //for every alive register check if it has a asm name
@@ -258,6 +270,18 @@ void BasicBlock::printIr(std::ostream &os) const
     }
 }
 
+void BasicBlock::printAsm(std::ostream &os, AsmType asmType) const
+{
+    printAsmLabel(os, asmType);
+
+    for(sh_AbsInstruction inst : instructionsList )
+    {
+        os << inst->toAsm(asmType) << std::endl;
+    }
+
+    printAsmJump(os,asmType);
+}
+
 std::string BasicBlock::getName() const
 {
     return name;
@@ -296,6 +320,62 @@ std::list<sh_BasicBlock> BasicBlock::getPreviousBlocks() const
 bool BasicBlock::isConditionnal() const
 {
     return nextBlockFalse != nullptr && nextBlockTrue != nullptr;
+}
+
+void BasicBlock::printAsmLabel(std::ostream &os, AsmType asmType) const
+{
+    switch (asmType) {
+    case AsmType::X86Linux:
+        os << name << ":" << std::endl;
+        break;
+    default:
+        std::cerr << "ASM type not set " << asmType << std::endl;
+        break;
+    }
+}
+
+void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
+{
+    if(nextBlockFalse == nullptr && nextBlockTrue == nullptr)
+    {
+        //if none of the two posibility is set
+
+    }
+    //if only one is set, no need to check any things
+    else if(nextBlockFalse != nullptr)
+    {
+        switch (asmType) {
+        case AsmType::X86Linux:
+            os << "\tjmp " << nextBlockFalse->getName() << std::endl;
+            break;
+        default:
+            break;
+        }
+    }
+    else if(nextBlockTrue != nullptr)
+    {
+        switch (asmType) {
+        case AsmType::X86Linux:
+            os << "\tjmp " << nextBlockTrue->getName() << std::endl;
+            break;
+        default:
+            break;
+        }
+    }
+    else
+    {
+        //else the two are set, need to do a conditionnal jump
+        switch (asmType) {
+        case AsmType::X86Linux:
+            os << "if " << conditionnalJumpRegister->getName() << " == 0 -> Jump to: "
+               << nextBlockFalse->getName() << " (False block)" << std::endl;
+            os << "Jmp " << nextBlockTrue->getName() << std::endl;
+            break;
+        default:
+            break;
+        }
+
+    }
 }
 
 sh_Register BasicBlock::getConditionnalJumpRegister() const

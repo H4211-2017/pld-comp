@@ -34,7 +34,7 @@ namespace IR {
 
         void exploreBasicBlock(sh_BasicBlock currentBlock);
         bool isBasicBlockAlreadyExplored(sh_BasicBlock currentBlock) const;
-        void exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::__cxx11::string, sh_Register> aliveRegister);
+        void exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::string, sh_Register> aliveRegister, std::map<std::__cxx11::string, sh_BasicBlock> &greyBasicBlock);
 
     private:
         sh_BasicBlock functionInit;

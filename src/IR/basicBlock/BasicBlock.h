@@ -34,6 +34,7 @@ namespace IR {
         bool isRegistryAfectable() const;
 
         void printIr(std::ostream& os) const;
+        void printAsm(std::ostream& os, AsmType asmType) const;
 
         std::string getName() const;
         void setName(const std::string &value);
@@ -49,7 +50,8 @@ namespace IR {
 
 
     private:
-
+        void printAsmLabel(std::ostream& os, AsmType asmType) const;
+        void printAsmJump(std::ostream& os, AsmType asmType) const;
 
     private:
         std::string name;

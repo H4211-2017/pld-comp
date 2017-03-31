@@ -27,7 +27,7 @@ std::list<sh_Memory> AbstractInstruction::getWroteMemoryList() const
     return writtenMemoryList;
 }
 
-std::map<std::string, sh_Register> AbstractInstruction::getAliveRegister() const
+const std::map<std::string, sh_Register> & AbstractInstruction::getAliveRegister() const
 {
     return aliveRegister;
 }
