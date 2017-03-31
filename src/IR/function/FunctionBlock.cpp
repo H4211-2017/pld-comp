@@ -157,6 +157,7 @@ void FunctionBlock::printIR(std::ostream & os) const
 
 void FunctionBlock::printASM(std::ostream &os, AsmType asmType) const
 {
+    printASMprolog(os,asmType);
     //the first basicBlock of the list is the functionInit
     for(sh_BasicBlock bb : coreList)
     {
@@ -291,6 +292,17 @@ void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBloc
             //explore with the current alive register
             exploreBasicBlockToFindAliveRegister(nextBB, aliveRegister, greyBasicBlock);
         }
+    }
+}
+
+void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
+{
+    switch (asmType) {
+    case AsmType::X86Linux:
+        os << this->getFunctionName() << ":" << std::endl;
+        break;
+    default:
+        break;
     }
 }
 

@@ -367,9 +367,9 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
         //else the two are set, need to do a conditionnal jump
         switch (asmType) {
         case AsmType::X86Linux:
-            os << "if " << conditionnalJumpRegister->getName() << " == 0 -> Jump to: "
-               << nextBlockFalse->getName() << " (False block)" << std::endl;
-            os << "Jmp " << nextBlockTrue->getName() << std::endl;
+            os << "\tcmpq\t$0, " << conditionnalJumpRegister->getName() << std::endl;
+            os << "\tjne " << nextBlockTrue->getName() << std::endl;
+            os << "\tjmp " << nextBlockFalse->getName() << std::endl;
             break;
         default:
             break;
