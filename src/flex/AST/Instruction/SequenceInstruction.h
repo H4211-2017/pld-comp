@@ -20,7 +20,7 @@ namespace AST {
 
         /**
          * @brief addInstruction
-         * @param instruction th instrution to add
+         * @param instruction the instrution to add
          */
         void addInstruction(std::shared_ptr<AbstractInstruction> instruction);
 
