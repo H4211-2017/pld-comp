@@ -34,7 +34,8 @@ std::shared_ptr<Scope> Block::getScope() const
     return std::make_shared<Scope>(currentScope);
 }
 
-void Block::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory Block::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     // TODO
+	return nullptr;
 }

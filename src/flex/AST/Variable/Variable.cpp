@@ -30,7 +30,7 @@ Value Variable::evaluate() const
 	return Value();
 }
 
-void Variable::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory Variable::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }

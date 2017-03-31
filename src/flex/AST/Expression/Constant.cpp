@@ -32,7 +32,7 @@ Value Constant::evaluate() const
     return value;
 }
  
-void Constant::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory Constant::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	IR::Type irType;
 	IR::Generator gen;
@@ -57,6 +57,7 @@ void Constant::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 	IR::sh_Memory memory = gen.getNewUnusedMemmory(irType);	
 	
 	currentBasicBlock->pushInstructionBack(gen.setValue(constant, memory));
+	return memory;
 }
 
 void Constant::printTree(int tabulationNumber) const

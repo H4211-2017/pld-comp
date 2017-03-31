@@ -23,7 +23,7 @@
 //}
 
 //// TODO : create class CFG and replace comment below.
-//void IncrLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+//IR::sh_Memory IncrLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 //{
 
 //}

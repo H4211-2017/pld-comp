@@ -38,7 +38,7 @@ Value ReturnInstruction::evaluate() const
 }
 
 // TODO
-void ReturnInstruction::buildIR() const
+IR::sh_Memory ReturnInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-		
+	return nullptr;
 }

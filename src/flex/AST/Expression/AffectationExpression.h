@@ -39,7 +39,7 @@ namespace AST{
          * or empty shared pointer else
          */
 
-        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
         virtual void printTree(int tabulationNumber) const;
         

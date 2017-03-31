@@ -60,9 +60,10 @@ Value AffectationExpression::evaluate() const
     return val;
 }
  
-void AffectationExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory AffectationExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	//TODO Complete IR
+	return nullptr;
 }
 
 void AffectationExpression::printTree(int tabulationNumber) const

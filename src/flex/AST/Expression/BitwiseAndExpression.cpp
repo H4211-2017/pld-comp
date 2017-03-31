@@ -25,9 +25,9 @@ Value BitwiseAndExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void BitwiseAndExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory BitwiseAndExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void BitwiseAndExpression::printOperator() const

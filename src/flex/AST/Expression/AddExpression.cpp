@@ -23,9 +23,9 @@ Value AddExpression::evaluate() const
 	return ret;
 }
 
-void AddExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory AddExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	
+	return nullptr;
 }
 
 void AddExpression::printOperator() const

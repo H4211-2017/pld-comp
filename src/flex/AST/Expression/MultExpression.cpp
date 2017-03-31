@@ -25,9 +25,9 @@ Value MultExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void MultExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory MultExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void MultExpression::printOperator() const

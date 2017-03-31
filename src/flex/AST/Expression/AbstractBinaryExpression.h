@@ -19,7 +19,7 @@ public:
 
     virtual void printTree(int tabulationNumber) const;
     virtual Value evaluate() const =0;
-    virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const =0;
+    virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const =0;
 	
 protected:
     virtual void printOperator() const =0;

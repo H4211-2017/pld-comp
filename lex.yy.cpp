@@ -1,6 +1,6 @@
-#line 2 "/home/pl/git/pld-comp/lex.yy.cpp"
+#line 2 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
 
-#line 4 "/home/pl/git/pld-comp/lex.yy.cpp"
+#line 4 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -372,8 +372,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 64
-#define YY_END_OF_BUFFER 65
+#define YY_NUM_RULES 67
+#define YY_END_OF_BUFFER 68
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -381,20 +381,22 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static yyconst flex_int16_t yy_accept[111] =
+static yyconst flex_int16_t yy_accept[123] =
     {   0,
-        0,    0,   65,   63,   62,   62,   45,   63,    1,   42,
-       46,   63,   12,   13,   40,   38,   61,   39,   41,   56,
-       24,   60,   63,   37,   63,   23,   59,   14,   15,   48,
-       59,   59,   59,   59,   59,   59,   59,   59,   10,   47,
-       11,   49,   18,    0,    0,   58,   29,   43,   30,    0,
-        0,    4,   27,   35,   25,   36,   26,    3,    2,   28,
-       56,   21,   50,   19,   16,   22,   20,   51,   59,   31,
-       59,   59,   59,    5,   59,   59,   59,   59,   59,   32,
-       44,   57,   33,   34,   59,   59,    8,   59,   59,   59,
-       59,   59,   53,    6,   59,   59,    9,   59,   52,   59,
+        0,    0,    2,    2,   68,   66,   65,   65,   48,   66,
+       66,   45,   49,   66,   15,   16,   43,   41,   64,   42,
+       44,   59,   27,   63,   66,   40,   66,   26,   62,   17,
+       18,   51,   62,   62,   62,   62,   62,   62,   62,   62,
+       13,   50,   14,   52,    2,    4,    3,   21,    0,    0,
+       61,    0,    6,   32,   46,   33,    0,    0,   30,   38,
+       28,   39,   29,    1,    0,   31,   59,   24,   53,   22,
+       19,   25,   23,   54,   62,   34,   62,   62,   62,    8,
+       62,   62,   62,   62,   62,   35,   47,    2,    3,    3,
+        5,   60,    0,    7,   36,   37,   62,   62,   11,   62,
 
-       59,   59,   59,    7,   59,   59,   17,   54,   55,    0
+       62,   62,   62,   62,   56,    9,   62,   62,   12,   62,
+       55,   62,   62,   62,   62,   10,   62,   62,   20,   57,
+       58,    0
     } ;
 
 static yyconst flex_int32_t yy_ec[256] =
@@ -431,98 +433,110 @@ static yyconst flex_int32_t yy_ec[256] =
 
 static yyconst flex_int32_t yy_meta[58] =
     {   0,
-        1,    2,    2,    2,    2,    2,    3,    2,    2,    2,
-        2,    2,    2,    2,    2,    2,    2,    2,    2,    4,
-        4,    4,    4,    4,    2,    2,    2,    2,    2,    2,
-        4,    2,    2,    2,    4,    4,    4,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        4,    4,    2,    2,    2,    2,    2
+        1,    2,    3,    2,    2,    2,    4,    2,    2,    2,
+        2,    2,    2,    2,    5,    2,    2,    2,    2,    6,
+        6,    6,    6,    6,    2,    2,    2,    2,    2,    2,
+        6,    2,    2,    2,    6,    6,    6,    6,    6,    6,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    2,    2,    2,    2,    2
     } ;
 
-static yyconst flex_int16_t yy_base[114] =
+static yyconst flex_int16_t yy_base[131] =
     {   0,
-        0,    0,  142,  143,  143,  143,  113,   56,  143,  112,
-       48,  137,  143,  143,   41,   45,  143,   44,   49,   58,
-      143,  143,   60,  110,   61,  143,    0,  143,  143,  109,
-       95,   92,   88,   30,   97,   93,   85,   89,  143,   39,
-      143,  143,  143,   84,   90,  143,  143,  143,  143,  117,
-      116,  143,  143,  143,  143,  143,  143,  143,  143,  143,
-       78,  143,   99,  143,  143,  143,  143,   98,    0,  143,
-       89,   76,   76,    0,   73,   79,   71,   77,   76,  143,
-      143,  143,  143,  143,   70,   77,    0,   61,   70,   64,
-       75,   69,    0,    0,   90,   87,    0,   62,    0,   68,
+        0,    0,   55,   56,  185,  186,  186,  186,  156,   58,
+      180,  154,   50,  179,  186,  186,  152,   46,  186,   45,
+       49,   59,  186,  186,   61,  151,   62,  186,    0,  186,
+      186,  150,  136,  133,  129,   47,  138,  134,  126,  130,
+      186,   41,  186,  186,    0,  186,   57,  186,   91,   92,
+      186,  167,  186,  186,  186,  186,  157,  156,  186,  186,
+      186,  186,  186,  186,  164,  186,   80,  186,  138,  186,
+      186,  186,  186,  137,    0,  186,  128,  115,  115,    0,
+      112,  118,  110,  116,  115,  186,  186,    0,  137,   90,
+      186,  186,  152,  186,  186,  186,  107,  114,    0,   62,
 
-       61,   60,   49,    0,   35,   25,    0,    0,    0,  143,
-      101,  104,   67
+      107,  101,  112,   97,    0,    0,  115,  111,    0,   82,
+        0,   69,   72,   71,   52,    0,   47,   36,    0,    0,
+        0,  186,  109,  114,  120,  125,   69,  131,  137,  143
     } ;
 
-static yyconst flex_int16_t yy_def[114] =
+static yyconst flex_int16_t yy_def[131] =
     {   0,
-      110,    1,  110,  110,  110,  110,  110,  111,  110,  110,
-      110,  112,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  113,  110,  110,  110,
-      113,  113,  113,  113,  113,  113,  113,  113,  110,  110,
-      110,  110,  110,  111,  111,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  113,  110,
-      113,  113,  113,  113,  113,  113,  113,  113,  113,  110,
-      110,  110,  110,  110,  113,  113,  113,  113,  113,  113,
-      113,  113,  113,  113,  113,  113,  113,  113,  113,  113,
+      122,    1,  123,  123,  122,  122,  122,  122,  122,  124,
+      125,  122,  122,  126,  122,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  122,  122,  122,  122,  127,  122,
+      122,  122,  127,  127,  127,  127,  127,  127,  127,  127,
+      122,  122,  122,  122,  128,  122,  129,  122,  124,  124,
+      122,  125,  122,  122,  122,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  130,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  127,  122,  127,  127,  127,  127,
+      127,  127,  127,  127,  127,  122,  122,  128,  129,  129,
+      122,  122,  130,  122,  122,  122,  127,  127,  127,  127,
 
-      113,  113,  113,  113,  113,  113,  113,  113,  113,    0,
-      110,  110,  110
+      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
+      127,  127,  127,  127,  127,  127,  127,  127,  127,  127,
+      127,    0,  122,  122,  122,  122,  122,  122,  122,  122
     } ;
 
-static yyconst flex_int16_t yy_nxt[201] =
+static yyconst flex_int16_t yy_nxt[244] =
     {   0,
-        4,    5,    6,    5,    5,    7,    8,    9,    4,   10,
-       11,   12,   13,   14,   15,   16,   17,   18,   19,   20,
-       20,   20,   20,   20,   21,   22,   23,   24,   25,   26,
-       27,   28,   29,   30,   27,   27,   31,   27,   32,   33,
-       27,   34,   27,   35,   27,   27,   36,   27,   27,   27,
-       37,   38,   39,   40,   41,   42,    4,   44,   48,   52,
-       54,   56,   46,   58,   62,   66,   80,   59,   53,   74,
-       69,   57,   55,  109,   75,   49,   60,   61,   61,   61,
-       61,   61,   95,  108,   96,   44,   63,   64,   67,   68,
-       46,   44,   81,  107,  106,  105,   46,   61,   61,   61,
+        6,    7,    8,    7,    7,    9,   10,   11,    6,   12,
+       13,   14,   15,   16,   17,   18,   19,   20,   21,   22,
+       22,   22,   22,   22,   23,   24,   25,   26,   27,   28,
+       29,   30,   31,   32,   29,   29,   33,   29,   34,   35,
+       29,   36,   29,   37,   29,   29,   38,   29,   29,   29,
+       39,   40,   41,   42,   43,   44,    6,   46,   46,   49,
+       55,   60,   62,   64,   51,   68,   72,   65,   86,   47,
+       47,   90,   63,   61,   75,   91,   66,   56,   67,   67,
+       67,   67,   67,  107,  121,  108,   80,   69,   70,   73,
+       74,   81,   49,   49,   87,  120,  119,   51,   51,   67,
 
-       61,   61,   45,   45,   45,   51,  104,   51,  103,  102,
-      101,  100,   99,   98,   97,   94,   93,   92,   91,   90,
-       89,   88,   87,   86,   85,   84,   83,   82,   82,   79,
-       78,   77,   76,   73,   72,   71,   70,   65,   50,   47,
-       43,  110,    3,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110
+       67,   67,   67,   67,   90,  118,  117,  116,   91,   45,
+       45,   45,   45,   45,   45,   50,   50,   50,   50,   50,
+       52,   52,   52,   52,   52,   52,   58,   58,  115,   58,
+       58,   88,   88,  114,   88,  113,   88,   89,   89,  112,
+       89,   89,   89,   93,   93,   93,   93,   93,   93,  111,
+      110,  109,  106,  105,   94,  122,  104,  103,  102,  101,
+      100,   99,   98,   97,   96,   95,   94,   92,   92,   53,
+       85,   84,   83,   82,   79,   78,   77,   76,   71,   59,
+       57,   54,   53,   48,  122,    5,  122,  122,  122,  122,
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
 
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
+      122,  122,  122
     } ;
 
-static yyconst flex_int16_t yy_chk[201] =
+static yyconst flex_int16_t yy_chk[244] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    8,   11,   15,
-       16,   18,    8,   19,   23,   25,   40,   19,   15,   34,
-      113,   18,   16,  106,   34,   11,   19,   20,   20,   20,
-       20,   20,   88,  105,   88,   44,   23,   23,   25,   25,
-       44,   45,   40,  103,  102,  101,   45,   61,   61,   61,
+        1,    1,    1,    1,    1,    1,    1,    3,    4,   10,
+       13,   18,   20,   21,   10,   25,   27,   21,   42,    3,
+        4,   47,   20,   18,  127,   47,   21,   13,   22,   22,
+       22,   22,   22,  100,  118,  100,   36,   25,   25,   27,
+       27,   36,   49,   50,   42,  117,  115,   49,   50,   67,
 
-       61,   61,  111,  111,  111,  112,  100,  112,   98,   96,
-       95,   92,   91,   90,   89,   86,   85,   79,   78,   77,
-       76,   75,   73,   72,   71,   68,   63,   51,   50,   38,
-       37,   36,   35,   33,   32,   31,   30,   24,   12,   10,
-        7,    3,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110
+       67,   67,   67,   67,   90,  114,  113,  112,   90,  123,
+      123,  123,  123,  123,  123,  124,  124,  124,  124,  124,
+      125,  125,  125,  125,  125,  125,  126,  126,  110,  126,
+      126,  128,  128,  108,  128,  107,  128,  129,  129,  104,
+      129,  129,  129,  130,  130,  130,  130,  130,  130,  103,
+      102,  101,   98,   97,   93,   89,   85,   84,   83,   82,
+       81,   79,   78,   77,   74,   69,   65,   58,   57,   52,
+       40,   39,   38,   37,   35,   34,   33,   32,   26,   17,
+       14,   12,   11,    9,    5,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
 
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
+      122,  122,  122,  122,  122,  122,  122,  122,  122,  122,
+      122,  122,  122
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -539,8 +553,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-#line 2 "/home/pl/git/pld-comp/src/flex/tokens.lex"
+#line 1 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 2 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -554,9 +568,12 @@ char *yytext;
 
 extern int yylex();
 
-#line 558 "/home/pl/git/pld-comp/lex.yy.cpp"
+/*Etat pendant qu on est dans un commentaire multiligne*/
+
+#line 574 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
 
 #define INITIAL 0
+#define comment 1
 
 #ifndef YY_NO_UNISTD_H
 /* Special case for "unistd.h", since it is non-ANSI. We include it way
@@ -741,9 +758,11 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 32 "/home/pl/git/pld-comp/src/flex/tokens.lex"
+#line 35 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
 
-#line 747 "/home/pl/git/pld-comp/lex.yy.cpp"
+
+
+#line 766 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -796,13 +815,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 111 )
+				if ( yy_current_state >= 123 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 143 );
+		while ( yy_base[yy_current_state] != 186 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -828,340 +847,361 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 33 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("SHARP "); return SHARP;}
+#line 38 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("MULTILINE COMMENT : %s",yytext);
+								BEGIN(comment);}/*switch to comment state*/
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 34 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("LINE_COM "); return LINE_COM;}
+#line 40 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("%s",yytext);}/* eat anything that's not a '*' */
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 35 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BEGIN_COM "); return BEGIN_COM;}
+#line 41 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("%s",yytext);}/* eat up '*'s not followed by '/'s */
 	YY_BREAK
 case 4:
+/* rule 4 can match eol */
 YY_RULE_SETUP
-#line 36 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("END_COM "); return END_COM;}
+#line 42 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("%s",yytext);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 37 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("IF "); return IF;}
+#line 43 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("%s\nEND OF MULTILINE COMMENT",yytext);
+								BEGIN(INITIAL);}/*switch back to initial state*/
 	YY_BREAK
 case 6:
+/* rule 6 can match eol */
 YY_RULE_SETUP
-#line 38 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("ELSE "); return ELSE;}
+#line 46 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("PREPROCESSOR : %s", yytext);}
 	YY_BREAK
 case 7:
+/* rule 7 can match eol */
 YY_RULE_SETUP
-#line 39 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("WHILE "); return WHILE;}
+#line 47 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("LINE_COM : %s", yytext);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 40 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("FOR "); return FOR;}
+#line 48 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("IF "); return IF;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 41 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("MAIN "); return MAIN;}
+#line 49 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("ELSE "); return ELSE;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 42 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("LEFT_BRACES "); return LEFT_BRACES;}
+#line 50 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("WHILE "); return WHILE;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 43 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("RIGHT_BRACES "); return RIGHT_BRACES;}
+#line 51 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("FOR "); return FOR;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 44 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("LEFT_PARENTHESIS "); return LEFT_PARENTHESIS;}
+#line 52 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("MAIN "); return MAIN;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 45 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("RIGHT_PARENTHESIS "); return RIGHT_PARENTHESIS;}
+#line 53 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("LEFT_BRACES "); return LEFT_BRACES;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 46 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("LEFT_BRACKET "); return LEFT_BRACKET;}
+#line 54 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("RIGHT_BRACES "); return RIGHT_BRACES;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 47 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("RIGHT_BRACKET "); return RIGHT_BRACKET;}
+#line 55 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("LEFT_PARENTHESIS "); return LEFT_PARENTHESIS;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 48 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_EQUAL "); return BOOL_EQUAL;}
+#line 56 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("RIGHT_PARENTHESIS "); return RIGHT_PARENTHESIS;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 49 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("RETURN "); return RETURN;}
+#line 57 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("LEFT_BRACKET "); return LEFT_BRACKET;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 50 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_DIF "); return BOOL_DIF;}
+#line 58 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("RIGHT_BRACKET "); return RIGHT_BRACKET;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 51 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_LESS_OR_EQUAL "); return BOOL_LESS_OR_EQUAL;}
+#line 59 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BOOL_EQUAL "); return BOOL_EQUAL;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 52 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_GREATER_OR_EQUAL "); return BOOL_GREATER_OR_EQUAL;}
+#line 60 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("RETURN "); return RETURN;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 53 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_LESS "); return BOOL_LESS;}
+#line 61 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BOOL_DIF "); return BOOL_DIF;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 54 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_GREATER "); return BOOL_GREATER;}
+#line 62 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BOOL_LESS_OR_EQUAL "); return BOOL_LESS_OR_EQUAL;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 55 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("TERNARY_ASK "); return TERNARY_ASK;}
+#line 63 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BOOL_GREATER_OR_EQUAL "); return BOOL_GREATER_OR_EQUAL;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 56 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("TERNARY_CHOOSE "); return TERNARY_CHOOSE;}
+#line 64 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BOOL_LESS "); return BOOL_LESS;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 57 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_ADD "); return AFFECT_ADD;}
+#line 65 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BOOL_GREATER "); return BOOL_GREATER;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 58 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_SUB "); return AFFECT_SUB;}
+#line 66 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("TERNARY_ASK "); return TERNARY_ASK;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 59 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_MULT "); return AFFECT_MULT;}
+#line 67 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("TERNARY_CHOOSE "); return TERNARY_CHOOSE;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 60 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_DIV "); return AFFECT_DIV;}
+#line 68 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_ADD "); return AFFECT_ADD;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 61 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_MOD "); return AFFECT_MOD;}
+#line 69 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_SUB "); return AFFECT_SUB;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 62 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_AND "); return AFFECT_BIT_AND;}
+#line 70 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_MULT "); return AFFECT_MULT;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 63 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_XOR "); return AFFECT_BIT_XOR;}
+#line 71 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_DIV "); return AFFECT_DIV;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 64 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_OR "); return AFFECT_BIT_OR;}
+#line 72 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_MOD "); return AFFECT_MOD;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 65 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_LEFT_SHIFT "); return AFFECT_BIT_LEFT_SHIFT;}
+#line 73 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_BIT_AND "); return AFFECT_BIT_AND;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 66 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_RIGHT_SHIFT "); return AFFECT_BIT_RIGHT_SHIFT;}
+#line 74 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_BIT_XOR "); return AFFECT_BIT_XOR;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 67 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("INCREMENT "); return INCREMENT;}
+#line 75 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_BIT_OR "); return AFFECT_BIT_OR;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 68 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("DECREMENT "); return DECREMENT;}
+#line 76 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_BIT_LEFT_SHIFT "); return AFFECT_BIT_LEFT_SHIFT;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 69 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT "); return AFFECT;}
+#line 77 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT_BIT_RIGHT_SHIFT "); return AFFECT_BIT_RIGHT_SHIFT;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 70 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("ADD "); return ADD;}
+#line 78 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("INCREMENT "); return INCREMENT;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 71 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("SUB "); return SUB;}
+#line 79 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("DECREMENT "); return DECREMENT;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 72 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("MULT "); return MULT;}
+#line 80 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("AFFECT "); return AFFECT;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 73 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("DIV "); return DIV;}
+#line 81 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("ADD "); return ADD;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 74 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("MOD "); return MOD;}
+#line 82 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("SUB "); return SUB;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 75 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_AND "); return BOOL_AND;}
+#line 83 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("MULT "); return MULT;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 76 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_OR "); return BOOL_OR;}
+#line 84 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("DIV "); return DIV;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 77 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_NOT "); return BOOL_NOT;}
+#line 85 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("MOD "); return MOD;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 78 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BIT_AND "); return BIT_AND;}
+#line 86 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BOOL_AND "); return BOOL_AND;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 79 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BIT_OR "); return BIT_OR;}
+#line 87 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BOOL_OR "); return BOOL_OR;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 80 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BIT_XOR "); return BIT_XOR;}
+#line 88 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BOOL_NOT "); return BOOL_NOT;}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 81 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BIT_NOT "); return BIT_NOT;}
+#line 89 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BIT_AND "); return BIT_AND;}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 82 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BIT_LEFT_SHIFT "); return BIT_LEFT_SHIFT;}
+#line 90 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BIT_OR "); return BIT_OR;}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 83 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("BIT_RIGHT_SHIFT "); return BIT_RIGHT_SHIFT;}
+#line 91 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BIT_XOR "); return BIT_XOR;}
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 84 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("VOID "); return VOID;}
+#line 92 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BIT_NOT "); return BIT_NOT;}
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 85 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("CHAR "); return CHAR;}
+#line 93 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BIT_LEFT_SHIFT "); return BIT_LEFT_SHIFT;}
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 86 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("INT32 "); return INT32;}
+#line 94 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("BIT_RIGHT_SHIFT "); return BIT_RIGHT_SHIFT;}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 87 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("INT64 "); return INT64;}
+#line 95 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("VOID "); return VOID;}
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 88 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("{number} ");
-                        std::stringstream ss(strdup(yytext));
-                        long int tmp;
-                        ss >> tmp;
-                        yylval.lVal = tmp;
-						return INT_VAL;}
+#line 96 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("CHAR "); return CHAR;}
 	YY_BREAK
 case 57:
-/* rule 57 can match eol */
 YY_RULE_SETUP
-#line 94 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("'{alphanumex}' "); 
-						yylval.cVal = strdup(yytext)[1]; 
-						return CHAR_VAL;}
+#line 97 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("INT32 "); return INT32;}
 	YY_BREAK
 case 58:
-/* rule 58 can match eol */
 YY_RULE_SETUP
-#line 97 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("\"{alphanumsex}\" "); 
-						yylval.sVal = strndup(&yytext[1], sizeof(char)*(strlen(yytext)-2));
-						return CHAIN;}
+#line 98 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("INT64 "); return INT64;}
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 100 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("identifiant "); 
-						yylval.id = strdup(yytext); 
-						return ID;}
+#line 99 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("{number} ");
+								std::stringstream ss(strdup(yytext));
+								long int tmp;
+								ss >> tmp;
+								yylval.lVal = tmp;
+								return INT_VAL;}
 	YY_BREAK
 case 60:
+/* rule 60 can match eol */
 YY_RULE_SETUP
-#line 103 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("SEMICOLON "); return SEMICOLON;}
+#line 105 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("'{alphanumex}' "); 
+								yylval.cVal = strdup(yytext)[1]; 
+								return CHAR_VAL;}
 	YY_BREAK
 case 61:
+/* rule 61 can match eol */
 YY_RULE_SETUP
-#line 104 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("COMMA "); return COMMA;}
+#line 108 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("\"{alphanumsex}\" "); 
+								yylval.sVal = strndup(&yytext[1], sizeof(char)*(strlen(yytext)-2));
+								return CHAIN;}
 	YY_BREAK
 case 62:
-/* rule 62 can match eol */
 YY_RULE_SETUP
-#line 105 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("%s", yytext);}
+#line 111 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("identifiant "); 
+								yylval.id = strdup(yytext); 
+								return ID;}
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 106 "/home/pl/git/pld-comp/src/flex/tokens.lex"
-{printf("UNEXPECTED "); return UNEXPECTED;}
+#line 114 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("SEMICOLON "); return SEMICOLON;}
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 107 "/home/pl/git/pld-comp/src/flex/tokens.lex"
+#line 115 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("COMMA "); return COMMA;}
+	YY_BREAK
+case 65:
+/* rule 65 can match eol */
+YY_RULE_SETUP
+#line 116 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("%s", yytext);}
+	YY_BREAK
+case 66:
+YY_RULE_SETUP
+#line 117 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+{printf("UNEXPECTED "); return UNEXPECTED;}
+	YY_BREAK
+case 67:
+YY_RULE_SETUP
+#line 118 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
 ECHO;
 	YY_BREAK
-#line 1164 "/home/pl/git/pld-comp/lex.yy.cpp"
+#line 1203 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
 case YY_STATE_EOF(INITIAL):
+case YY_STATE_EOF(comment):
 	yyterminate();
 
 	case YY_END_OF_BUFFER:
@@ -1452,7 +1492,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 111 )
+			if ( yy_current_state >= 123 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1480,11 +1520,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 111 )
+		if ( yy_current_state >= 123 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 110);
+	yy_is_jam = (yy_current_state == 122);
 
 	return yy_is_jam ? 0 : yy_current_state;
 }
@@ -2158,7 +2198,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 107 "/home/pl/git/pld-comp/src/flex/tokens.lex"
+#line 118 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
 
 
 

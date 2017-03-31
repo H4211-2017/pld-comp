@@ -126,7 +126,8 @@ Value Function::evaluate() const
 	return Value();
 }
 
-void Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
+	return nullptr;
 }

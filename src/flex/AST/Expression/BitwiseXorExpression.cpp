@@ -23,9 +23,9 @@ Value BitwiseXorExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void BitwiseXorExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory BitwiseXorExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void BitwiseXorExpression::printOperator() const

@@ -25,9 +25,9 @@ Value OrExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void OrExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory OrExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void OrExpression::printOperator() const

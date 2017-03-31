@@ -20,7 +20,7 @@ public:
 	virtual Value evaluate() const;
 
 	// TODO : create class CFG and replace comment below.
-	virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+	virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 	
 	void printTree(int tabulationNumber) const;
 

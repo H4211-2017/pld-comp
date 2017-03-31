@@ -29,9 +29,9 @@ Value ModuloExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void ModuloExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory ModuloExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void ModuloExpression::printOperator() const

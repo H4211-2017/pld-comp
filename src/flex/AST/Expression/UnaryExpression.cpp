@@ -87,6 +87,7 @@ Value UnaryExpression::evaluate() const
 	return ret;
 }
 
-void UnaryExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory UnaryExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
+	return nullptr;
 }

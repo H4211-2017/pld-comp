@@ -30,12 +30,13 @@ Value SequenceInstruction::evaluate() const
 	return instructionsList[instructionsList.size()-1]->evaluate();
 }
 
-void SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     for(std::shared_ptr<AbstractInstruction> instruction : instructionsList)
     {
         instruction->buildIR(currentBasicBlock);
     }
+	return nullptr;
 }
 
 

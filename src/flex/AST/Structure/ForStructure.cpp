@@ -44,7 +44,7 @@ void ForStructure::printTree(int tabulationNumber) const
         }
 }
 
-void ForStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory ForStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     //add init statement to the current block
     this->condInstr1->buildIR(currentBasicBlock);
@@ -74,4 +74,5 @@ void ForStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 
     //update currentBasicBlock so that the caller use the right basic block
     currentBasicBlock = afterBasicBlock;
+	return nullptr;
 }

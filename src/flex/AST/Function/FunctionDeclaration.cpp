@@ -28,7 +28,8 @@ Value FunctionDeclaration::evaluate() const
     return Value();
 }
 
-void FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
+	return nullptr;
 }

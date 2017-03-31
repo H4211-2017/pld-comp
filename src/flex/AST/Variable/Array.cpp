@@ -22,7 +22,8 @@ Value Array::evaluate() const
 	return Value();
 }
 
-void Array::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory Array::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
+	return nullptr;
 }

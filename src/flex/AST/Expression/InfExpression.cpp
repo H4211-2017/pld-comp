@@ -26,9 +26,9 @@ Value InfExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void InfExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory InfExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void InfExpression::printOperator() const

@@ -18,7 +18,7 @@ namespace AST
         Variable(std::shared_ptr<VariableSignature> signature, bool decl, const IR::Generator &generator);
         
         virtual Value evaluate() const;
-        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
               
     private:
         std::shared_ptr<IR::Memory> memory;

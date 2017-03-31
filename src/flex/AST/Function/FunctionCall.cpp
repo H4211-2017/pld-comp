@@ -37,7 +37,8 @@ void FunctionCall::printTree(int tabulationNumber) const
 }
 
 // TODO : create class CFG and replace comment below.
-void FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	
+	return nullptr;
 }

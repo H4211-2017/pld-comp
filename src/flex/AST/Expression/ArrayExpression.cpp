@@ -29,7 +29,8 @@ void ArrayExpression::printTree(int tabulationNumber) const
 }
 
 // TODO : create class CFG and replace comment below.
-void ArrayExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory ArrayExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	
+	return nullptr;
 }

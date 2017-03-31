@@ -25,9 +25,9 @@ Value SubExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void SubExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory SubExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void SubExpression::printOperator() const
