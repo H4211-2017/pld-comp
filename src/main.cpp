@@ -32,7 +32,7 @@ int main(void)
 	{
 		cout << it->second->toString();
 	}*/
-	
+
     long int i = 0;
 	
 	yyparse(&i);
