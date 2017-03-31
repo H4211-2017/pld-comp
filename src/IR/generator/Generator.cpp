@@ -111,7 +111,7 @@ std::list<sh_AbsInstruction> Generator::setValue(sh_Memory value, sh_Memory dest
  * @param param the arguments of the function call
  * @return the list of instruction making this operation
  */
-std::list<sh_AbsInstruction> Generator::call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> param) const
+std::list<sh_AbsInstruction> Generator::call(std::shared_ptr<AbstractFunction> function, std::list<sh_Memory> param) const
 {
     std::list<sh_AbsInstruction> instructionList;
     //add call instruction
