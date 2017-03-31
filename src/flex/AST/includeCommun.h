@@ -5,6 +5,7 @@
 #include "Block.h"
 #include "Scope.h"
 #include "Value.h"
+#include "ProgramNode.h"
 
 #include "Expression/Constant.h"
 #include "Expression/AbstractExpression.h"

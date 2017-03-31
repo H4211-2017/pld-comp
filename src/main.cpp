@@ -10,33 +10,17 @@
 
 extern "C" int yylex();
 
-void yyerror(int * param, const char * msg)
-{
-	std::cout << msg << std::endl;
-}
-
 int main(void)
 {
-	/*shared_ptr< mapVar > i = make_shared< mapVar >();
+    AST::ProgramNode * program;
 	
-	try
-	{
-		yyparse(&i);
-	}
-	catch(string s)
-	{
-		cout << s << endl;
-	}
+	yyparse(&program);
 	
-	for(mapVar::iterator it = i->begin(); it != i->end(); it++)
-	{
-		cout << it->second->toString();
-	}*/
+	program->printTree(0);
 	
-    long int i = 0;
+	std::cout << std::endl;
 	
-	yyparse(&i);
-	std::cout << i << std::endl;
+	delete program;
 
 }
 

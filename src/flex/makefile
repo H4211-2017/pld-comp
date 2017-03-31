@@ -36,7 +36,7 @@ FCT=Function/FunctionScope.cpp Function/FunctionSignature.cpp Function/LArgument
 VAR=Variable/VariableSignature.cpp Variable/VariableDeclaration.cpp Variable/VariableScope.cpp Variable/Variable.cpp
 EXPR=Expression/AbstractBinaryExpression.cpp  Expression/ArrayExpression.cpp  Expression/Constant.cpp  Expression/IDExpression.cpp Expression/InfExpression.cpp   Expression/SubExpression.cpp Expression/AbstractExpression.cpp  Expression/BitwiseAndExpression.cpp  Expression/ModuloExpression.cpp   Expression/SupEqExpression.cpp Expression/AddExpression.cpp   Expression/BitwiseOrExpression.cpp Expression/MultExpression.cpp   Expression/SupExpression.cpp Expression/AffectationExpression.cpp  Expression/BitwiseShiftLeftExpression.cpp  Expression/DivExpression.cpp Expression/IneqExpression.cpp Expression/OrExpression.cpp    Expression/UnaryExpression.cpp Expression/AndExpression.cpp   Expression/BitwiseXorExpression.cpp Expression/EqExpression.cpp  Expression/InfEqExpression.cpp Expression/ParenthesisExpression.cpp
 INSTR=Instruction/AbstractInstruction.cpp Instruction/ComposedInstruction.cpp Instruction/SequenceInstruction.cpp Instruction/UnitInstruction.cpp
-SRC_AST_NOPATH =$(EXPR) $(INSTR) $(FCT) $(VAR) $(STRUCT) AbstractNode.cpp Block.cpp Value.cpp  Scope.cpp 
+SRC_AST_NOPATH =$(EXPR) $(INSTR) $(FCT) $(VAR) $(STRUCT) AbstractNode.cpp Block.cpp Value.cpp  Scope.cpp ProgramNode.cpp
 SRC_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.cpp)
 OBJ_AST=$(SRC_AST_NOPATH:%.cpp=$(BIN_DIRECTORY)%.o)
 HEADERS_AST=$(SRC_AST_NOPATH:%.cpp=$(AST_DIRECTORY)%.h)

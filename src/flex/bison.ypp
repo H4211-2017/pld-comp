@@ -9,7 +9,7 @@
 using namespace AST;
 
 extern int yylex(void);
-void yyerror(long int * param, const char * msg);
+void yyerror(AST::ProgramNode ** param, const char * msg);
 
 std::shared_ptr<Scope> global = std::make_shared<Scope>();
 
@@ -112,18 +112,19 @@ std::shared_ptr<Scope> currentContext = global;
 
 %expect 1 // conflit if 			
 
-%parse-param{long int *renvoi}
+%parse-param{AST::ProgramNode ** program}
 
 
 %%
 
-/* ===== TODO: TO SORT ===== */
-
-
-
 /* ===== GENERAL ===== */ 
 
-programme : liext mainbody liext {$1->printTree(0); $2->printTree(0); $3->printTree(0); delete $1; delete $2; delete $3;}
+program : liext mainbody liext {*program = new ProgramNode(std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($1))),
+															std::make_shared<FunctionDeclaration>( *( static_cast< FunctionDeclaration* >($2))), 
+															std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($3))));
+								delete $1;
+								delete $2;
+								delete $3;}
     ;
     
 mainbody : maindecl bloc {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
@@ -378,15 +379,15 @@ affectation : ID signeaff expr {$$ = new AffectationExpression($1, *$2, make_sha
 	;
 	
 signeaff : AFFECT {$$ = new OPAffect(OPAffect::AFFECT);}
-	| AFFECT_MULT {$$ = new OPAffect(OPAffect::AFFECT_MULT);} // TODO
-	| AFFECT_DIV  {$$ = new OPAffect(OPAffect::AFFECT_DIV);} // TODO
+	| AFFECT_MULT {$$ = new OPAffect(OPAffect::AFFECT_MULT);} 
+	| AFFECT_DIV  {$$ = new OPAffect(OPAffect::AFFECT_DIV);}
 	| AFFECT_ADD  {$$ = new OPAffect(OPAffect::AFFECT_ADD);}
-	| AFFECT_SUB  {$$ = new OPAffect(OPAffect::AFFECT_SUB);} // TODO
-	| AFFECT_MOD  {$$ = new OPAffect(OPAffect::AFFECT_MOD);} // TODO
-	| AFFECT_BIT_AND  {$$ = new OPAffect(OPAffect::AFFECT_BIT_AND);} // TODO
-	| AFFECT_BIT_OR  {$$ = new OPAffect(OPAffect::AFFECT_BIT_OR);} // TODO
-	| AFFECT_BIT_XOR   {$$ = new OPAffect(OPAffect::AFFECT_BIT_XOR);} // TODO
-	| AFFECT_BIT_LEFT_SHIFT  {$$ = new OPAffect(OPAffect::AFFECT_BIT_LEFT_SHIFT);} // TODO
+	| AFFECT_SUB  {$$ = new OPAffect(OPAffect::AFFECT_SUB);}
+	| AFFECT_MOD  {$$ = new OPAffect(OPAffect::AFFECT_MOD);}
+	| AFFECT_BIT_AND  {$$ = new OPAffect(OPAffect::AFFECT_BIT_AND);}
+	| AFFECT_BIT_OR  {$$ = new OPAffect(OPAffect::AFFECT_BIT_OR);}
+	| AFFECT_BIT_XOR   {$$ = new OPAffect(OPAffect::AFFECT_BIT_XOR);}
+	| AFFECT_BIT_LEFT_SHIFT  {$$ = new OPAffect(OPAffect::AFFECT_BIT_LEFT_SHIFT);}
 	| AFFECT_BIT_RIGHT_SHIFT {$$ = new OPAffect(OPAffect::AFFECT_BIT_RIGHT_SHIFT);} // TODO
 	;
 
@@ -421,7 +422,7 @@ ifor : iintcomp {}
 	;
 
 %%
-void yyerror(long int * param, const char * msg)
+void yyerror(AST::ProgramNode ** param, const char * msg)
 {
     std::cout << msg << std::endl;
 }
