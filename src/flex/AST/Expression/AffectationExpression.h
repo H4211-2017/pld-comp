@@ -31,6 +31,7 @@ namespace AST{
     public:
         AffectationExpression();
         AffectationExpression(std::string id, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
+        AffectationExpression(std::shared_ptr<Variable> variable, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
         virtual ~AffectationExpression();
 
         virtual Value evaluate() const;
@@ -46,6 +47,8 @@ namespace AST{
     protected :
     	std::shared_ptr<Variable> var;
 		std::shared_ptr<AbstractExpression> transformedExpr;
+		
+		void switchOperatorMake(enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
     };
 
 }

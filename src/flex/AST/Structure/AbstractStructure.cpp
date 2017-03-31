@@ -3,6 +3,8 @@
 #include "AbstractStructure.h"
 
 #include "IfStructure.h"
+#include "WhileStructure.h"
+#include "ForStructure.h"
 
 using namespace AST;
 
@@ -18,6 +20,14 @@ std::shared_ptr<AbstractStructure> make_shared_struct(AbstractStructure *ptr)
 	if(name == "IfStructure")
 	{
 		return std::make_shared<IfStructure>( *(static_cast< IfStructure *>(ptr)));
+	}
+	else if(name == "WhileStructure")
+	{
+		return std::make_shared<WhileStructure>( *(static_cast< WhileStructure *>(ptr)));
+	}
+	else if(name == "ForStructure")
+	{
+		return std::make_shared<ForStructure>( *(static_cast< ForStructure *>(ptr)));
 	}
 
 	else

@@ -26,6 +26,26 @@ IDExpression::IDExpression(std::string name, std::string id,
 }
 
 
+IDExpression::IDExpression(std::shared_ptr<Variable> variable, std::shared_ptr<Scope> scope)
+    : IDExpression("IDExpression", variable, scope)
+{
+	
+}
+
+IDExpression::IDExpression(std::string name, std::shared_ptr<Variable> variable, std::shared_ptr<Scope> scope)
+    : AbstractExpression(name)
+{
+	val = variable;
+	
+	this->setType(val->getValue().getValue().first);
+	
+	if(val->isDeclaration())
+	{
+		std::cerr << "ERROR : Variable is declared but not defined. " << std::endl;
+		exit(-1);
+	}
+}
+
 IDExpression::~IDExpression() {
 	// TODO Auto-generated destructor stub
 }

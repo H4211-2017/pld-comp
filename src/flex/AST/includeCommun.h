@@ -34,10 +34,14 @@
 #include "Instruction/ComposedInstruction.h"
 #include "Instruction/UnitInstruction.h"
 #include "Instruction/SequenceInstruction.h"
+#include "Instruction/ReturnInstruction.h"
 
 #include "Variable/VariableSignature.h"
 #include "Variable/VariableDeclaration.h"
 #include "Variable/Variable.h"
+#include "Variable/Array.h"
+#include "Variable/ArrayDeclaration.h"
+#include "Variable/CaseArray.h"
 
 #include "Function/FunctionSignature.h"
 #include "Function/LArguments.h"
@@ -49,5 +53,7 @@
 #include "Structure/AbstractStructure.h"
 #include "Structure/IfStructure.h"
 #include "Structure/ElseStructure.h"
+#include "Structure/ForStructure.h"
+#include "Structure/WhileStructure.h"
 
 #endif

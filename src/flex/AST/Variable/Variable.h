@@ -16,6 +16,8 @@ namespace AST
         bool isDeclaration() const;
         void noLongerDeclaration();
         
+        std::shared_ptr<VariableSignature> getSignature() const;
+        
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
         virtual void buildIR() const;

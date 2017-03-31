@@ -28,6 +28,11 @@ void Variable::noLongerDeclaration()
 {
 	declaration = false;
 }
+
+std::shared_ptr<VariableSignature> Variable::getSignature() const
+{
+	return sig;
+}
         
 void Variable::printTree(int tabulationNumber) const
 {

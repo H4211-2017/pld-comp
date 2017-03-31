@@ -45,6 +45,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/ReturnInstruction.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/UnitInstruction.cpp.o"
+  "CMakeFiles/pld-comp.dir/src/flex/AST/ProgramNode.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Scope.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/AbstractStructure.cpp.o"
   "CMakeFiles/pld-comp.dir/src/flex/AST/Structure/ElseStructure.cpp.o"

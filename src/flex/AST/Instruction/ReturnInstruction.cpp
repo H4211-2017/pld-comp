@@ -11,7 +11,7 @@ ReturnInstruction::ReturnInstruction()
 ReturnInstruction::ReturnInstruction(std::shared_ptr<ComposedInstruction> composedInstruction)
     : AbstractNode("ReturnInstruction"), composedInstruction(composedInstruction)
 {
-
+	this->value = composedInstruction->getValue();
 }
 
 void ReturnInstruction::printTree(int tabulationNumber) const
@@ -21,8 +21,6 @@ void ReturnInstruction::printTree(int tabulationNumber) const
 	{
 		composedInstruction->printTree(tabulationNumber + 1);
 	}
-	
-	std::cout << ";" << std::endl;
 }
 
 Value ReturnInstruction::evaluate() const

@@ -27,21 +27,45 @@ void ForStructure::printTree(int tabulationNumber) const
                 std::cout << std::endl;
                 condInstr1->printTree(tabulationNumber + 1);
         }
+        else
+        {
+			std::cout << std::endl;
+			for(int i=0; i<= tabulationNumber; i++, std::cout << "\t");
+			std::cout << "INIT INSTR : EMPTY";
+		}
         if(condInstr2 != nullptr)
         {
                 std::cout << std::endl;
                 condInstr2->printTree(tabulationNumber + 1);
         }
+        else
+        {
+			std::cout << std::endl;
+			for(int i=0; i<= tabulationNumber; i++, std::cout << "\t");
+			std::cout << "LOOP CONDITION : EMPTY";
+		}
         if(condInstr3 != nullptr)
         {
                 std::cout << std::endl;
                 condInstr3->printTree(tabulationNumber + 1);
         }
+        else
+        {
+			std::cout << std::endl;
+			for(int i=0; i<= tabulationNumber; i++, std::cout << "\t");
+			std::cout << "LOOP INSTR : EMPTY";
+		}
         if(intInstruction != nullptr)
         {
                 std::cout << std::endl;
                 intInstruction->printTree(tabulationNumber + 1);
         }
+        else
+        {
+			std::cout << std::endl;
+			for(int i=0; i<= tabulationNumber; i++, std::cout << "\t");
+			std::cout << "EXECUTIVE INSTR : EMPTY";
+		}
 }
 
 void ForStructure::buildIR(/*std::shared_ptr<IR::BasicBloc>*/) const
