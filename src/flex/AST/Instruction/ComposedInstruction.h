@@ -16,7 +16,7 @@ namespace AST {
     	
         /**
          * @brief ComposedInstruction
-         * @param abstractExpression the thirst abstract expression of a composed instruction
+         * @param abstractExpression the first abstract expression of a composed instruction
          */
         ComposedInstruction(std::shared_ptr<AbstractExpression> abstractExpression);
 

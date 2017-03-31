@@ -13,11 +13,11 @@ namespace AST{
         Constant(long int value);
         virtual ~Constant();
 
-        virtual Value evaluate() const;
         /**
-         * return a shared pointer to the value instancited by new if evaluable
-         * or empty shared pointer else
+         * @brief evaluate returns the value of the constant, and the type is int_32 or int_64 if constant is too large.
+         * @return
          */
+        virtual Value evaluate() const;
 
         virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
