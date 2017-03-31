@@ -352,8 +352,8 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
             break;
         }
     }
-    else if(nextBlockTrue != nullptr)
-    {
+    else if(nextBlockTrue != nullptr || conditionnalJumpRegister == nullptr)
+    {//if the only the nextblockTrue is set or if the conditionnalRegister is undeffined
         switch (asmType) {
         case AsmType::X86Linux:
             os << "\tjmp " << nextBlockTrue->getName() << std::endl;
