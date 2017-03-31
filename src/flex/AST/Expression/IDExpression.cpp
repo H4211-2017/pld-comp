@@ -42,7 +42,6 @@ void IDExpression::printTree(int tabulationNumber) const
     val->printTree(tabulationNumber + 1);
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory IDExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return val->buildIR(currentBasicBlock);

@@ -36,8 +36,7 @@ Value VariableDeclaration::evaluate() const
 }
 
 IR::sh_Memory VariableDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
-{
-	
+{	
 	return nullptr;
 }
 

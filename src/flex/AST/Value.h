@@ -2,6 +2,7 @@
 #define VALUE_H
 
 #include <utility>
+#include "../../../IR/data/AbstractData.h"
 
 namespace AST {
     enum Type
@@ -22,6 +23,8 @@ namespace AST {
 
         void setValue(long int value);
         std::pair<Type, long int> getValue() const;
+        
+        IR::Type getIRType() const;
 
     private:
         Type type;

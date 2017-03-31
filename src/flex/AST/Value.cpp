@@ -45,3 +45,27 @@ void Value::setValue(long int value) {
         break;
     }
 }
+
+IR::Type Value::getIRType() const
+{
+	IR::Type irType;
+	
+	switch(type)
+	{
+		case CHAR :
+			irType = IR::CHAR;
+			break;
+		case INT_32 :
+			irType = IR::INT_32;
+			break;
+		case INT_64 :
+			irType = IR::INT_64;
+			break;
+		default :
+			std::cerr << "ERROR Value::getIRType : Error in value of type : " << std::endl;
+			exit(-1);
+			break;
+	}
+	
+	return irType;
+}

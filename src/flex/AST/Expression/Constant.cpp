@@ -34,24 +34,8 @@ Value Constant::evaluate() const
  
 IR::sh_Memory Constant::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	IR::Type irType;
+	IR::Type irType = value.getIRType();
 	IR::Generator gen;
-	
-	switch(value.getValue().first)
-	{
-		case CHAR :
-			irType = IR::CHAR;
-			break;
-		case INT_32 :
-			irType = IR::INT_32;
-			break;
-		case INT_64 :
-			irType = IR::INT_64;
-			break;
-		default :
-			std::cerr << "ERROR Constant::buildIR : Error in value of type : " << value.getValue().first << " Of Constant " << value.getValue().second << std::endl;
-			break;
-	}
 	
 	IR::Constant constant(irType, value.getValue().second);
 	IR::sh_Memory memory = gen.getNewUnusedMemmory(irType);	
