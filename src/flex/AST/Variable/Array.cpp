@@ -6,14 +6,14 @@
 using namespace AST;
 
 Array::Array(std::shared_ptr<VariableSignature> signature, long int size)
-	: Variable("Array", signature, false), size(size)
+	: AbstractVariable("Array", signature, false), size(size)
 {
 	
 }
         
 void Array::printTree(int tabulationNumber) const
 {
-	Variable::printTree(tabulationNumber);
+	AbstractVariable::printTree(tabulationNumber);
 	std::cout << "[" << size << "]" << std::endl;
 }
 

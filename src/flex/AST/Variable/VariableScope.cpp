@@ -11,9 +11,9 @@ VariableScope::VariableScope()
 
 }
 
-void VariableScope::declareVariable(std::string identifiant, std::shared_ptr<Variable> variable)
+void VariableScope::declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable)
 {
-    auto pair = std::pair<std::string, std::shared_ptr<Variable> >(identifiant, variable);
+    auto pair = std::pair<std::string, std::shared_ptr<AbstractVariable> >(identifiant, variable);
     auto result = scope.insert(pair);
     if (!result.second)
     {
@@ -22,7 +22,7 @@ void VariableScope::declareVariable(std::string identifiant, std::shared_ptr<Var
     }
 }
 
-std::shared_ptr<Variable> VariableScope::findVariable(std::string identifiant)
+std::shared_ptr<AbstractVariable> VariableScope::findVariable(std::string identifiant)
 {
 	auto it = scope.find(identifiant);
 	if( it == scope.end() )
@@ -45,7 +45,7 @@ UndeclaredIdException::UndeclaredIdException()
     this->text = "Error : Undeclared Identifier";
 }
 
-UndeclaredIdException::UndeclaredIdException(std::__cxx11::string text)
+UndeclaredIdException::UndeclaredIdException(std::string text)
 {
     this->text = text;
 }

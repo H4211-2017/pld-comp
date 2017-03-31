@@ -19,12 +19,12 @@ Scope::~Scope()
 {
 }
 
-void Scope::declareVariable(std::string identifiant, std::shared_ptr<Variable> variable)
-{
+void Scope::declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable)
+{	
     vScope.declareVariable(identifiant, variable);
 }
 
-std::shared_ptr<Variable> Scope::findVariable(std::string identifiant)
+std::shared_ptr<AbstractVariable> Scope::findVariable(std::string identifiant)
 {
 	try
 	{
@@ -89,5 +89,10 @@ std::shared_ptr<Scope> Scope::getMother() const
 void Scope::setMother(std::shared_ptr<Scope> newMother)
 {
 	mother = newMother;
+}
+
+IR::Generator &Scope::getGenerator()
+{
+	return generator;
 }
 

@@ -2,6 +2,9 @@
 
 #include <climits>
 
+#include "../../../IR/data/Constant.h"
+#include "../../../IR/generator/Generator.h"
+
 using namespace AST;
 
 Constant::Constant()
@@ -31,7 +34,29 @@ Value Constant::evaluate() const
  
 void Constant::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	//TODO Complete IR
+	IR::Type irType;
+	IR::Generator gen;
+	
+	switch(value.getValue().first)
+	{
+		case CHAR :
+			irType = IR::CHAR;
+			break;
+		case INT_32 :
+			irType = IR::INT_32;
+			break;
+		case INT_64 :
+			irType = IR::INT_64;
+			break;
+		default :
+			std::cerr << "ERROR Constant::buildIR : Error in value of type : " << value.getValue().first << " Of Constant " << value.getValue().second << std::endl;
+			break;
+	}
+	
+	IR::Constant constant(irType, value.getValue().second);
+	IR::sh_Memory memory = gen.getNewUnusedMemmory(irType);	
+	
+	currentBasicBlock->pushInstructionBack(gen.setValue(constant, memory));
 }
 
 void Constant::printTree(int tabulationNumber) const

@@ -2,7 +2,8 @@
 #define IR_ABSTRACTINSTRUCTION_H
 
 #include <string>
-#include <vector>
+#include <list>
+#include <map>
 #include <memory>
 
 #include "../data/Register.h"
@@ -22,17 +23,24 @@ namespace IR {
         std::string toAsm(int asmType) const;
         virtual std::string toLinuxX86() const =0;
 
-        std::vector<sh_Register> getReadRegisterVector() const;
-        std::vector<sh_Register> getWroteRegisterVector() const;
-        std::vector<sh_AbstractData> getReadMemoryVector() const;
-        std::vector<sh_AbstractData> getWroteMemoryVector() const;
+        std::list<sh_Register> getReadRegisterList() const;
+        std::list<sh_Register> getWroteRegisterList() const;
+        std::list<sh_AbstractData> getReadMemoryList() const;
+        std::list<sh_AbstractData> getWroteMemoryList() const;
+
+        std::map<std::string, sh_Register> getAliveRegister() const;
+        bool pushToAliveRegister(const sh_Register &reg);
+        void clearAliveRegister();
 
     protected:
-        std::vector<sh_Register> readRegisterVector;
-        std::vector<sh_Register> writtenRegisterVector;
+        std::list<sh_Register> readRegisterList;
+        std::list<sh_Register> writtenRegisterList;
 
-        std::vector<sh_AbstractData> readMemoryVector;
-        std::vector<sh_AbstractData> writtenMemoryVector;
+        std::list<sh_AbstractData> readMemoryList;
+        std::list<sh_AbstractData> writtenMemoryList;
+
+    private:
+        std::map<std::string, sh_Register> aliveRegister;
     };
 
     typedef std::shared_ptr<AbstractInstruction> sh_AbsInstruction;

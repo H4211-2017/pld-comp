@@ -37,6 +37,9 @@ namespace IR {
 
         sh_BasicBlock getNextBlockTrue() const;
         sh_BasicBlock getNextBlockFalse() const;
+        std::map<std::string, sh_AbstractData> getUsedMemory() const;
+        std::list<sh_AbsInstruction> getInstructionsList() const;
+        std::list<sh_BasicBlock> getPreviousBlocks() const;
 
     private:
 

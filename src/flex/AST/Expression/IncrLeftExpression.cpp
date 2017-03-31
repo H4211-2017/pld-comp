@@ -15,7 +15,6 @@
 //IncrLeftExpression::~IncrLeftExpression() {
 //    // TODO Auto-generated destructor stub
 //}
-
 //Value IncrLeftExpression::evaluate() const
 //{
 //    Value right = this->rightMember->evaluate();

@@ -5,35 +5,24 @@
 
 using namespace AST;
 
-Variable::Variable(std::shared_ptr<VariableSignature> signature, bool decl)
-	: AbstractNode("Variable"), declaration(decl)
+Variable::Variable(std::shared_ptr<VariableSignature> signature, bool decl, const IR::Generator &generator)
+	: AbstractVariable("Variable", signature, decl)
 {
-	sig = signature;
-	this->setType(sig->getValue().getValue().first);
-}
-
-Variable::Variable(std::string name, std::shared_ptr<VariableSignature> signature, bool decl)
-	: AbstractNode(name), declaration(decl)
-{
-	sig = signature;
-	this->setType(sig->getValue().getValue().first);
-}
-
-bool Variable::isDeclaration() const
-{
-	return declaration;
-}
-
-void Variable::noLongerDeclaration()
-{
-	declaration = false;
-}
-        
-void Variable::printTree(int tabulationNumber) const
-{
-	AbstractNode::printTree(tabulationNumber);
-    std::cout << "| Name variable : " << sig->getIdentifiant() << std::endl;
-	sig->printTree(tabulationNumber + 1);
+	switch(signature->getValue().getValue().first)
+	{
+		case CHAR :
+			memory = generator.getNewUnusedMemmory(IR::CHAR);
+			break;
+		case INT_32 :
+			memory = generator.getNewUnusedMemmory(IR::INT_32);
+			break;
+		case INT_64 :
+			memory = generator.getNewUnusedMemmory(IR::INT_64);
+			break;
+		default :
+			std::cerr << "ERROR Constructor Variable : Error in value of type : " << value.getValue().first << "Of Variable " << signature->getName() << std::endl;
+			break;
+	}
 }
 
 Value Variable::evaluate() const

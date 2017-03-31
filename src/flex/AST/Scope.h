@@ -8,6 +8,8 @@
 #include "Variable/VariableScope.h"
 #include "Function/FunctionScope.h"
 
+#include "../../IR/generator/Generator.h"
+
 namespace AST{	
 	
 	class AbstractExpression;
@@ -19,7 +21,7 @@ namespace AST{
 		
 		Scope( std::shared_ptr<Scope> Scope );
 		
-		Scope( const Scope & Scope); // declared but not defined
+		Scope(const Scope & Scope); // declared but not defined
 		
 		virtual ~Scope();
 		
@@ -28,13 +30,13 @@ namespace AST{
          * @param identifiant the id of the variable to add to the dictionary
          * @param variable the variable to add to the dictionary
          */
-        void declareVariable(std::string identifiant, std::shared_ptr<Variable> variable);
+        void declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable);
         /**
          * @brief findVariable to find a variable in the scope.
          * @param identifiant the id of the variable to find.
          * @return a shared pointer on the variable in the scope, ends compilation if varaiable not found.
          */
-        std::shared_ptr<Variable> findVariable(std::string identifiant);
+        std::shared_ptr<AbstractVariable> findVariable(std::string identifiant);
         
         /**
          * @brief declareFunction adds a function to the dictionnary of the scope
@@ -55,13 +57,17 @@ namespace AST{
          * @param newMother the new mother scope
          */
 		void setMother(std::shared_ptr<Scope> newMother);
-		
+       			
+       	IR::Generator &getGenerator();
 	protected:
 		//tree hierarchy
 		std::shared_ptr<Scope> mother;
 		
 		VariableScope vScope;
         FunctionScope fScope;
+        
+    private:
+       	IR::Generator generator;
     };
 }
 
