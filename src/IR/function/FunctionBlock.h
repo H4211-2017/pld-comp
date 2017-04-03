@@ -37,6 +37,7 @@ namespace IR {
         void exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBlock, std::map<std::string, sh_Register> aliveRegister, std::map<std::__cxx11::string, sh_BasicBlock> &greyBasicBlock);
 
         void printASMprolog(std::ostream &os, AsmType asmType) const;
+        void printASMepilog(std::ostream &os, AsmType asmType) const;
 
     private:
         sh_BasicBlock functionInit;

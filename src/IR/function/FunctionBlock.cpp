@@ -300,6 +300,20 @@ void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
     switch (asmType) {
     case AsmType::X86Linux:
         os << this->getFunctionName() << ":" << std::endl;
+        os << "\tpush\t%rbp" << std::endl;
+        os << "\tmovq\%rsp, %rbp" << std::endl;
+        break;
+    default:
+        break;
+    }
+}
+
+void FunctionBlock::printASMepilog(std::ostream &os, AsmType asmType) const
+{
+    switch (asmType) {
+    case AsmType::X86Linux:
+        os << "\tpopq\t%rbp" << std::endl;
+        os << "\tret" << std::endl;
         break;
     default:
         break;
