@@ -56,15 +56,16 @@ Value UnitInstruction::evaluate() const
 
 IR::sh_Memory UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-    switch (content) {
-    case Content::BLOCK:
-        block->buildIR(currentBasicBlock);
-        break;
-    case Content::STRUCT:
-        struc->buildIR(currentBasicBlock);
-        break;
-    default:
-        break;
+    switch (content)
+    {
+		case Content::BLOCK:
+		    block->buildIR(currentBasicBlock);
+		    break;
+		case Content::STRUCT:
+		    struc->buildIR(currentBasicBlock);
+		    break;
+		default:
+		    break;
     }
 	return nullptr;
 }

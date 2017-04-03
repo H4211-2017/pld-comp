@@ -30,5 +30,5 @@ void ParenthesisExpression::printTree(int tabulationNumber) const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory ParenthesisExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {	
-	return nullptr;
+	return instr->buildIR(currentBasicBlock);
 }

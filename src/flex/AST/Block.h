@@ -6,8 +6,8 @@
 #include "AbstractNode.h"
 #include "Instruction/SequenceInstruction.h"
 
-namespace AST {
-	
+namespace AST
+{
     class Block : public AbstractNode
 	{
 	public:
@@ -37,8 +37,6 @@ namespace AST {
     	
         std::shared_ptr<SequenceInstruction> sequenceInstruction;
 	};
-	
-	
 }
 
 

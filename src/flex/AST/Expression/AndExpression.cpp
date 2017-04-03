@@ -1,5 +1,8 @@
 #include "AndExpression.h"
 
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorMult.h"
+
 #include <algorithm>
 
 
@@ -25,7 +28,6 @@ Value AndExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory AndExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

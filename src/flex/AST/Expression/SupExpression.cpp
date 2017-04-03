@@ -9,7 +9,6 @@ SupExpression::SupExpression(std::shared_ptr<AbstractExpression> leftMember,  st
     : AbstractBinaryExpression("SupExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
 
 

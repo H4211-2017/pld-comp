@@ -24,7 +24,6 @@ Value MultExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory MultExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

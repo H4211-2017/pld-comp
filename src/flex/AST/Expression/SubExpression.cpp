@@ -1,5 +1,8 @@
 #include "SubExpression.h"
 
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorMinus.h"
+
 #include <algorithm>
 
 using namespace AST;
@@ -24,7 +27,6 @@ Value SubExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory SubExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

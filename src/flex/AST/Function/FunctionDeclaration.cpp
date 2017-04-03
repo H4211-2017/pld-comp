@@ -19,8 +19,6 @@ void FunctionDeclaration::printTree(int tabulationNumber) const
     if(this->fct != nullptr) {
         this->fct->printTree(tabulationNumber + 1);
     }
-
-
 }
 
 Value FunctionDeclaration::evaluate() const
@@ -30,6 +28,5 @@ Value FunctionDeclaration::evaluate() const
 
 IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
 	return nullptr;
 }

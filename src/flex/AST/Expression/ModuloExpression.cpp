@@ -1,6 +1,7 @@
 #include "ModuloExpression.h"
 
-#include "ModuloExpression.h"
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorModulus.h"
 
 #include <algorithm>
 
@@ -28,7 +29,6 @@ Value ModuloExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory ModuloExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

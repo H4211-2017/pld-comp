@@ -2,6 +2,8 @@
 #include "AddExpression.h"
 #include "IDExpression.h"
 
+#include "../../../IR/generator/Generator.h"
+
 using namespace AST;
 
 AffectationExpression::AffectationExpression()
@@ -62,8 +64,12 @@ Value AffectationExpression::evaluate() const
  
 IR::sh_Memory AffectationExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	//TODO Complete IR
-	return nullptr;
+	IR::Generator gen;
+	IR::sh_Memory leftMem = var->buildIR(currentBasicBlock);
+	IR::sh_Memory rightMem = transformedExpr->buildIR(currentBasicBlock);
+	std::list<IR::sh_AbsInstruction> absIntructions = gen.setValue(rightMem, leftMem);
+	currentBasicBlock->pushInstructionBack(absIntructions);
+	return rightMem;
 }
 
 void AffectationExpression::printTree(int tabulationNumber) const
