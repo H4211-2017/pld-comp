@@ -26,9 +26,9 @@ Value SupEqExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void SupEqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory SupEqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void SupEqExpression::printOperator() const

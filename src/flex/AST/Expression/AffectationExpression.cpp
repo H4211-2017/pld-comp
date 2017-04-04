@@ -10,6 +10,8 @@
 #include "MultExpression.h"
 #include "SubExpression.h"
 
+#include "../../../IR/generator/Generator.h"
+
 using namespace AST;
 
 AffectationExpression::AffectationExpression()
@@ -36,7 +38,7 @@ AffectationExpression::AffectationExpression(std::shared_ptr<Variable> variable,
 
 AffectationExpression::~AffectationExpression()
 {
-	
+
 }
 
 Value AffectationExpression::evaluate() const
@@ -44,20 +46,25 @@ Value AffectationExpression::evaluate() const
     Value val = this->transformedExpr->evaluate();
     return val;
 }
- 
-void AffectationExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+
+IR::sh_Memory AffectationExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	//TODO Complete IR
+    IR::Generator gen;
+    IR::sh_Memory leftMem = var->buildIR(currentBasicBlock);
+    IR::sh_Memory rightMem = transformedExpr->buildIR(currentBasicBlock);
+    std::list<IR::sh_AbsInstruction> absIntructions = gen.setValue(rightMem, leftMem);
+    currentBasicBlock->pushInstructionBack(absIntructions);
+    return rightMem;
 }
 
 void AffectationExpression::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
     std::cout << std::endl;
-    
+
     this->var->printTree(tabulationNumber + 1);
     std::cout << std::endl;
-    
+
     this->transformedExpr->printTree(tabulationNumber + 1);
 }
 
@@ -105,4 +112,3 @@ void AffectationExpression::switchOperatorMake(enum OPAffect op, std::shared_ptr
 	
 	this->setType(this->transformedExpr->getValue().getValue().first);
 }
-

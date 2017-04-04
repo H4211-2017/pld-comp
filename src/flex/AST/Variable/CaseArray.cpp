@@ -10,6 +10,11 @@ CaseArray::CaseArray(std::shared_ptr<Array> array, std::shared_ptr<AbstractExpre
 {
 	
 }
+
+CaseArray::~CaseArray()
+{
+
+}
         
 void CaseArray::printTree(int tabulationNumber) const
 {
@@ -23,8 +28,8 @@ Value CaseArray::evaluate() const
 	return Value();
 }
 
-void CaseArray::buildIR() const
+IR::sh_Memory CaseArray::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+    return nullptr;
 }
 

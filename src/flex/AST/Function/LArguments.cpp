@@ -103,7 +103,8 @@ void LArguments::printTree(int tabulationNumber) const
 	}
 }
 
-void LArguments::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory LArguments::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
+	return nullptr;
 }

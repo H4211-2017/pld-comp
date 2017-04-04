@@ -12,10 +12,11 @@ namespace AST
 	public:
         
         CaseArray(std::shared_ptr<Array> array, std::shared_ptr<AbstractExpression> index);
+        virtual ~CaseArray();
         
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
-        virtual void buildIR() const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
         
     protected:
         std::shared_ptr<AbstractExpression> index;

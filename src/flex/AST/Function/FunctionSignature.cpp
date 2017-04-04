@@ -24,9 +24,9 @@ Value FunctionSignature::evaluate() const
 
 }
 
-void FunctionSignature::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory FunctionSignature::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 std::string FunctionSignature::getIdentifiant() const

@@ -37,7 +37,8 @@ void ElseStructure::printTree(int tabulationNumber) const
 	}
 }
 
-void ElseStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory ElseStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     this->intInstruction->buildIR(currentBasicBlock);
+	return nullptr;
 }

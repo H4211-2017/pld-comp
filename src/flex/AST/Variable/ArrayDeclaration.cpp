@@ -26,8 +26,9 @@ Value ArrayDeclaration::evaluate() const
 	return Value();
 }
 
-void ArrayDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory ArrayDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
+	return nullptr;
 }
 

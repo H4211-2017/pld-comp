@@ -38,7 +38,7 @@ namespace AST
         /**
          * @brief buildIR builds the blocs corresponding to this bloc, and it's children.
          */
-        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
 	private:
 		std::shared_ptr<ComposedInstruction> condition;

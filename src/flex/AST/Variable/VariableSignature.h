@@ -15,7 +15,7 @@ namespace AST {
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
-        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
         std::string getIdentifiant() const;
         Value getValue() const;

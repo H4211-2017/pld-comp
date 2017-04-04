@@ -11,19 +11,19 @@ class DecrIncrLeftExpression : public AbstractExpression
 
 public:
 
-    DecrIncrLeftExpression(std::shared_ptr<Variable> var, int valueOfIncrement);
+    DecrIncrLeftExpression(std::shared_ptr<AbstractVariable> var, int valueOfIncrement);
 
     virtual ~DecrIncrLeftExpression();
 
     virtual Value evaluate() const;
 
     // TODO : create class CFG and replace comment below.
-    virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+    virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
     virtual void printTree(int tabulationNumber) const;
 
 private:
-    std::shared_ptr<Variable> var;
+    std::shared_ptr<AbstractVariable> var;
     int valueOfIncrement;
 
 };

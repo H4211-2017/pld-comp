@@ -9,7 +9,6 @@ SupExpression::SupExpression(std::shared_ptr<AbstractExpression> leftMember,  st
     : AbstractBinaryExpression("SupExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
 
 
@@ -26,9 +25,9 @@ Value SupExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void SupExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory SupExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void SupExpression::printOperator() const

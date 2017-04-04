@@ -6,8 +6,8 @@
 #include "AbstractNode.h"
 #include "Instruction/SequenceInstruction.h"
 
-namespace AST {
-	
+namespace AST
+{
     class Block : public AbstractNode
 	{
 	public:
@@ -29,7 +29,7 @@ namespace AST {
         /**
          * @brief buildIR builds the blocs corresponding to this bloc, and it's children.
          */
-        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
         virtual std::shared_ptr<Scope> getScope() const;
      
@@ -37,8 +37,6 @@ namespace AST {
     	
         std::shared_ptr<SequenceInstruction> sequenceInstruction;
 	};
-	
-	
 }
 
 

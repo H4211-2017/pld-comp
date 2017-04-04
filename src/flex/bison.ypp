@@ -33,7 +33,7 @@ std::shared_ptr<Scope> currentContext = global;
 	AST::SequenceInstruction* sequenceInstruction;
 	AST::ReturnInstruction* ret;
 	
-	std::shared_ptr<AST::Variable>* var;
+        std::shared_ptr<AST::AbstractVariable>* var;
 	AST::VariableSignature* signatureV;
 	AST::Type* typeVar;
 	AST::VariableDeclaration* declVar;
@@ -253,7 +253,7 @@ type : CHAR {$$ = new Type(Type::CHAR);}
 	;
 
 var : ID {*$$ = currentContext->findVariable($1);} // WARNING Zone a risque !!!!!
-	| ID LEFT_BRACKET expr RIGHT_BRACKET {std::shared_ptr<Variable> tmpVar= currentContext->findVariable($1); 
+        | ID LEFT_BRACKET expr RIGHT_BRACKET {std::shared_ptr<AbstractVariable> tmpVar= currentContext->findVariable($1);
 											if(tmpVar->getName() == "Array"){
 												std::shared_ptr<Array> array = std::dynamic_pointer_cast<Array>(tmpVar);
 												*$$ = std::make_shared<CaseArray>( array, make_shared_expr($3) );
@@ -422,7 +422,7 @@ affectation : ID signeaff expr {$$ = new AffectationExpression($1, *$2, make_sha
 								delete $1;
 								delete $2;
 								delete $3;}
-			| ID LEFT_BRACKET expr RIGHT_BRACKET signeaff expr {std::shared_ptr<Variable> tmpVar= currentContext->findVariable($1); 
+                        | ID LEFT_BRACKET expr RIGHT_BRACKET signeaff expr {std::shared_ptr<AbstractVariable> tmpVar= currentContext->findVariable($1);
 																if(tmpVar->getName() == "Array"){
 																	std::shared_ptr<Array> array = std::dynamic_pointer_cast<Array>(tmpVar);
 																	std::shared_ptr<CaseArray> caseArray = std::make_shared<CaseArray>( array, make_shared_expr($3) );

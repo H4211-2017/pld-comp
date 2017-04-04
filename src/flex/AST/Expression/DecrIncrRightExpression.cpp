@@ -4,7 +4,7 @@
 
 using namespace AST;
 
-DecrIncrRightExpression::DecrIncrRightExpression(std::shared_ptr<Variable> var, int valueOfIncrement)
+DecrIncrRightExpression::DecrIncrRightExpression(std::shared_ptr<AbstractVariable> var, int valueOfIncrement)
     : AbstractExpression("DecrIncrRightExpression", var->getValue()), var(var), valueOfIncrement(valueOfIncrement)
 {
 
@@ -39,7 +39,7 @@ Value DecrIncrRightExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void DecrIncrRightExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory DecrIncrRightExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+    return nullptr;
 }

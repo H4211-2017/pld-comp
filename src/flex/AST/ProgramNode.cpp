@@ -28,7 +28,7 @@ Value ProgramNode::evaluate() const
 {
 	return Value();
 }
-void ProgramNode::buildIR() const
+IR::sh_Memory ProgramNode::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	
+    return nullptr;
 }

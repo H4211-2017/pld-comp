@@ -16,7 +16,7 @@ namespace AST {
     	
         /**
          * @brief ComposedInstruction
-         * @param abstractExpression the thirst abstract expression of a composed instruction
+         * @param abstractExpression the first abstract expression of a composed instruction
          */
         ComposedInstruction(std::shared_ptr<AbstractExpression> abstractExpression);
 
@@ -28,7 +28,7 @@ namespace AST {
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
-        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
     private:
         std::vector<std::shared_ptr<AbstractExpression>> listExpressions;
 

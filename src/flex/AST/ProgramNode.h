@@ -18,7 +18,7 @@ namespace AST {
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
-        virtual void buildIR() const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
     private:
         std::shared_ptr<SequenceInstruction> liextBefore;
         std::shared_ptr<SequenceInstruction> liextAfter;

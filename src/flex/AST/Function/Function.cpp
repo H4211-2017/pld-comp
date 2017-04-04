@@ -15,6 +15,7 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 	this->setType(sig->getValue().getValue().first);
 	args = nullptr;
 	content = nullptr;
+	irFunction = std::make_shared<IR::ExternalFunction>(signature->getIdentifiant());
 }
 
 Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Scope> parentScope)
@@ -59,6 +60,11 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 	{
 		args->prepareScope(currentScope);
 	}
+}
+
+std::shared_ptr<IR::ExternalFunction> Function::getIrFunction()
+{
+	return irFunction;
 }
 
 bool Function::compareArguments(std::shared_ptr<Function> f2) const
@@ -126,7 +132,8 @@ Value Function::evaluate() const
 	return Value();
 }
 
-void Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
+ 

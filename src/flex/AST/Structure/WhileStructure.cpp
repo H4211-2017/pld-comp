@@ -37,7 +37,7 @@ void WhileStructure::printTree(int tabulationNumber) const
 
 }
 
-void WhileStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory WhileStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     IR::sh_BasicBlock loopBasicBlock = std::make_shared<IR::BasicBlock>();
     IR::sh_BasicBlock testBasicBlock = std::make_shared<IR::BasicBlock>();
@@ -62,4 +62,5 @@ void WhileStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 
     //update currentBasicBlock so that the caller use the right basic block
     currentBasicBlock = afterBasicBlock;
+	return nullptr;
 }

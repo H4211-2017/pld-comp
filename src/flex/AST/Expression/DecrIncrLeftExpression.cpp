@@ -4,7 +4,7 @@
 
 using namespace AST;
 
-DecrIncrLeftExpression::DecrIncrLeftExpression(std::shared_ptr<Variable> var, int valueOfIncrement)
+DecrIncrLeftExpression::DecrIncrLeftExpression(std::shared_ptr<AbstractVariable> var, int valueOfIncrement)
     : AbstractExpression("DecrIncrLeftExpression", var->getValue()), var(var), valueOfIncrement(valueOfIncrement)
 {
 
@@ -39,7 +39,7 @@ Value DecrIncrLeftExpression::evaluate() const
 }
 
 // TODO
-void DecrIncrLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory DecrIncrLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+    return nullptr;
 }

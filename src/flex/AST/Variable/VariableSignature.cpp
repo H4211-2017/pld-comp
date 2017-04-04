@@ -25,9 +25,9 @@ Value VariableSignature::evaluate() const
 
 }
 
-void VariableSignature::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory VariableSignature::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 std::string VariableSignature::getIdentifiant() const
