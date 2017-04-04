@@ -40,6 +40,10 @@ void LParametres::printTree(int tabulationNumber) const
 	}
 }
 
+std::vector<std::shared_ptr<AbstractExpression> > LParametres::getParameters(){
+    return parametres;
+}
+
 IR::sh_Memory LParametres::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 

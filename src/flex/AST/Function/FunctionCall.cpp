@@ -42,7 +42,15 @@ IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	IR::Generator gen;
 	std::list<IR::sh_AbstractData> irParams;
+    std::vector<std::shared_ptr<AbstractExpression> > params = parametres->getParameters();
+
+    for(int i = 0; i < params.size(); i++){
+        std::shared_ptr<AbstractExpression> expr = params[i];
+        irParams.push_front(expr->buildIR(currentBasicBlock));
+    }
 	// TODO : complete this function by using params
 	std::list<IR::sh_AbsInstruction> absIntructions = gen.call(fct->getIrFunction(), irParams);
 	return nullptr;
 }
+
+
