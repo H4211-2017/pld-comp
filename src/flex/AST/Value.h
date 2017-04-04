@@ -10,6 +10,7 @@ namespace AST {
         CHAR,
         INT_32,
         INT_64,
+        VOID,
         ERROR
     };
     typedef enum Type Type;

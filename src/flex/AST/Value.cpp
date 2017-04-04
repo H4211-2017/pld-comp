@@ -61,10 +61,13 @@ IR::Type Value::getIRType() const
 		case INT_64 :
 			irType = IR::INT_64;
 			break;
-		default :
-			std::cerr << "ERROR Value::getIRType : Error in value of type : " << std::endl;
-			exit(-1);
-			break;
+        case VOID:
+            irType = IR::VOID;
+            break;
+        default :
+            std::cerr << "ERROR Value::getIRType : Error in value of type : " << std::endl;
+            exit(-1);
+            break;
 	}
 	
 	return irType;

@@ -9,7 +9,10 @@
 
 using namespace IR;
 
-FunctionBlock::FunctionBlock(std::string name): AbstractFunction(name)
+FunctionBlock::FunctionBlock(std::string name,
+                             std::list<sh_AbstractData> param,
+                             sh_Register returnRegister):
+    AbstractFunction(name, param, returnRegister)
 {
     functionInit = std::make_shared<BasicBlock>();
     functionCore = std::make_shared<BasicBlock>();

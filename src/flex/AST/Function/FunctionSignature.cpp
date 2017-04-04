@@ -3,7 +3,7 @@
 using namespace AST;
 
 FunctionSignature::FunctionSignature(std::string identifiant)
-    : AbstractNode("FunctionSignature"), identifiant(identifiant)
+    : AbstractNode("FunctionSignature", VOID), identifiant(identifiant)
 {
 
 }

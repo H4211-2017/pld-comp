@@ -161,8 +161,8 @@ maindecl : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS {if($4 != nu
 																	}
     ;
 maintype : type         {$$ = $1;}
-    | VOID              {$$ = new Type(Type::ERROR);}
-    | /* epsilon */     {$$ = new Type(Type::ERROR);}
+    | VOID              {$$ = new Type(Type::VOID);}
+    | /* epsilon */     {$$ = new Type(Type::VOID);}
     ;
 mainarg : VOID          {$$ = nullptr;}
     | larg              {$$ = $1;}

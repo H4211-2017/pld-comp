@@ -26,7 +26,7 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
     : Function(signature, parentScope)
 {
-    irFunction = std::make_shared<IR::FunctionBlock>(signature->getIdentifiant());
+    irFunction = std::make_shared<IR::FunctionBlock>(signature->getIdentifiant(), signature->getValue().getIRType());
     content = content;
 }
 
