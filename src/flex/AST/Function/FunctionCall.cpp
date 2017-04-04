@@ -49,7 +49,8 @@ IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
         irParams.push_front(expr->buildIR(currentBasicBlock));
     }
 	// TODO : complete this function by using params
-	std::list<IR::sh_AbsInstruction> absIntructions = gen.call(fct->getIrFunction(), irParams);
+    // TODO : add return statement
+    std::list<IR::sh_AbsInstruction> absIntructions = gen.call(fct->getIrFunction(), irParams, nullptr);
 	return nullptr;
 }
 
