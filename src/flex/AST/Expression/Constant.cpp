@@ -47,4 +47,5 @@ IR::sh_Memory Constant::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 void Constant::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
+    std::cout << "| Value : " << value.getValue().second;
 }

@@ -15,13 +15,15 @@ ProgramNode::ProgramNode(std::shared_ptr<SequenceInstruction> liextBefore, std::
 
 void ProgramNode::printTree(int tabulationNumber) const
 {
-	AbstractNode::printTree(tabulationNumber);
-	std::cout << std::endl;
-	liextBefore->printTree(tabulationNumber + 1);
-	std::cout << std::endl;
-	main->printTree(tabulationNumber + 1);
-	std::cout << std::endl;
-	liextAfter->printTree(tabulationNumber + 1);
+    std::cout << std::endl << std::endl << "========= PRINT TREE =========" << std::endl;
+    AbstractNode::printTree(tabulationNumber);
+    std::cout << std::endl;
+
+    liextBefore->printTree(tabulationNumber + 1);
+    std::cout << std::endl;
+    main->printTree(tabulationNumber + 1);
+    std::cout << std::endl;
+    liextAfter->printTree(tabulationNumber + 1);
 }
 
 Value ProgramNode::evaluate() const
