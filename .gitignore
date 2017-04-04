@@ -72,10 +72,15 @@ Thumbs.db
 
 #Qt Creator file
 *.user
-
+CMakeCache.txt
+CMakeFiles/*
 #Bison/Flex file
 *.tab.hpp
 *.tab.cpp
 *.yy.c
 *.output
-flex/bin/*
+
+bin/*
+
+#plantuml output files
+*.png

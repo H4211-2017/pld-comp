@@ -1,0 +1,499 @@
+%{
+#include <string>
+#include <iostream>
+#include <typeinfo>
+#include <memory>
+
+#include "includeCommun.h"
+
+using namespace AST;
+
+extern int yylex(void);
+void yyerror(AST::ProgramNode ** param, const char * msg);
+
+std::shared_ptr<Scope> global = std::make_shared<Scope>();
+
+std::shared_ptr<Scope> currentContext = global;
+
+%}
+
+%union {
+	char cVal;
+	long int lVal;
+	char * sVal;
+	char * id;
+	long int eval;
+	AST::AbstractExpression* evalExpression;
+	
+	AST::Block* block;
+	
+	AST::ComposedInstruction* compInstruction; 
+	AST::UnitInstruction* unitInstruction;
+	AST::AbstractInstruction* abstractInstruction;
+	AST::SequenceInstruction* sequenceInstruction;
+	AST::ReturnInstruction* ret;
+	
+        std::shared_ptr<AST::AbstractVariable>* var;
+	AST::VariableSignature* signatureV;
+	AST::Type* typeVar;
+	AST::VariableDeclaration* declVar;
+	AST::ArrayDeclaration* declArray;
+	enum AST::OPAffect* op;
+	
+    AST::FunctionSignature* signatureF;
+	AST::LArguments* fctArguments;
+    AST::FunctionDeclaration* declFct;
+    AST::Function* fct;
+	AST::LParametres* params;
+	AST::FunctionCall * appelFct;
+	
+	AST::AbstractStructure* struc;
+	AST::IfStructure* ifStruc;
+	AST::WhileStructure* whileStruc;
+	AST::ForStructure* forStruc;
+	AST::ElseStructure* elseStruc;
+}
+
+%token SHARP LINE_COM BEGIN_COM END_COM 
+%token IF ELSE WHILE FOR MAIN 
+%token LEFT_BRACES RIGHT_BRACES LEFT_PARENTHESIS RIGHT_PARENTHESIS 
+%token LEFT_BRACKET RIGHT_BRACKET BOOL_EQUAL RETURN 
+%token BOOL_DIF BOOL_LESS_OR_EQUAL BOOL_GREATER_OR_EQUAL BOOL_LESS BOOL_GREATER 
+%token AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD TERNARY_ASK TERNARY_CHOOSE
+%token AFFECT_BIT_LEFT_SHIFT AFFECT_BIT_RIGHT_SHIFT
+%token AFFECT_BIT_AND AFFECT_BIT_XOR AFFECT_BIT_OR
+%token INCREMENT DECREMENT AFFECT ADD SUB MULT DIV MOD 
+%token BOOL_AND BOOL_OR BOOL_NOT BIT_AND BIT_OR BIT_XOR
+%token BIT_NOT BIT_LEFT_SHIFT BIT_RIGHT_SHIFT 
+%token VOID CHAR INT32 INT64 SEMICOLON COMMA UNEXPECTED
+%token <cVal> CHAR_VAL
+%token <lVal> INT_VAL
+%token <sVal> CHAIN
+%token <id> ID
+
+%type <evalExpression> expr
+%type <evalExpression> uoperation
+%type <evalExpression> affectation
+
+%type <compInstruction> iintcomp ifor
+%type <unitInstruction> iintunit
+%type <abstractInstruction> iint iext
+%type <sequenceInstruction> seqint liext
+%type <ret> ireturn
+
+%type <block> bloc
+
+%type <var> var
+%type <signatureV> sigvar arg
+%type <typeVar> type maintype
+%type <declVar> declvar
+%type <declArray> decltabvar
+%type <op> signeaff
+
+%type <signatureF> sigfonc
+%type <fctArguments> larg mainarg
+%type <declFct> declfonc deffonc mainbody
+%type <fct> debutfonc maindecl
+%type <params> lparam
+%type <appelFct> appelfonc
+
+%type <struc> structure
+%type <ifStruc> structureif
+%type <elseStruc> structureelse
+%type <whileStruc> structurewhile
+%type <forStruc> structurefor
+
+%left ID
+%right AFFECT AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD AFFECT_BIT_LEFT_SHIFT AFFECT_BIT_RIGHT_SHIFT AFFECT_BIT_AND AFFECT_BIT_XOR AFFECT_BIT_OR
+%left COMMA
+%right TERNARY_ASK TERNARY_CHOOSE
+%left BOOL_OR
+%left BOOL_AND
+%left BIT_OR
+%left BIT_XOR
+%left BIT_AND
+%left BOOL_EQUAL BOOL_DIF
+%left BOOL_LESS BOOL_GREATER BOOL_LESS_OR_EQUAL BOOL_GREATER_OR_EQUAL 
+%left BIT_RIGHT_SHIFT BIT_LEFT_SHIFT
+%left ADD SUB
+%left MULT DIV MOD
+%right BIT_NOT BOOL_NOT INCREMENT DECREMENT
+%left  LEFT_BRACKET RIGHT_BRACKET LEFT_PARENTHESIS RIGHT_PARENTHESIS
+%right SEMICOLON
+
+%expect 1 // conflit if 			
+
+%parse-param{AST::ProgramNode ** program}
+
+
+%%
+
+/* ===== GENERAL ===== */ 
+
+program : liext mainbody liext {*program = new ProgramNode(std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($1))),
+															std::make_shared<FunctionDeclaration>( *( static_cast< FunctionDeclaration* >($2))), 
+															std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($3))));
+								delete $1;
+								delete $2;
+								delete $3;}
+    ;
+    
+mainbody : maindecl bloc {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
+                                                        $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
+							delete $1;
+							delete $2;
+							currentContext = currentContext->getMother();}
+	;
+
+maindecl : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS {if($4 != nullptr)
+																		{
+                                                                            $$ = new Function(std::make_shared<FunctionSignature>("main", *$1),
+																					std::make_shared<LArguments>( *( static_cast< LArguments* >($4))), currentContext);	
+																			delete $1;
+																			delete $4;
+																		}
+																		else
+																		{
+                                                                            $$ = new Function(std::make_shared<FunctionSignature>("main", *$1), currentContext);
+																			delete $1;	
+																		}			
+																		currentContext = $$->getScope();
+																	}
+    ;
+maintype : type         {$$ = $1;}
+    | VOID              {$$ = new Type(Type::ERROR);}
+    | /* epsilon */     {$$ = new Type(Type::ERROR);}
+    ;
+mainarg : VOID          {$$ = nullptr;}
+    | larg              {$$ = $1;}
+    | /* epsilon */     {$$ = nullptr;}
+    ;
+    
+liext : liext iext  {$$->addInstruction(make_shared_instr($2)); delete $2;}
+    | SEMICOLON {$$->addInstruction(std::make_shared<ComposedInstruction>());} 
+	| /*epsilon*/ {$$ = new SequenceInstruction();} 
+	;
+iext : deffonc    {$$ = $1;}
+    | declfonc    {$$ = $1;}
+    | declvar SEMICOLON {$$ = $1;}
+    | decltabvar SEMICOLON {$$ = $1;}
+    ;
+
+/* ===== FONCTIONS ======*/ 
+
+declfonc : debutfonc SEMICOLON  {$$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
+									delete $1;
+									currentContext = currentContext->getMother();}
+    ;
+deffonc : debutfonc bloc        {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
+                                                                        $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
+									delete $1;
+									delete $2;
+									currentContext = currentContext->getMother();
+								}
+    ;
+    
+debutfonc : sigfonc larg RIGHT_PARENTHESIS     {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))),
+																				std::make_shared<LArguments>( *( static_cast< LArguments* >($2))), currentContext);
+												delete $1;
+												delete $2;
+												currentContext = $$->getScope();
+												}
+    | sigfonc RIGHT_PARENTHESIS                {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
+												delete $1;
+												currentContext = $$->getScope();
+												}
+    | sigfonc VOID RIGHT_PARENTHESIS           {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
+												delete $1;
+												currentContext = $$->getScope();
+												}
+    ;
+    
+larg : larg COMMA arg                               {$$->addArgument(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($3))));
+														delete $3;}
+    | larg COMMA type                               {$$->addArgument(std::make_shared<VariableSignature>("", *$3));
+    													delete $3;}
+    | larg COMMA type LEFT_BRACKET RIGHT_BRACKET    {std::cout << "larg : larg , type [ ] "<< std::endl;} // TODO
+    | arg                                           {$$ = new LArguments(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) ))); 
+    													delete $1;}
+    | type                                          {$$ = new LArguments(std::make_shared<VariableSignature>("", *$1));
+    													delete $1;}
+    | type LEFT_BRACKET RIGHT_BRACKET               {std::cout << "larg : type[] "<< std::endl;} // TODO
+    ;
+arg : sigvar                                {$$ = $1;}
+    | sigvar LEFT_BRACKET RIGHT_BRACKET     {std::cout << "arg : sigvar[] "<< std::endl;} // TODO
+    ;
+    
+appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {$$ = new FunctionCall($1, std::make_shared<LParametres>(), currentContext);}
+    | ID LEFT_PARENTHESIS lparam RIGHT_PARENTHESIS  {$$ = new FunctionCall($1, std::make_shared<LParametres>( *( static_cast< LParametres* >($3) )), currentContext);
+
+    													delete $3;}
+    ;
+lparam : lparam COMMA expr    {$$->addParametre(make_shared_expr($3));}
+    | expr                    {$$ = new LParametres(make_shared_expr($1));}
+    ;
+    
+
+/* ===== VARIABLES ===== */ 
+
+declvar : sigvar AFFECT expr    {$$ = new VariableDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), make_shared_expr($3), currentContext);
+									delete $1;
+									delete $3;}
+	| sigvar                    {$$ = new VariableDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), currentContext);
+									delete $1;}
+	;
+	
+decltabvar : sigvar LEFT_BRACKET INT_VAL RIGHT_BRACKET {$$ = new ArrayDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), $3, currentContext);
+														delete $1;}
+	;
+
+type : CHAR {$$ = new Type(Type::CHAR);}
+	| INT32 {$$ = new Type(Type::INT_32);}
+	| INT64	{$$ = new Type(Type::INT_64);}
+	;
+
+var : ID {*$$ = currentContext->findVariable($1);} // WARNING Zone a risque !!!!!
+        | ID LEFT_BRACKET expr RIGHT_BRACKET {std::shared_ptr<AbstractVariable> tmpVar= currentContext->findVariable($1);
+											if(tmpVar->getName() == "Array"){
+												std::shared_ptr<Array> array = std::dynamic_pointer_cast<Array>(tmpVar);
+												*$$ = std::make_shared<CaseArray>( array, make_shared_expr($3) );
+											}
+											else{
+												std::cerr << "Error : " << $1 << " is not an Array" << std::endl;
+												exit(1); 
+											}
+											delete $1;
+											delete $3;
+										} 
+	;
+
+/* ===== IDENTIFIANT ===== */ 
+
+sigvar : type ID {$$ = new VariableSignature($2, *$1);
+					delete $1;}
+	;
+	
+sigfonc : type ID LEFT_PARENTHESIS          {$$ = new FunctionSignature($2, *$1);
+												delete $1;} 
+    | VOID ID LEFT_PARENTHESIS                              {$$ = new FunctionSignature($2);}
+    | type LEFT_BRACKET RIGHT_BRACKET ID LEFT_PARENTHESIS   {std::cout << "sigfonc : type [] ID"<< std::endl;} // TODO
+    ;
+
+/* ===== INSTRUCTIONS INTERIEURES ===== */
+
+open_context : LEFT_BRACES {currentContext = std::make_shared<Scope>(currentContext);}
+	;
+	
+close_context : RIGHT_BRACES {currentContext = currentContext->getMother();}
+
+bloc : open_context seqint close_context    {$$ = new Block(currentContext, std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($2) )));}
+    ;
+
+seqint : seqint iint {if($2 != nullptr)
+					  {
+						$$->addInstruction(make_shared_instr($2)); 
+						delete $2;
+					  }
+					  else
+					  {
+						$$->addInstruction(nullptr);	
+					  }
+					  } 
+	|  seqint declvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;}
+	| seqint decltabvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;}
+	| seqint declfonc {$$->addInstruction(make_shared_instr($2)); delete $2;} 
+	| seqint deffonc {$$->addInstruction(make_shared_instr($2)); delete $2;}
+	| /*epsilon*/ {$$ = new SequenceInstruction();} 
+	;
+	
+iint : iintcomp SEMICOLON {$$ = $1;}
+	| iintunit {$$ = $1;}
+	| SEMICOLON {$$ = nullptr;}
+	;
+
+iintunit : bloc {$$ = new UnitInstruction(std::make_shared<Block>( *( static_cast< Block* >($1) ) ));
+					delete $1;}
+	| structure {$$ = new UnitInstruction(make_shared_struct($1));
+					delete $1;} 
+	| ireturn {$$ = new UnitInstruction(std::make_shared<ReturnInstruction>( *( static_cast< ReturnInstruction* >($1) ) ));
+					delete $1;} 
+	;
+	
+ireturn : RETURN iintcomp SEMICOLON {$$ = new ReturnInstruction(std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($2) ) ));
+										delete $2;} 
+	| RETURN SEMICOLON {$$ = new ReturnInstruction();} 
+	;
+	
+iintcomp : iintcomp COMMA expr {$$ = $1; 
+								$$->addExpression(make_shared_expr($3)); 
+								delete $3;}
+	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = new ComposedInstruction(make_shared_expr($1)); delete $1; delete $3; delete $5;} // TODO
+	| expr {$$ = new ComposedInstruction(make_shared_expr($1));
+			delete $1;}
+	;
+
+/* ===== EXPRESSION ===== */
+
+uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UMINUS);
+						delete $2;}
+	| ADD expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UPLUS);
+				delete $2;}
+	| BIT_NOT expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UBITN);
+					delete $2;}
+	| BOOL_NOT expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::UBOOLN);
+					delete $2;}
+	;
+	
+expr : INT_VAL {$$ = new Constant($1);}
+	| var {$$ = new IDExpression(*$1, currentContext);
+			delete $1;}
+	| uoperation {$$ = $1;} 
+	| affectation {$$ = $1;}
+	| appelfonc {$$ = $1;}
+	| expr BOOL_OR expr {$$ = new OrExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr BOOL_AND expr {$$ = new AndExpression(make_shared_expr($1), make_shared_expr($3)); 
+								delete $1;
+								delete $3;}
+	| expr BIT_OR expr {$$ = new BitwiseOrExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr BIT_XOR expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr BIT_AND expr {$$ = new BitwiseAndExpression(make_shared_expr($1), make_shared_expr($3)); 
+								delete $1;
+								delete $3;}
+	| expr BOOL_EQUAL expr {$$ = new EqExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr BOOL_DIF expr {$$ = new IneqExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr BOOL_LESS expr {$$ = new InfExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr BOOL_GREATER expr {$$ = new SupExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr BOOL_LESS_OR_EQUAL expr {$$ = new InfEqExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new SupEqExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr BIT_RIGHT_SHIFT expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+								delete $1;
+								delete $3;}
+	| expr BIT_LEFT_SHIFT expr {$$ = new BitwiseShiftLeftExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr ADD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr SUB expr {$$ = new SubExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr MULT expr {$$ = new MultExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr DIV expr {$$ = new DivExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| expr MOD expr {$$ = new ModuloExpression(make_shared_expr($1), make_shared_expr($3));
+								delete $1;
+								delete $3;}
+	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new ParenthesisExpression(make_shared_instr($2)); delete $2;} 
+	| var INCREMENT {$$ = new DecrIncrRightExpression(*$1, 1);
+						delete $1;}
+	| var DECREMENT {$$ = new DecrIncrRightExpression(*$1, -1);
+						delete $1;} 
+	| INCREMENT var {$$ = new DecrIncrLeftExpression(*$2, 1);
+						delete $2;}
+	| DECREMENT var {$$ = new DecrIncrLeftExpression(*$2, -1);
+						delete $2;} 
+	;
+	
+	
+/* ===== AFFECTATION ===== */ 
+
+affectation : ID signeaff expr {$$ = new AffectationExpression($1, *$2, make_shared_expr($3), currentContext); 
+								delete $1;
+								delete $2;
+								delete $3;}
+                        | ID LEFT_BRACKET expr RIGHT_BRACKET signeaff expr {std::shared_ptr<AbstractVariable> tmpVar= currentContext->findVariable($1);
+																if(tmpVar->getName() == "Array"){
+																	std::shared_ptr<Array> array = std::dynamic_pointer_cast<Array>(tmpVar);
+																	std::shared_ptr<CaseArray> caseArray = std::make_shared<CaseArray>( array, make_shared_expr($3) );
+																	
+																	$$ = new AffectationExpression(caseArray, *$5, make_shared_expr($6), currentContext); 
+																}
+																else{
+																	std::cerr << "Error : " << $1 << " is not an Array" << std::endl;
+																	exit(1); 
+																}
+																delete $1;
+																delete $5;
+																delete $6;}
+	;
+	
+signeaff : AFFECT {$$ = new OPAffect(OPAffect::AFFECT);}
+	| AFFECT_MULT {$$ = new OPAffect(OPAffect::AFFECT_MULT);} 
+	| AFFECT_DIV  {$$ = new OPAffect(OPAffect::AFFECT_DIV);}
+	| AFFECT_ADD  {$$ = new OPAffect(OPAffect::AFFECT_ADD);}
+	| AFFECT_SUB  {$$ = new OPAffect(OPAffect::AFFECT_SUB);}
+	| AFFECT_MOD  {$$ = new OPAffect(OPAffect::AFFECT_MOD);}
+	| AFFECT_BIT_AND  {$$ = new OPAffect(OPAffect::AFFECT_BIT_AND);}
+	| AFFECT_BIT_OR  {$$ = new OPAffect(OPAffect::AFFECT_BIT_OR);}
+	| AFFECT_BIT_XOR   {$$ = new OPAffect(OPAffect::AFFECT_BIT_XOR);}
+	| AFFECT_BIT_LEFT_SHIFT  {$$ = new OPAffect(OPAffect::AFFECT_BIT_LEFT_SHIFT);}
+	| AFFECT_BIT_RIGHT_SHIFT {$$ = new OPAffect(OPAffect::AFFECT_BIT_RIGHT_SHIFT);} // TODO
+	;
+
+/* ===== STRUCTURES ===== */ 
+
+structure :  structureif {$$ = $1;}
+	| structurewhile {$$ = $1;} 
+	| structurefor {$$ = $1;} 
+	;
+
+structureif : IF LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint structureelse {$$ = new IfStructure(std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),
+																										make_shared_instr($5),
+																										std::make_shared<ElseStructure>( *( static_cast< ElseStructure* >($6) )));
+																				delete $3;
+																				delete $5;
+																				delete $6;}
+	;
+
+structureelse : ELSE iint {$$ = new ElseStructure(make_shared_instr($2)); 
+							delete $2;}
+	| /*epsilon*/ {$$ = new ElseStructure();}
+	;
+	
+structurewhile : WHILE LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint {$$ = new WhileStructure(std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),
+																									make_shared_instr($5));
+																			delete $3;
+																			delete $5;}
+	;
+
+structurefor : FOR LEFT_PARENTHESIS ifor SEMICOLON ifor SEMICOLON ifor RIGHT_PARENTHESIS iint {$$ = new ForStructure($3 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),
+																													$5 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($5) )),
+																													$7 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($7) )),
+																													make_shared_instr($9));
+																												
+																								delete $3;
+																								delete $5;
+																								delete $7;
+																								delete $9;}
+	;
+	
+ifor : iintcomp {$$ = $1;}
+	| /*epsilon*/ {$$ = nullptr;}
+	;
+
+%%
+void yyerror(AST::ProgramNode ** param, const char * msg)
+{
+    std::cout << msg << std::endl;
+}

@@ -1,0 +1,21 @@
+@startuml
+
+package AST {
+
+    abstract class AbstractNode
+    
+    package Instruction {
+        abstract class AbstractInstruction
+        class ComposedInstruction
+        class SequenceInstruction
+        class UnitInstruction
+    }
+}
+
+AbstractNode <|-- AbstractInstruction
+
+AbstractInstruction <|-- ComposedInstruction
+AbstractInstruction <|-- SequenceInstruction
+AbstractInstruction <|-- UnitInstruction
+
+@enduml

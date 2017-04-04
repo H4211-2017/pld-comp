@@ -1,0 +1,27 @@
+var annotated_dup =
+[
+    [ "AbstractData", "class_abstract_data.html", "class_abstract_data" ],
+    [ "AbstractInstruction", "class_abstract_instruction.html", "class_abstract_instruction" ],
+    [ "AbstractMemoryAcess", "class_abstract_memory_acess.html", "class_abstract_memory_acess" ],
+    [ "AbstractOperator", "class_abstract_operator.html", "class_abstract_operator" ],
+    [ "BasicBlock", "class_basic_block.html", "class_basic_block" ],
+    [ "Jump", "class_jump.html", "class_jump" ],
+    [ "Label", "class_label.html", "class_label" ],
+    [ "Memory", "class_memory.html", "class_memory" ],
+    [ "OperatorBigger", "class_operator_bigger.html", "class_operator_bigger" ],
+    [ "OperatorBiggerOrEqual", "class_operator_bigger_or_equal.html", "class_operator_bigger_or_equal" ],
+    [ "OperatorDiv", "class_operator_div.html", "class_operator_div" ],
+    [ "OperatorMinus", "class_operator_minus.html", "class_operator_minus" ],
+    [ "OperatorModulus", "class_operator_modulus.html", "class_operator_modulus" ],
+    [ "OperatorMult", "class_operator_mult.html", "class_operator_mult" ],
+    [ "OperatorPlus", "class_operator_plus.html", "class_operator_plus" ],
+    [ "OperatorSmaller", "class_operator_smaller.html", "class_operator_smaller" ],
+    [ "OperatorSmallerOrEqual", "class_operator_smaller_or_equal.html", "class_operator_smaller_or_equal" ],
+    [ "ReadFromMemory", "class_read_from_memory.html", "class_read_from_memory" ],
+    [ "Register", "class_register.html", "class_register" ],
+    [ "TypeChar", "class_type_char.html", "class_type_char" ],
+    [ "TypeInt32", "class_type_int32.html", "class_type_int32" ],
+    [ "TypeInt64", "class_type_int64.html", "class_type_int64" ],
+    [ "Variable", "class_variable.html", "class_variable" ],
+    [ "WriteToMemory", "class_write_to_memory.html", "class_write_to_memory" ]
+];
