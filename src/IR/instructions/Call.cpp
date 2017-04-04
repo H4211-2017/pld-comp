@@ -43,6 +43,21 @@ std::string Call::toLinuxX64() const
         }
         memParmIt++;
     }
+
+    //call the wanted function
+    ret.append("\tcall\t");
+    ret.append(this->calledFunction->getFunctionName());
+
+    //get the return value
+    if(this->calledFunction->getFunctionReturnType() != Type::VOID)
+    {
+        ret.append("\n");
+        ret.append("\tmovq\t");
+        ret.append(ASM_X64_FUNCTION_RETURN_REGISTER);
+        ret.append(", ");
+        ret.append(functionReturn->getASMname(AsmType::X64Linux));
+    }
+
     return ret;
 }
 
