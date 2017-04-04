@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "../config/config.h"
+
 using namespace IR;
 
 Call::Call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> parameters, sh_Register returnRegister):
@@ -15,6 +17,7 @@ Call::Call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData
 
 std::string Call::toLinuxX64() const
 {
+    std::string ret = "";
     //write function param into the wanted memory / register
     auto regNameIt = ASM_X64_CALL_PARAMETERS_REGISTRY.rbegin();
     auto memParmIt = this->functionParam.begin();
@@ -24,7 +27,11 @@ std::string Call::toLinuxX64() const
             //if we are still on param passed by register
             //move the wanted AbstracData to it's coresponding register
             const sh_AbstractData &absData = *memParmIt;
-            os << "\tmovq\t" << absData->getASMname(asmType) << ", " << *regNameIt  << std::endl;
+            ret.append("\tmovq\t");
+            ret.append(absData->getASMname(AsmType::X64Linux));
+            ret.append(", ");
+            ret.append(*regNameIt);
+            ret.append("\n");
             //TODO: manage arrays on function param (pointer...)
             regNameIt++;
         }
@@ -36,7 +43,7 @@ std::string Call::toLinuxX64() const
         }
         memParmIt++;
     }
-
+    return ret;
 }
 
 std::string Call::toString() const

@@ -14,11 +14,7 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 	sig = signature;
 	this->setType(sig->getValue().getValue().first);
 	args = nullptr;
-	content = nullptr;
-<<<<<<< HEAD
-	irFunction = std::make_shared<IR::FunctionBlock>(signature->getIdentifiant());
-=======
->>>>>>> deleteBuildIRAbstractNode
+    content = nullptr;
 }
 
 Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Scope> parentScope)
@@ -44,14 +40,12 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 		ss << "ERROR in definition of function <" << sig->getIdentifiant() << "> : one or more parameter is unnamed.";
         throw std::runtime_error(ss.str());
 	}
+    args->prepareScope(currentScope);
+}
 
-<<<<<<< HEAD
 std::shared_ptr<IR::FunctionBlock> Function::getIrFunction()
 {
-	return irFunction;
-=======
-    args->prepareScope(currentScope);
->>>>>>> deleteBuildIRAbstractNode
+    return irFunction;
 }
 
 bool Function::compareArguments(std::shared_ptr<Function> f2) const
@@ -132,7 +126,7 @@ Value Function::evaluate() const
 	return Value();
 }
 
-IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock)
+IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;
 
