@@ -22,6 +22,12 @@ Constant::Constant(long int value)
 	}
 }
 
+Constant::Constant(char value)
+    : AbstractExpression("Constant", Type::CHAR, value)
+{
+	
+}
+
 Constant::~Constant()
 {
 	

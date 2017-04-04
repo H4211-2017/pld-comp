@@ -33,12 +33,12 @@
 #include "Expression/SupExpression.h"
 #include "Expression/DecrIncrRightExpression.h"
 #include "Expression/DecrIncrLeftExpression.h"
+#include "Expression/Ternary.h"
 
 #include "Instruction/ComposedInstruction.h"
 #include "Instruction/UnitInstruction.h"
 #include "Instruction/SequenceInstruction.h"
 #include "Instruction/ReturnInstruction.h"
-#include "Instruction/Ternary.h"
 
 #include "Variable/VariableSignature.h"
 #include "Variable/VariableDeclaration.h"

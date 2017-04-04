@@ -19,6 +19,9 @@ int32_t main()
 	testfct();
 	
 	fonctionAvant(a);
+	
+	a = getchar();
+	putchar(a);
 }
 
 int32_t fonctionAvant(int32_t z)

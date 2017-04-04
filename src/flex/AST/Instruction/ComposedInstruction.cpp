@@ -27,6 +27,11 @@ void ComposedInstruction::addExpression(std::shared_ptr<AbstractExpression> expr
     this->value = expression->getValue();
 }
 
+std::vector<std::shared_ptr<AbstractExpression>> ComposedInstruction::getListExpr() const
+{
+	return listExpressions;
+}
+
 void ComposedInstruction::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);

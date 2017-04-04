@@ -21,7 +21,7 @@ namespace AST{
 		
 		Scope( std::shared_ptr<Scope> Scope );
 		
-		Scope(const Scope & Scope); // declared but not defined
+		Scope(const Scope & scope); // declared but not defined
 		
 		virtual ~Scope();
 		

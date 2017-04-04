@@ -17,6 +17,7 @@
 #include "ModuloExpression.h"
 #include "DecrIncrRightExpression.h"
 #include "DecrIncrLeftExpression.h"
+#include "Ternary.h"
 
 #include "AndExpression.h"
 #include "DivExpression.h"
@@ -159,6 +160,10 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
     {
         return std::make_shared<DecrIncrRightExpression>( *( static_cast< DecrIncrRightExpression* >(ptr) ) );
     }
+    else if(name == "Ternary")
+	{
+        return std::make_shared<Ternary>( *( static_cast< Ternary* >(ptr) ) );
+	}
     else
     {
         std::cerr<< " AbstractExpression :: make_shared_ptr found no type like '" << name << "'" << std::endl;

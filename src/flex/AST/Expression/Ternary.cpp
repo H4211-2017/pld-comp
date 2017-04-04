@@ -2,13 +2,14 @@
 
 using namespace AST;
 
-Ternary::Ternary(std::shared_ptr<AbstractExpression> cond, std::shared_ptr<ComposedInstruction> trueBranch, std::shared_ptr<ComposedInstruction> falseBranch)
-	: ComposedInstruction("Ternary")
+Ternary::Ternary(std::shared_ptr<AbstractExpression> cond, std::shared_ptr<AbstractExpression> trueBranch, std::shared_ptr<AbstractExpression> falseBranch)
+	: AbstractExpression("Ternary")
 {
 	std::shared_ptr<ComposedInstruction> condif = std::make_shared<ComposedInstruction>(cond);
-	std::shared_ptr<ElseStructure> elseFalse = std::make_shared<ElseStructure>(falseBranch);
+	std::shared_ptr<ElseStructure> elseFalse = std::make_shared<ElseStructure>(std::make_shared<ComposedInstruction>(falseBranch));
+	std::shared_ptr<ComposedInstruction> ifTrue = std::make_shared<ComposedInstruction>(trueBranch);
 	
-	equivalent = std::make_shared<IfStructure>(condif, trueBranch, elseFalse);
+	equivalent = std::make_shared<IfStructure>(condif, ifTrue, elseFalse);
 }
 
 void Ternary::printTree(int tabulationNumber) const

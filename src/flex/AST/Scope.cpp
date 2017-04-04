@@ -1,6 +1,10 @@
 #include <iostream>
 
 #include "Scope.h"
+#include "Function/Function.h"
+#include "Function/FunctionSignature.h"
+#include "Function/LArguments.h"
+#include "Variable/VariableSignature.h"
 
 using namespace AST;
 
@@ -8,6 +12,13 @@ using namespace AST;
 Scope::Scope()
 	: mother(nullptr)
 {
+	std::shared_ptr<Function> getchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("getchar", Type::CHAR), 
+																	nullptr);
+	std::shared_ptr<Function> putchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("putchar", Type::ERROR), 
+																	std::make_shared<LArguments>(std::make_shared<VariableSignature>("car", Type::CHAR)), 
+																	nullptr);
+	fScope.declareFunction("getchar", getchar);
+	fScope.declareFunction("putchar", putchar);
 }
 
 Scope::Scope( std::shared_ptr<Scope> Scope )

@@ -1,12 +1,12 @@
 #ifndef TERNARY_H
 #define TERNARY_H
 
-#include "ComposedInstruction.h"
-#include "Expression/AbstractExpression.h"
+#include "Instruction/ComposedInstruction.h"
+#include "AbstractExpression.h"
 #include "Structure/IfStructure.h"
 
 namespace AST {
-    class Ternary : public ComposedInstruction
+    class Ternary : public AbstractExpression
     {
     public:
     
@@ -16,7 +16,7 @@ namespace AST {
          * @brief ComposedInstruction
          * @param abstractExpression the first abstract expression of a composed instruction
          */
-        Ternary(std::shared_ptr<AbstractExpression> cond, std::shared_ptr<ComposedInstruction> trueBranch, std::shared_ptr<ComposedInstruction> falseBranch);
+        Ternary(std::shared_ptr<AbstractExpression> cond, std::shared_ptr<AbstractExpression> trueBranch, std::shared_ptr<AbstractExpression> falseBranch);
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;

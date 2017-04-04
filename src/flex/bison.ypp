@@ -22,7 +22,6 @@ std::shared_ptr<Scope> currentContext = global;
 	long int lVal;
 	char * sVal;
 	char * id;
-	long int eval;
 	AST::AbstractExpression* evalExpression;
 	
 	AST::Block* block;
@@ -71,6 +70,7 @@ std::shared_ptr<Scope> currentContext = global;
 %token <sVal> CHAIN
 %token <id> ID
 
+%type <lVal> betweenbracket
 %type <evalExpression> expr
 %type <evalExpression> uoperation
 %type <evalExpression> affectation
@@ -213,15 +213,12 @@ larg : larg COMMA arg                               {$$ = $1; $$->addArgument(st
 														delete $3;}
     | larg COMMA type                               {$$ = $1; $$->addArgument(std::make_shared<VariableSignature>("", *$3));
     													delete $3;}
-    | larg COMMA type LEFT_BRACKET RIGHT_BRACKET    {$$ = $1; std::cout << "larg : larg , type [ ] "<< std::endl;} // TODO
     | arg                                           {$$ = new LArguments(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) ))); 
     													delete $1;}
     | type                                          {$$ = new LArguments(std::make_shared<VariableSignature>("", *$1));
     													delete $1;}
-    | type LEFT_BRACKET RIGHT_BRACKET               {std::cout << "larg : type[] "<< std::endl;} // TODO
     ;
 arg : sigvar                                {$$ = $1;}
-    | sigvar LEFT_BRACKET RIGHT_BRACKET     {std::cout << "arg : sigvar[] "<< std::endl;} // TODO
     ;
     
 appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {$$ = new FunctionCall($1, std::make_shared<LParametres>(), currentContext);}
@@ -243,9 +240,29 @@ declvar : sigvar AFFECT expr    {$$ = new VariableDeclaration(std::make_shared<V
 									delete $1;}
 	;
 	
-decltabvar : sigvar LEFT_BRACKET INT_VAL RIGHT_BRACKET {$$ = new ArrayDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), $3, currentContext);
+decltabvar : sigvar betweenbracket {$$ = new ArrayDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), $2, currentContext);
 														delete $1;}
+	| sigvar betweenbracket AFFECT CHAIN {$$ = new ArrayDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), $2, $4, currentContext);
+											delete $1;}
+	| sigvar LEFT_BRACKET RIGHT_BRACKET AFFECT CHAIN {$$ = new ArrayDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), $5, currentContext);
+														delete $1;}
+	| sigvar betweenbracket AFFECT LEFT_BRACES iintcomp RIGHT_BRACES {$$ = new ArrayDeclaration(
+																							std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )),
+																							 $2,
+																							 std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($5) )), 
+																							 currentContext);
+																		delete $1;
+																		delete $5;}
+	| sigvar LEFT_BRACKET RIGHT_BRACKET AFFECT LEFT_BRACES iintcomp RIGHT_BRACES {$$ = new ArrayDeclaration(
+																							std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )),
+																							 std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($6) )), 
+																							 currentContext);
+																		delete $1;
+																		delete $6;}
 	;
+
+betweenbracket: LEFT_BRACKET INT_VAL RIGHT_BRACKET {$$ = $2;}
+	| LEFT_BRACKET CHAR_VAL RIGHT_BRACKET {$$ = (long int) $2;}
 
 type : CHAR {$$ = new Type(Type::CHAR);}
 	| INT32 {$$ = new Type(Type::INT_32);}
@@ -277,7 +294,6 @@ sigvar : type ID {$$ = new VariableSignature($2, *$1);
 sigfonc : type ID LEFT_PARENTHESIS          {$$ = new FunctionSignature($2, *$1);
 												delete $1;} 
     | VOID ID LEFT_PARENTHESIS                              {$$ = new FunctionSignature($2);}
-    | type LEFT_BRACKET RIGHT_BRACKET ID LEFT_PARENTHESIS   {std::cout << "sigfonc : type [] ID"<< std::endl;} // TODO
     ;
 
 /* ===== INSTRUCTIONS INTERIEURES ===== */
@@ -322,12 +338,6 @@ ireturn : RETURN iintcomp SEMICOLON {$$ = new ReturnInstruction(std::make_shared
 iintcomp : iintcomp COMMA expr {$$ = $1; 
 								$$->addExpression(make_shared_expr($3)); 
 								delete $3;}
-	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = new Ternary(make_shared_expr($1), 
-																			std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) ) ), 
-																			std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($5) ) ) ); 
-														delete $1; 
-														delete $3; 
-														delete $5;}
 	| expr {$$ = new ComposedInstruction(make_shared_expr($1));
 			delete $1;}
 	;
@@ -345,6 +355,7 @@ uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::U
 	;
 	
 expr : INT_VAL {$$ = new Constant($1);}
+	| CHAR_VAL {$$ = new Constant($1);}
 	| var {$$ = new IDExpression(*$1, currentContext);}
 	| uoperation {$$ = $1;} 
 	| affectation {$$ = $1;}
@@ -408,6 +419,12 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| var DECREMENT {$$ = new DecrIncrRightExpression(*$1, -1);} 
 	| INCREMENT var {$$ = new DecrIncrLeftExpression(*$2, 1);}
 	| DECREMENT var {$$ = new DecrIncrLeftExpression(*$2, -1);} 
+	| expr TERNARY_ASK expr TERNARY_CHOOSE expr {$$ = new Ternary(make_shared_expr($1), 
+																	make_shared_expr($3), 
+																	make_shared_expr($5)); 
+														delete $1; 
+														delete $3; 
+														delete $5;}
 	;
 	
 	

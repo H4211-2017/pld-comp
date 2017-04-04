@@ -1527,6 +1527,30 @@ src/flex/AST/Expression/SupExpression.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/SupExpression.cpp.s
 .PHONY : src/flex/AST/Expression/SupExpression.cpp.s
 
+src/flex/AST/Expression/Ternary.o: src/flex/AST/Expression/Ternary.cpp.o
+.PHONY : src/flex/AST/Expression/Ternary.o
+
+# target to build an object file
+src/flex/AST/Expression/Ternary.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Ternary.cpp.o
+.PHONY : src/flex/AST/Expression/Ternary.cpp.o
+
+src/flex/AST/Expression/Ternary.i: src/flex/AST/Expression/Ternary.cpp.i
+.PHONY : src/flex/AST/Expression/Ternary.i
+
+# target to preprocess a source file
+src/flex/AST/Expression/Ternary.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Ternary.cpp.i
+.PHONY : src/flex/AST/Expression/Ternary.cpp.i
+
+src/flex/AST/Expression/Ternary.s: src/flex/AST/Expression/Ternary.cpp.s
+.PHONY : src/flex/AST/Expression/Ternary.s
+
+# target to generate assembly for a file
+src/flex/AST/Expression/Ternary.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Expression/Ternary.cpp.s
+.PHONY : src/flex/AST/Expression/Ternary.cpp.s
+
 src/flex/AST/Expression/UnaryExpression.o: src/flex/AST/Expression/UnaryExpression.cpp.o
 .PHONY : src/flex/AST/Expression/UnaryExpression.o
 
@@ -1814,30 +1838,6 @@ src/flex/AST/Instruction/SequenceInstruction.s: src/flex/AST/Instruction/Sequenc
 src/flex/AST/Instruction/SequenceInstruction.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/SequenceInstruction.cpp.s
 .PHONY : src/flex/AST/Instruction/SequenceInstruction.cpp.s
-
-src/flex/AST/Instruction/Ternary.o: src/flex/AST/Instruction/Ternary.cpp.o
-.PHONY : src/flex/AST/Instruction/Ternary.o
-
-# target to build an object file
-src/flex/AST/Instruction/Ternary.cpp.o:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/Ternary.cpp.o
-.PHONY : src/flex/AST/Instruction/Ternary.cpp.o
-
-src/flex/AST/Instruction/Ternary.i: src/flex/AST/Instruction/Ternary.cpp.i
-.PHONY : src/flex/AST/Instruction/Ternary.i
-
-# target to preprocess a source file
-src/flex/AST/Instruction/Ternary.cpp.i:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/Ternary.cpp.i
-.PHONY : src/flex/AST/Instruction/Ternary.cpp.i
-
-src/flex/AST/Instruction/Ternary.s: src/flex/AST/Instruction/Ternary.cpp.s
-.PHONY : src/flex/AST/Instruction/Ternary.s
-
-# target to generate assembly for a file
-src/flex/AST/Instruction/Ternary.cpp.s:
-	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/flex/AST/Instruction/Ternary.cpp.s
-.PHONY : src/flex/AST/Instruction/Ternary.cpp.s
 
 src/flex/AST/Instruction/UnitInstruction.o: src/flex/AST/Instruction/UnitInstruction.cpp.o
 .PHONY : src/flex/AST/Instruction/UnitInstruction.o
@@ -2457,6 +2457,9 @@ help:
 	@echo "... src/flex/AST/Expression/SupExpression.o"
 	@echo "... src/flex/AST/Expression/SupExpression.i"
 	@echo "... src/flex/AST/Expression/SupExpression.s"
+	@echo "... src/flex/AST/Expression/Ternary.o"
+	@echo "... src/flex/AST/Expression/Ternary.i"
+	@echo "... src/flex/AST/Expression/Ternary.s"
 	@echo "... src/flex/AST/Expression/UnaryExpression.o"
 	@echo "... src/flex/AST/Expression/UnaryExpression.i"
 	@echo "... src/flex/AST/Expression/UnaryExpression.s"
@@ -2493,9 +2496,6 @@ help:
 	@echo "... src/flex/AST/Instruction/SequenceInstruction.o"
 	@echo "... src/flex/AST/Instruction/SequenceInstruction.i"
 	@echo "... src/flex/AST/Instruction/SequenceInstruction.s"
-	@echo "... src/flex/AST/Instruction/Ternary.o"
-	@echo "... src/flex/AST/Instruction/Ternary.i"
-	@echo "... src/flex/AST/Instruction/Ternary.s"
 	@echo "... src/flex/AST/Instruction/UnitInstruction.o"
 	@echo "... src/flex/AST/Instruction/UnitInstruction.i"
 	@echo "... src/flex/AST/Instruction/UnitInstruction.s"
