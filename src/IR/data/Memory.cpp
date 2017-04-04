@@ -17,3 +17,11 @@ void Memory::setAsmBasePointerOffset(int value)
 {
     asm_basePointerOffset = value;
 }
+
+std::string Memory::getX86name() const
+{
+    std::string ret = "";
+    ret.append( std::to_string(this->asm_basePointerOffset) );
+    ret.append( "(%rbp)" );
+    return ret;
+}

@@ -14,6 +14,8 @@ namespace IR {
         int getAsmBasePointerOffset() const;
         void setAsmBasePointerOffset(int value);
 
+        virtual std::string getX86name() const;
+
     private:
         int asm_basePointerOffset;
 
