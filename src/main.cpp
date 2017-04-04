@@ -11,6 +11,7 @@
 #include "IR/generator/Generator.h"
 #include "IR/function/FunctionBlock.h"
 #include "IR/instructions/AbstractInstruction.h"
+#include "IR/basicBlock/ProgrameStructure.h"
 
 extern "C" int yylex();
 
@@ -52,20 +53,20 @@ int main(int argc, char *argv[])
 	
 //	delete program;
 
-
-    IR::FunctionBlock mainFunction("main");
+    IR::ProgrameStructure structure;
+    IR::sh_FunctionBlock mainFunction = std::make_shared<IR::FunctionBlock>("main");
     IR::Generator gen;
     IR::sh_Memory memA = gen.getNewUnusedMemmory(IR::Type::INT_64);
     IR::sh_Memory memB = gen.getNewUnusedMemmory(IR::Type::INT_64);
     IR::sh_Memory memC = gen.getNewUnusedMemmory(IR::Type::INT_64);
     std::list<IR::sh_AbsInstruction> instList = gen.binaryOperator<IR::OperatorPlus>(memA,memB,memC);
-    mainFunction.getFunctionCore()->pushInstructionBack(instList);
+    mainFunction->getFunctionCore()->pushInstructionBack(instList);
     instList = gen.binaryOperator<IR::OperatorPlus>(memB,memC,memA);
-    mainFunction.getFunctionCore()->pushInstructionBack(instList);
+    mainFunction->getFunctionCore()->pushInstructionBack(instList);
 //    mainFunction.generateIR();
 //    mainFunction.printIR(std::cout);
-    mainFunction.generateASM(IR::AsmType::X86Linux);
-    mainFunction.printASM(std::cout,IR::AsmType::X86Linux);
+    structure.addFunction(mainFunction);
+    structure.printASM(std::cout, IR::AsmType::X86Linux);
     return 0;
 }
 

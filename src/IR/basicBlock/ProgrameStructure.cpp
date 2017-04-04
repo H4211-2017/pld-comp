@@ -1,16 +1,18 @@
-#include "FunctionStructure.h"
+#include "ProgrameStructure.h"
 
-FunctionStructure::FunctionStructure()
+using namespace IR;
+
+ProgrameStructure::ProgrameStructure()
 {
 
 }
 
-void IR::FunctionStructure::addFunction(std::shared_ptr<IR::FunctionBlock> function)
+void IR::ProgrameStructure::addFunction(std::shared_ptr<IR::FunctionBlock> function)
 {
     this->funtionList.push_back(function);
 }
 
-void IR::FunctionStructure::printASM(std::ostream &os, IR::AsmType asmType)
+void IR::ProgrameStructure::printASM(std::ostream &os, IR::AsmType asmType)
 {
     switch (asmType)
     {
@@ -23,6 +25,7 @@ void IR::FunctionStructure::printASM(std::ostream &os, IR::AsmType asmType)
 
     for(std::shared_ptr<FunctionBlock> func : this->funtionList)
     {
+        func->generateASM(asmType);
         func->printASM(os,asmType);
     }
 
@@ -30,14 +33,14 @@ void IR::FunctionStructure::printASM(std::ostream &os, IR::AsmType asmType)
 
 }
 
-void IR::FunctionStructure::printX86prolog(std::ostream &os)
+void IR::ProgrameStructure::printX86prolog(std::ostream &os)
 {
     os << "\t.text" << std::endl;
     os << "\t.globl\tmain" << std::endl;
     os << "\t.type\tmain, @function" << std::endl;
 }
 
-std::list<std::shared_ptr<FunctionBlock> > FunctionStructure::getFuntionList() const
+std::list<std::shared_ptr<FunctionBlock> > ProgrameStructure::getFuntionList() const
 {
     return funtionList;
 }

@@ -8,10 +8,10 @@
 #include "../config/Enums.h"
 
 namespace IR {
-    class FunctionStructure
+    class ProgrameStructure
     {
     public:
-        FunctionStructure();
+        ProgrameStructure();
 
         void addFunction(std::shared_ptr<FunctionBlock> function);
         std::list<std::shared_ptr<FunctionBlock> > getFuntionList() const;
