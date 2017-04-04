@@ -39,7 +39,7 @@ namespace IR {
         std::list<sh_AbsInstruction> readArrayCase(sh_MemoryArray array, Constant index, sh_Memory dest) const;
         std::list<sh_AbsInstruction> setValue(Constant value, sh_Memory dest) const;
         std::list<sh_AbsInstruction> setValue(sh_Memory value, sh_Memory dest) const;
-        std::list<sh_AbsInstruction> call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> param) const;
+        std::list<sh_AbsInstruction> call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> param, sh_Memory retMemory) const;
         //to define every possible binary IR operation
         template<typename IrOperator>
         std::list<sh_AbsInstruction> binaryOperator(sh_Memory valueA, sh_Memory valueB, sh_Memory dest) const;

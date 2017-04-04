@@ -8,13 +8,9 @@
 
 #include "../data/Register.h"
 #include "../data/Memory.h"
+#include "../config/Enums.h"
 
 namespace IR {
-
-    enum AsmType{
-        X86Linux,
-        X86Win //no need to implement it yet
-    };
 
     class AbstractInstruction
     {

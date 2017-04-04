@@ -3,6 +3,7 @@
 #include <assert.h>
 
 #include "BasicBlock.h"
+#include "../config/Enums.h"
 
 using namespace IR;
 
@@ -329,7 +330,7 @@ void BasicBlock::printAsmLabel(std::ostream &os, AsmType asmType) const
         os << name << ":" << std::endl;
         break;
     default:
-        std::cerr << "ASM type not set " << asmType << std::endl;
+        std::cerr << "ASM type not set " << std::endl;
         break;
     }
 }
