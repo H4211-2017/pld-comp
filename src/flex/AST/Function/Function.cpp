@@ -1,9 +1,12 @@
-#include "Function.h"
-
-#include "LParametres.h"
-
 #include <sstream>
 #include <iostream>
+
+#include "Function.h"
+
+#include "Variable/AbstractVariable.h"
+#include "LParametres.h"
+
+
 
 using namespace AST;
 
@@ -102,11 +105,6 @@ std::shared_ptr<IR::FunctionBlock> Function::getIrFunction() const
     }
     return irFunction;
 }
-
-std::vector<std::shared_ptr<VariableSignature>> Function::getArguments() const
-{
-    return args->getArguments();
-}
         
 void Function::printTree(int tabulationNumber) const
 {
@@ -133,7 +131,18 @@ Value Function::evaluate() const
 
 IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-    return nullptr;
+    std::vector<std::shared_ptr<VariableSignature>> argumentsList = args->getArguments();
+    for (std::shared_ptr<VariableSignature> variableSignature : argumentsList)
+    {
+        std::shared_ptr<AbstractVariable> abstrVariable = currentScope->findVariable(variableSignature->getIdentifiant());
+        irFunction->pushBackNewParam(abstrVariable->buildIR(currentBasicBlock));
+    }
 
+    if (content != nullptr)
+    {
+        return content->buildIR(currentBasicBlock);
+    }
+
+    return nullptr;
 }
  
