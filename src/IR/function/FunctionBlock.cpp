@@ -6,6 +6,7 @@
 #include "../config/config.h"
 #include "../config/Enums.h"
 #include "FunctionBlock.h"
+#include "../instructions/ReturnInstruction.h"
 
 using namespace IR;
 
@@ -141,6 +142,33 @@ void FunctionBlock::affectMemory()
     }
 }
 
+/**
+ * @brief FunctionBlock::manageReturnStatements read every function instructions to find returns
+ * then cut every instructions after a return and delete instruction after it in the current BasicBlock.
+ */
+void FunctionBlock::manageReturnStatements()
+{
+    for(sh_BasicBlock bb : coreList)
+    {
+        std::list<sh_AbsInstruction> &instList = bb->getInstructionsList();
+        for(auto it=instList.begin() ; it!=instList.end() ; it++)
+        {
+            sh_AbsInstruction &inst = *it;
+            if(std::dynamic_pointer_cast<IR::ReturnInstruction>(inst))
+            {
+                //jump to the end of the function
+                bb->setNextBlockTrue(this->functionReturn);
+                bb->setNextBlockFalse(nullptr);
+                //remove every instruction after return in this block
+                it++;
+                instList.erase(it, instList.end());
+                //this basic block is finished
+                break;
+            }
+        }
+    }
+}
+
 sh_BasicBlock FunctionBlock::getFunctionCore() const
 {
     return functionCore;
@@ -190,6 +218,9 @@ void FunctionBlock::generateIR()
  */
 void FunctionBlock::generateASM(AsmType asmType)
 {
+    generateBasicBlockList();
+    manageReturnStatements();
+    //re generate basic block list in case obvious dead code came
     generateBasicBlockList();
     affectPreviousBasicBlock();
     getMemoryFromBasicBlock();
