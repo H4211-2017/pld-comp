@@ -49,6 +49,8 @@ namespace IR {
 
         std::map<std::string,sh_Memory> usedMemory;
     };
+
+    typedef std::shared_ptr<FunctionBlock> sh_FunctionBlock;
 }
 
 #endif // FUNCTIONBLOCK_H
