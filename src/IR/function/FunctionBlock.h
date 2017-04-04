@@ -11,7 +11,7 @@ namespace IR {
     class FunctionBlock : public AbstractFunction
     {
     public:
-        FunctionBlock(std::string name, std::list<sh_AbstractData> param = std::list<sh_AbstractData>(), sh_Register returnRegister = nullptr);
+        FunctionBlock(std::string name, Type returnType, std::list<sh_AbstractData> param = std::list<sh_AbstractData>());
 
         sh_BasicBlock getFunctionCore() const;
         void setFunctionCore(const sh_BasicBlock &value);
@@ -41,6 +41,9 @@ namespace IR {
         void printASMepilog(std::ostream &os, AsmType asmType) const;
 
     private:
+        void init();
+
+
         sh_BasicBlock functionInit;
         sh_BasicBlock functionCore;
         sh_BasicBlock functionReturn;
