@@ -18,9 +18,17 @@ extern "C" int yylex();
 
 int main(int argc, char *argv[])
 {
+    std::cout << "main avant flex" << std::endl;
     AST::ProgramNode * program;
     yyparse(&program);
+    program->printTree(0);
+    std::cout << "main apres flex" << std::endl;
 
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
+
+    std::cout << "main apres buildIR" << std::endl;
+
     programStructure->printASM(std::cout, IR::AsmType::X64Linux);
+
+    std::cout << "main apres printASM" << std::endl;
 }

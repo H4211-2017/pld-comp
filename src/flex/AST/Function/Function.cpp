@@ -131,11 +131,14 @@ Value Function::evaluate() const
 
 IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-    std::vector<std::shared_ptr<VariableSignature>> argumentsList = args->getArguments();
-    for (std::shared_ptr<VariableSignature> variableSignature : argumentsList)
+    if (args != nullptr)
     {
-        std::shared_ptr<AbstractVariable> abstrVariable = currentScope->findVariable(variableSignature->getIdentifiant());
-        irFunction->pushBackNewParam(abstrVariable->buildIR(currentBasicBlock));
+        std::vector<std::shared_ptr<VariableSignature>> argumentsList = args->getArguments();
+        for (std::shared_ptr<VariableSignature> variableSignature : argumentsList)
+        {
+            std::shared_ptr<AbstractVariable> abstrVariable = currentScope->findVariable(variableSignature->getIdentifiant());
+            irFunction->pushBackNewParam(abstrVariable->buildIR(currentBasicBlock));
+        }
     }
 
     if (content != nullptr)
