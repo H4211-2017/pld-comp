@@ -310,10 +310,10 @@ void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
         os << "\tpush\t%rbp" << std::endl;
         os << "\tmovq\t%rsp, %rbp" << std::endl;
         //load function param into the wanted memory / register
-        auto regNameIt = ASM_X64_CALL_PARAMETERS_REGISTRY.begin();
+        auto regNameIt = ASM_X64_CALL_PARAMETERS_REGISTRY.rbegin();
         auto memParmIt = this->functionParam.begin();
         while (memParmIt != this->functionParam.end()) {
-            if(regNameIt != ASM_X64_CALL_PARAMETERS_REGISTRY.end())
+            if(regNameIt != ASM_X64_CALL_PARAMETERS_REGISTRY.rend())
             {
                 //if we are still on param passed by register
                 //move the wanted register to it's coresponding AbstracData
