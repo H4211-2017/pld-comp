@@ -13,6 +13,8 @@ namespace IR {
 
         long getDataValue() const;
 
+        virtual std::string getX86name() const;
+
     protected:
         long dataValue;
     };

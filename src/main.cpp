@@ -40,6 +40,6 @@ int main(int argc, char *argv[])
 //    mainFunction.generateIR();
 //    mainFunction.printIR(std::cout);
     mainFunction.generateASM(IR::AsmType::X86Linux);
-    mainFunction.printASM(std::cout,IR::X86Linux);*/
+    mainFunction.printASM(std::cout,IR::AsmType::X86Linux);*/
     return 0;
 }

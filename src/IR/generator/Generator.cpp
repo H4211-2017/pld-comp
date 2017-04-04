@@ -111,11 +111,14 @@ std::list<sh_AbsInstruction> Generator::setValue(sh_Memory value, sh_Memory dest
  * @param param the arguments of the function call
  * @return the list of instruction making this operation
  */
-std::list<sh_AbsInstruction> Generator::call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> param) const
+std::list<sh_AbsInstruction> Generator::call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> param, sh_Memory retMemory) const
 {
     std::list<sh_AbsInstruction> instructionList;
+    sh_Register tempReg = this->getNewUnusedRegister(retMemory->getType());
     //add call instruction
-    instructionList.push_back( std::make_shared<Call>(function, param) );
+    instructionList.push_back( std::make_shared<Call>(function, param, tempReg) );
+    //write return register to memory
+    instructionList.push_back( std::make_shared<WriteToMemory>(tempReg, retMemory));
 
     return instructionList;
 }

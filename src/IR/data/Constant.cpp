@@ -12,3 +12,10 @@ long Constant::getDataValue() const
 {
     return dataValue;
 }
+
+std::string Constant::getX86name() const
+{
+    std::string ret = "$";
+    ret.append( std::to_string(dataValue) );
+    return ret;
+}
