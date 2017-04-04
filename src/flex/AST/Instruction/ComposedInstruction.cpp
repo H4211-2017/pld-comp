@@ -39,7 +39,7 @@ Value ComposedInstruction::evaluate() const
 }
 
 
-IR::sh_Memory ComposedInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory ComposedInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
 	IR::sh_Memory lastMemory = nullptr;
 	

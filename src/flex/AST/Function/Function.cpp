@@ -15,56 +15,43 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 	this->setType(sig->getValue().getValue().first);
 	args = nullptr;
 	content = nullptr;
+<<<<<<< HEAD
 	irFunction = std::make_shared<IR::FunctionBlock>(signature->getIdentifiant());
+=======
+>>>>>>> deleteBuildIRAbstractNode
 }
 
 Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Scope> parentScope)
     : Function(signature, parentScope)
 {
-	args = arguments;
-	if(args != nullptr && args->isForDeclaration())
-	{
-		std::stringstream ss;
-		ss << "ERROR in definition of function <" << sig->getIdentifiant() << "> : one or more parameter is unnamed.";
-		std::cerr << ss.str() << std::endl;
-		exit(-1);
-	}
-	else if(!args->isForDeclaration())
-	{
-		args->prepareScope(currentScope);
-	}
+    args = arguments;
 }
 
 Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
     : Function(signature, parentScope)
 {
-	currentScope = std::make_shared<Scope>(parentScope);
-	this->setBlock(content);
+    irFunction = std::make_shared<IR::FunctionBlock>(signature->getIdentifiant());
+    content = content;
 }
 
 Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
-    : Function(signature, arguments, parentScope)
+    : Function(signature, content, parentScope)
 {
-	
-	currentScope = std::make_shared<Scope>(parentScope);
-		
-	this->setBlock(content);
+    args = arguments;
 	if(args != nullptr && args->isForDeclaration())
 	{
 		std::stringstream ss;
 		ss << "ERROR in definition of function <" << sig->getIdentifiant() << "> : one or more parameter is unnamed.";
-		std::cerr << ss.str() << std::endl;
-		exit(-1);
+        throw std::runtime_error(ss.str());
 	}
-	else if(!args->isForDeclaration())
-	{
-		args->prepareScope(currentScope);
-	}
-}
 
+<<<<<<< HEAD
 std::shared_ptr<IR::FunctionBlock> Function::getIrFunction()
 {
 	return irFunction;
+=======
+    args->prepareScope(currentScope);
+>>>>>>> deleteBuildIRAbstractNode
 }
 
 bool Function::compareArguments(std::shared_ptr<Function> f2) const
@@ -108,6 +95,19 @@ std::shared_ptr<FunctionSignature> Function::getSignature() const
 {
 	return sig;
 }
+
+
+// TODO : Check comportment with declaration then definition
+std::shared_ptr<IR::FunctionBlock> Function::getIrFunction() const
+{
+    if (irFunction  == nullptr)
+    {
+        std::stringstream ss;
+        ss << "Compilation error : function used but not defined : " << sig->getIdentifiant() << std::endl;
+        throw std::runtime_error(ss.str());
+    }
+    return irFunction;
+}
         
 void Function::printTree(int tabulationNumber) const
 {
@@ -132,9 +132,9 @@ Value Function::evaluate() const
 	return Value();
 }
 
-IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
-
 	return nullptr;
+
 }
  
