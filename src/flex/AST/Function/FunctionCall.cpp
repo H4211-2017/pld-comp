@@ -55,6 +55,7 @@ IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     std::list<IR::sh_AbsInstruction> absIntructions = gen.call(fct->getIrFunction(), irParams,returnStatement);
     currentBasicBlock->pushInstructionBack(absIntructions);
     return returnStatement;
+
 }
 
 
