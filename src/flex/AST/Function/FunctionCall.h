@@ -23,6 +23,7 @@ public:
 	
 	void printTree(int tabulationNumber) const;
 
+
 protected:
     
     std::shared_ptr<Function> fct;

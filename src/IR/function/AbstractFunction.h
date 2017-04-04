@@ -2,6 +2,10 @@
 #define ABSTRACTFUNCTION_H
 
 #include <string>
+#include <list>
+
+#include "../data/AbstractData.h"
+#include "../data/Register.h"
 
 namespace IR {
     class AbstractFunction
@@ -11,8 +15,10 @@ namespace IR {
 
         std::string getFunctionName() const;
 
-    private:
+    protected:
         std::string functionName;
+        std::list<sh_AbstractData> functionParam;
+        sh_Register functionReturn;
     };
 }
 
