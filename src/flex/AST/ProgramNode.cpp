@@ -34,7 +34,7 @@ std::shared_ptr<IR::FunctionStructure> ProgramNode::buildIR()
 {
     std::shared_ptr<IR::FunctionStructure> programStructure = std::make_shared<IR::FunctionStructure>();
     programStructure->addFunction(main->getIrFunction());
-
-    main->buildIR(main->getIrFunction()->getFunctionCore());
+    IR::sh_BasicBlock mainCoreIR = main->getIrFunction()->getFunctionCore();
+    main->buildIR(mainCoreIR);
 
 }

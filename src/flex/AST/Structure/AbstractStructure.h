@@ -15,6 +15,8 @@ namespace AST
          * @param name the name of the structure we are creating, used when printing the tree.
          */
 		AbstractStructure(std::string name);
+
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & basicBloc) const =0;
 	};
 
 }

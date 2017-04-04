@@ -16,7 +16,7 @@ namespace AST
         void noLongerDeclaration();
         
         virtual void printTree(int tabulationNumber) const;
-      
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const = 0;
         std::shared_ptr< VariableSignature> getSignature() const;
         
     protected:
