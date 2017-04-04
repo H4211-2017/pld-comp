@@ -33,5 +33,5 @@ Value FunctionDeclaration::evaluate() const
 
 IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
-	return nullptr;
+
 }
