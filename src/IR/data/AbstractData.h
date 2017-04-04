@@ -24,7 +24,7 @@ namespace IR {
         virtual int getSizeInMemory() const;
 
         virtual std::string getASMname(AsmType asmType) const;
-        virtual std::string getX86name() const =0;
+        virtual std::string getX64name() const =0;
 
     protected:
         Type dataType; // 1, 2 or 4 byte(s)

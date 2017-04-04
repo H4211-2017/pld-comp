@@ -188,8 +188,8 @@ void FunctionBlock::generateASM(AsmType asmType)
     affectMemory();
     std::deque<std::string> regList;
     switch (asmType) {
-    case AsmType::X86Linux:
-        regList = ASM_X86_AVAILABLE_REGISTER_LIST;
+    case AsmType::X64Linux:
+        regList = ASM_X64_AVAILABLE_REGISTER_LIST;
         break;
     default:
         std::cerr << "Unknow ASM type" /*<< asmType*/ << std::endl;
@@ -300,7 +300,7 @@ void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBloc
 
 void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
 {
-    if(asmType == AsmType::X86Linux)
+    if(asmType == AsmType::X64Linux)
     {
         //add globl and type info
         os << "\t.globl\t" << this->functionName << std::endl;
@@ -310,26 +310,16 @@ void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
         os << "\tpush\t%rbp" << std::endl;
         os << "\tmovq\t%rsp, %rbp" << std::endl;
         //load function param into the wanted memory / register
-        auto regNameIt = ASM_X86_CALL_PARAMETERS_REGISTRY.begin();
+        auto regNameIt = ASM_X64_CALL_PARAMETERS_REGISTRY.begin();
         auto memParmIt = this->functionParam.begin();
         while (memParmIt != this->functionParam.end()) {
-            if(regNameIt != ASM_X86_CALL_PARAMETERS_REGISTRY.end())
+            if(regNameIt != ASM_X64_CALL_PARAMETERS_REGISTRY.end())
             {
                 //if we are still on param passed by register
-
                 //move the wanted register to it's coresponding AbstracData
-                os << "\tmovq\t" << *regNameIt << ", ";
-                sh_AbstractData absData = *memParmIt;
-                //find out what is the AbstractData
-                if(sh_Register reg = std::static_pointer_cast<Register>(absData))
-                {
-                    os << "%" << reg->getAsmRegisterName() << std::endl;
-                }
+                const sh_AbstractData &absData = *memParmIt;
+                os << "\tmovq\t" << *regNameIt << ", " << absData->getASMname(asmType) << std::endl;
                 //TODO: manage arrays on function param (pointer...)
-                else if( sh_Memory mem = std::static_pointer_cast<Memory>(absData))
-                {
-                    os << mem->getAsmBasePointerOffset() << "(%rbp)" << std::endl;
-                }
                 regNameIt++;
             }
             else
@@ -344,7 +334,7 @@ void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
 void FunctionBlock::printASMepilog(std::ostream &os, AsmType asmType) const
 {
     switch (asmType) {
-    case AsmType::X86Linux:
+    case AsmType::X64Linux:
         os << "\tpopq\t%rbp" << std::endl;
         os << "\tret" << std::endl;
         os << "\t.size\t" << this->functionName << ", .-" << this->functionName << std::endl;

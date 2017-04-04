@@ -20,7 +20,7 @@ namespace IR {
         virtual std::string toString() const =0;
 
         std::string toAsm(AsmType asmType) const;
-        virtual std::string toLinuxX86() const =0;
+        virtual std::string toLinuxX64() const =0;
 
         std::list<sh_Register> getReadRegisterList() const;
         std::list<sh_Register> getWroteRegisterList() const;

@@ -16,8 +16,8 @@ void ProgrameStructure::printASM(std::ostream &os, AsmType asmType)
 {
     switch (asmType)
     {
-    case AsmType::X86Linux:
-        printX86prolog(os);
+    case AsmType::X64Linux:
+        printX64prolog(os);
         break;
     default:
         break;
@@ -33,7 +33,7 @@ void ProgrameStructure::printASM(std::ostream &os, AsmType asmType)
 
 }
 
-void ProgrameStructure::printX86prolog(std::ostream &os)
+void ProgrameStructure::printX64prolog(std::ostream &os)
 {
     os << "\t.text" << std::endl;
 }

@@ -326,7 +326,7 @@ bool BasicBlock::isConditionnal() const
 void BasicBlock::printAsmLabel(std::ostream &os, AsmType asmType) const
 {
     switch (asmType) {
-    case AsmType::X86Linux:
+    case AsmType::X64Linux:
         os << name << ":" << std::endl;
         break;
     default:
@@ -346,7 +346,7 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
     else if(nextBlockFalse != nullptr)
     {
         switch (asmType) {
-        case AsmType::X86Linux:
+        case AsmType::X64Linux:
             os << "\tjmp " << nextBlockFalse->getName() << std::endl;
             break;
         default:
@@ -356,7 +356,7 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
     else if(nextBlockTrue != nullptr || conditionnalJumpRegister == nullptr)
     {//if the only the nextblockTrue is set or if the conditionnalRegister is undeffined
         switch (asmType) {
-        case AsmType::X86Linux:
+        case AsmType::X64Linux:
             os << "\tjmp " << nextBlockTrue->getName() << std::endl;
             break;
         default:
@@ -367,7 +367,7 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
     {
         //else the two are set, need to do a conditionnal jump
         switch (asmType) {
-        case AsmType::X86Linux:
+        case AsmType::X64Linux:
             os << "\tcmpq\t$0, " << conditionnalJumpRegister->getName() << std::endl;
             os << "\tjne " << nextBlockTrue->getName() << std::endl;
             os << "\tjmp " << nextBlockFalse->getName() << std::endl;

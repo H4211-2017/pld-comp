@@ -22,7 +22,7 @@ std::string OperatorPlus::toString() const
 }
 
 
-std::string OperatorPlus::toLinuxX86() const
+std::string OperatorPlus::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( this->firstValue->getAsmRegisterName() );

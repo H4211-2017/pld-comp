@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 //    mainFunction.generateIR();
 //    mainFunction.printIR(std::cout);
     structure.addFunction(mainFunction);
-    structure.printASM(std::cout, IR::AsmType::X86Linux);
+    structure.printASM(std::cout, IR::AsmType::X64Linux);
     return 0;
 }
 

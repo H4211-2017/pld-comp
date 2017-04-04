@@ -13,7 +13,7 @@ long Constant::getDataValue() const
     return dataValue;
 }
 
-std::string Constant::getX86name() const
+std::string Constant::getX64name() const
 {
     std::string ret = "$";
     ret.append( std::to_string(dataValue) );

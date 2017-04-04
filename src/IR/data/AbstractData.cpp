@@ -26,8 +26,8 @@ int AbstractData::getSizeInMemory() const
 std::string AbstractData::getASMname(AsmType asmType) const
 {
     switch (asmType) {
-    case AsmType::X86Linux:
-        return getX86name();
+    case AsmType::X64Linux:
+        return getX64name();
         break;
     default:
         break;

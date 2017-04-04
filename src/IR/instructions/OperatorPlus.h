@@ -11,7 +11,7 @@ namespace IR {
 
         virtual std::string toString() const;
 
-        virtual std::string toLinuxX86() const;
+        virtual std::string toLinuxX64() const;
     };
 }
 

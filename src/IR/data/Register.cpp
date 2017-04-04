@@ -18,7 +18,7 @@ void Register::setAsmRegisterName(const std::string &value)
     asm_registerName = value;
 }
 
-std::string Register::getX86name() const
+std::string Register::getX64name() const
 {
     std::string ret = "%";
     ret.append( this->asm_registerName );
