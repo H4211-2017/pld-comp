@@ -20,7 +20,7 @@ namespace AST {
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
         //virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const; // should not be used => throw an error
-        std::shared_ptr<IR::ProgrameStructure> buildIR();
+        IR::sh_ProgrameStructure buildIR();
 
     private:
         std::shared_ptr<SequenceInstruction> liextBefore;

@@ -23,6 +23,8 @@ namespace IR {
 
         std::list<std::shared_ptr<FunctionBlock>> funtionList;
     };
+
+    typedef std::shared_ptr<ProgrameStructure> sh_ProgrameStructure;
 }
 
 
