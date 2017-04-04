@@ -84,3 +84,8 @@ bin/*
 
 #plantuml output files
 *.png
+
+#CMake files
+Makefile
+cmake_install.cmake
+lex.yy.cpp
