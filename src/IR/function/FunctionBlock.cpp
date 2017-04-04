@@ -4,6 +4,7 @@
 #include <deque>
 
 #include "../config/config.h"
+#include "../config/Enums.h"
 #include "FunctionBlock.h"
 
 using namespace IR;
@@ -163,6 +164,7 @@ void FunctionBlock::printASM(std::ostream &os, AsmType asmType) const
     {
         bb->printAsm(os, asmType);
     }
+    printASMepilog(os,asmType);
 }
 
 void FunctionBlock::generateIR()
@@ -186,10 +188,10 @@ void FunctionBlock::generateASM(AsmType asmType)
     std::deque<std::string> regList;
     switch (asmType) {
     case AsmType::X86Linux:
-        regList = ASM_X86_REGISTER_LIST;
+        regList = ASM_X86_AVAILABLE_REGISTER_LIST;
         break;
     default:
-        std::cerr << "Unknow ASM type: " << asmType << std::endl;
+        std::cerr << "Unknow ASM type" /*<< asmType*/ << std::endl;
         exit(-1);
         break;
     }
@@ -297,14 +299,40 @@ void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBloc
 
 void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
 {
-    switch (asmType) {
-    case AsmType::X86Linux:
+    if(asmType == AsmType::X86Linux)
+    {
         os << this->getFunctionName() << ":" << std::endl;
         os << "\tpush\t%rbp" << std::endl;
         os << "\tmovq\%rsp, %rbp" << std::endl;
-        break;
-    default:
-        break;
+        //load function param into the wanted memory / register
+        auto regNameIt = ASM_X86_CALL_PARAMETERS_REGISTRY.begin();
+        auto memParmIt = this->functionParam.begin();
+        while (memParmIt != this->functionParam.end()) {
+            if(regNameIt != ASM_X86_CALL_PARAMETERS_REGISTRY.end())
+            {
+                //if we are still on param passed by register
+
+                //move the wanted register to it's coresponding AbstracData
+                os << "\tmovq\t" << *regNameIt << ", ";
+                sh_AbstractData absData = *memParmIt;
+                //find out what is the AbstractData
+                if(sh_Register reg = std::static_pointer_cast<Register>(absData))
+                {
+                    os << "%" << reg->getAsmRegisterName() << std::endl;
+                }
+                //TODO: manage arrays on function param (pointer...)
+                else if( sh_Memory mem = std::static_pointer_cast<Memory>(absData))
+                {
+                    os << mem->getAsmBasePointerOffset() << "(%rbp)" << std::endl;
+                }
+                regNameIt++;
+            }
+            else
+            {
+                //TODO: read value from the stack and but it to memory
+            }
+            memParmIt++;
+        }
     }
 }
 
