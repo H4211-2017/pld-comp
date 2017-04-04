@@ -1,6 +1,6 @@
-#line 2 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
+#line 2 "/home/rbourrier/Documents/pld-comp/lex.yy.cpp"
 
-#line 4 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
+#line 4 "/home/rbourrier/Documents/pld-comp/lex.yy.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -8,8 +8,8 @@
 
 #define FLEX_SCANNER
 #define YY_FLEX_MAJOR_VERSION 2
-#define YY_FLEX_MINOR_VERSION 5
-#define YY_FLEX_SUBMINOR_VERSION 35
+#define YY_FLEX_MINOR_VERSION 6
+#define YY_FLEX_SUBMINOR_VERSION 0
 #if YY_FLEX_SUBMINOR_VERSION > 0
 #define FLEX_BETA
 #endif
@@ -162,7 +162,12 @@ typedef unsigned int flex_uint32_t;
 typedef struct yy_buffer_state *YY_BUFFER_STATE;
 #endif
 
-extern int yyleng;
+#ifndef YY_TYPEDEF_YY_SIZE_T
+#define YY_TYPEDEF_YY_SIZE_T
+typedef size_t yy_size_t;
+#endif
+
+extern yy_size_t yyleng;
 
 extern FILE *yyin, *yyout;
 
@@ -171,6 +176,7 @@ extern FILE *yyin, *yyout;
 #define EOB_ACT_LAST_MATCH 2
 
     #define YY_LESS_LINENO(n)
+    #define YY_LINENO_REWIND_TO(ptr)
     
 /* Return all but the first "n" matched characters back to the input stream. */
 #define yyless(n) \
@@ -187,11 +193,6 @@ extern FILE *yyin, *yyout;
 	while ( 0 )
 
 #define unput(c) yyunput( c, (yytext_ptr)  )
-
-#ifndef YY_TYPEDEF_YY_SIZE_T
-#define YY_TYPEDEF_YY_SIZE_T
-typedef size_t yy_size_t;
-#endif
 
 #ifndef YY_STRUCT_YY_BUFFER_STATE
 #define YY_STRUCT_YY_BUFFER_STATE
@@ -281,7 +282,7 @@ static YY_BUFFER_STATE * yy_buffer_stack = 0; /**< Stack as an array. */
 /* yy_hold_char holds the character lost when yytext is formed. */
 static char yy_hold_char;
 static int yy_n_chars;		/* number of characters read into yy_ch_buf */
-int yyleng;
+yy_size_t yyleng;
 
 /* Points to current character in buffer. */
 static char *yy_c_buf_p = (char *) 0;
@@ -309,7 +310,7 @@ static void yy_init_buffer (YY_BUFFER_STATE b,FILE *file  );
 
 YY_BUFFER_STATE yy_scan_buffer (char *base,yy_size_t size  );
 YY_BUFFER_STATE yy_scan_string (yyconst char *yy_str  );
-YY_BUFFER_STATE yy_scan_bytes (yyconst char *bytes,int len  );
+YY_BUFFER_STATE yy_scan_bytes (yyconst char *bytes,yy_size_t len  );
 
 void *yyalloc (yy_size_t  );
 void *yyrealloc (void *,yy_size_t  );
@@ -341,7 +342,7 @@ void yyfree (void *  );
 
 /* Begin user sect3 */
 
-#define yywrap(n) 1
+#define yywrap() (/*CONSTCOND*/1)
 #define YY_SKIP_YYWRAP
 
 typedef unsigned char YY_CHAR;
@@ -355,11 +356,17 @@ extern int yylineno;
 int yylineno = 1;
 
 extern char *yytext;
+#ifdef yytext_ptr
+#undef yytext_ptr
+#endif
 #define yytext_ptr yytext
 
 static yy_state_type yy_get_previous_state (void );
 static yy_state_type yy_try_NUL_trans (yy_state_type current_state  );
 static int yy_get_next_buffer (void );
+#if defined(__GNUC__) && __GNUC__ >= 3
+__attribute__((__noreturn__))
+#endif
 static void yy_fatal_error (yyconst char msg[]  );
 
 /* Done after the current pattern has been matched and before the
@@ -397,7 +404,7 @@ static yyconst flex_int16_t yy_accept[111] =
        59,   59,   59,    7,   59,   59,   17,   54,   55,    0
     } ;
 
-static yyconst flex_int32_t yy_ec[256] =
+static yyconst YY_CHAR yy_ec[256] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         1,    1,    4,    1,    1,    1,    1,    1,    1,    1,
@@ -429,7 +436,7 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst flex_int32_t yy_meta[58] =
+static yyconst YY_CHAR yy_meta[58] =
     {   0,
         1,    2,    2,    2,    2,    2,    3,    2,    2,    2,
         2,    2,    2,    2,    2,    2,    2,    2,    2,    4,
@@ -439,7 +446,7 @@ static yyconst flex_int32_t yy_meta[58] =
         4,    4,    2,    2,    2,    2,    2
     } ;
 
-static yyconst flex_int16_t yy_base[114] =
+static yyconst flex_uint16_t yy_base[114] =
     {   0,
         0,    0,  142,  143,  143,  143,  113,   56,  143,  112,
        48,  137,  143,  143,   41,   45,  143,   44,   49,   58,
@@ -473,7 +480,7 @@ static yyconst flex_int16_t yy_def[114] =
       110,  110,  110
     } ;
 
-static yyconst flex_int16_t yy_nxt[201] =
+static yyconst flex_uint16_t yy_nxt[201] =
     {   0,
         4,    5,    6,    5,    5,    7,    8,    9,    4,   10,
        11,   12,   13,   14,   15,   16,   17,   18,   19,   20,
@@ -539,8 +546,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
-#line 2 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 1 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
+#line 2 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -554,7 +561,7 @@ char *yytext;
 
 extern int yylex();
 
-#line 558 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
+#line 565 "/home/rbourrier/Documents/pld-comp/lex.yy.cpp"
 
 #define INITIAL 0
 
@@ -587,19 +594,19 @@ void yyset_extra (YY_EXTRA_TYPE user_defined  );
 
 FILE *yyget_in (void );
 
-void yyset_in  (FILE * in_str  );
+void yyset_in  (FILE * _in_str  );
 
 FILE *yyget_out (void );
 
-void yyset_out  (FILE * out_str  );
+void yyset_out  (FILE * _out_str  );
 
-int yyget_leng (void );
+yy_size_t yyget_leng (void );
 
 char *yyget_text (void );
 
 int yyget_lineno (void );
 
-void yyset_lineno (int line_number  );
+void yyset_lineno (int _line_number  );
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -613,8 +620,12 @@ extern int yywrap (void );
 #endif
 #endif
 
+#ifndef YY_NO_UNPUT
+    
     static void yyunput (int c,char *buf_ptr  );
     
+#endif
+
 #ifndef yytext_ptr
 static void yy_flex_strncpy (char *,yyconst char *,int );
 #endif
@@ -727,7 +738,7 @@ extern int yylex (void);
 
 /* Code executed at the end of each rule. */
 #ifndef YY_BREAK
-#define YY_BREAK break;
+#define YY_BREAK /*LINTED*/break;
 #endif
 
 #define YY_RULE_SETUP \
@@ -737,14 +748,10 @@ extern int yylex (void);
  */
 YY_DECL
 {
-	register yy_state_type yy_current_state;
-	register char *yy_cp, *yy_bp;
-	register int yy_act;
+	yy_state_type yy_current_state;
+	char *yy_cp, *yy_bp;
+	int yy_act;
     
-#line 32 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
-
-#line 747 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
-
 	if ( !(yy_init) )
 		{
 		(yy_init) = 1;
@@ -771,7 +778,12 @@ YY_DECL
 		yy_load_buffer_state( );
 		}
 
-	while ( 1 )		/* loops until end-of-file is reached */
+	{
+#line 32 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
+
+#line 785 "/home/rbourrier/Documents/pld-comp/lex.yy.cpp"
+
+	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
 		yy_cp = (yy_c_buf_p);
 
@@ -787,7 +799,7 @@ YY_DECL
 yy_match:
 		do
 			{
-			register YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)];
+			YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)] ;
 			if ( yy_accept[yy_current_state] )
 				{
 				(yy_last_accepting_state) = yy_current_state;
@@ -828,282 +840,282 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 33 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 33 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("SHARP "); return SHARP;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 34 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 34 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("LINE_COM "); return LINE_COM;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 35 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 35 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BEGIN_COM "); return BEGIN_COM;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 36 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 36 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("END_COM "); return END_COM;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 37 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 37 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("IF "); return IF;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 38 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 38 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("ELSE "); return ELSE;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 39 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 39 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("WHILE "); return WHILE;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 40 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 40 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("FOR "); return FOR;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 41 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 41 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("MAIN "); return MAIN;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 42 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 42 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("LEFT_BRACES "); return LEFT_BRACES;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 43 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 43 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("RIGHT_BRACES "); return RIGHT_BRACES;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 44 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 44 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("LEFT_PARENTHESIS "); return LEFT_PARENTHESIS;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 45 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 45 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("RIGHT_PARENTHESIS "); return RIGHT_PARENTHESIS;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 46 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 46 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("LEFT_BRACKET "); return LEFT_BRACKET;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 47 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 47 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("RIGHT_BRACKET "); return RIGHT_BRACKET;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 48 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 48 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BOOL_EQUAL "); return BOOL_EQUAL;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 49 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 49 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("RETURN "); return RETURN;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 50 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 50 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BOOL_DIF "); return BOOL_DIF;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 51 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 51 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BOOL_LESS_OR_EQUAL "); return BOOL_LESS_OR_EQUAL;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 52 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 52 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BOOL_GREATER_OR_EQUAL "); return BOOL_GREATER_OR_EQUAL;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 53 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 53 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BOOL_LESS "); return BOOL_LESS;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 54 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 54 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BOOL_GREATER "); return BOOL_GREATER;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 55 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 55 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("TERNARY_ASK "); return TERNARY_ASK;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 56 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 56 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("TERNARY_CHOOSE "); return TERNARY_CHOOSE;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 57 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 57 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_ADD "); return AFFECT_ADD;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 58 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 58 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_SUB "); return AFFECT_SUB;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 59 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 59 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_MULT "); return AFFECT_MULT;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 60 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 60 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_DIV "); return AFFECT_DIV;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 61 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 61 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_MOD "); return AFFECT_MOD;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 62 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 62 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_BIT_AND "); return AFFECT_BIT_AND;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 63 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 63 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_BIT_XOR "); return AFFECT_BIT_XOR;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 64 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 64 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_BIT_OR "); return AFFECT_BIT_OR;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 65 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 65 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_BIT_LEFT_SHIFT "); return AFFECT_BIT_LEFT_SHIFT;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 66 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 66 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT_BIT_RIGHT_SHIFT "); return AFFECT_BIT_RIGHT_SHIFT;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 67 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 67 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("INCREMENT "); return INCREMENT;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 68 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 68 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("DECREMENT "); return DECREMENT;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 69 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 69 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("AFFECT "); return AFFECT;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 70 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 70 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("ADD "); return ADD;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 71 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 71 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("SUB "); return SUB;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 72 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 72 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("MULT "); return MULT;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 73 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 73 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("DIV "); return DIV;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 74 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 74 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("MOD "); return MOD;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 75 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 75 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BOOL_AND "); return BOOL_AND;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 76 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 76 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BOOL_OR "); return BOOL_OR;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 77 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 77 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BOOL_NOT "); return BOOL_NOT;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 78 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 78 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BIT_AND "); return BIT_AND;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 79 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 79 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BIT_OR "); return BIT_OR;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 80 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 80 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BIT_XOR "); return BIT_XOR;}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 81 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 81 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BIT_NOT "); return BIT_NOT;}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 82 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 82 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BIT_LEFT_SHIFT "); return BIT_LEFT_SHIFT;}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 83 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 83 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("BIT_RIGHT_SHIFT "); return BIT_RIGHT_SHIFT;}
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 84 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 84 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("VOID "); return VOID;}
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 85 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 85 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("CHAR "); return CHAR;}
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 86 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 86 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("INT32 "); return INT32;}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 87 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 87 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("INT64 "); return INT64;}
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 88 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 88 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("{number} ");
                         std::stringstream ss(strdup(yytext));
                         long int tmp;
@@ -1114,7 +1126,7 @@ YY_RULE_SETUP
 case 57:
 /* rule 57 can match eol */
 YY_RULE_SETUP
-#line 94 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 94 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("'{alphanumex}' "); 
 						yylval.cVal = strdup(yytext)[1]; 
 						return CHAR_VAL;}
@@ -1122,45 +1134,45 @@ YY_RULE_SETUP
 case 58:
 /* rule 58 can match eol */
 YY_RULE_SETUP
-#line 97 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 97 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("\"{alphanumsex}\" "); 
 						yylval.sVal = strndup(&yytext[1], sizeof(char)*(strlen(yytext)-2));
 						return CHAIN;}
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 100 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 100 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("identifiant "); 
 						yylval.id = strdup(yytext); 
 						return ID;}
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 103 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 103 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("SEMICOLON "); return SEMICOLON;}
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 104 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 104 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("COMMA "); return COMMA;}
 	YY_BREAK
 case 62:
 /* rule 62 can match eol */
 YY_RULE_SETUP
-#line 105 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 105 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("%s", yytext);}
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 106 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 106 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 {printf("UNEXPECTED "); return UNEXPECTED;}
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 107 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 107 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 ECHO;
 	YY_BREAK
-#line 1164 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
+#line 1176 "/home/rbourrier/Documents/pld-comp/lex.yy.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1291,6 +1303,7 @@ case YY_STATE_EOF(INITIAL):
 			"fatal flex scanner internal error--no action found" );
 	} /* end of action switch */
 		} /* end of scanning one token */
+	} /* end of user's declarations */
 } /* end of yylex */
 
 /* yy_get_next_buffer - try to read in a new buffer
@@ -1302,9 +1315,9 @@ case YY_STATE_EOF(INITIAL):
  */
 static int yy_get_next_buffer (void)
 {
-    	register char *dest = YY_CURRENT_BUFFER_LVALUE->yy_ch_buf;
-	register char *source = (yytext_ptr);
-	register int number_to_move, i;
+    	char *dest = YY_CURRENT_BUFFER_LVALUE->yy_ch_buf;
+	char *source = (yytext_ptr);
+	yy_size_t number_to_move, i;
 	int ret_val;
 
 	if ( (yy_c_buf_p) > &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars) + 1] )
@@ -1333,7 +1346,7 @@ static int yy_get_next_buffer (void)
 	/* Try to read more data. */
 
 	/* First move last chars to start of buffer. */
-	number_to_move = (int) ((yy_c_buf_p) - (yytext_ptr)) - 1;
+	number_to_move = (yy_size_t) ((yy_c_buf_p) - (yytext_ptr)) - 1;
 
 	for ( i = 0; i < number_to_move; ++i )
 		*(dest++) = *(source++);
@@ -1346,21 +1359,21 @@ static int yy_get_next_buffer (void)
 
 	else
 		{
-			int num_to_read =
+			yy_size_t num_to_read =
 			YY_CURRENT_BUFFER_LVALUE->yy_buf_size - number_to_move - 1;
 
 		while ( num_to_read <= 0 )
 			{ /* Not enough room in the buffer - grow it. */
 
 			/* just a shorter name for the current buffer */
-			YY_BUFFER_STATE b = YY_CURRENT_BUFFER;
+			YY_BUFFER_STATE b = YY_CURRENT_BUFFER_LVALUE;
 
 			int yy_c_buf_p_offset =
 				(int) ((yy_c_buf_p) - b->yy_ch_buf);
 
 			if ( b->yy_is_our_buffer )
 				{
-				int new_size = b->yy_buf_size * 2;
+				yy_size_t new_size = b->yy_buf_size * 2;
 
 				if ( new_size <= 0 )
 					b->yy_buf_size += b->yy_buf_size / 8;
@@ -1391,7 +1404,7 @@ static int yy_get_next_buffer (void)
 
 		/* Read in more data. */
 		YY_INPUT( (&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move]),
-			(yy_n_chars), (size_t) num_to_read );
+			(yy_n_chars), num_to_read );
 
 		YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars);
 		}
@@ -1415,9 +1428,9 @@ static int yy_get_next_buffer (void)
 	else
 		ret_val = EOB_ACT_CONTINUE_SCAN;
 
-	if ((yy_size_t) ((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
+	if ((int) ((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
 		/* Extend the array by 50%, plus the number we really need. */
-		yy_size_t new_size = (yy_n_chars) + number_to_move + ((yy_n_chars) >> 1);
+		int new_size = (yy_n_chars) + number_to_move + ((yy_n_chars) >> 1);
 		YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) yyrealloc((void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf,new_size  );
 		if ( ! YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
 			YY_FATAL_ERROR( "out of dynamic memory in yy_get_next_buffer()" );
@@ -1436,14 +1449,14 @@ static int yy_get_next_buffer (void)
 
     static yy_state_type yy_get_previous_state (void)
 {
-	register yy_state_type yy_current_state;
-	register char *yy_cp;
+	yy_state_type yy_current_state;
+	char *yy_cp;
     
 	yy_current_state = (yy_start);
 
 	for ( yy_cp = (yytext_ptr) + YY_MORE_ADJ; yy_cp < (yy_c_buf_p); ++yy_cp )
 		{
-		register YY_CHAR yy_c = (*yy_cp ? yy_ec[YY_SC_TO_UI(*yy_cp)] : 57);
+		YY_CHAR yy_c = (*yy_cp ? yy_ec[YY_SC_TO_UI(*yy_cp)] : 57);
 		if ( yy_accept[yy_current_state] )
 			{
 			(yy_last_accepting_state) = yy_current_state;
@@ -1468,10 +1481,10 @@ static int yy_get_next_buffer (void)
  */
     static yy_state_type yy_try_NUL_trans  (yy_state_type yy_current_state )
 {
-	register int yy_is_jam;
-    	register char *yy_cp = (yy_c_buf_p);
+	int yy_is_jam;
+    	char *yy_cp = (yy_c_buf_p);
 
-	register YY_CHAR yy_c = 57;
+	YY_CHAR yy_c = 57;
 	if ( yy_accept[yy_current_state] )
 		{
 		(yy_last_accepting_state) = yy_current_state;
@@ -1486,12 +1499,14 @@ static int yy_get_next_buffer (void)
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 	yy_is_jam = (yy_current_state == 110);
 
-	return yy_is_jam ? 0 : yy_current_state;
+		return yy_is_jam ? 0 : yy_current_state;
 }
 
-    static void yyunput (int c, register char * yy_bp )
+#ifndef YY_NO_UNPUT
+
+    static void yyunput (int c, char * yy_bp )
 {
-	register char *yy_cp;
+	char *yy_cp;
     
     yy_cp = (yy_c_buf_p);
 
@@ -1501,10 +1516,10 @@ static int yy_get_next_buffer (void)
 	if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
 		{ /* need to shift things up to make room */
 		/* +2 for EOB chars. */
-		register int number_to_move = (yy_n_chars) + 2;
-		register char *dest = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[
+		yy_size_t number_to_move = (yy_n_chars) + 2;
+		char *dest = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[
 					YY_CURRENT_BUFFER_LVALUE->yy_buf_size + 2];
-		register char *source =
+		char *source =
 				&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move];
 
 		while ( source > YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
@@ -1525,6 +1540,8 @@ static int yy_get_next_buffer (void)
 	(yy_hold_char) = *yy_cp;
 	(yy_c_buf_p) = yy_cp;
 }
+
+#endif
 
 #ifndef YY_NO_INPUT
 #ifdef __cplusplus
@@ -1550,7 +1567,7 @@ static int yy_get_next_buffer (void)
 
 		else
 			{ /* need more input */
-			int offset = (yy_c_buf_p) - (yytext_ptr);
+			yy_size_t offset = (yy_c_buf_p) - (yytext_ptr);
 			++(yy_c_buf_p);
 
 			switch ( yy_get_next_buffer(  ) )
@@ -1675,7 +1692,7 @@ static void yy_load_buffer_state  (void)
 	if ( ! b )
 		YY_FATAL_ERROR( "out of dynamic memory in yy_create_buffer()" );
 
-	b->yy_buf_size = size;
+	b->yy_buf_size = (yy_size_t)size;
 
 	/* yy_ch_buf has to be 2 characters longer than the size given because
 	 * we need to put in 2 end-of-buffer characters.
@@ -1710,10 +1727,6 @@ static void yy_load_buffer_state  (void)
 	yyfree((void *) b  );
 }
 
-#ifndef __cplusplus
-extern int isatty (int );
-#endif /* __cplusplus */
-    
 /* Initializes or reinitializes a buffer.
  * This function is sometimes called more than once on the same buffer,
  * such as during a yyrestart() or at EOF.
@@ -1826,7 +1839,7 @@ void yypop_buffer_state (void)
  */
 static void yyensure_buffer_stack (void)
 {
-	int num_to_alloc;
+	yy_size_t num_to_alloc;
     
 	if (!(yy_buffer_stack)) {
 
@@ -1834,7 +1847,7 @@ static void yyensure_buffer_stack (void)
 		 * scanner will even need a stack. We use 2 instead of 1 to avoid an
 		 * immediate realloc on the next call.
          */
-		num_to_alloc = 1;
+		num_to_alloc = 1; /* After all that talk, this was set to 1 anyways... */
 		(yy_buffer_stack) = (struct yy_buffer_state**)yyalloc
 								(num_to_alloc * sizeof(struct yy_buffer_state*)
 								);
@@ -1851,7 +1864,7 @@ static void yyensure_buffer_stack (void)
 	if ((yy_buffer_stack_top) >= ((yy_buffer_stack_max)) - 1){
 
 		/* Increase the buffer to prepare for a possible push. */
-		int grow_size = 8 /* arbitrary grow size */;
+		yy_size_t grow_size = 8 /* arbitrary grow size */;
 
 		num_to_alloc = (yy_buffer_stack_max) + grow_size;
 		(yy_buffer_stack) = (struct yy_buffer_state**)yyrealloc
@@ -1923,12 +1936,12 @@ YY_BUFFER_STATE yy_scan_string (yyconst char * yystr )
  * 
  * @return the newly allocated buffer state object.
  */
-YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, int  _yybytes_len )
+YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, yy_size_t  _yybytes_len )
 {
 	YY_BUFFER_STATE b;
 	char *buf;
 	yy_size_t n;
-	int i;
+	yy_size_t i;
     
 	/* Get memory for full buffer, including space for trailing EOB's. */
 	n = _yybytes_len + 2;
@@ -1959,7 +1972,7 @@ YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, int  _yybytes_len )
 
 static void yy_fatal_error (yyconst char* msg )
 {
-    	(void) fprintf( stderr, "%s\n", msg );
+			(void) fprintf( stderr, "%s\n", msg );
 	exit( YY_EXIT_FAILURE );
 }
 
@@ -2010,7 +2023,7 @@ FILE *yyget_out  (void)
 /** Get the length of the current token.
  * 
  */
-int yyget_leng  (void)
+yy_size_t yyget_leng  (void)
 {
         return yyleng;
 }
@@ -2025,29 +2038,29 @@ char *yyget_text  (void)
 }
 
 /** Set the current line number.
- * @param line_number
+ * @param _line_number line number
  * 
  */
-void yyset_lineno (int  line_number )
+void yyset_lineno (int  _line_number )
 {
     
-    yylineno = line_number;
+    yylineno = _line_number;
 }
 
 /** Set the input stream. This does not discard the current
  * input buffer.
- * @param in_str A readable stream.
+ * @param _in_str A readable stream.
  * 
  * @see yy_switch_to_buffer
  */
-void yyset_in (FILE *  in_str )
+void yyset_in (FILE *  _in_str )
 {
-        yyin = in_str ;
+        yyin = _in_str ;
 }
 
-void yyset_out (FILE *  out_str )
+void yyset_out (FILE *  _out_str )
 {
-        yyout = out_str ;
+        yyout = _out_str ;
 }
 
 int yyget_debug  (void)
@@ -2055,9 +2068,9 @@ int yyget_debug  (void)
         return yy_flex_debug;
 }
 
-void yyset_debug (int  bdebug )
+void yyset_debug (int  _bdebug )
 {
-        yy_flex_debug = bdebug ;
+        yy_flex_debug = _bdebug ;
 }
 
 static int yy_init_globals (void)
@@ -2117,7 +2130,8 @@ int yylex_destroy  (void)
 #ifndef yytext_ptr
 static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )
 {
-	register int i;
+		
+	int i;
 	for ( i = 0; i < n; ++i )
 		s1[i] = s2[i];
 }
@@ -2126,7 +2140,7 @@ static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )
 #ifdef YY_NEED_STRLEN
 static int yy_flex_strlen (yyconst char * s )
 {
-	register int n;
+	int n;
 	for ( n = 0; s[n]; ++n )
 		;
 
@@ -2136,11 +2150,12 @@ static int yy_flex_strlen (yyconst char * s )
 
 void *yyalloc (yy_size_t  size )
 {
-	return (void *) malloc( size );
+			return (void *) malloc( size );
 }
 
 void *yyrealloc  (void * ptr, yy_size_t  size )
 {
+		
 	/* The cast to (char *) in the following accommodates both
 	 * implementations that use char* generic pointers, and those
 	 * that use void* generic pointers.  It works with the latter
@@ -2153,12 +2168,12 @@ void *yyrealloc  (void * ptr, yy_size_t  size )
 
 void yyfree (void * ptr )
 {
-	free( (char *) ptr );	/* see yyrealloc() for (char *) cast */
+			free( (char *) ptr );	/* see yyrealloc() for (char *) cast */
 }
 
 #define YYTABLES_NAME "yytables"
 
-#line 107 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 107 "/home/rbourrier/Documents/pld-comp/src/flex/tokens.lex"
 
 
 
