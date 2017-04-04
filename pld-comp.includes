@@ -5,3 +5,4 @@ flex/bin
 .
 flex/src
 src/flex/AST/Expression
+src/IR/instructions
