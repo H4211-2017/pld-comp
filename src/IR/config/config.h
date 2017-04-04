@@ -21,5 +21,6 @@ static const std::deque<std::string> ASM_X64_NON_VOLATILE_REGISTER_LIST = \
 static const std::deque<std::string> ASM_X64_CALL_PARAMETERS_REGISTRY = \
        { "r9", "r8", "rcx", "rdx", "rsi", "rdi"};
 
+static const std::string ASM_X64_FUNCTION_RETURN_REGISTER = "rax";
 
 #endif // CONFIG_H

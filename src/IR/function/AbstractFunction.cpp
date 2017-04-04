@@ -12,7 +12,17 @@ AbstractFunction::AbstractFunction(std::string name,
 
 }
 
+void AbstractFunction::pushBackNewParam(const sh_AbstractData &newParam)
+{
+    functionParam.push_back(newParam);
+}
+
 std::string AbstractFunction::getFunctionName() const
 {
     return functionName;
+}
+
+Type AbstractFunction::getFunctionReturnType() const
+{
+    return functionReturnType;
 }
