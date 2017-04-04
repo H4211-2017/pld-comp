@@ -60,7 +60,7 @@ namespace IR {
      */
     template<typename IrOperator> std::list<sh_AbsInstruction> Generator::binaryOperator(sh_Memory valueA, sh_Memory valueB, sh_Memory dest) const
     {
-        // Compile-time sanity check
+        //Compile-time sanity check
         static_assert(std::is_base_of<AbstractOperator, IrOperator>::value, "Generator::binaryOperator Error: given Operator is not a subclass of AbstractOperator");
         std::list<sh_AbsInstruction> instructionList;
         sh_Register registerValueA = getNewUnusedRegister(valueA->getType());

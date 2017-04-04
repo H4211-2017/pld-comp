@@ -22,5 +22,9 @@ std::string ReadFromMemory::toString() const
 
 std::string ReadFromMemory::toLinuxX86() const
 {
-
+    std::string ret = "\tmovq\t";
+    ret.append( std::to_string(source->getAsmBasePointerOffset()) );
+    ret.append( "(%rbp), " );
+    ret.append( destination->getAsmRegisterName() );
+    return ret;
 }

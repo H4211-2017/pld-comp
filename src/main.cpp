@@ -15,7 +15,6 @@
 extern "C" int yylex();
 
 
-
 void yyerror(int * param, const char * msg)
 {
 	std::cout << msg << std::endl;
@@ -24,7 +23,7 @@ void yyerror(int * param, const char * msg)
 int main(int argc, char *argv[])
 {
 //	shared_ptr< mapVar > i = make_shared< mapVar >();
-	
+
 //	try
 //	{
 //		yyparse(&i);
@@ -33,14 +32,14 @@ int main(int argc, char *argv[])
 //	{
 //		cout << s << endl;
 //	}
-	
+
 //	for(mapVar::iterator it = i->begin(); it != i->end(); it++)
 //	{
 //		cout << it->second->toString();
 //	}
-	
+
 //    long int i = 0;
-	
+
 //	yyparse(&i);
 //	std::cout << i << std::endl;
 
@@ -53,8 +52,12 @@ int main(int argc, char *argv[])
     IR::sh_Memory memC = gen.getNewUnusedMemmory(IR::Type::INT_64);
     std::list<IR::sh_AbsInstruction> instList = gen.binaryOperator<IR::OperatorPlus>(memA,memB,memC);
     mainFunction.getFunctionCore()->pushInstructionBack(instList);
-    mainFunction.generateBasicBlockList();
-    mainFunction.printIR(std::cout);
+    instList = gen.binaryOperator<IR::OperatorPlus>(memB,memC,memA);
+    mainFunction.getFunctionCore()->pushInstructionBack(instList);
+//    mainFunction.generateIR();
+//    mainFunction.printIR(std::cout);
+    mainFunction.generateASM(IR::AsmType::X86Linux);
+    mainFunction.printASM(std::cout,IR::X86Linux);
     return 0;
 }
 

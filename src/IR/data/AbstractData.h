@@ -6,7 +6,9 @@
 
 namespace IR {
     enum Type{
-        CHAR, INT_32, INT_64
+        CHAR  =1,
+        INT_32=2,
+        INT_64=4
     };
 
     class AbstractData
@@ -16,6 +18,7 @@ namespace IR {
 
         std::string getName() const;
         Type getType() const;
+        virtual int getSizeInMemory() const;
 
     protected:
         Type dataType; // 1, 2 or 4 byte(s)

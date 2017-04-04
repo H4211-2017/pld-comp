@@ -4,12 +4,15 @@
 #include <memory>
 
 #include "AbstractData.h"
+#include "Memory.h"
 
 namespace IR {
-    class MemoryArray : public AbstractData
+    class MemoryArray : public Memory
     {
     public:
         MemoryArray(Type type, std::string name, unsigned size);
+
+        virtual int getSizeInMemory() const;
 
     protected:
         unsigned dataSize;

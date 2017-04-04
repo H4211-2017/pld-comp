@@ -17,3 +17,8 @@ Type AbstractData::getType() const
 {
     return dataType;
 }
+
+int AbstractData::getSizeInMemory() const
+{
+    return dataType;
+}

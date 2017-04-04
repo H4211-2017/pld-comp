@@ -4,6 +4,7 @@
 #include <list>
 #include <memory>
 #include <map>
+#include <queue>
 
 #include "../instructions/AbstractInstruction.h"
 #include "../data/Memory.h"
@@ -29,20 +30,28 @@ namespace IR {
         void setNextBlockFalse(sh_BasicBlock basicBlock);
 
         void updateChildPreviousBlock();
+        void affectRegistry(std::queue<std::string> availableAsmRegistry);
+        bool isRegistryAfectable() const;
 
         void printIr(std::ostream& os) const;
+        void printAsm(std::ostream& os, AsmType asmType) const;
 
         std::string getName() const;
         void setName(const std::string &value);
 
         sh_BasicBlock getNextBlockTrue() const;
         sh_BasicBlock getNextBlockFalse() const;
-        std::map<std::string, sh_AbstractData> getUsedMemory() const;
+        std::map<std::string, sh_Memory> getUsedMemory() const;
         std::list<sh_AbsInstruction> getInstructionsList() const;
         std::list<sh_BasicBlock> getPreviousBlocks() const;
+        sh_Register getConditionnalJumpRegister() const;
+
+        bool isConditionnal() const;
+
 
     private:
-
+        void printAsmLabel(std::ostream& os, AsmType asmType) const;
+        void printAsmJump(std::ostream& os, AsmType asmType) const;
 
     private:
         std::string name;
@@ -51,7 +60,7 @@ namespace IR {
         sh_BasicBlock nextBlockFalse;
         std::list<sh_BasicBlock> previousBlocks;
 
-        std::map<std::string, sh_AbstractData> usedMemory;
+        std::map<std::string, sh_Memory> usedMemory;
         std::map<std::string, sh_Register> usedRegister;
 
         sh_Register conditionnalJumpRegister;
