@@ -48,10 +48,14 @@ IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
         std::shared_ptr<AbstractExpression> expr = params[i];
         irParams.push_front(expr->buildIR(currentBasicBlock));
     }
+
+    IR::Type returnType = getValue().getIRType();
+    IR::sh_Memory returnStatement = gen.getNewUnusedMemmory(returnType);
 	// TODO : complete this function by using params
-    // TODO : add return statement
-    std::list<IR::sh_AbsInstruction> absIntructions = gen.call(fct->getIrFunction(), irParams, nullptr);
-	return nullptr;
+    std::list<IR::sh_AbsInstruction> absIntructions = gen.call(fct->getIrFunction(), irParams,returnStatement);
+    currentBasicBlock->pushInstructionBack(absIntructions);
+    return returnStatement;
+
 }
 
 

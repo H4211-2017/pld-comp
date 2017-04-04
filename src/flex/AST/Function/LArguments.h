@@ -32,6 +32,7 @@ namespace AST
 		virtual Value evaluate() const;
 		virtual void printTree(int tabulationNumber) const;
 		virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        std::vector<std::shared_ptr<VariableSignature> > getArguments();
 		
 	protected:
 		
