@@ -31,8 +31,6 @@ namespace AST
         
         void setBlock(std::shared_ptr<Block> content);
 
-        std::vector<std::shared_ptr<VariableSignature>> getArguments() const;
-        
         std::shared_ptr<FunctionSignature> getSignature() const;
         
         virtual void printTree(int tabulationNumber) const;

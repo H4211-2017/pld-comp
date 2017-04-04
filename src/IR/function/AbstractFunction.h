@@ -13,7 +13,7 @@ namespace IR {
     public:
         AbstractFunction(std::string name, Type returnType, std::list<sh_AbstractData> param = std::list<sh_AbstractData>());
 
-        void pushBackNewParam(const sh_AbstractData &newParam);
+        virtual void pushBackNewParam(const sh_AbstractData &newParam);
 
         std::string getFunctionName() const;
         Type getFunctionReturnType() const;

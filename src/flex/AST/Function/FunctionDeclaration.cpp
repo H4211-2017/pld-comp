@@ -32,11 +32,6 @@ Value FunctionDeclaration::evaluate() const
 }
 
 IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock)
-{
-    std::vector<std::shared_ptr<VariableSignature>> argumentsList = fct->getArguments();
-    for (std::shared_ptr<VariableSignature> variableSignature : argumentsList)
-    {
-        //std::shared_ptr<AbstractVariable> abstrVariable = currentScope->findVariable(variableSignature->getIdentifiant());
-
-    }
+{   
+    return fct->buildIR(currentBasicBlock);
 }

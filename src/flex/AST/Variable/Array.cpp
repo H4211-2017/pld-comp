@@ -24,5 +24,6 @@ Value Array::evaluate() const
 
 IR::sh_Memory Array::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
+    throw std::runtime_error("Array::buildIR : Not supported yet");
 	return nullptr;
 }
