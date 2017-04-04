@@ -308,7 +308,7 @@ std::map<std::string, sh_Memory> BasicBlock::getUsedMemory() const
     return usedMemory;
 }
 
-std::list<sh_AbsInstruction> BasicBlock::getInstructionsList() const
+std::list<sh_AbsInstruction> &BasicBlock::getInstructionsList()
 {
     return instructionsList;
 }
