@@ -23,7 +23,6 @@ namespace AST {
         std::shared_ptr<SequenceInstruction> liextBefore;
         std::shared_ptr<SequenceInstruction> liextAfter;
         std::shared_ptr<FunctionDeclaration> main;
-
     };
 }
 

@@ -6,7 +6,7 @@
 #include "LArguments.h"
 #include "FunctionSignature.h"
 
-#include "../../../IR/function/ExternalFunction.h"
+#include "../../../IR/function/FunctionBlock.h"
 
 namespace AST
 {
@@ -40,7 +40,7 @@ namespace AST
         std::shared_ptr<FunctionSignature> sig;
         std::shared_ptr<LArguments> args;
         std::shared_ptr<Block> content;
-        std::shared_ptr<IR::ExternalFunction> irFunction;
+        std::shared_ptr<IR::FunctionBlock> irFunction;
         
     };
 }

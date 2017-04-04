@@ -15,7 +15,7 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 	this->setType(sig->getValue().getValue().first);
 	args = nullptr;
 	content = nullptr;
-	irFunction = std::make_shared<IR::ExternalFunction>(signature->getIdentifiant());
+	irFunction = std::make_shared<IR::FunctionBlock>(signature->getIdentifiant());
 }
 
 Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Scope> parentScope)
