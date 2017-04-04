@@ -59,8 +59,8 @@ std::string AbstractInstruction::toAsm(AsmType asmType) const
 {
     std::string ret;
     switch (asmType) {
-    case AsmType::X86Linux:
-        ret = toLinuxX86();
+    case AsmType::X64Linux:
+        ret = toLinuxX64();
         break;
     default:
         break;

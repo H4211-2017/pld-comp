@@ -24,7 +24,7 @@ std::string ReadArrayValue::toString() const
     return ret;
 }
 
-std::string ReadArrayValue::toLinuxX86() const
+std::string ReadArrayValue::toLinuxX64() const
 {
 
 }

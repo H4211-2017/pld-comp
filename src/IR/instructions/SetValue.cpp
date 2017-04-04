@@ -19,7 +19,7 @@ std::string SetValue::toString() const
     return ret;
 }
 
-std::string SetValue::toLinuxX86() const
+std::string SetValue::toLinuxX64() const
 {
 
 }

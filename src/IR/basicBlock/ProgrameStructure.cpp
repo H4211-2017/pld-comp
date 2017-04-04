@@ -36,8 +36,6 @@ void IR::ProgrameStructure::printASM(std::ostream &os, IR::AsmType asmType)
 void IR::ProgrameStructure::printX86prolog(std::ostream &os)
 {
     os << "\t.text" << std::endl;
-    os << "\t.globl\tmain" << std::endl;
-    os << "\t.type\tmain, @function" << std::endl;
 }
 
 std::list<std::shared_ptr<FunctionBlock> > ProgrameStructure::getFuntionList() const

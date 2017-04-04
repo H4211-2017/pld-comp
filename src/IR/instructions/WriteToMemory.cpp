@@ -38,7 +38,7 @@ std::string WriteToMemory::toString() const
     return ret;
 }
 
-std::string WriteToMemory::toLinuxX86() const
+std::string WriteToMemory::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( source->getAsmRegisterName() );

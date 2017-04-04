@@ -11,7 +11,7 @@ Call::Call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData
 
 }
 
-std::string Call::toLinuxX86() const
+std::string Call::toLinuxX64() const
 {
 
 }

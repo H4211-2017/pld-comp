@@ -20,7 +20,7 @@ std::string ReadFromMemory::toString() const
     return ret;
 }
 
-std::string ReadFromMemory::toLinuxX86() const
+std::string ReadFromMemory::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( std::to_string(source->getAsmBasePointerOffset()) );

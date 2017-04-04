@@ -19,7 +19,7 @@ std::string OperatorBigger::toString() const
     return ret;
 }
 
-std::string OperatorBigger::toLinuxX86() const
+std::string OperatorBigger::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( this->firstValue->getAsmRegisterName() );

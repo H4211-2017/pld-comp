@@ -19,7 +19,7 @@ std::string OperatorEquals::toString() const
     return ret;
 }
 
-std::string OperatorEquals::toLinuxX86() const
+std::string OperatorEquals::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( this->firstValue->getAsmRegisterName() );

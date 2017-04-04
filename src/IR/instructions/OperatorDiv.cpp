@@ -19,7 +19,7 @@ std::string OperatorDiv::toString() const
     return ret;
 }
 
-std::string OperatorDiv::toLinuxX86() const
+std::string OperatorDiv::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( this->firstValue->getAsmRegisterName() );

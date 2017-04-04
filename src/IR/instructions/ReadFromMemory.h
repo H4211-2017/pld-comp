@@ -10,7 +10,7 @@ namespace IR {
         ReadFromMemory(sh_Memory from, sh_Register to);
 
         virtual std::string toString() const;
-        virtual std::string toLinuxX86() const;
+        virtual std::string toLinuxX64() const;
 
     private:
         sh_Memory source;

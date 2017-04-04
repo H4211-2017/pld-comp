@@ -19,7 +19,7 @@ std::string OperatorMinus::toString() const
     return ret;
 }
 
-std::string OperatorMinus::toLinuxX86() const
+std::string OperatorMinus::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( this->firstValue->getAsmRegisterName() );

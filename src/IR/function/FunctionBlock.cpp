@@ -124,10 +124,11 @@ void FunctionBlock::affectMemory()
     //affect an offset to each memory
     for(sh_Memory mem : memoryList)
     {
+        //move offset to ensure to get the space for the current mem
+        currentOffset -= mem->getSizeInMemory();
         //move the offset to the next (1/2/4) byte depending on the data type
         currentOffset -= (-currentOffset) % mem->getType();
         mem->setAsmBasePointerOffset(currentOffset);
-        currentOffset -= mem->getSizeInMemory();
     }
 }
 
@@ -301,9 +302,13 @@ void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
 {
     if(asmType == AsmType::X86Linux)
     {
-        os << this->getFunctionName() << ":" << std::endl;
+        //add globl and type info
+        os << "\t.globl\t" << this->functionName << std::endl;
+        os << "\t.type\t" << this->functionName << ", @function" << std::endl;
+        //add a label
+        os << this->functionName << ":" << std::endl;
         os << "\tpush\t%rbp" << std::endl;
-        os << "\tmovq\%rsp, %rbp" << std::endl;
+        os << "\tmovq\t%rsp, %rbp" << std::endl;
         //load function param into the wanted memory / register
         auto regNameIt = ASM_X86_CALL_PARAMETERS_REGISTRY.begin();
         auto memParmIt = this->functionParam.begin();
@@ -342,6 +347,7 @@ void FunctionBlock::printASMepilog(std::ostream &os, AsmType asmType) const
     case AsmType::X86Linux:
         os << "\tpopq\t%rbp" << std::endl;
         os << "\tret" << std::endl;
+        os << "\t.size\t" << this->functionName << ", .-" << this->functionName << std::endl;
         break;
     default:
         break;

@@ -19,7 +19,7 @@ std::string OperatorMult::toString() const
     return ret;
 }
 
-std::string OperatorMult::toLinuxX86() const
+std::string OperatorMult::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( this->firstValue->getAsmRegisterName() );

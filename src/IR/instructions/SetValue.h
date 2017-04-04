@@ -11,7 +11,7 @@ namespace IR {
         SetValue(Constant constant, sh_Register destRegister);
 
         virtual std::string toString() const;
-        virtual std::string toLinuxX86() const;
+        virtual std::string toLinuxX64() const;
 
     private:
         sh_Register dest;

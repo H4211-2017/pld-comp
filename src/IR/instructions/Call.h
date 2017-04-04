@@ -16,7 +16,7 @@ namespace IR {
 
         virtual std::string toString() const;
 
-        virtual std::string toLinuxX86() const;
+        virtual std::string toLinuxX64() const;
 
     private:
         std::shared_ptr<AbstractFunction> calledFunction;

@@ -6,8 +6,8 @@ namespace IR {
 
     enum class AsmType
     {
-        X86Linux,
-        X86Win //no need to implement it yet
+        X64Linux,
+        X64Win //no need to implement it yet
     };
 
 }
