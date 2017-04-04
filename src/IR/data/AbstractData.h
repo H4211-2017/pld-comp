@@ -4,7 +4,10 @@
 #include <memory>
 #include <string>
 
+#include "../config/Enums.h"
+
 namespace IR {
+
     enum Type{
         CHAR  =1,
         INT_32=2,
@@ -19,6 +22,9 @@ namespace IR {
         std::string getName() const;
         Type getType() const;
         virtual int getSizeInMemory() const;
+
+        virtual std::string getASMname(AsmType asmType) const;
+        virtual std::string getX86name() const =0;
 
     protected:
         Type dataType; // 1, 2 or 4 byte(s)

@@ -15,6 +15,8 @@ namespace IR {
         std::string getAsmRegisterName() const;
         void setAsmRegisterName(const std::string &value);
 
+        virtual std::string getX86name() const;
+
     private:
         std::string asm_registerName;
     };
