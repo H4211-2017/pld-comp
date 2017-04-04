@@ -35,7 +35,7 @@ Value SequenceInstruction::evaluate() const
 	return Value();
 }
 
-IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
 	IR::sh_Memory last = nullptr;
 	

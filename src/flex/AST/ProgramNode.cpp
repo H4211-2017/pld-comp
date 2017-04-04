@@ -28,7 +28,13 @@ Value ProgramNode::evaluate() const
 {
 	return Value();
 }
-IR::sh_Memory ProgramNode::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+
+// TODO : functions other than main
+std::shared_ptr<IR::FunctionStructure> ProgramNode::buildIR()
 {
-    return nullptr;
+    std::shared_ptr<IR::FunctionStructure> programStructure = std::make_shared<IR::FunctionStructure>();
+    programStructure->addFunction(main->getIrFunction());
+    IR::sh_BasicBlock mainCoreIR = main->getIrFunction()->getFunctionCore();
+    main->buildIR(mainCoreIR);
+
 }

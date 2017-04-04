@@ -11,6 +11,11 @@ FunctionDeclaration::FunctionDeclaration(std::shared_ptr<FunctionSignature> sign
     scope->declareFunction(sig->getIdentifiant(), fct);
 }
 
+std::shared_ptr<IR::FunctionBlock> FunctionDeclaration::getIrFunction() const
+{
+    return fct->getIrFunction();
+}
+
 void FunctionDeclaration::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
@@ -26,7 +31,7 @@ Value FunctionDeclaration::evaluate() const
     return Value();
 }
 
-IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
-	return nullptr;
+
 }

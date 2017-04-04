@@ -65,7 +65,7 @@ Value UnitInstruction::evaluate() const
 	}
 }
 
-IR::sh_Memory UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
 	IR::sh_Memory memory = nullptr;
 	
