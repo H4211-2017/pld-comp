@@ -28,9 +28,8 @@ Variable::Variable(std::shared_ptr<VariableSignature> signature, bool decl, cons
 }
 
 Variable::Variable(std::string name, std::shared_ptr<VariableSignature> signature, bool decl)
-	: AbstractNode(name), declaration(decl)
+    : AbstractVariable(name, signature, decl)
 {
-	sig = signature;
 	this->setType(sig->getValue().getValue().first);
 }
 
@@ -44,11 +43,6 @@ void Variable::noLongerDeclaration()
 	declaration = false;
 }
 
-std::shared_ptr<VariableSignature> Variable::getSignature() const
-{
-	return sig;
-}
-        
 void Variable::printTree(int tabulationNumber) const
 {
 	AbstractNode::printTree(tabulationNumber);

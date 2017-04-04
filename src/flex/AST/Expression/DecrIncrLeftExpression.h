@@ -18,7 +18,7 @@ public:
     virtual Value evaluate() const;
 
     // TODO : create class CFG and replace comment below.
-    virtual void buildIR(/*std::shared_ptr<CFG>*/) const;
+    virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
     virtual void printTree(int tabulationNumber) const;
 

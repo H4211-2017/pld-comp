@@ -39,7 +39,7 @@ Value DecrIncrRightExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void DecrIncrRightExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+void DecrIncrRightExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

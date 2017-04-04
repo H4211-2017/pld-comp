@@ -26,13 +26,13 @@ IDExpression::IDExpression(std::string name, std::string id,
 }
 
 
-IDExpression::IDExpression(std::shared_ptr<Variable> variable, std::shared_ptr<Scope> scope)
+IDExpression::IDExpression(std::shared_ptr<AbstractVariable> variable, std::shared_ptr<Scope> scope)
     : IDExpression("IDExpression", variable, scope)
 {
 	
 }
 
-IDExpression::IDExpression(std::string name, std::shared_ptr<Variable> variable, std::shared_ptr<Scope> scope)
+IDExpression::IDExpression(std::string name, std::shared_ptr<AbstractVariable> variable, std::shared_ptr<Scope> scope)
     : AbstractExpression(name)
 {
 	val = variable;

@@ -38,8 +38,8 @@ Value DecrIncrLeftExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
-void DecrIncrLeftExpression::buildIR(/*std::shared_ptr<BasicBlock>*/) const
+// TODO
+void DecrIncrLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
 }

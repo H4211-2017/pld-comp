@@ -1,7 +1,7 @@
 #include "ProgramNode.h"
 
-#include "SequenceInstruction.h"
-#include "FunctionDeclaration.h"
+#include "Instruction/SequenceInstruction.h"
+#include "Function/FunctionDeclaration.h"
 
 using namespace AST;
 

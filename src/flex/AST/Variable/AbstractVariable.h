@@ -17,7 +17,7 @@ namespace AST
         
         virtual void printTree(int tabulationNumber) const;
       
-        const std::shared_ptr<const VariableSignature> getVariableSignature() const;
+        std::shared_ptr< VariableSignature> getSignature() const;
         
     protected:
         std::shared_ptr<VariableSignature> sig;

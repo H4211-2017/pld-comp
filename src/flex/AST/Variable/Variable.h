@@ -15,12 +15,11 @@ namespace AST
 	{
 	public:
         
+        Variable(std::string name, std::shared_ptr<VariableSignature> signature, bool decl);
         Variable(std::shared_ptr<VariableSignature> signature, bool decl, const IR::Generator &generator);
         
         bool isDeclaration() const;
         void noLongerDeclaration();
-        
-        std::shared_ptr<VariableSignature> getSignature() const;
         
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;

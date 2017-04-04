@@ -29,7 +29,7 @@ void AbstractVariable::printTree(int tabulationNumber) const
 	sig->printTree(tabulationNumber + 1);
 }
 
-const std::shared_ptr<const VariableSignature> AbstractVariable::getVariableSignature() const
+std::shared_ptr<VariableSignature> AbstractVariable::getSignature() const
 {
 	return sig;
 }
