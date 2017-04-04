@@ -103,7 +103,8 @@ void LArguments::printTree(int tabulationNumber) const
 	}
 }
 
-std::vector<std::shared_ptr<VariableSignature> > LArguments::getArguments(){
+std::vector<std::shared_ptr<VariableSignature> > LArguments::getArguments()
+{
     return arguments;
 }
 

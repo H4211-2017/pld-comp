@@ -30,7 +30,6 @@ void SequenceInstruction::printTree(int tabulationNumber) const
     }
 }
 
-// TODO
 Value SequenceInstruction::evaluate() const
 {
 	return Value();
@@ -38,11 +37,14 @@ Value SequenceInstruction::evaluate() const
 
 IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
+	IR::sh_Memory last = nullptr;
+	
     for(std::shared_ptr<AbstractInstruction> instruction : instructionsList)
     {
-        instruction->buildIR(currentBasicBlock);
+        last = instruction->buildIR(currentBasicBlock);
     }
-	return nullptr;
+    
+	return last;
 }
 
 

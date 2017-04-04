@@ -43,7 +43,6 @@ std::shared_ptr<AbstractInstruction> make_shared_instr(AbstractInstruction* ptr)
 	}
 	else
 	{	
-		
         std::cerr<< " AbstractInstruction :: make_shared_ptr found no type like '" << name << "'" << std::endl;
         throw std::runtime_error("Bad cast");
 	}

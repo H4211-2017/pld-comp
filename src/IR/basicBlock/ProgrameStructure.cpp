@@ -7,12 +7,12 @@ ProgrameStructure::ProgrameStructure()
 
 }
 
-void IR::ProgrameStructure::addFunction(std::shared_ptr<IR::FunctionBlock> function)
+void ProgrameStructure::addFunction(std::shared_ptr<FunctionBlock> function)
 {
     this->funtionList.push_back(function);
 }
 
-void IR::ProgrameStructure::printASM(std::ostream &os, IR::AsmType asmType)
+void ProgrameStructure::printASM(std::ostream &os, AsmType asmType)
 {
     switch (asmType)
     {
@@ -33,7 +33,7 @@ void IR::ProgrameStructure::printASM(std::ostream &os, IR::AsmType asmType)
 
 }
 
-void IR::ProgrameStructure::printX86prolog(std::ostream &os)
+void ProgrameStructure::printX86prolog(std::ostream &os)
 {
     os << "\t.text" << std::endl;
 }

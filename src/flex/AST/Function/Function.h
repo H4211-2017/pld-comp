@@ -6,7 +6,7 @@
 #include "LArguments.h"
 #include "FunctionSignature.h"
 
-#include "../../../IR/function/ExternalFunction.h"
+#include "../../../IR/function/FunctionBlock.h"
 
 namespace AST
 {
@@ -20,7 +20,7 @@ namespace AST
         Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope);
         Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope);
        
-        std::shared_ptr<IR::ExternalFunction> getIrFunction();
+        std::shared_ptr<IR::FunctionBlock> getIrFunction();
  
         bool compareArguments(std::shared_ptr<Function> f2) const;
         
@@ -40,7 +40,7 @@ namespace AST
         std::shared_ptr<FunctionSignature> sig;
         std::shared_ptr<LArguments> args;
         std::shared_ptr<Block> content;
-        std::shared_ptr<IR::ExternalFunction> irFunction;
+        std::shared_ptr<IR::FunctionBlock> irFunction;
         
     };
 }

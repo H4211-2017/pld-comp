@@ -27,7 +27,7 @@ namespace IR {
         std::list<sh_Memory> getReadMemoryList() const;
         std::list<sh_Memory> getWroteMemoryList() const;
 
-        const std::map<std::__cxx11::string, sh_Register> &getAliveRegister() const;
+        const std::map<std::string, sh_Register> &getAliveRegister() const;
         bool pushToAliveRegister(const sh_Register &reg);
         void clearAliveRegister();
 

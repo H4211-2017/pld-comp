@@ -1,7 +1,10 @@
 #ifndef ADD_EXPRESSION_H
 #define ADD_EXPRESSION_H
+
 #include "AbstractBinaryExpression.h"
-namespace AST {
+
+namespace AST
+{
 
 class AddExpression : public AbstractBinaryExpression 
 {

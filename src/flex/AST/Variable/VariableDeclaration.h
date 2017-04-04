@@ -7,7 +7,8 @@
 #include "Variable.h"
 #include "Scope.h"
 
-namespace AST {
+namespace AST
+{
     class VariableDeclaration : public AbstractInstruction
     {
     public:
