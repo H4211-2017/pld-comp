@@ -41,7 +41,7 @@ Value ComposedInstruction::evaluate() const
 
 IR::sh_Memory ComposedInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	sh_Memory lastMemory = nullptr;
+	IR::sh_Memory lastMemory = nullptr;
 	
     for(std::shared_ptr<AbstractExpression> expression : listExpressions)
     {

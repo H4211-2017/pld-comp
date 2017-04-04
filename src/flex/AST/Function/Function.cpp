@@ -62,7 +62,7 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 	}
 }
 
-std::shared_ptr<IR::ExternalFunction> Function::getIrFunction()
+std::shared_ptr<IR::FunctionBlock> Function::getIrFunction()
 {
 	return irFunction;
 }

@@ -77,10 +77,10 @@ IR::sh_Memory UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) co
 		case STRUCT:
 		    memory = struc->buildIR(currentBasicBlock);
 		    break;
-		case RETURN;
+		case RETURN:
 			memory = ret->buildIR(currentBasicBlock);
-		default;
-			std::cerr << "ERROR : UnitInstruction::buildIR : bad construction of unit instruction" << std::endl
+		default:
+			std::cerr << "ERROR : UnitInstruction::buildIR : bad construction of unit instruction" << std::endl;
 		    break;
     }
     
