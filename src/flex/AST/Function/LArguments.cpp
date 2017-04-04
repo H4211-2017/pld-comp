@@ -103,6 +103,10 @@ void LArguments::printTree(int tabulationNumber) const
 	}
 }
 
+std::vector<std::shared_ptr<VariableSignature> > LArguments::getArguments(){
+    return arguments;
+}
+
 IR::sh_Memory LArguments::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
