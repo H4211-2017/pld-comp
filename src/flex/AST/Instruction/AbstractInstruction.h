@@ -17,7 +17,7 @@ namespace AST
          */
         AbstractInstruction(std::string name);
 
-        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const =0;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) = 0;
 
         
     };

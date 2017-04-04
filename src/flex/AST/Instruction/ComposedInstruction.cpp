@@ -39,7 +39,7 @@ Value ComposedInstruction::evaluate() const
 }
 
 
-IR::sh_Memory ComposedInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory ComposedInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
     for(std::shared_ptr<AbstractExpression> instruction : listExpressions)
     {

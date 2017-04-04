@@ -36,7 +36,7 @@ Value SequenceInstruction::evaluate() const
 	return Value();
 }
 
-IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
     for(std::shared_ptr<AbstractInstruction> instruction : instructionsList)
     {
