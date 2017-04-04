@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <queue>
+#include <list>
 
 #include "AbstractFunction.h"
 #include "../basicBlock/BasicBlock.h"
@@ -11,7 +12,7 @@ namespace IR {
     class FunctionBlock : public AbstractFunction
     {
     public:
-        FunctionBlock(std::string name);
+        FunctionBlock(std::string name, Type returnType, std::list<sh_Memory> argumentsType);
 
         sh_BasicBlock getFunctionCore() const;
         void setFunctionCore(const sh_BasicBlock &value);
