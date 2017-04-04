@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 2.8)
 project(pld-comp)
 set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
 
+list( APPEND CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
+
 file(
         GLOB_RECURSE
         source_files
@@ -25,6 +27,8 @@ ADD_FLEX_BISON_DEPENDENCY(MyScanner MyParser)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/flex/AST)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/flex/AST/Expression)
 
 add_executable(${PROJECT_NAME}
     ${source_files} ${header_files}

@@ -1,0 +1,19 @@
+@startuml
+
+package IR {
+    package Function {
+        abstract class AbstractFunction
+        class ExternalFunction
+        class FunctionBlock
+    }
+    
+    package Generator {
+        class Generator
+    }
+    
+}
+
+AbstractFunction <|-- ExternalFunction
+AbstractFunction <|-- FunctionBlock
+
+@enduml

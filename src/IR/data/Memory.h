@@ -1,13 +1,26 @@
 #ifndef MEMORY_H
 #define MEMORY_H
 
+#include <memory>
+
 #include "AbstractData.h"
 
-class Memory : public AbstractData
-{
-public:
-    Memory();
+namespace IR {
+    class Memory : public AbstractData
+    {
+    public:
+        Memory(Type type, std::string name);
 
-};
+        int getAsmBasePointerOffset() const;
+        void setAsmBasePointerOffset(int value);
+
+    private:
+        int asm_basePointerOffset;
+
+    };
+
+    typedef std::shared_ptr<Memory> sh_Memory;
+}
+
 
 #endif // MEMORY_H

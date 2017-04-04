@@ -6,14 +6,17 @@
 #include "AbstractInstruction.h"
 #include "../data/Register.h"
 
-class AbstractOperator : public AbstractInstruction
-{
-public:
-    AbstractOperator(std::shared_ptr<Register> resultRegister, std::shared_ptr<Register> firstValueRegister, std::shared_ptr<Register> secondValueRegister);
-private:
-    std::shared_ptr<Register> destination;
-    std::shared_ptr<Register> firstValue;
-    std::shared_ptr<Register> secondValue;
-};
+namespace IR {
+    class AbstractOperator : public AbstractInstruction
+    {
+    public:
+        AbstractOperator(sh_Register resultRegister, sh_Register firstValueRegister, sh_Register secondValueRegister);
+    protected:
+        sh_Register destination;
+        sh_Register firstValue;
+        sh_Register secondValue;
+    };
+}
+
 
 #endif // ABSTRACTOPERATOR_H

@@ -1,4 +1,0 @@
-int32_t jeanClaude = 36;
-int64_t caractere = 12;
-3+22/2;
-

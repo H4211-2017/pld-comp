@@ -1,0 +1,155 @@
+bison.ypp: avertissement: 15 non terminaux inutiles dans la grammaire [-Wother]
+bison.ypp: avertissement: 36 règles inutiles dans la grammaire [-Wother]
+bison.ypp:77.1-9: avertissement: unité non terminale inutile dans la grammaire : programme [-Wother]
+ programme : liext mainbody liext {std::cout << "programme" << std::endl;}
+ ^^^^^^^^^
+bison.ypp:77.19-26: avertissement: unité non terminale inutile dans la grammaire : mainbody [-Wother]
+ programme : liext mainbody liext {std::cout << "programme" << std::endl;}
+                   ^^^^^^^^
+bison.ypp:80.12-19: avertissement: unité non terminale inutile dans la grammaire : maintype [-Wother]
+ mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl;}
+            ^^^^^^^^
+bison.ypp:80.43-49: avertissement: unité non terminale inutile dans la grammaire : mainarg [-Wother]
+ mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl;}
+                                           ^^^^^^^
+bison.ypp:77.13-17: avertissement: unité non terminale inutile dans la grammaire : liext [-Wother]
+ programme : liext mainbody liext {std::cout << "programme" << std::endl;}
+             ^^^^^
+bison.ypp:91.15-18: avertissement: unité non terminale inutile dans la grammaire : iext [-Wother]
+ liext : liext iext  {std::cout << "liext : liext iext" << std::endl;}
+               ^^^^
+bison.ypp:95.7-14: avertissement: unité non terminale inutile dans la grammaire : declfonc [-Wother]
+     | declfonc    {std::cout << "iext : declfonc" << std::endl;}
+       ^^^^^^^^
+bison.ypp:94.8-14: avertissement: unité non terminale inutile dans la grammaire : deffonc [-Wother]
+ iext : deffonc    {std::cout << "iext : deffonc" << std::endl;}
+        ^^^^^^^
+bison.ypp:102.12-20: avertissement: unité non terminale inutile dans la grammaire : debutfonc [-Wother]
+ declfonc : debutfonc SEMICOLON  {std::cout << "declfonc : debutfonc ;" << std::endl;}
+            ^^^^^^^^^
+bison.ypp:87.7-10: avertissement: unité non terminale inutile dans la grammaire : larg [-Wother]
+     | larg              {std::cout << "mainarag : larg" << std::endl;}
+       ^^^^
+bison.ypp:112.19-21: avertissement: unité non terminale inutile dans la grammaire : arg [-Wother]
+ larg : larg COMMA arg                               {std::cout << "larg : larg , arg "<< std::endl;}
+                   ^^^
+bison.ypp:123.1-9: avertissement: unité non terminale inutile dans la grammaire : appelfonc [-Wother]
+ appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {std::cout << "appelfonc : ID ( ) "<< std::endl;}
+ ^^^^^^^^^
+bison.ypp:124.27-32: avertissement: unité non terminale inutile dans la grammaire : lparam [-Wother]
+     | ID LEFT_PARENTHESIS lparam RIGHT_PARENTHESIS  {std::cout << "appelfonc : ID ( lparam )" << std::endl;}
+                           ^^^^^^
+bison.ypp:107.13-19: avertissement: unité non terminale inutile dans la grammaire : sigfonc [-Wother]
+ debutfonc : sigfonc LEFT_PARENTHESIS larg RIGHT_PARENTHESIS     {std::cout << "debutfonc : sigfonc ( larg )" << std::endl;}
+             ^^^^^^^
+bison.ypp:80.69-72: avertissement: unité non terminale inutile dans la grammaire : bloc [-Wother]
+ mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl;}
+                                                                     ^^^^
+bison.ypp:77.13-73: avertissement: règle inutile dans la grammaire [-Wother]
+ programme : liext mainbody liext {std::cout << "programme" << std::endl;}
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:80.12-112: avertissement: règle inutile dans la grammaire [-Wother]
+ mainbody : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS bloc {std::cout << "mainbody" << std::endl;}
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:82.12-69: avertissement: règle inutile dans la grammaire [-Wother]
+ maintype : type         {std::cout << "maintype: type" << std::endl;}
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:83.7-70: avertissement: règle inutile dans la grammaire [-Wother]
+     | VOID              {std::cout << "maintype : void" << std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:84.25-73: avertissement: règle inutile dans la grammaire [-Wother]
+     | /* epsilon */     {std::cout << "maintype : epsilon" << std::endl;}
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:86.11-69: avertissement: règle inutile dans la grammaire [-Wother]
+ mainarg : VOID          {std::cout << "mainarg : void" << std::endl;}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:87.7-70: avertissement: règle inutile dans la grammaire [-Wother]
+     | larg              {std::cout << "mainarag : larg" << std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:88.25-72: avertissement: règle inutile dans la grammaire [-Wother]
+     | /* epsilon */     {std::cout << "mainarg : epsilon" << std::endl;}
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:91.9-69: avertissement: règle inutile dans la grammaire [-Wother]
+ liext : liext iext  {std::cout << "liext : liext iext" << std::endl;}
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:92.21-66: avertissement: règle inutile dans la grammaire [-Wother]
+     | /* epsilon */ {std::cout << "liext : epsilon" << std::endl;}
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:94.8-63: avertissement: règle inutile dans la grammaire [-Wother]
+ iext : deffonc    {std::cout << "iext : deffonc" << std::endl;}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:95.7-64: avertissement: règle inutile dans la grammaire [-Wother]
+     | declfonc    {std::cout << "iext : declfonc" << std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:96.7-59: avertissement: règle inutile dans la grammaire [-Wother]
+     | SHARP     {std::cout << "iext : SHARP" << std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:97.7-61: avertissement: règle inutile dans la grammaire [-Wother]
+     | declvar   {std::cout << "iext : declvar" << std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:102.12-85: avertissement: règle inutile dans la grammaire [-Wother]
+ declfonc : debutfonc SEMICOLON  {std::cout << "declfonc : debutfonc ;" << std::endl;}
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:104.11-87: avertissement: règle inutile dans la grammaire [-Wother]
+ deffonc : debutfonc bloc        {std::cout << "deffonc : debutfonc bloc" << std::endl;}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:107.13-123: avertissement: règle inutile dans la grammaire [-Wother]
+ debutfonc : sigfonc LEFT_PARENTHESIS larg RIGHT_PARENTHESIS     {std::cout << "debutfonc : sigfonc ( larg )" << std::endl;}
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:108.7-118: avertissement: règle inutile dans la grammaire [-Wother]
+     | sigfonc LEFT_PARENTHESIS RIGHT_PARENTHESIS                {std::cout << "debutfonc : sigfonc ( )" << std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:109.7-123: avertissement: règle inutile dans la grammaire [-Wother]
+     | sigfonc LEFT_PARENTHESIS VOID RIGHT_PARENTHESIS           {std::cout << "debutfonc : sigfonc ( VOID )" << std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:112.8-100: avertissement: règle inutile dans la grammaire [-Wother]
+ larg : larg COMMA arg                               {std::cout << "larg : larg , arg "<< std::endl;}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:113.7-101: avertissement: règle inutile dans la grammaire [-Wother]
+     | larg COMMA type                               {std::cout << "larg : larg , type "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:114.7-105: avertissement: règle inutile dans la grammaire [-Wother]
+     | larg COMMA type LEFT_BRACKET RIGHT_BRACKET    {std::cout << "larg : larg , type [ ] "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:115.7-93: avertissement: règle inutile dans la grammaire [-Wother]
+     | arg                                           {std::cout << "larg : arg "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:116.7-94: avertissement: règle inutile dans la grammaire [-Wother]
+     | type                                          {std::cout << "larg : type "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:117.7-96: avertissement: règle inutile dans la grammaire [-Wother]
+     | type LEFT_BRACKET RIGHT_BRACKET               {std::cout << "larg : type[] "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:119.7-87: avertissement: règle inutile dans la grammaire [-Wother]
+ arg : sigvar                                {std::cout << "arg : sigvar "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:120.7-89: avertissement: règle inutile dans la grammaire [-Wother]
+     | sigvar LEFT_BRACKET RIGHT_BRACKET     {std::cout << "arg : sigvar[] "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:123.12-101: avertissement: règle inutile dans la grammaire [-Wother]
+ appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {std::cout << "appelfonc : ID ( ) "<< std::endl;}
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:124.7-108: avertissement: règle inutile dans la grammaire [-Wother]
+     | ID LEFT_PARENTHESIS lparam RIGHT_PARENTHESIS  {std::cout << "appelfonc : ID ( lparam )" << std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:126.10-78: avertissement: règle inutile dans la grammaire [-Wother]
+ lparam : lparam COMMA ID    {std::cout << "lparam : lparam, ID "<< std::endl;}
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:127.7-70: avertissement: règle inutile dans la grammaire [-Wother]
+     | ID                    {std::cout << "lparam : ID "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:147.11-92: avertissement: règle inutile dans la grammaire [-Wother]
+ sigfonc : type ID                           {std::cout << "sigfonc : type ID "<< std::endl;}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:148.7-92: avertissement: règle inutile dans la grammaire [-Wother]
+     | VOID ID                               {std::cout << "sigfonc : void ID "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:149.7-94: avertissement: règle inutile dans la grammaire [-Wother]
+     | type LEFT_BRACKET RIGHT_BRACKET ID    {std::cout << "sigfonc : type [] ID"<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:150.7-87: avertissement: règle inutile dans la grammaire [-Wother]
+     | ID                                    {std::cout << "sigfonc : ID "<< std::endl;}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bison.ypp:155.8-92: avertissement: règle inutile dans la grammaire [-Wother]
+ bloc : LEFT_BRACKET seqint RIGHT_BRACKET    {std::cout << "bloc : { seqint } "<< std::endl;}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

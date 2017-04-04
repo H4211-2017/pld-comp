@@ -3,26 +3,32 @@
 
 #include "AbstractMemoryAcess.h"
 
-class WriteToMemory : public AbstractMemoryAcess
-{
-public:
-    WriteToMemory(std::shared_ptr<Register> from, std::shared_ptr<Memory> to);
-    WriteToMemory(char value, std::shared_ptr<Memory> to);
-    WriteToMemory(int value, std::shared_ptr<Memory> to);
-    WriteToMemory(long value, std::shared_ptr<Memory> to);
+namespace IR {
+    class WriteToMemory : public AbstractMemoryAcess
+    {
+    public:
+        WriteToMemory(sh_Register from, sh_Memory to);
+        WriteToMemory(char value, sh_Memory to);
+        WriteToMemory(int value, sh_Memory to);
+        WriteToMemory(long value, sh_Memory to);
 
-private:
-    std::shared_ptr<Register> source;
-    std::shared_ptr<Memory> destination;
-    int type;
-    char charValue;
-    int intValue;
-    long longValue;
+        virtual std::string toString() const;
+        virtual std::string toLinuxX86() const;
 
-    static const int MEMORY_TYPE;
-    static const int CHAR_TYPE;
-    static const int INT_TYPE;
-    static const int LONG_TYPE;
-};
+    private:
+        sh_Register source;
+        sh_Memory destination;
+        int type;
+        char charValue;
+        int intValue;
+        long longValue;
+
+        static const int MEMORY_TYPE;
+        static const int CHAR_TYPE;
+        static const int INT_TYPE;
+        static const int LONG_TYPE;
+    };
+}
+
 
 #endif // WRITETOMEMORY_H
