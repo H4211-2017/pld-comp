@@ -4,6 +4,7 @@
 
 
 #include "AbstractNode.h"
+#include "../../IR/basicBlock/FunctionStructure.h"
 
 namespace AST {
 	
@@ -18,7 +19,9 @@ namespace AST {
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
-        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const; // should not be used => throw an error
+        std::shared_ptr<IR::FunctionStructure> buildIR() const;
+
     private:
         std::shared_ptr<SequenceInstruction> liextBefore;
         std::shared_ptr<SequenceInstruction> liextAfter;

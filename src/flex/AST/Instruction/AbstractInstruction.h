@@ -16,6 +16,9 @@ namespace AST
          * @param name the name of the node
          */
         AbstractInstruction(std::string name);
+
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const =0;
+
         
     };
 }
