@@ -9,7 +9,7 @@
 using namespace AST;
 
 extern int yylex(void);
-void yyerror(long int * param, const char * msg);
+void yyerror(AST::ProgramNode ** param, const char * msg);
 
 std::shared_ptr<Scope> global = std::make_shared<Scope>();
 
@@ -31,10 +31,13 @@ std::shared_ptr<Scope> currentContext = global;
 	AST::UnitInstruction* unitInstruction;
 	AST::AbstractInstruction* abstractInstruction;
 	AST::SequenceInstruction* sequenceInstruction;
+	AST::ReturnInstruction* ret;
 	
+	std::shared_ptr<AST::Variable>* var;
 	AST::VariableSignature* signatureV;
 	AST::Type* typeVar;
 	AST::VariableDeclaration* declVar;
+	AST::ArrayDeclaration* declArray;
 	enum AST::OPAffect* op;
 	
     AST::FunctionSignature* signatureF;
@@ -46,6 +49,8 @@ std::shared_ptr<Scope> currentContext = global;
 	
 	AST::AbstractStructure* struc;
 	AST::IfStructure* ifStruc;
+	AST::WhileStructure* whileStruc;
+	AST::ForStructure* forStruc;
 	AST::ElseStructure* elseStruc;
 }
 
@@ -70,16 +75,19 @@ std::shared_ptr<Scope> currentContext = global;
 %type <evalExpression> uoperation
 %type <evalExpression> affectation
 
-%type <compInstruction> iintcomp
+%type <compInstruction> iintcomp ifor
 %type <unitInstruction> iintunit
 %type <abstractInstruction> iint iext
 %type <sequenceInstruction> seqint liext
+%type <ret> ireturn
 
 %type <block> bloc
 
+%type <var> var
 %type <signatureV> sigvar arg
 %type <typeVar> type maintype
 %type <declVar> declvar
+%type <declArray> decltabvar
 %type <op> signeaff
 
 %type <signatureF> sigfonc
@@ -92,6 +100,8 @@ std::shared_ptr<Scope> currentContext = global;
 %type <struc> structure
 %type <ifStruc> structureif
 %type <elseStruc> structureelse
+%type <whileStruc> structurewhile
+%type <forStruc> structurefor
 
 %left ID
 %right AFFECT AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD AFFECT_BIT_LEFT_SHIFT AFFECT_BIT_RIGHT_SHIFT AFFECT_BIT_AND AFFECT_BIT_XOR AFFECT_BIT_OR
@@ -108,22 +118,24 @@ std::shared_ptr<Scope> currentContext = global;
 %left ADD SUB
 %left MULT DIV MOD
 %right BIT_NOT BOOL_NOT INCREMENT DECREMENT
+%left  LEFT_BRACKET RIGHT_BRACKET LEFT_PARENTHESIS RIGHT_PARENTHESIS
 %right SEMICOLON
 
 %expect 1 // conflit if 			
 
-%parse-param{long int *renvoi}
+%parse-param{AST::ProgramNode ** program}
 
 
 %%
 
-/* ===== TODO: TO SORT ===== */
-
-
-
 /* ===== GENERAL ===== */ 
 
-programme : liext mainbody liext {std::cout << std::endl << "==== PRINT TREE ====" << std::endl; $1->printTree(0); $2->printTree(0); $3->printTree(0); delete $1; delete $2; delete $3;}
+program : liext mainbody liext {*program = new ProgramNode(std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($1))),
+															std::make_shared<FunctionDeclaration>( *( static_cast< FunctionDeclaration* >($2))), 
+															std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($3))));
+								delete $1;
+								delete $2;
+								delete $3;}
     ;
     
 mainbody : maindecl bloc {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
@@ -163,7 +175,8 @@ liext : liext iext  {$$->addInstruction(make_shared_instr($2)); delete $2;}
 	;
 iext : deffonc    {$$ = $1;}
     | declfonc    {$$ = $1;}
-    | declvar   {$$ = $1;}
+    | declvar SEMICOLON {$$ = $1;}
+    | decltabvar SEMICOLON {$$ = $1;}
     ;
 
 /* ===== FONCTIONS ======*/ 
@@ -200,12 +213,12 @@ larg : larg COMMA arg                               {$$->addArgument(std::make_s
 														delete $3;}
     | larg COMMA type                               {$$->addArgument(std::make_shared<VariableSignature>("", *$3));
     													delete $3;}
-    | larg COMMA type LEFT_BRACKET RIGHT_BRACKET    {std::cout << "larg : larg , type [ ] "<< std::endl;}
-    | arg                                           {$$ = new LArguments(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )));
+    | larg COMMA type LEFT_BRACKET RIGHT_BRACKET    {std::cout << "larg : larg , type [ ] "<< std::endl;} // TODO
+    | arg                                           {$$ = new LArguments(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) ))); 
     													delete $1;}
     | type                                          {$$ = new LArguments(std::make_shared<VariableSignature>("", *$1));
     													delete $1;}
-    | type LEFT_BRACKET RIGHT_BRACKET               {std::cout << "larg : type[] "<< std::endl;}
+    | type LEFT_BRACKET RIGHT_BRACKET               {std::cout << "larg : type[] "<< std::endl;} // TODO
     ;
 arg : sigvar                                {$$ = $1;}
     | sigvar LEFT_BRACKET RIGHT_BRACKET     {std::cout << "arg : sigvar[] "<< std::endl;} // TODO
@@ -229,14 +242,30 @@ declvar : sigvar AFFECT expr    {$$ = new VariableDeclaration(std::make_shared<V
 	| sigvar                    {$$ = new VariableDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), currentContext);
 									delete $1;}
 	;
+	
+decltabvar : sigvar LEFT_BRACKET INT_VAL RIGHT_BRACKET {$$ = new ArrayDeclaration(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) )), $3, currentContext);
+														delete $1;}
+	;
 
 type : CHAR {$$ = new Type(Type::CHAR);}
 	| INT32 {$$ = new Type(Type::INT_32);}
 	| INT64	{$$ = new Type(Type::INT_64);}
 	;
 
-var : ID {} // TODO
-	| ID LEFT_BRACKET expr RIGHT_BRACKET {} // TODO
+var : ID {*$$ = currentContext->findVariable($1);} // WARNING Zone a risque !!!!!
+	| ID LEFT_BRACKET expr RIGHT_BRACKET {std::shared_ptr<Variable> tmpVar= currentContext->findVariable($1); 
+											if(tmpVar->getName() == "Array"){
+												std::shared_ptr<Array> array = std::dynamic_pointer_cast<Array>(tmpVar);
+												*$$ = std::make_shared<CaseArray>( array, make_shared_expr($3) );
+											}
+											else{
+												std::cerr << "Error : " << $1 << " is not an Array" << std::endl;
+												exit(1); 
+											}
+											delete $1;
+											delete $3;
+										} 
+	;
 
 /* ===== IDENTIFIANT ===== */ 
 
@@ -260,27 +289,39 @@ close_context : RIGHT_BRACES {currentContext = currentContext->getMother();}
 bloc : open_context seqint close_context    {$$ = new Block(currentContext, std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($2) )));}
     ;
 
-seqint : seqint iint {$$->addInstruction(make_shared_instr($2)); delete $2;} 
+seqint : seqint iint {if($2 != nullptr)
+					  {
+						$$->addInstruction(make_shared_instr($2)); 
+						delete $2;
+					  }
+					  else
+					  {
+						$$->addInstruction(nullptr);	
+					  }
+					  } 
 	|  seqint declvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;}
+	| seqint decltabvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;}
 	| seqint declfonc {$$->addInstruction(make_shared_instr($2)); delete $2;} 
 	| seqint deffonc {$$->addInstruction(make_shared_instr($2)); delete $2;}
-	| SEMICOLON {$$->addInstruction(std::make_shared<ComposedInstruction>());} 
 	| /*epsilon*/ {$$ = new SequenceInstruction();} 
 	;
 	
 iint : iintcomp SEMICOLON {$$ = $1;}
 	| iintunit {$$ = $1;}
+	| SEMICOLON {$$ = nullptr;}
 	;
 
 iintunit : bloc {$$ = new UnitInstruction(std::make_shared<Block>( *( static_cast< Block* >($1) ) ));
 					delete $1;}
 	| structure {$$ = new UnitInstruction(make_shared_struct($1));
 					delete $1;} 
-	| ireturn {$$ = new UnitInstruction();} // TODO
+	| ireturn {$$ = new UnitInstruction(std::make_shared<ReturnInstruction>( *( static_cast< ReturnInstruction* >($1) ) ));
+					delete $1;} 
 	;
 	
-ireturn : RETURN iintcomp SEMICOLON {} // TODO
-	| RETURN SEMICOLON {} // TODO
+ireturn : RETURN iintcomp SEMICOLON {$$ = new ReturnInstruction(std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($2) ) ));
+										delete $2;} 
+	| RETURN SEMICOLON {$$ = new ReturnInstruction();} 
 	;
 	
 iintcomp : iintcomp COMMA expr {$$ = $1; 
@@ -304,7 +345,8 @@ uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::U
 	;
 	
 expr : INT_VAL {$$ = new Constant($1);}
-	| ID {$$ = new IDExpression($1, currentContext);}
+	| var {$$ = new IDExpression(*$1, currentContext);
+			delete $1;}
 	| uoperation {$$ = $1;} 
 	| affectation {$$ = $1;}
 	| appelfonc {$$ = $1;}
@@ -363,38 +405,57 @@ expr : INT_VAL {$$ = new Constant($1);}
 								delete $1;
 								delete $3;}
 	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new ParenthesisExpression(make_shared_instr($2)); delete $2;} 
-	| var INCREMENT {} // TODO
-	| var DECREMENT {} // TODO
-	| INCREMENT var {} // TODO
-	| DECREMENT var {} // TODO
+	| var INCREMENT {$$ = new DecrIncrRightExpression(*$1, 1);
+						delete $1;}
+	| var DECREMENT {$$ = new DecrIncrRightExpression(*$1, -1);
+						delete $1;} 
+	| INCREMENT var {$$ = new DecrIncrLeftExpression(*$2, 1);
+						delete $2;}
+	| DECREMENT var {$$ = new DecrIncrLeftExpression(*$2, -1);
+						delete $2;} 
 	;
 	
 	
 /* ===== AFFECTATION ===== */ 
 
 affectation : ID signeaff expr {$$ = new AffectationExpression($1, *$2, make_shared_expr($3), currentContext); 
+								delete $1;
 								delete $2;
 								delete $3;}
+			| ID LEFT_BRACKET expr RIGHT_BRACKET signeaff expr {std::shared_ptr<Variable> tmpVar= currentContext->findVariable($1); 
+																if(tmpVar->getName() == "Array"){
+																	std::shared_ptr<Array> array = std::dynamic_pointer_cast<Array>(tmpVar);
+																	std::shared_ptr<CaseArray> caseArray = std::make_shared<CaseArray>( array, make_shared_expr($3) );
+																	
+																	$$ = new AffectationExpression(caseArray, *$5, make_shared_expr($6), currentContext); 
+																}
+																else{
+																	std::cerr << "Error : " << $1 << " is not an Array" << std::endl;
+																	exit(1); 
+																}
+																delete $1;
+																delete $5;
+																delete $6;}
 	;
 	
 signeaff : AFFECT {$$ = new OPAffect(OPAffect::AFFECT);}
-	| AFFECT_MULT {$$ = new OPAffect(OPAffect::AFFECT_MULT);} // TODO
-	| AFFECT_DIV  {$$ = new OPAffect(OPAffect::AFFECT_DIV);} // TODO
+	| AFFECT_MULT {$$ = new OPAffect(OPAffect::AFFECT_MULT);} 
+	| AFFECT_DIV  {$$ = new OPAffect(OPAffect::AFFECT_DIV);}
 	| AFFECT_ADD  {$$ = new OPAffect(OPAffect::AFFECT_ADD);}
-	| AFFECT_SUB  {$$ = new OPAffect(OPAffect::AFFECT_SUB);} // TODO
-	| AFFECT_MOD  {$$ = new OPAffect(OPAffect::AFFECT_MOD);} // TODO
-	| AFFECT_BIT_AND  {$$ = new OPAffect(OPAffect::AFFECT_BIT_AND);} // TODO
-	| AFFECT_BIT_OR  {$$ = new OPAffect(OPAffect::AFFECT_BIT_OR);} // TODO
-	| AFFECT_BIT_XOR   {$$ = new OPAffect(OPAffect::AFFECT_BIT_XOR);} // TODO
-	| AFFECT_BIT_LEFT_SHIFT  {$$ = new OPAffect(OPAffect::AFFECT_BIT_LEFT_SHIFT);} // TODO
+	| AFFECT_SUB  {$$ = new OPAffect(OPAffect::AFFECT_SUB);}
+	| AFFECT_MOD  {$$ = new OPAffect(OPAffect::AFFECT_MOD);}
+	| AFFECT_BIT_AND  {$$ = new OPAffect(OPAffect::AFFECT_BIT_AND);}
+	| AFFECT_BIT_OR  {$$ = new OPAffect(OPAffect::AFFECT_BIT_OR);}
+	| AFFECT_BIT_XOR   {$$ = new OPAffect(OPAffect::AFFECT_BIT_XOR);}
+	| AFFECT_BIT_LEFT_SHIFT  {$$ = new OPAffect(OPAffect::AFFECT_BIT_LEFT_SHIFT);}
 	| AFFECT_BIT_RIGHT_SHIFT {$$ = new OPAffect(OPAffect::AFFECT_BIT_RIGHT_SHIFT);} // TODO
 	;
 
 /* ===== STRUCTURES ===== */ 
 
 structure :  structureif {$$ = $1;}
-	| structurewhile { } // TODO
-	| structurefor { } // TODO
+	| structurewhile {$$ = $1;} 
+	| structurefor {$$ = $1;} 
 	;
 
 structureif : IF LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint structureelse {$$ = new IfStructure(std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),
@@ -410,18 +471,29 @@ structureelse : ELSE iint {$$ = new ElseStructure(make_shared_instr($2));
 	| /*epsilon*/ {$$ = new ElseStructure();}
 	;
 	
-structurewhile : WHILE LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint {std::cout << "WHILE ( IIntComp ) IInt "<< std::endl;}
+structurewhile : WHILE LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint {$$ = new WhileStructure(std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),
+																									make_shared_instr($5));
+																			delete $3;
+																			delete $5;}
 	;
 
-structurefor : FOR LEFT_PARENTHESIS ifor SEMICOLON ifor SEMICOLON ifor RIGHT_PARENTHESIS iint {std::cout << "FOR ( IFor ; IFor ; IFor ) IInt "<< std::endl;}
+structurefor : FOR LEFT_PARENTHESIS ifor SEMICOLON ifor SEMICOLON ifor RIGHT_PARENTHESIS iint {$$ = new ForStructure($3 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),
+																													$5 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($5) )),
+																													$7 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($7) )),
+																													make_shared_instr($9));
+																												
+																								delete $3;
+																								delete $5;
+																								delete $7;
+																								delete $9;}
 	;
 	
-ifor : iintcomp {}
-	| /*epsilon*/ {}
+ifor : iintcomp {$$ = $1;}
+	| /*epsilon*/ {$$ = nullptr;}
 	;
 
 %%
-void yyerror(long int * param, const char * msg)
+void yyerror(AST::ProgramNode ** param, const char * msg)
 {
     std::cout << msg << std::endl;
 }

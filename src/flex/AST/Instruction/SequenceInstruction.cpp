@@ -19,7 +19,13 @@ void SequenceInstruction::printTree(int tabulationNumber) const
     std::cout << std::endl;
     for (std::shared_ptr<AbstractInstruction> instruction : instructionsList)
     {
-        instruction->printTree(tabulationNumber + 1);
+		if(instruction != nullptr)
+			instruction->printTree(tabulationNumber + 1);
+		else
+		{
+			for(int i=0; i<= tabulationNumber; i++, std::cout << "\t");
+			std::cout << "EMPTY";
+		}
         std::cout << std::endl;
     }
 }
@@ -27,7 +33,7 @@ void SequenceInstruction::printTree(int tabulationNumber) const
 // TODO
 Value SequenceInstruction::evaluate() const
 {
-	return instructionsList[instructionsList.size()-1]->evaluate();
+	return Value();
 }
 
 void SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const

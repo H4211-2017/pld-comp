@@ -3,6 +3,7 @@
 #include "ComposedInstruction.h"
 #include "UnitInstruction.h"
 #include "Variable/VariableDeclaration.h"
+#include "Variable/ArrayDeclaration.h"
 #include "Function/FunctionDeclaration.h"
 
 using namespace AST;
@@ -15,6 +16,10 @@ AbstractInstruction::AbstractInstruction(std::string name)
 
 std::shared_ptr<AbstractInstruction> make_shared_instr(AbstractInstruction* ptr)
 {
+	if(ptr == nullptr)
+	{
+		return nullptr;
+	}
 	std::string name = ptr->getName();
 	if( name == "ComposedInstruction")
 	{
@@ -27,6 +32,10 @@ std::shared_ptr<AbstractInstruction> make_shared_instr(AbstractInstruction* ptr)
 	else if(name == "VariableDeclaration")
 	{
 		return std::make_shared<VariableDeclaration>( *( static_cast< VariableDeclaration* >(ptr) ) );
+	}
+    else if(name == "ArrayDeclaration")
+	{
+        return std::make_shared<ArrayDeclaration>( *( static_cast< ArrayDeclaration* >(ptr) ) );
 	}
     else if(name == "FunctionDeclaration")
 	{

@@ -17,6 +17,12 @@ namespace AST
         
         Variable(std::shared_ptr<VariableSignature> signature, bool decl, const IR::Generator &generator);
         
+        bool isDeclaration() const;
+        void noLongerDeclaration();
+        
+        std::shared_ptr<VariableSignature> getSignature() const;
+        
+        virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
         virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
               

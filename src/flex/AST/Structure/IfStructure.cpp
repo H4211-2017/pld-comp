@@ -25,7 +25,18 @@ void IfStructure::printTree(int tabulationNumber) const
     condition->printTree(tabulationNumber + 1);
     std::cout << std::endl;
 
-    intInstruction->printTree(tabulationNumber + 1);
+
+	if(intInstruction != nullptr)
+	{	
+		std::cout << std::endl;
+		intInstruction->printTree(tabulationNumber + 1);
+	}
+	else
+	{
+		std::cout << std::endl;
+		for(int i=0; i<= tabulationNumber; i++, std::cout << "\t");
+		std::cout << "EXECUTIVE INSTR : EMPTY";
+	}
 
 	if(elseStructure != nullptr)
 	{	

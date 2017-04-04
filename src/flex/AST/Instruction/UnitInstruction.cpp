@@ -24,6 +24,14 @@ UnitInstruction::UnitInstruction(std::shared_ptr<AbstractStructure> struc)
 	this->value = Value();
 }
 
+UnitInstruction::UnitInstruction(std::shared_ptr<ReturnInstruction> ret)
+	: UnitInstruction()
+{
+	this->ret = ret;
+	this->content = RETURN;
+	this->value = this->ret->getValue();
+}
+
 void UnitInstruction::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
@@ -36,6 +44,9 @@ void UnitInstruction::printTree(int tabulationNumber) const
 			break;
 		case STRUCT:
 			this->struc->printTree(tabulationNumber + 1);
+			break;
+		case RETURN:
+			this->ret->printTree(tabulationNumber + 1);
 			break;
 		default:
 			break;

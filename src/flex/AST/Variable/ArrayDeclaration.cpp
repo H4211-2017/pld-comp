@@ -1,5 +1,9 @@
 #include "ArrayDeclaration.h"
 
+#include "VariableSignature.h"
+#include "Array.h"
+#include "Scope.h"
+
 using namespace AST;
 
 ArrayDeclaration::ArrayDeclaration(std::shared_ptr<VariableSignature> signature, 

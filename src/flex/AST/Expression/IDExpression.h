@@ -14,6 +14,8 @@ public:
 
     IDExpression(std::string id, std::shared_ptr<Scope> scope);
     IDExpression(std::string name, std::string id,  std::shared_ptr<Scope> scope);
+    IDExpression(std::shared_ptr<Variable> variable, std::shared_ptr<Scope> scope);
+    IDExpression(std::string name, std::shared_ptr<Variable> variable, std::shared_ptr<Scope> scope);
 	
 	virtual ~IDExpression();
 

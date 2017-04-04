@@ -15,11 +15,6 @@
 extern "C" int yylex();
 
 
-void yyerror(int * param, const char * msg)
-{
-	std::cout << msg << std::endl;
-}
-
 int main(int argc, char *argv[])
 {
 //	shared_ptr< mapVar > i = make_shared< mapVar >();
@@ -44,6 +39,19 @@ int main(int argc, char *argv[])
 //	std::cout << i << std::endl;
 
 //}
+
+//int main(void)
+//{
+//    AST::ProgramNode * program;
+	
+//	yyparse(&program);
+	
+//	program->printTree(0);
+	
+//	std::cout << std::endl;
+	
+//	delete program;
+
 
     IR::FunctionBlock mainFunction("main");
     IR::Generator gen;
