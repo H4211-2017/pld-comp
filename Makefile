@@ -183,6 +183,54 @@ src/IR/basicBlock/BasicBlock.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/basicBlock/BasicBlock.cpp.s
 .PHONY : src/IR/basicBlock/BasicBlock.cpp.s
 
+src/IR/basicBlock/FunctionStructure.o: src/IR/basicBlock/FunctionStructure.cpp.o
+.PHONY : src/IR/basicBlock/FunctionStructure.o
+
+# target to build an object file
+src/IR/basicBlock/FunctionStructure.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/basicBlock/FunctionStructure.cpp.o
+.PHONY : src/IR/basicBlock/FunctionStructure.cpp.o
+
+src/IR/basicBlock/FunctionStructure.i: src/IR/basicBlock/FunctionStructure.cpp.i
+.PHONY : src/IR/basicBlock/FunctionStructure.i
+
+# target to preprocess a source file
+src/IR/basicBlock/FunctionStructure.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/basicBlock/FunctionStructure.cpp.i
+.PHONY : src/IR/basicBlock/FunctionStructure.cpp.i
+
+src/IR/basicBlock/FunctionStructure.s: src/IR/basicBlock/FunctionStructure.cpp.s
+.PHONY : src/IR/basicBlock/FunctionStructure.s
+
+# target to generate assembly for a file
+src/IR/basicBlock/FunctionStructure.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/basicBlock/FunctionStructure.cpp.s
+.PHONY : src/IR/basicBlock/FunctionStructure.cpp.s
+
+src/IR/config/Enums.o: src/IR/config/Enums.cpp.o
+.PHONY : src/IR/config/Enums.o
+
+# target to build an object file
+src/IR/config/Enums.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/config/Enums.cpp.o
+.PHONY : src/IR/config/Enums.cpp.o
+
+src/IR/config/Enums.i: src/IR/config/Enums.cpp.i
+.PHONY : src/IR/config/Enums.i
+
+# target to preprocess a source file
+src/IR/config/Enums.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/config/Enums.cpp.i
+.PHONY : src/IR/config/Enums.cpp.i
+
+src/IR/config/Enums.s: src/IR/config/Enums.cpp.s
+.PHONY : src/IR/config/Enums.s
+
+# target to generate assembly for a file
+src/IR/config/Enums.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/config/Enums.cpp.s
+.PHONY : src/IR/config/Enums.cpp.s
+
 src/IR/data/AbstractData.o: src/IR/data/AbstractData.cpp.o
 .PHONY : src/IR/data/AbstractData.o
 
@@ -2241,6 +2289,12 @@ help:
 	@echo "... src/IR/basicBlock/BasicBlock.o"
 	@echo "... src/IR/basicBlock/BasicBlock.i"
 	@echo "... src/IR/basicBlock/BasicBlock.s"
+	@echo "... src/IR/basicBlock/FunctionStructure.o"
+	@echo "... src/IR/basicBlock/FunctionStructure.i"
+	@echo "... src/IR/basicBlock/FunctionStructure.s"
+	@echo "... src/IR/config/Enums.o"
+	@echo "... src/IR/config/Enums.i"
+	@echo "... src/IR/config/Enums.s"
 	@echo "... src/IR/data/AbstractData.o"
 	@echo "... src/IR/data/AbstractData.i"
 	@echo "... src/IR/data/AbstractData.s"

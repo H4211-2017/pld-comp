@@ -1,6 +1,6 @@
 #include "FunctionStructure.h"
 
-FunctionStructure::FunctionStructure()
+IR::FunctionStructure::FunctionStructure()
 {
 
 }
@@ -21,7 +21,7 @@ void IR::FunctionStructure::printASM(std::ostream &os, IR::AsmType asmType)
         break;
     }
 
-    for(std::shared_ptr<FunctionBlock> func : this->funtionList)
+    for(std::shared_ptr<IR::FunctionBlock> func : this->funtionList)
     {
         func->printASM(os,asmType);
     }
@@ -37,7 +37,7 @@ void IR::FunctionStructure::printX86prolog(std::ostream &os)
     os << "\t.type\tmain, @function" << std::endl;
 }
 
-std::list<std::shared_ptr<FunctionBlock> > FunctionStructure::getFuntionList() const
+std::list<std::shared_ptr<IR::FunctionBlock> > IR::FunctionStructure::getFuntionList() const
 {
     return funtionList;
 }

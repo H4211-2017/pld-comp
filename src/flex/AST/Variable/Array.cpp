@@ -24,6 +24,5 @@ Value Array::evaluate() const
 
 IR::sh_Memory Array::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
 	return nullptr;
 }
