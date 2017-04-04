@@ -15,13 +15,13 @@ ProgramNode::ProgramNode(std::shared_ptr<SequenceInstruction> liextBefore, std::
 
 void ProgramNode::printTree(int tabulationNumber) const
 {
-		AbstractNode::printTree(tabulationNumber);
-		std::cout << std::endl;
-		liextBefore->printTree(tabulationNumber + 1);
-		std::cout << std::endl;
-		main->printTree(tabulationNumber + 1);
-		std::cout << std::endl;
-		liextAfter->printTree(tabulationNumber + 1);
+	AbstractNode::printTree(tabulationNumber);
+	std::cout << std::endl;
+	liextBefore->printTree(tabulationNumber + 1);
+	std::cout << std::endl;
+	main->printTree(tabulationNumber + 1);
+	std::cout << std::endl;
+	liextAfter->printTree(tabulationNumber + 1);
 }
 
 Value ProgramNode::evaluate() const
@@ -36,5 +36,6 @@ std::shared_ptr<IR::ProgrameStructure> ProgramNode::buildIR()
     programStructure->addFunction(main->getIrFunction());
     IR::sh_BasicBlock mainCoreIR = main->getIrFunction()->getFunctionCore();
     main->buildIR(mainCoreIR);
-
+    
+    return programStructure;
 }

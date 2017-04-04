@@ -41,8 +41,11 @@ IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock
 	
     for(std::shared_ptr<AbstractInstruction> instruction : instructionsList)
     {
-        last = instruction->buildIR(currentBasicBlock);
-    }
+		if (instruction != nullptr)
+		{
+			last = instruction->buildIR(currentBasicBlock);
+		}
+	}
     
 	return last;
 }

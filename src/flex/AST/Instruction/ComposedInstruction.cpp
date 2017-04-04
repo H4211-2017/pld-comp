@@ -45,7 +45,10 @@ IR::sh_Memory ComposedInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock
 	
     for(std::shared_ptr<AbstractExpression> expression : listExpressions)
     {
-        lastMemory = expression->buildIR(currentBasicBlock);
+		if (expression != nullptr)
+		{
+			lastMemory = expression->buildIR(currentBasicBlock);
+		}
     }
     
 	return lastMemory;

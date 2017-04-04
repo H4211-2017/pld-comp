@@ -66,23 +66,21 @@ Value UnitInstruction::evaluate() const
 }
 
 IR::sh_Memory UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
-{
-	IR::sh_Memory memory = nullptr;
-	
+{	
     switch (content)
     {
 		case BLOCK:
-		    memory = block->buildIR(currentBasicBlock);
+		    return block->buildIR(currentBasicBlock);
 		    break;
 		case STRUCT:
-		    memory = struc->buildIR(currentBasicBlock);
+		    return struc->buildIR(currentBasicBlock);
 		    break;
 		case RETURN:
-			memory = ret->buildIR(currentBasicBlock);
+			return ret->buildIR(currentBasicBlock);
 		default:
 			std::cerr << "ERROR : UnitInstruction::buildIR : bad construction of unit instruction" << std::endl;
 		    break;
     }
     
-    return memory;
+    return nullptr;
 }

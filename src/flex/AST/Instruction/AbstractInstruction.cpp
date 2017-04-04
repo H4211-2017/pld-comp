@@ -2,6 +2,7 @@
 
 #include "ComposedInstruction.h"
 #include "UnitInstruction.h"
+#include "ReturnInstruction.h"
 #include "Variable/VariableDeclaration.h"
 #include "Variable/ArrayDeclaration.h"
 #include "Function/FunctionDeclaration.h"
@@ -40,6 +41,10 @@ std::shared_ptr<AbstractInstruction> make_shared_instr(AbstractInstruction* ptr)
     else if(name == "FunctionDeclaration")
 	{
         return std::make_shared<FunctionDeclaration>( *( static_cast< FunctionDeclaration* >(ptr) ) );
+	}
+	else if(name == "ReturnInstruction")
+	{
+        return std::make_shared<ReturnInstruction>( *( static_cast< ReturnInstruction* >(ptr) ) );
 	}
 	else
 	{	

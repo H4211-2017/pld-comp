@@ -10,7 +10,7 @@
 namespace AST 
 {
 
-    class ReturnInstruction : public AbstractNode
+    class ReturnInstruction : public AbstractInstruction
     {
     
     public:
