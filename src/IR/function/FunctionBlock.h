@@ -11,7 +11,7 @@ namespace IR {
     class FunctionBlock : public AbstractFunction
     {
     public:
-        FunctionBlock(std::string name);
+        FunctionBlock(std::string name, std::list<sh_AbstractData> param = std::list<sh_AbstractData>(), sh_Register returnRegister = nullptr);
 
         sh_BasicBlock getFunctionCore() const;
         void setFunctionCore(const sh_BasicBlock &value);

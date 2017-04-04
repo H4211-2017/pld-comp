@@ -11,7 +11,7 @@ namespace IR {
     class AbstractFunction
     {
     public:
-        AbstractFunction(std::string name);
+        AbstractFunction(std::string name, std::list<sh_AbstractData> param = std::list<sh_AbstractData>(), sh_Register returnRegister = nullptr);
 
         std::string getFunctionName() const;
 
