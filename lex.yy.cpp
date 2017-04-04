@@ -847,302 +847,302 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 38 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("MULTILINE COMMENT : %s",yytext);
+{std::cout << "MULTILINE COMMENT : " << yytext;
 								BEGIN(comment);}/*switch to comment state*/
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 40 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("%s",yytext);}/* eat anything that's not a '*' */
+{std::cout << yytext;}/* eat anything that's not a '*' */
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 41 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("%s",yytext);}/* eat up '*'s not followed by '/'s */
+{std::cout << yytext;}/* eat up '*'s not followed by '/'s */
 	YY_BREAK
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
 #line 42 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("%s",yytext);}
+{std::cout << yytext;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 43 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("%s\nEND OF MULTILINE COMMENT",yytext);
+{std::cout << "\nEND OF MULTILINE COMMENT" << yytext;
 								BEGIN(INITIAL);}/*switch back to initial state*/
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
 #line 46 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("PREPROCESSOR : %s", yytext);}
+{std::cout << "PREPROCESSOR : " <<  yytext;}
 	YY_BREAK
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
 #line 47 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("LINE_COM : %s", yytext);}
+{std::cout << "LINE_COM : " <<  yytext;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 48 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("IF "); return IF;}
+{std::cout << "IF "; return IF;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 49 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("ELSE "); return ELSE;}
+{std::cout << "ELSE "; return ELSE;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 50 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("WHILE "); return WHILE;}
+{std::cout << "WHILE "; return WHILE;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 51 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("FOR "); return FOR;}
+{std::cout << "FOR "; return FOR;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 52 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("MAIN "); return MAIN;}
+{std::cout << "MAIN "; return MAIN;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 53 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("LEFT_BRACES "); return LEFT_BRACES;}
+{std::cout << "LEFT_BRACES "; return LEFT_BRACES;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 54 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("RIGHT_BRACES "); return RIGHT_BRACES;}
+{std::cout << "RIGHT_BRACES "; return RIGHT_BRACES;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 55 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("LEFT_PARENTHESIS "); return LEFT_PARENTHESIS;}
+{std::cout << "LEFT_PARENTHESIS "; return LEFT_PARENTHESIS;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 56 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("RIGHT_PARENTHESIS "); return RIGHT_PARENTHESIS;}
+{std::cout << "RIGHT_PARENTHESIS "; return RIGHT_PARENTHESIS;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 57 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("LEFT_BRACKET "); return LEFT_BRACKET;}
+{std::cout << "LEFT_BRACKET "; return LEFT_BRACKET;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 58 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("RIGHT_BRACKET "); return RIGHT_BRACKET;}
+{std::cout << "RIGHT_BRACKET "; return RIGHT_BRACKET;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 59 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_EQUAL "); return BOOL_EQUAL;}
+{std::cout << "BOOL_EQUAL "; return BOOL_EQUAL;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 60 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("RETURN "); return RETURN;}
+{std::cout << "RETURN "; return RETURN;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 61 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_DIF "); return BOOL_DIF;}
+{std::cout << "BOOL_DIF "; return BOOL_DIF;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
 #line 62 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_LESS_OR_EQUAL "); return BOOL_LESS_OR_EQUAL;}
+{std::cout << "BOOL_LESS_OR_EQUAL "; return BOOL_LESS_OR_EQUAL;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
 #line 63 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_GREATER_OR_EQUAL "); return BOOL_GREATER_OR_EQUAL;}
+{std::cout << "BOOL_GREATER_OR_EQUAL "; return BOOL_GREATER_OR_EQUAL;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 64 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_LESS "); return BOOL_LESS;}
+{std::cout << "BOOL_LESS "; return BOOL_LESS;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
 #line 65 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_GREATER "); return BOOL_GREATER;}
+{std::cout << "BOOL_GREATER "; return BOOL_GREATER;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 66 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("TERNARY_ASK "); return TERNARY_ASK;}
+{std::cout << "TERNARY_ASK "; return TERNARY_ASK;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 67 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("TERNARY_CHOOSE "); return TERNARY_CHOOSE;}
+{std::cout << "TERNARY_CHOOSE "; return TERNARY_CHOOSE;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
 #line 68 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_ADD "); return AFFECT_ADD;}
+{std::cout << "AFFECT_ADD "; return AFFECT_ADD;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
 #line 69 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_SUB "); return AFFECT_SUB;}
+{std::cout << "AFFECT_SUB "; return AFFECT_SUB;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
 #line 70 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_MULT "); return AFFECT_MULT;}
+{std::cout << "AFFECT_MULT "; return AFFECT_MULT;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
 #line 71 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_DIV "); return AFFECT_DIV;}
+{std::cout << "AFFECT_DIV "; return AFFECT_DIV;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
 #line 72 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_MOD "); return AFFECT_MOD;}
+{std::cout << "AFFECT_MOD "; return AFFECT_MOD;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
 #line 73 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_AND "); return AFFECT_BIT_AND;}
+{std::cout << "AFFECT_BIT_AND "; return AFFECT_BIT_AND;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
 #line 74 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_XOR "); return AFFECT_BIT_XOR;}
+{std::cout << "AFFECT_BIT_XOR "; return AFFECT_BIT_XOR;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
 #line 75 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_OR "); return AFFECT_BIT_OR;}
+{std::cout << "AFFECT_BIT_OR "; return AFFECT_BIT_OR;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
 #line 76 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_LEFT_SHIFT "); return AFFECT_BIT_LEFT_SHIFT;}
+{std::cout << "AFFECT_BIT_LEFT_SHIFT "; return AFFECT_BIT_LEFT_SHIFT;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
 #line 77 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT_BIT_RIGHT_SHIFT "); return AFFECT_BIT_RIGHT_SHIFT;}
+{std::cout << "AFFECT_BIT_RIGHT_SHIFT "; return AFFECT_BIT_RIGHT_SHIFT;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
 #line 78 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("INCREMENT "); return INCREMENT;}
+{std::cout << "INCREMENT "; return INCREMENT;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
 #line 79 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("DECREMENT "); return DECREMENT;}
+{std::cout << "DECREMENT "; return DECREMENT;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
 #line 80 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("AFFECT "); return AFFECT;}
+{std::cout << "AFFECT "; return AFFECT;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
 #line 81 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("ADD "); return ADD;}
+{std::cout << "ADD "; return ADD;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
 #line 82 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("SUB "); return SUB;}
+{std::cout << "SUB "; return SUB;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
 #line 83 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("MULT "); return MULT;}
+{std::cout << "MULT "; return MULT;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
 #line 84 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("DIV "); return DIV;}
+{std::cout << "DIV "; return DIV;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
 #line 85 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("MOD "); return MOD;}
+{std::cout << "MOD "; return MOD;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
 #line 86 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_AND "); return BOOL_AND;}
+{std::cout << "BOOL_AND "; return BOOL_AND;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
 #line 87 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_OR "); return BOOL_OR;}
+{std::cout << "BOOL_OR "; return BOOL_OR;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
 #line 88 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BOOL_NOT "); return BOOL_NOT;}
+{std::cout << "BOOL_NOT "; return BOOL_NOT;}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
 #line 89 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BIT_AND "); return BIT_AND;}
+{std::cout << "BIT_AND "; return BIT_AND;}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
 #line 90 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BIT_OR "); return BIT_OR;}
+{std::cout << "BIT_OR "; return BIT_OR;}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
 #line 91 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BIT_XOR "); return BIT_XOR;}
+{std::cout << "BIT_XOR "; return BIT_XOR;}
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
 #line 92 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BIT_NOT "); return BIT_NOT;}
+{std::cout << "BIT_NOT "; return BIT_NOT;}
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
 #line 93 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BIT_LEFT_SHIFT "); return BIT_LEFT_SHIFT;}
+{std::cout << "BIT_LEFT_SHIFT "; return BIT_LEFT_SHIFT;}
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
 #line 94 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("BIT_RIGHT_SHIFT "); return BIT_RIGHT_SHIFT;}
+{std::cout << "BIT_RIGHT_SHIFT "; return BIT_RIGHT_SHIFT;}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
 #line 95 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("VOID "); return VOID;}
+{std::cout << "VOID "; return VOID;}
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
 #line 96 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("CHAR "); return CHAR;}
+{std::cout << "CHAR "; return CHAR;}
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
 #line 97 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("INT32 "); return INT32;}
+{std::cout << "INT32 "; return INT32;}
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
 #line 98 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("INT64 "); return INT64;}
+{std::cout << "INT64 "; return INT64;}
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
 #line 99 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("{number} ");
+{std::cout << "{number} ";
 								std::stringstream ss(strdup(yytext));
 								long int tmp;
 								ss >> tmp;
@@ -1153,7 +1153,7 @@ case 60:
 /* rule 60 can match eol */
 YY_RULE_SETUP
 #line 105 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("'{alphanumex}' "); 
+{std::cout << "'{alphanumex}' "; 
 								yylval.cVal = strdup(yytext)[1]; 
 								return CHAR_VAL;}
 	YY_BREAK
@@ -1161,37 +1161,37 @@ case 61:
 /* rule 61 can match eol */
 YY_RULE_SETUP
 #line 108 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("\"{alphanumsex}\" "); 
+{std::cout << "\"{alphanumsex}\" "; 
 								yylval.sVal = strndup(&yytext[1], sizeof(char)*(strlen(yytext)-2));
 								return CHAIN;}
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
 #line 111 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("identifiant "); 
+{std::cout << "identifiant "; 
 								yylval.id = strdup(yytext); 
 								return ID;}
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
 #line 114 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("SEMICOLON "); return SEMICOLON;}
+{std::cout << "SEMICOLON "; return SEMICOLON;}
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
 #line 115 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("COMMA "); return COMMA;}
+{std::cout << "COMMA "; return COMMA;}
 	YY_BREAK
 case 65:
 /* rule 65 can match eol */
 YY_RULE_SETUP
 #line 116 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("%s", yytext);}
+{std::cout  <<  yytext;}
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
 #line 117 "/home/jliermann/Desktop/pld-comp/src/flex/tokens.lex"
-{printf("UNEXPECTED "); return UNEXPECTED;}
+{std::cout << "UNEXPECTED "; return UNEXPECTED;}
 	YY_BREAK
 case 67:
 YY_RULE_SETUP

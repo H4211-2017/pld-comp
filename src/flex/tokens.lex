@@ -35,85 +35,85 @@ anymultilinechain	(.|\n|\r)*
 %%
 
 
-"/*"      				  	{printf("MULTILINE COMMENT : %s",yytext);
+"/*"      				  	{std::cout << "MULTILINE COMMENT : " << yytext;
 								BEGIN(comment);}/*switch to comment state*/
-<comment>[^*\n]*        	{printf("%s",yytext);}/* eat anything that's not a '*' */
-<comment>"*"+[^/\n]*	   	{printf("%s",yytext);}/* eat up '*'s not followed by '/'s */
-<comment>"\n"            	{printf("%s",yytext);}
-<comment>"*"+"/"        	{printf("%s\nEND OF MULTILINE COMMENT",yytext);
+<comment>[^*\n]*        	{std::cout << yytext;}/* eat anything that's not a '*' */
+<comment>"*"+[^/\n]*	   	{std::cout << yytext;}/* eat up '*'s not followed by '/'s */
+<comment>"\n"            	{std::cout << yytext;}
+<comment>"*"+"/"        	{std::cout << "\nEND OF MULTILINE COMMENT" << yytext;
 								BEGIN(INITIAL);}/*switch back to initial state*/
 
-"#"{anyinlinechain}"\n" 	{printf("PREPROCESSOR : %s", yytext);}
-"//"{anyinlinechain}"\n"	{printf("LINE_COM : %s", yytext);}
-"if"      					{printf("IF "); return IF;}
-"else"    					{printf("ELSE "); return ELSE;}
-"while"   					{printf("WHILE "); return WHILE;}
-"for"     					{printf("FOR "); return FOR;}
-"main"						{printf("MAIN "); return MAIN;}
-"{"       					{printf("LEFT_BRACES "); return LEFT_BRACES;}
-"}"       					{printf("RIGHT_BRACES "); return RIGHT_BRACES;}
-"("      					{printf("LEFT_PARENTHESIS "); return LEFT_PARENTHESIS;}
-")"      					{printf("RIGHT_PARENTHESIS "); return RIGHT_PARENTHESIS;}
-"["							{printf("LEFT_BRACKET "); return LEFT_BRACKET;}
-"]"							{printf("RIGHT_BRACKET "); return RIGHT_BRACKET;}
-"=="						{printf("BOOL_EQUAL "); return BOOL_EQUAL;}
-"return"					{printf("RETURN "); return RETURN;}
-"!="						{printf("BOOL_DIF "); return BOOL_DIF;}
-"<="						{printf("BOOL_LESS_OR_EQUAL "); return BOOL_LESS_OR_EQUAL;}
-">="						{printf("BOOL_GREATER_OR_EQUAL "); return BOOL_GREATER_OR_EQUAL;}
-"<"							{printf("BOOL_LESS "); return BOOL_LESS;}
-">"							{printf("BOOL_GREATER "); return BOOL_GREATER;}
-"?"							{printf("TERNARY_ASK "); return TERNARY_ASK;}
-":"							{printf("TERNARY_CHOOSE "); return TERNARY_CHOOSE;}
-"+="						{printf("AFFECT_ADD "); return AFFECT_ADD;}
-"-="						{printf("AFFECT_SUB "); return AFFECT_SUB;}
-"*="						{printf("AFFECT_MULT "); return AFFECT_MULT;}
-"/="						{printf("AFFECT_DIV "); return AFFECT_DIV;}
-"%="						{printf("AFFECT_MOD "); return AFFECT_MOD;}
-"&="						{printf("AFFECT_BIT_AND "); return AFFECT_BIT_AND;}
-"^="						{printf("AFFECT_BIT_XOR "); return AFFECT_BIT_XOR;}
-"|="						{printf("AFFECT_BIT_OR "); return AFFECT_BIT_OR;}
-"<<="						{printf("AFFECT_BIT_LEFT_SHIFT "); return AFFECT_BIT_LEFT_SHIFT;}
-">>="						{printf("AFFECT_BIT_RIGHT_SHIFT "); return AFFECT_BIT_RIGHT_SHIFT;}
-"++"						{printf("INCREMENT "); return INCREMENT;}
-"--"						{printf("DECREMENT "); return DECREMENT;}
-"="							{printf("AFFECT "); return AFFECT;}
-"+"							{printf("ADD "); return ADD;}
-"-"							{printf("SUB "); return SUB;}
-"*"							{printf("MULT "); return MULT;}
-"/"							{printf("DIV "); return DIV;}
-"%"							{printf("MOD "); return MOD;}
-"&&"						{printf("BOOL_AND "); return BOOL_AND;}
-"||"						{printf("BOOL_OR "); return BOOL_OR;}
-"!"							{printf("BOOL_NOT "); return BOOL_NOT;}
-"&"							{printf("BIT_AND "); return BIT_AND;}
-"|"							{printf("BIT_OR "); return BIT_OR;}
-"^"							{printf("BIT_XOR "); return BIT_XOR;}
-"~"							{printf("BIT_NOT "); return BIT_NOT;}
-"<<"						{printf("BIT_LEFT_SHIFT "); return BIT_LEFT_SHIFT;}
-">>"						{printf("BIT_RIGHT_SHIFT "); return BIT_RIGHT_SHIFT;}
-"void"						{printf("VOID "); return VOID;}
-"char"						{printf("CHAR "); return CHAR;}
-"int32_t"					{printf("INT32 "); return INT32;}
-"int64_t"					{printf("INT64 "); return INT64;}
-{number}					{printf("{number} ");
+"#"{anyinlinechain}"\n" 	{std::cout << "PREPROCESSOR : " <<  yytext;}
+"//"{anyinlinechain}"\n"	{std::cout << "LINE_COM : " <<  yytext;}
+"if"      					{std::cout << "IF "; return IF;}
+"else"    					{std::cout << "ELSE "; return ELSE;}
+"while"   					{std::cout << "WHILE "; return WHILE;}
+"for"     					{std::cout << "FOR "; return FOR;}
+"main"						{std::cout << "MAIN "; return MAIN;}
+"{"       					{std::cout << "LEFT_BRACES "; return LEFT_BRACES;}
+"}"       					{std::cout << "RIGHT_BRACES "; return RIGHT_BRACES;}
+"("      					{std::cout << "LEFT_PARENTHESIS "; return LEFT_PARENTHESIS;}
+")"      					{std::cout << "RIGHT_PARENTHESIS "; return RIGHT_PARENTHESIS;}
+"["							{std::cout << "LEFT_BRACKET "; return LEFT_BRACKET;}
+"]"							{std::cout << "RIGHT_BRACKET "; return RIGHT_BRACKET;}
+"=="						{std::cout << "BOOL_EQUAL "; return BOOL_EQUAL;}
+"return"					{std::cout << "RETURN "; return RETURN;}
+"!="						{std::cout << "BOOL_DIF "; return BOOL_DIF;}
+"<="						{std::cout << "BOOL_LESS_OR_EQUAL "; return BOOL_LESS_OR_EQUAL;}
+">="						{std::cout << "BOOL_GREATER_OR_EQUAL "; return BOOL_GREATER_OR_EQUAL;}
+"<"							{std::cout << "BOOL_LESS "; return BOOL_LESS;}
+">"							{std::cout << "BOOL_GREATER "; return BOOL_GREATER;}
+"?"							{std::cout << "TERNARY_ASK "; return TERNARY_ASK;}
+":"							{std::cout << "TERNARY_CHOOSE "; return TERNARY_CHOOSE;}
+"+="						{std::cout << "AFFECT_ADD "; return AFFECT_ADD;}
+"-="						{std::cout << "AFFECT_SUB "; return AFFECT_SUB;}
+"*="						{std::cout << "AFFECT_MULT "; return AFFECT_MULT;}
+"/="						{std::cout << "AFFECT_DIV "; return AFFECT_DIV;}
+"%="						{std::cout << "AFFECT_MOD "; return AFFECT_MOD;}
+"&="						{std::cout << "AFFECT_BIT_AND "; return AFFECT_BIT_AND;}
+"^="						{std::cout << "AFFECT_BIT_XOR "; return AFFECT_BIT_XOR;}
+"|="						{std::cout << "AFFECT_BIT_OR "; return AFFECT_BIT_OR;}
+"<<="						{std::cout << "AFFECT_BIT_LEFT_SHIFT "; return AFFECT_BIT_LEFT_SHIFT;}
+">>="						{std::cout << "AFFECT_BIT_RIGHT_SHIFT "; return AFFECT_BIT_RIGHT_SHIFT;}
+"++"						{std::cout << "INCREMENT "; return INCREMENT;}
+"--"						{std::cout << "DECREMENT "; return DECREMENT;}
+"="							{std::cout << "AFFECT "; return AFFECT;}
+"+"							{std::cout << "ADD "; return ADD;}
+"-"							{std::cout << "SUB "; return SUB;}
+"*"							{std::cout << "MULT "; return MULT;}
+"/"							{std::cout << "DIV "; return DIV;}
+"%"							{std::cout << "MOD "; return MOD;}
+"&&"						{std::cout << "BOOL_AND "; return BOOL_AND;}
+"||"						{std::cout << "BOOL_OR "; return BOOL_OR;}
+"!"							{std::cout << "BOOL_NOT "; return BOOL_NOT;}
+"&"							{std::cout << "BIT_AND "; return BIT_AND;}
+"|"							{std::cout << "BIT_OR "; return BIT_OR;}
+"^"							{std::cout << "BIT_XOR "; return BIT_XOR;}
+"~"							{std::cout << "BIT_NOT "; return BIT_NOT;}
+"<<"						{std::cout << "BIT_LEFT_SHIFT "; return BIT_LEFT_SHIFT;}
+">>"						{std::cout << "BIT_RIGHT_SHIFT "; return BIT_RIGHT_SHIFT;}
+"void"						{std::cout << "VOID "; return VOID;}
+"char"						{std::cout << "CHAR "; return CHAR;}
+"int32_t"					{std::cout << "INT32 "; return INT32;}
+"int64_t"					{std::cout << "INT64 "; return INT64;}
+{number}					{std::cout << "{number} ";
 								std::stringstream ss(strdup(yytext));
 								long int tmp;
 								ss >> tmp;
 								yylval.lVal = tmp;
 								return INT_VAL;}
-"'"{alphanumex}"'"			{printf("'{alphanumex}' "); 
+"'"{alphanumex}"'"			{std::cout << "'{alphanumex}' "; 
 								yylval.cVal = strdup(yytext)[1]; 
 								return CHAR_VAL;}
-"\""{alphanumsex}"\"" 		{printf("\"{alphanumsex}\" "); 
+"\""{alphanumsex}"\"" 		{std::cout << "\"{alphanumsex}\" "; 
 								yylval.sVal = strndup(&yytext[1], sizeof(char)*(strlen(yytext)-2));
 								return CHAIN;}
-{ident}						{printf("identifiant "); 
+{ident}						{std::cout << "identifiant "; 
 								yylval.id = strdup(yytext); 
 								return ID;}
-";"							{printf("SEMICOLON "); return SEMICOLON;}
-","							{printf("COMMA "); return COMMA;}
-[ \t\n\r]					{printf("%s", yytext);}
-.							{printf("UNEXPECTED "); return UNEXPECTED;}
+";"							{std::cout << "SEMICOLON "; return SEMICOLON;}
+","							{std::cout << "COMMA "; return COMMA;}
+[ \t\n\r]					{std::cout  <<  yytext;}
+.							{std::cout << "UNEXPECTED "; return UNEXPECTED;}
 %%
 
