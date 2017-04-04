@@ -32,6 +32,7 @@ namespace IR {
         void aliveRegistryDetection();
         void affectRegistry(std::queue<std::string> asmRegistryAvailable);
         void affectMemory();
+        void manageReturnStatements();
 
         void exploreBasicBlock(sh_BasicBlock currentBlock);
         bool isBasicBlockAlreadyExplored(sh_BasicBlock currentBlock) const;
@@ -44,10 +45,11 @@ namespace IR {
     private:
         void init();
 
-
         sh_BasicBlock functionInit;
         sh_BasicBlock functionCore;
         sh_BasicBlock functionReturn;
+
+        sh_Memory returnedMemory;
 
         std::list<sh_BasicBlock> coreList;
 
