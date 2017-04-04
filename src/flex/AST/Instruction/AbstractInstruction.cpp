@@ -5,6 +5,7 @@
 #include "Variable/VariableDeclaration.h"
 #include "Variable/ArrayDeclaration.h"
 #include "Function/FunctionDeclaration.h"
+#include "Ternary.h"
 
 using namespace AST;
 
@@ -40,6 +41,10 @@ std::shared_ptr<AbstractInstruction> make_shared_instr(AbstractInstruction* ptr)
     else if(name == "FunctionDeclaration")
 	{
         return std::make_shared<FunctionDeclaration>( *( static_cast< FunctionDeclaration* >(ptr) ) );
+	}
+    else if(name == "Ternary")
+	{
+        return std::make_shared<Ternary>( *( static_cast< Ternary* >(ptr) ) );
 	}
 	else
 	{	

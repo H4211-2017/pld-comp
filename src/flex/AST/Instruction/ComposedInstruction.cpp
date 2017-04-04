@@ -3,13 +3,19 @@
 using namespace AST;
 
 ComposedInstruction::ComposedInstruction() 
-	: AbstractInstruction("ComposedInstruction")
+	: ComposedInstruction("ComposedInstruction")
 {
 
 }
 
+ComposedInstruction::ComposedInstruction(std::string name)
+	: AbstractInstruction(name)
+{
+	
+}
+
 ComposedInstruction::ComposedInstruction(std::shared_ptr<AbstractExpression> abstractExpression)
-    : AbstractInstruction("ComposedInstruction")
+    : ComposedInstruction("ComposedInstruction")
 {
     listExpressions.push_back(abstractExpression);
     this->value = abstractExpression->getValue();

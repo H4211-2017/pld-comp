@@ -14,6 +14,8 @@ namespace AST {
     
     	ComposedInstruction();
     	
+    	ComposedInstruction(std::string name);
+    	
         /**
          * @brief ComposedInstruction
          * @param abstractExpression the first abstract expression of a composed instruction

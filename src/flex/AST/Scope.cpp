@@ -49,7 +49,30 @@ std::shared_ptr<AbstractVariable> Scope::findVariable(std::string identifiant)
 	}	
 }
 
-
+std::shared_ptr<AbstractVariable>* Scope::findVariableAddress(std::string identifiant)
+{
+	try
+	{
+		auto val = vScope.findVariableAddress(identifiant);
+		return val;
+		
+		
+	}
+	catch(UndeclaredIdException& e)
+	{
+		try {
+			if(mother != nullptr)
+				return mother->findVariableAddress(identifiant);
+			else
+				throw UndeclaredIdException();
+		}
+		catch(std::exception& e)
+		{
+			std::cerr << "VariableScope::findVariable ( " << identifiant << " ) : "<< e.what() << std::endl;
+			exit(-1);
+		}	
+	}	
+}
 
 void Scope::declareFunction(std::string identifiant, std::shared_ptr<Function> decl)
 {

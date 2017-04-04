@@ -38,6 +38,8 @@ namespace AST{
          */
         std::shared_ptr<AbstractVariable> findVariable(std::string identifiant);
         
+        std::shared_ptr<AbstractVariable>* findVariableAddress(std::string identifiant);
+        
         /**
          * @brief declareFunction adds a function to the dictionnary of the scope
          * @param identifiant the id of the function to add to the dictionary.

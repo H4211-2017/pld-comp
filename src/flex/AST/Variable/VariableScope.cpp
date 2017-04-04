@@ -37,6 +37,20 @@ std::shared_ptr<AbstractVariable> VariableScope::findVariable(std::string identi
 
 }
 
+std::shared_ptr<AbstractVariable>* VariableScope::findVariableAddress(std::string identifiant)
+{
+	auto it = scope.find(identifiant);
+	if( it == scope.end() )
+	{
+		throw UndeclaredIdException();
+		
+	}
+	else
+	{
+		return &it->second;
+	}
+}
+
 VariableScope::~VariableScope()
 {}
 

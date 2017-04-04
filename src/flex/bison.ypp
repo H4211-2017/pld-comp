@@ -33,7 +33,7 @@ std::shared_ptr<Scope> currentContext = global;
 	AST::SequenceInstruction* sequenceInstruction;
 	AST::ReturnInstruction* ret;
 	
-        std::shared_ptr<AST::AbstractVariable>* var;
+    std::shared_ptr<AST::AbstractVariable>* var;
 	AST::VariableSignature* signatureV;
 	AST::Type* typeVar;
 	AST::VariableDeclaration* declVar;
@@ -169,7 +169,7 @@ mainarg : VOID          {$$ = nullptr;}
     | /* epsilon */     {$$ = nullptr;}
     ;
     
-liext : liext iext  {$$->addInstruction(make_shared_instr($2)); delete $2;}
+liext : liext iext  {$$ = $1; $$->addInstruction(make_shared_instr($2)); delete $2;}
     | SEMICOLON {$$->addInstruction(std::make_shared<ComposedInstruction>());} 
 	| /*epsilon*/ {$$ = new SequenceInstruction();} 
 	;
@@ -209,11 +209,11 @@ debutfonc : sigfonc larg RIGHT_PARENTHESIS     {$$ = new Function(std::make_shar
 												}
     ;
     
-larg : larg COMMA arg                               {$$->addArgument(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($3))));
+larg : larg COMMA arg                               {$$ = $1; $$->addArgument(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($3))));
 														delete $3;}
-    | larg COMMA type                               {$$->addArgument(std::make_shared<VariableSignature>("", *$3));
+    | larg COMMA type                               {$$ = $1; $$->addArgument(std::make_shared<VariableSignature>("", *$3));
     													delete $3;}
-    | larg COMMA type LEFT_BRACKET RIGHT_BRACKET    {std::cout << "larg : larg , type [ ] "<< std::endl;} // TODO
+    | larg COMMA type LEFT_BRACKET RIGHT_BRACKET    {$$ = $1; std::cout << "larg : larg , type [ ] "<< std::endl;} // TODO
     | arg                                           {$$ = new LArguments(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($1) ))); 
     													delete $1;}
     | type                                          {$$ = new LArguments(std::make_shared<VariableSignature>("", *$1));
@@ -229,7 +229,7 @@ appelfonc :ID LEFT_PARENTHESIS RIGHT_PARENTHESIS    {$$ = new FunctionCall($1, s
 
     													delete $3;}
     ;
-lparam : lparam COMMA expr    {$$->addParametre(make_shared_expr($3));}
+lparam : lparam COMMA expr    {$$ = $1; $$->addParametre(make_shared_expr($3));}
     | expr                    {$$ = new LParametres(make_shared_expr($1));}
     ;
     
@@ -252,17 +252,18 @@ type : CHAR {$$ = new Type(Type::CHAR);}
 	| INT64	{$$ = new Type(Type::INT_64);}
 	;
 
-var : ID {*$$ = currentContext->findVariable($1);} // WARNING Zone a risque !!!!!
+var : ID { $$ = currentContext->findVariableAddress($1);} // WARNING Zone a risque !!!!!
         | ID LEFT_BRACKET expr RIGHT_BRACKET {std::shared_ptr<AbstractVariable> tmpVar= currentContext->findVariable($1);
 											if(tmpVar->getName() == "Array"){
 												std::shared_ptr<Array> array = std::dynamic_pointer_cast<Array>(tmpVar);
-												*$$ = std::make_shared<CaseArray>( array, make_shared_expr($3) );
+												std::shared_ptr<AbstractVariable>*  tps = (std::shared_ptr<AbstractVariable>*) malloc(sizeof(std::shared_ptr<AbstractVariable>));
+												*tps = std::make_shared<CaseArray>( array, make_shared_expr($3));
+												$$ = tps;
 											}
 											else{
 												std::cerr << "Error : " << $1 << " is not an Array" << std::endl;
 												exit(1); 
 											}
-											delete $1;
 											delete $3;
 										} 
 	;
@@ -289,20 +290,14 @@ close_context : RIGHT_BRACES {currentContext = currentContext->getMother();}
 bloc : open_context seqint close_context    {$$ = new Block(currentContext, std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($2) )));}
     ;
 
-seqint : seqint iint {if($2 != nullptr)
-					  {
+seqint : seqint iint {$$ = $1; 
 						$$->addInstruction(make_shared_instr($2)); 
 						delete $2;
-					  }
-					  else
-					  {
-						$$->addInstruction(nullptr);	
-					  }
 					  } 
-	|  seqint declvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;}
-	| seqint decltabvar SEMICOLON {$$->addInstruction(make_shared_instr($2)); delete $2;}
-	| seqint declfonc {$$->addInstruction(make_shared_instr($2)); delete $2;} 
-	| seqint deffonc {$$->addInstruction(make_shared_instr($2)); delete $2;}
+	| seqint declvar SEMICOLON {$$ = $1; $$->addInstruction(make_shared_instr($2)); delete $2;}
+	| seqint decltabvar SEMICOLON {$$ = $1; $$->addInstruction(make_shared_instr($2)); delete $2;}
+	| seqint declfonc {$$ = $1; $$->addInstruction(make_shared_instr($2)); delete $2;} 
+	| seqint deffonc {$$ = $1; $$->addInstruction(make_shared_instr($2)); delete $2;}
 	| /*epsilon*/ {$$ = new SequenceInstruction();} 
 	;
 	
@@ -327,7 +322,12 @@ ireturn : RETURN iintcomp SEMICOLON {$$ = new ReturnInstruction(std::make_shared
 iintcomp : iintcomp COMMA expr {$$ = $1; 
 								$$->addExpression(make_shared_expr($3)); 
 								delete $3;}
-	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = new ComposedInstruction(make_shared_expr($1)); delete $1; delete $3; delete $5;} // TODO
+	| expr TERNARY_ASK iintcomp TERNARY_CHOOSE iintcomp {$$ = new Ternary(make_shared_expr($1), 
+																			std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) ) ), 
+																			std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($5) ) ) ); 
+														delete $1; 
+														delete $3; 
+														delete $5;}
 	| expr {$$ = new ComposedInstruction(make_shared_expr($1));
 			delete $1;}
 	;
@@ -345,8 +345,7 @@ uoperation : SUB expr {$$ = new UnaryExpression(make_shared_expr($2), UnaryOp::U
 	;
 	
 expr : INT_VAL {$$ = new Constant($1);}
-	| var {$$ = new IDExpression(*$1, currentContext);
-			delete $1;}
+	| var {$$ = new IDExpression(*$1, currentContext);}
 	| uoperation {$$ = $1;} 
 	| affectation {$$ = $1;}
 	| appelfonc {$$ = $1;}
@@ -383,7 +382,7 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new SupEqExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_RIGHT_SHIFT expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3)); // TODO
+	| expr BIT_RIGHT_SHIFT expr {$$ = new BitwiseShiftRightExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
 	| expr BIT_LEFT_SHIFT expr {$$ = new BitwiseShiftLeftExpression(make_shared_expr($1), make_shared_expr($3));
@@ -405,14 +404,10 @@ expr : INT_VAL {$$ = new Constant($1);}
 								delete $1;
 								delete $3;}
 	| LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS {$$ = new ParenthesisExpression(make_shared_instr($2)); delete $2;} 
-	| var INCREMENT {$$ = new DecrIncrRightExpression(*$1, 1);
-						delete $1;}
-	| var DECREMENT {$$ = new DecrIncrRightExpression(*$1, -1);
-						delete $1;} 
-	| INCREMENT var {$$ = new DecrIncrLeftExpression(*$2, 1);
-						delete $2;}
-	| DECREMENT var {$$ = new DecrIncrLeftExpression(*$2, -1);
-						delete $2;} 
+	| var INCREMENT {$$ = new DecrIncrRightExpression(*$1, 1);}
+	| var DECREMENT {$$ = new DecrIncrRightExpression(*$1, -1);} 
+	| INCREMENT var {$$ = new DecrIncrLeftExpression(*$2, 1);}
+	| DECREMENT var {$$ = new DecrIncrLeftExpression(*$2, -1);} 
 	;
 	
 	
@@ -448,7 +443,7 @@ signeaff : AFFECT {$$ = new OPAffect(OPAffect::AFFECT);}
 	| AFFECT_BIT_OR  {$$ = new OPAffect(OPAffect::AFFECT_BIT_OR);}
 	| AFFECT_BIT_XOR   {$$ = new OPAffect(OPAffect::AFFECT_BIT_XOR);}
 	| AFFECT_BIT_LEFT_SHIFT  {$$ = new OPAffect(OPAffect::AFFECT_BIT_LEFT_SHIFT);}
-	| AFFECT_BIT_RIGHT_SHIFT {$$ = new OPAffect(OPAffect::AFFECT_BIT_RIGHT_SHIFT);} // TODO
+	| AFFECT_BIT_RIGHT_SHIFT {$$ = new OPAffect(OPAffect::AFFECT_BIT_RIGHT_SHIFT);}
 	;
 
 /* ===== STRUCTURES ===== */ 

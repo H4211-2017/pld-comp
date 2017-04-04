@@ -4,6 +4,7 @@
 #include "BitwiseAndExpression.h"
 #include "BitwiseOrExpression.h"
 #include "BitwiseShiftLeftExpression.h"
+#include "BitwiseShiftRightExpression.h"
 #include "BitwiseXorExpression.h"
 #include "ModuloExpression.h"
 #include "DivExpression.h"
@@ -105,6 +106,7 @@ void AffectationExpression::switchOperatorMake(enum OPAffect op, std::shared_ptr
 			this->transformedExpr = std::make_shared<BitwiseShiftLeftExpression>(std::make_shared<IDExpression>(var, scope), rightMember);
 			break;
 		case AFFECT_BIT_RIGHT_SHIFT :
+			this->transformedExpr = std::make_shared<BitwiseShiftRightExpression>(std::make_shared<IDExpression>(var, scope), rightMember);
 			break;
 		default :
 			break;

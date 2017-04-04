@@ -12,6 +12,7 @@
 #include "BitwiseAndExpression.h"
 #include "BitwiseOrExpression.h"
 #include "BitwiseShiftLeftExpression.h"
+#include "BitwiseShiftRightExpression.h"
 #include "BitwiseXorExpression.h"
 #include "ModuloExpression.h"
 #include "DecrIncrRightExpression.h"
@@ -82,6 +83,10 @@ std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
     else if(name == "BitwiseShiftLeftExpression")
     {
         return std::make_shared<BitwiseShiftLeftExpression>( *( static_cast< BitwiseShiftLeftExpression* >(ptr) ) );
+    }
+    else if(name == "BitwiseShiftRightExpression")
+    {
+        return std::make_shared<BitwiseShiftRightExpression>( *( static_cast< BitwiseShiftRightExpression* >(ptr) ) );
     }
     else if(name == "BitwiseXorExpression")
     {
