@@ -3,11 +3,11 @@
 using namespace IR;
 
 AbstractFunction::AbstractFunction(std::string name,
-                                   std::list<sh_AbstractData> param,
-                                   sh_Register returnRegister):
+                                   Type returnType,
+                                   std::list<sh_AbstractData> param):
     functionName(name),
     functionParam(param),
-    functionReturn(returnRegister)
+    functionReturnType(returnType)
 {
 
 }

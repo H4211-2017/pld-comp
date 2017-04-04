@@ -52,10 +52,9 @@ int main(int argc, char *argv[])
 //	std::cout << std::endl;
 	
 //	delete program;
-    std::list<IR::sh_Memory> listArg;
 
     IR::ProgrameStructure structure;
-    IR::sh_FunctionBlock mainFunction = std::make_shared<IR::FunctionBlock>("main", IR::INT_32, listArg);
+    IR::sh_FunctionBlock mainFunction = std::make_shared<IR::FunctionBlock>("main", IR::INT_32);
     IR::Generator gen;
     IR::sh_Memory memA = gen.getNewUnusedMemmory(IR::Type::INT_64);
     IR::sh_Memory memB = gen.getNewUnusedMemmory(IR::Type::INT_64);

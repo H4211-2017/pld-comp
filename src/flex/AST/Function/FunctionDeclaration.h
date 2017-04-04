@@ -24,7 +24,6 @@ namespace AST
 
     protected:
         std::shared_ptr<FunctionSignature> sig;
-        std::shared_ptr<LArguments> args;
         std::shared_ptr<Function> fct;
     };
 }

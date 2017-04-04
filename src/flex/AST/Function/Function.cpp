@@ -102,6 +102,11 @@ std::shared_ptr<IR::FunctionBlock> Function::getIrFunction() const
     }
     return irFunction;
 }
+
+std::vector<std::shared_ptr<VariableSignature>> Function::getArguments() const
+{
+    return args->getArguments();
+}
         
 void Function::printTree(int tabulationNumber) const
 {
@@ -128,7 +133,7 @@ Value Function::evaluate() const
 
 IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+    return nullptr;
 
 }
  
