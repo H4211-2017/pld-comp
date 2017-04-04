@@ -2,6 +2,8 @@
 
 #include <algorithm>
 
+#include "../../../IR/generator/Generator.h"
+
 using namespace AST;
 
 FunctionCall::FunctionCall(std::string id,  std::shared_ptr<LParametres> params, std::shared_ptr<Scope> scope)
@@ -36,8 +38,11 @@ void FunctionCall::printTree(int tabulationNumber) const
     parametres->printTree(tabulationNumber + 1);
 }
 
-// TODO : create class CFG and replace comment below.
-void FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	
+	IR::Generator gen;
+	std::list<IR::sh_AbstractData> irParams;
+	// TODO : complete this function by using params
+	std::list<IR::sh_AbsInstruction> absIntructions = gen.call(fct->getIrFunction(), irParams);
+	return nullptr;
 }

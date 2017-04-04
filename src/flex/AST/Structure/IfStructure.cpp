@@ -25,7 +25,18 @@ void IfStructure::printTree(int tabulationNumber) const
     condition->printTree(tabulationNumber + 1);
     std::cout << std::endl;
 
-    intInstruction->printTree(tabulationNumber + 1);
+
+	if(intInstruction != nullptr)
+	{	
+		std::cout << std::endl;
+		intInstruction->printTree(tabulationNumber + 1);
+	}
+	else
+	{
+		std::cout << std::endl;
+		for(int i=0; i<= tabulationNumber; i++, std::cout << "\t");
+		std::cout << "EXECUTIVE INSTR : EMPTY";
+	}
 
 	if(elseStructure != nullptr)
 	{	
@@ -38,7 +49,7 @@ void IfStructure::printTree(int tabulationNumber) const
  * @param currentBasicBlock reference to the BasicBlock where the code will be generated.
  * This reference will be updated to the currentBasicBlock needed for next buildIR call.
  */
-void IfStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory IfStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     //add condition at what will become the end of the current basic block
     this->condition->buildIR(currentBasicBlock);
@@ -73,4 +84,5 @@ void IfStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 
     //update currentBasicBlock so that the caller use the right basic block
     currentBasicBlock = afterBasicBlock;
+	return nullptr;
 }

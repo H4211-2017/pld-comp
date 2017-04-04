@@ -4,6 +4,7 @@
 #include "AbstractInstruction.h"
 #include "Structure/AbstractStructure.h"
 #include "Block.h"
+#include "Instruction/ReturnInstruction.h"
 #include "AbstractNode.h"
 
 namespace AST {
@@ -23,11 +24,12 @@ namespace AST {
          * @param struc the struc that is the main component of this instruction
          */
         UnitInstruction(std::shared_ptr<AbstractStructure> struc);
+        UnitInstruction(std::shared_ptr<ReturnInstruction> ret);
         
         
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
-        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
         
     protected:
     
@@ -41,6 +43,7 @@ namespace AST {
     
     	std::shared_ptr<Block> block;
     	std::shared_ptr<AbstractStructure> struc;
+    	std::shared_ptr<ReturnInstruction> ret;
     	enum Content content;
     };
 }

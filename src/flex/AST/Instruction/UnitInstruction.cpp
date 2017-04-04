@@ -24,6 +24,14 @@ UnitInstruction::UnitInstruction(std::shared_ptr<AbstractStructure> struc)
 	this->value = Value();
 }
 
+UnitInstruction::UnitInstruction(std::shared_ptr<ReturnInstruction> ret)
+	: UnitInstruction()
+{
+	this->ret = ret;
+	this->content = RETURN;
+	this->value = this->ret->getValue();
+}
+
 void UnitInstruction::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
@@ -36,6 +44,9 @@ void UnitInstruction::printTree(int tabulationNumber) const
 			break;
 		case STRUCT:
 			this->struc->printTree(tabulationNumber + 1);
+			break;
+		case RETURN:
+			this->ret->printTree(tabulationNumber + 1);
 			break;
 		default:
 			break;
@@ -54,16 +65,18 @@ Value UnitInstruction::evaluate() const
 	}
 }
 
-void UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-    switch (content) {
-    case Content::BLOCK:
-        block->buildIR(currentBasicBlock);
-        break;
-    case Content::STRUCT:
-        struc->buildIR(currentBasicBlock);
-        break;
-    default:
-        break;
+    switch (content)
+    {
+		case Content::BLOCK:
+		    block->buildIR(currentBasicBlock);
+		    break;
+		case Content::STRUCT:
+		    struc->buildIR(currentBasicBlock);
+		    break;
+		default:
+		    break;
     }
+	return nullptr;
 }

@@ -2,6 +2,9 @@
 
 #include <climits>
 
+#include "../../../IR/data/Constant.h"
+#include "../../../IR/generator/Generator.h"
+
 using namespace AST;
 
 Constant::Constant()
@@ -29,9 +32,16 @@ Value Constant::evaluate() const
     return value;
 }
  
-void Constant::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory Constant::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	//TODO Complete IR
+	IR::Type irType = value.getIRType();
+	IR::Generator gen;
+	
+	IR::Constant constant(irType, value.getValue().second);
+	IR::sh_Memory memory = gen.getNewUnusedMemmory(irType);	
+	
+	currentBasicBlock->pushInstructionBack(gen.setValue(constant, memory));
+	return memory;
 }
 
 void Constant::printTree(int tabulationNumber) const

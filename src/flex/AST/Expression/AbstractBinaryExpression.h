@@ -17,9 +17,18 @@ public:
     AbstractBinaryExpression(std::string name, std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
 	virtual ~AbstractBinaryExpression();
 
+    /**
+     * @brief printTree Prints the structure of the expression
+     * @param tabulationNumber the tabulation of this current node.
+     */
     virtual void printTree(int tabulationNumber) const;
+
+    /**
+     * @brief evaluate pure virtual function
+     * @return the "Value" of the expression, mainly it's type.
+     */
     virtual Value evaluate() const =0;
-    virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const =0;
+    virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const =0;
 	
 protected:
     virtual void printOperator() const =0;

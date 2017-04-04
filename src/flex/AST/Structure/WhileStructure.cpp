@@ -28,10 +28,16 @@ void WhileStructure::printTree(int tabulationNumber) const
         std::cout << std::endl;
         intInstruction->printTree(tabulationNumber + 1);
     }
+	else
+	{
+		std::cout << std::endl;
+		for(int i=0; i<= tabulationNumber; i++, std::cout << "\t");
+		std::cout << "EXECUTIVE INSTR : EMPTY";
+	}
 
 }
 
-void WhileStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory WhileStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     IR::sh_BasicBlock loopBasicBlock = std::make_shared<IR::BasicBlock>();
     IR::sh_BasicBlock testBasicBlock = std::make_shared<IR::BasicBlock>();
@@ -56,4 +62,5 @@ void WhileStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 
     //update currentBasicBlock so that the caller use the right basic block
     currentBasicBlock = afterBasicBlock;
+	return nullptr;
 }

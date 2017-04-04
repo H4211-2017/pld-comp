@@ -20,13 +20,13 @@ namespace AST {
 
         /**
          * @brief addInstruction
-         * @param instruction th instrution to add
+         * @param instruction the instrution to add
          */
         void addInstruction(std::shared_ptr<AbstractInstruction> instruction);
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
-        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
     private:
         std::vector<std::shared_ptr<AbstractInstruction>> instructionsList;

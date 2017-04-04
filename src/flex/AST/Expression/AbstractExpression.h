@@ -7,8 +7,8 @@
 namespace AST
 {
     
-	class AbstractExpression : public AbstractNode
-	{
+    class AbstractExpression : public AbstractNode
+    {
 		
 	public:
 		AbstractExpression(std::string name);

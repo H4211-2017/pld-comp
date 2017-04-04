@@ -1,12 +1,12 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
-#include "Variable.h"
+#include "AbstractVariable.h"
 #include "VariableSignature.h"
 
 namespace AST
 {
-	class Array : public Variable
+	class Array : public AbstractVariable
 	{
 	public:
         
@@ -14,10 +14,10 @@ namespace AST
         
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
-        virtual void buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
         
     protected:
-        long int size;
+        long int size;    
     };
 }
 

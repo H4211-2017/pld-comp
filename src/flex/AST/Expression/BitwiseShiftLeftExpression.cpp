@@ -23,9 +23,9 @@ Value BitwiseShiftLeftExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void BitwiseShiftLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory BitwiseShiftLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void BitwiseShiftLeftExpression::printOperator() const

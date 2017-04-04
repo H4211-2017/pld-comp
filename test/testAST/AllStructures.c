@@ -15,6 +15,11 @@ int32_t main()
 	{
 		a = 3;
 	}
+	
+	while(1){}
+	int32_t i;
+	for(i=1;i<20;i++) --a;
+	for(;;);
 }
 
 int32_t fonctionAvant(int32_t z)

@@ -40,7 +40,8 @@ void LParametres::printTree(int tabulationNumber) const
 	}
 }
 
-void LParametres::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory LParametres::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 
+	return nullptr;
 }

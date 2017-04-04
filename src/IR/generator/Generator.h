@@ -45,6 +45,11 @@ namespace IR {
         std::list<sh_AbsInstruction> binaryOperator(sh_Memory valueA, sh_Memory valueB, sh_Memory dest) const;
 
     protected:
+        /**
+         * @brief Generator::getNewUnusedMemmory get a raw memory
+         * @param memoryType type of the wanted memory (its size)
+         * @return the new memory
+         */
         sh_Register getNewUnusedRegister(Type memoryType) const;
 
     private:

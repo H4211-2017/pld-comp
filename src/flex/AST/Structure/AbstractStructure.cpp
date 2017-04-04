@@ -21,15 +21,14 @@ std::shared_ptr<AbstractStructure> make_shared_struct(AbstractStructure *ptr)
 	{
 		return std::make_shared<IfStructure>( *(static_cast< IfStructure *>(ptr)));
 	}
-    if(name == "WhileStructure")
-    {
-        return std::make_shared<WhileStructure>( *(static_cast< WhileStructure *>(ptr)));
-    }
-    if(name == "ForStructure")
-    {
-        return std::make_shared<ForStructure>( *(static_cast< ForStructure *>(ptr)));
-    }
-
+	else if(name == "WhileStructure")
+	{
+		return std::make_shared<WhileStructure>( *(static_cast< WhileStructure *>(ptr)));
+	}
+	else if(name == "ForStructure")
+	{
+		return std::make_shared<ForStructure>( *(static_cast< ForStructure *>(ptr)));
+	}
 	else
 	{	
 		std::cerr<< " AbstractStructure :: make_shared_ptr found no type like '" << name << "'" << std::endl;

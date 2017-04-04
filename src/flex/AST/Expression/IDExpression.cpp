@@ -26,6 +26,26 @@ IDExpression::IDExpression(std::string name, std::string id,
 }
 
 
+IDExpression::IDExpression(std::shared_ptr<AbstractVariable> variable, std::shared_ptr<Scope> scope)
+    : IDExpression("IDExpression", variable, scope)
+{
+	
+}
+
+IDExpression::IDExpression(std::string name, std::shared_ptr<AbstractVariable> variable, std::shared_ptr<Scope> scope)
+    : AbstractExpression(name)
+{
+	val = variable;
+	
+	this->setType(val->getValue().getValue().first);
+	
+	if(val->isDeclaration())
+	{
+		std::cerr << "ERROR : Variable is declared but not defined. " << std::endl;
+		exit(-1);
+	}
+}
+
 IDExpression::~IDExpression() {
 	// TODO Auto-generated destructor stub
 }
@@ -42,8 +62,7 @@ void IDExpression::printTree(int tabulationNumber) const
     val->printTree(tabulationNumber + 1);
 }
 
-// TODO : create class CFG and replace comment below.
-void IDExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory IDExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	
+	return val->buildIR(currentBasicBlock);
 }

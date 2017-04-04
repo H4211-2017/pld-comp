@@ -5,35 +5,22 @@
 
 using namespace AST;
 
-Variable::Variable(std::shared_ptr<VariableSignature> signature, bool decl)
-	: AbstractNode("Variable"), declaration(decl)
-{
-	sig = signature;
-	this->setType(sig->getValue().getValue().first);
-}
-
 Variable::Variable(std::string name, std::shared_ptr<VariableSignature> signature, bool decl)
-	: AbstractNode(name), declaration(decl)
+    : AbstractVariable(name, signature, decl)
 {
-	sig = signature;
-	this->setType(sig->getValue().getValue().first);
+
 }
 
-bool Variable::isDeclaration() const
+Variable::Variable(std::shared_ptr<VariableSignature> signature, bool decl, const IR::Generator &generator)
+	: AbstractVariable("Variable", signature, decl)
 {
-	return declaration;
+	IR::Type irType = signature->getValue().getIRType();
+	memory = generator.getNewUnusedMemmory(irType);
 }
 
-void Variable::noLongerDeclaration()
+Variable::~Variable()
 {
-	declaration = false;
-}
-        
-void Variable::printTree(int tabulationNumber) const
-{
-	AbstractNode::printTree(tabulationNumber);
-    std::cout << "| Name variable : " << sig->getIdentifiant() << std::endl;
-	sig->printTree(tabulationNumber + 1);
+
 }
 
 Value Variable::evaluate() const
@@ -41,7 +28,7 @@ Value Variable::evaluate() const
 	return Value();
 }
 
-void Variable::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory Variable::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return memory;
 }

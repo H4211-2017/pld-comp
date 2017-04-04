@@ -25,9 +25,9 @@ Value DivExpression::evaluate() const
 }
 
 // TODO : create class CFG and replace comment below.
-void DivExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
+IR::sh_Memory DivExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
+	return nullptr;
 }
 
 void DivExpression::printOperator() const
