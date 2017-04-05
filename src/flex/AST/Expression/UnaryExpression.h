@@ -20,6 +20,8 @@ enum UnaryOp
 	UBOOLN
 };
 
+typedef enum UnaryOp UnaryOp;
+
 class UnaryExpression : public AbstractExpression{
 public:
     UnaryExpression(std::shared_ptr<AbstractExpression> expr, enum UnaryOp op);

@@ -26,5 +26,6 @@ Value Ternary::evaluate() const
 
 IR::sh_Memory Ternary::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return equivalent->buildIR(currentBasicBlock);
+	return nullptr;
+	//return equivalent->buildIR(currentBasicBlock);
 }

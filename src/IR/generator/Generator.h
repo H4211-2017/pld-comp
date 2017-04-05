@@ -28,6 +28,8 @@
 #include "../instructions/OperatorPlus.h"
 #include "../instructions/ReturnInstruction.h"
 #include "../instructions/BreakInstruction.h"
+#include "../../flex/AST/Expression/UnaryExpression.h"
+#include "../instructions/UnaryOperator.h"
 
 #define BINARY_OPERATOR_IR(CLASS) IR::Generator gen; \
 	IR::sh_Memory leftMem = leftMember->buildIR(currentBasicBlock); \
@@ -56,7 +58,9 @@ namespace IR {
         //to define every possible binary IR operation
         template<typename IrOperator>
         std::list<sh_AbsInstruction> binaryOperator(sh_Memory valueA, sh_Memory valueB, sh_Memory dest) const;
-
+        
+		std::list<sh_AbsInstruction> unaryOperator(sh_Memory valueA, sh_Memory dest, enum AST::UnaryOp) const;
+		
     protected:
         /**
          * @brief Generator::getNewUnusedMemmory get a raw memory

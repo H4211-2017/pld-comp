@@ -102,24 +102,11 @@ int main(int argc, char *argv[])
 	}
 	
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
-
-<<<<<<< HEAD
-    //std::cout << "main apres buildIR" << std::endl;
-
 //    programStructure->printIR(std::cout);
-   // std::cout << "main apres printIR" << std::endl;
-=======
-
-//    programStructure->printIR(std::cout);
->>>>>>> 5bf840b5077c3a208442ccfc0fd192af2f8cabfc
 
     std::ofstream asmFileStream(target);
     programStructure->printASM(asmFileStream, IR::AsmType::X64Linux);
 
-<<<<<<< HEAD
-    //std::cout << "main apres printASM" << std::endl;
-=======
->>>>>>> 5bf840b5077c3a208442ccfc0fd192af2f8cabfc
 	delete program;
 
     return 0;

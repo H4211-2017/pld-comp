@@ -1,5 +1,6 @@
 #include "Generator.h"
 #include <string>
+#include <iostream>
 
 using namespace IR;
 
@@ -162,7 +163,20 @@ sh_Register Generator::getNewUnusedRegister(Type registerType) const
     return newRegister;
 }
 
+std::list<sh_AbsInstruction> Generator::unaryOperator(sh_Memory valueA, sh_Memory dest, enum AST::UnaryOp op) const
+{
+	std::list<sh_AbsInstruction> instructionList;
+	sh_Register registerValueA = getNewUnusedRegister(valueA->getType());
+	sh_Register registerDest = getNewUnusedRegister(dest->getType());
+	//load Values in register
+	instructionList.push_back( std::make_shared<ReadFromMemory>(valueA, registerValueA) );
+	//make calculation
+	instructionList.push_back( std::make_shared<UnaryOperator>(registerDest, registerValueA, op));
+	//write result to memory
+	instructionList.push_back( std::make_shared<WriteToMemory>(registerDest, dest));
 
+	return instructionList;
+}
 
 
 

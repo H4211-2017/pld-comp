@@ -19,4 +19,5 @@ int32_t main()
     //return 8 | 3;
     //return 4 ^ 6;
     //return 6 || 3;
+    return !6;
 }
