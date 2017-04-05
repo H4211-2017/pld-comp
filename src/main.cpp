@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "includeCommun.h"
-
+#include "OptionScanner.h"
 
 #include "bison.tab.hpp"
 #include <list>
@@ -21,85 +21,57 @@ extern FILE* yyin;
 
 int main(int argc, char *argv[])
 {
-	std::string fichierACompiler;
-	std::string target;
-	std::string ASTtarget;
+	lake::OptionScanner options = lake::OptionScanner();
+	options.parseConsoleOptions(argc, argv);
+	
 	std::streambuf* oldBuf;
-	bool verbose = false;
-	int i = 1;
-	if( argc > 7 )
+	
+	/* ******************************************
+	 * 			Fetching the Source File		*
+	 * ******************************************/
+	//Note : if no file is given, the input will be taken from cin
+	if( options.srcFile.length() > 0)
 	{
-		std::cerr << "ERROR : Too many arguments" << std::endl;
-		exit(-1);
-	}
-	for(; i<argc; i++)
-	{
-		if(strcmp(argv[i], "-o") == 0)
-		{
-			i++;
-			if(i == argc || argv[i][0] == '-')
-			{
-				std::cerr << "ERROR : no target defined" << std::endl;
-				exit(-1);
-			}
-			target = argv[i];
-		}
-		else if(strcmp(argv[i], "-t") == 0)
-		{
-			i++;
-			if(i == argc || argv[i][0] == '-')
-			{
-				std::cerr << "ERROR : no AST-target defined" << std::endl;
-				exit(-1);
-			}
-			ASTtarget = argv[i];
-		}
-		else if(strcmp(argv[i], "-v") == 0)
-		{
-			verbose = true;
-		}
-		else
-		{
-			fichierACompiler = argv[i];
-		}
+		yyin = fopen(options.srcFile.c_str(), "r");
 	}
 	
-	if(fichierACompiler.length() > 0)
-	{
-		yyin = fopen(fichierACompiler.c_str(), "r");
-	}
 	
-    AST::ProgramNode * program;
 	
-	if(!verbose)
+	/* ******************************************
+	 * 				Building AST				*
+	 * ******************************************/
+    AST::ProgramNode * program;//AST storage for the whole source program
+	if( !(options.verbose) )
 	{
+		//artificial muting of cout to ignore output from flex
 		std::cout.setstate(std::ios_base::failbit);
 		yyparse(&program);
 		std::cout.clear();
 	}
-	else
+	else //verbose will display flex output
 	{
 		yyparse(&program);	
-	}
-	
-	if(fichierACompiler.length() > 0)
+	}	
+	// safely closing the Source File if it was specified
+	if( options.srcFile.length() > 0)
 		fclose(yyin);
-    
-    if(ASTtarget.length() > 0)
+    //Writing AST output in priority to the target
+    if( options.ASTtarget.length() > 0)
     {
-		std::ofstream out(ASTtarget); 
+		std::ofstream out( options.ASTtarget); 
 		oldBuf = std::cout.rdbuf(out.rdbuf()); 
 	  	
 		program->printTree(0);
 		// Restauration du streambuf initial de std::cout (affichage sur la console) 
 		std::cout.rdbuf(oldBuf); 
 	}
-	else if(verbose)
+	else if(options.verbose) //Writing AST output to the console
 	{
 		program->printTree(0);				
 		std::cout << std::endl;
 	}
 	
+	//Deleting the dynamically allocated AST node
 	delete program;
 
 
