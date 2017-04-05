@@ -4,11 +4,13 @@
 #include "Instruction/AbstractInstruction.h"
 #include "Function.h"
 #include "FunctionSignature.h"
+#include "../../../IR/function/FunctionBlock.h"
 
 namespace AST
 {
 
     class Scope;
+    class FunctionBlock;
 
     class FunctionDeclaration : public AbstractInstruction
     {

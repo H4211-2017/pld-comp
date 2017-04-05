@@ -34,17 +34,20 @@ Value ProgramNode::evaluate() const
 // TODO : functions other than main
 IR::sh_ProgrameStructure ProgramNode::buildIR()
 {
-    std::cout << "ProgramNode::buildIR : main : " << main << std::endl;
-    std::cout << "ProgramNode::buildIR avant creation programStructure " << std::endl;
     std::shared_ptr<IR::ProgrameStructure> programStructure = std::make_shared<IR::ProgrameStructure>();
-    std::cout << "ProgramNode::buildIR apres creation programStructure " << std::endl;
+
+    for (std::shared_ptr<FunctionDeclaration> astFunction : liextBefore->getListFunctionDeclaration())
+    {
+        programStructure->addFunction(astFunction->getIrFunction());
+    }
+    for (std::shared_ptr<FunctionDeclaration> astFunction : liextAfter->getListFunctionDeclaration())
+    {
+        programStructure->addFunction(astFunction->getIrFunction());
+    }
     programStructure->addFunction(main->getIrFunction());
-    std::cout << "ProgramNode::buildIR apres addFunction programStructure " << std::endl;
-    std::cout << "ProgramNode::buildIR : main->getIrFunction() : " << main->getIrFunction() << std::endl;
+
     IR::sh_BasicBlock mainCoreIR = main->getIrFunction()->getFunctionCore();
-    std::cout << "ProgramNode::buildIR apres mainCoreIR " << std::endl;
     main->buildIR(mainCoreIR);
-    std::cout << "ProgramNode::buildIR apres main->buildIR" << std::endl;
     
     return programStructure;
 }

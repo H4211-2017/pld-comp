@@ -8,6 +8,8 @@
 
 namespace AST
 {
+    class SequenceInstruction;
+
     class Block : public AbstractNode
 	{
 	public:

@@ -10,6 +10,8 @@
 
 namespace AST
 {
+    class Block;
+
     class Function : public AbstractNode
 	{
 	public:

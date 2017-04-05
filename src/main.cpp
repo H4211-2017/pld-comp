@@ -100,19 +100,11 @@ int main(int argc, char *argv[])
 	}
 
 
-    std::cout << "main avant buildIR" << std::endl;
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
 
-
-    std::cout << "main apres buildIR" << std::endl;
-
     programStructure->printIR(std::cout);
-    std::cout << "main apres printIR" << std::endl;
 
-   // programStructure->printASM(std::cout, IR::AsmType::X64Linux);
-
-    std::cout << "main apres printASM" << std::endl;
-	
+    //programStructure->printASM(std::cout, IR::AsmType::X64Linux);
 	delete program;
 
     return 0;
