@@ -1,5 +1,7 @@
 #include "ReturnInstruction.h"
 
+#include "../../../IR/generator/Generator.h"
+
 using namespace AST;
 
 ReturnInstruction::ReturnInstruction()
@@ -40,13 +42,18 @@ Value ReturnInstruction::evaluate() const
 	}
 }
 
-// TODO
 IR::sh_Memory ReturnInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {	
+	IR::Generator gen;
+	IR::sh_Memory returnValueMem = nullptr;
+	
 	if(composedInstruction != nullptr)
 	{
-		 return composedInstruction->buildIR(currentBasicBlock);
+		 returnValueMem = composedInstruction->buildIR(currentBasicBlock);
 	}
 	
-	return nullptr;
+	std::list<IR::sh_AbsInstruction> retInstruction = gen.returnInstruction(returnValueMem);
+	currentBasicBlock->pushInstructionBack(retInstruction);
+	
+	return returnValueMem;
 }

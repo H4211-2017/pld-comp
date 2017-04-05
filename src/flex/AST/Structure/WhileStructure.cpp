@@ -51,6 +51,8 @@ IR::sh_Memory WhileStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) con
     //test block go to loop if true and after if false
     testBasicBlock->setNextBlockTrue(loopBasicBlock);
     testBasicBlock->setNextBlockFalse(afterBasicBlock);
+    //add a flag on the test basic block
+    testBasicBlock->setBasicBlockFlag(IR::Flag::LoopCondition);
     //loop block always go back to test block
     loopBasicBlock->setNextBlockTrue(testBasicBlock);
 
@@ -59,6 +61,7 @@ IR::sh_Memory WhileStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) con
     this->condition->buildIR(testBasicBlock);
     //loop block is full of instrucitons...
     this->intInstruction->buildIR(loopBasicBlock);
+    loopBasicBlock->setBasicBlockFlag(IR::Flag::LoopEnd);
 
     //update currentBasicBlock so that the caller use the right basic block
     currentBasicBlock = afterBasicBlock;

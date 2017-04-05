@@ -1,5 +1,5 @@
-#ifndef RETURNINSTRUCTION_H
-#define RETURNINSTRUCTION_H
+#ifndef IR_RETURNINSTRUCTION_H
+#define IR_RETURNINSTRUCTION_H
 
 #include "AbstractInstruction.h"
 
@@ -7,7 +7,7 @@ namespace IR {
     class ReturnInstruction : public AbstractInstruction
     {
     public:
-        ReturnInstruction(sh_Memory returnValue);
+        ReturnInstruction(sh_Memory returnValue = nullptr);
 
         virtual std::string toLinuxX64() const;
         virtual std::string toString() const;

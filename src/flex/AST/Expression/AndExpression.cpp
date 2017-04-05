@@ -1,7 +1,7 @@
 #include "AndExpression.h"
 
 #include "../../../IR/generator/Generator.h"
-#include "../../../IR/instructions/OperatorMult.h"
+#include "../../../IR/instructions/OperatorAnd.h"
 
 #include <algorithm>
 
@@ -12,12 +12,12 @@ AndExpression::AndExpression(std::shared_ptr<AbstractExpression> leftMember,  st
     : AbstractBinaryExpression("AndExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
 
 
-AndExpression::~AndExpression() {
-    // TODO Auto-generated destructor stub
+AndExpression::~AndExpression()
+{
+	
 }
 
 Value AndExpression::evaluate() const
@@ -30,7 +30,7 @@ Value AndExpression::evaluate() const
 
 IR::sh_Memory AndExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorAnd>(currentBasicBlock);
 }
 
 void AndExpression::printOperator() const

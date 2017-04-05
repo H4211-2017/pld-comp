@@ -1,6 +1,8 @@
 #include "DivExpression.h"
 
 #include <algorithm>
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorDiv.h"
 
 using namespace AST;
 
@@ -27,7 +29,7 @@ Value DivExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory DivExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorDiv>(currentBasicBlock);
 }
 
 void DivExpression::printOperator() const

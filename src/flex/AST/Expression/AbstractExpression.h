@@ -5,8 +5,7 @@
 
 
 namespace AST
-{
-    
+{  
     class AbstractExpression : public AbstractNode
     {
 		
@@ -17,9 +16,7 @@ namespace AST
 		AbstractExpression(std::string name, Type type, long int value);
 
         virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const = 0;
-		
 	};
-
 }
 
 

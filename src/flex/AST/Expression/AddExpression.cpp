@@ -27,18 +27,7 @@ Value AddExpression::evaluate() const
 
 IR::sh_Memory AddExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	IR::Generator gen;
-	IR::sh_Memory leftMem = leftMember->buildIR(currentBasicBlock);
-	IR::sh_Memory rightMem = rightMember->buildIR(currentBasicBlock);
-	
-	IR::Type irType = value.getIRType();
-	IR::sh_Memory destMem = gen.getNewUnusedMemmory(irType);
-	
-	std::list<IR::sh_AbsInstruction> instructionsList = gen.binaryOperator<IR::OperatorPlus>(leftMem, rightMem, destMem);
-	
-	currentBasicBlock->pushInstructionBack(instructionsList);
-	
-	return destMem;
+	return fcBuildIR<IR::OperatorPlus>(currentBasicBlock);
 }
 
 void AddExpression::printOperator() const

@@ -1,6 +1,8 @@
 #include "SupEqExpression.h"
 
 #include <algorithm>
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorBiggerOrEqual.h"
 
 
 using namespace AST;
@@ -28,7 +30,7 @@ Value SupEqExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory SupEqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorBiggerOrEqual>(currentBasicBlock);
 }
 
 void SupEqExpression::printOperator() const

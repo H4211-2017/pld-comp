@@ -7,6 +7,7 @@
 #include "../config/Enums.h"
 #include "FunctionBlock.h"
 #include "../instructions/ReturnInstruction.h"
+#include "../instructions/BreakInstruction.h"
 
 using namespace IR;
 
@@ -165,8 +166,24 @@ void FunctionBlock::manageReturnStatements()
                 //this basic block is finished
                 break;
             }
+            else if(std::dynamic_pointer_cast<IR::BreakInstruction>(inst))
+            {
+                //this is a break
+                sh_BasicBlock currentBB = bb;
+            }
         }
     }
+}
+
+/**
+ * @brief FunctionBlock::closestLoop recursively explore parent of
+ * the given basic block until finding the clossest parent
+ * @param source base of the exploration
+ * @return the basic block contening the condition of the loop
+ */
+sh_BasicBlock FunctionBlock::closestLoop(sh_BasicBlock source)
+{
+
 }
 
 sh_BasicBlock FunctionBlock::getFunctionCore() const

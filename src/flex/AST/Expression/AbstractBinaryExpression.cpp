@@ -6,6 +6,9 @@
  */
 
 #include "AbstractBinaryExpression.h"
+
+#include "../../../IR/instructions/AbstractOperator.h"
+
 using namespace AST;
 AbstractBinaryExpression::AbstractBinaryExpression(std::string name, std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractExpression(name, std::max(rightMember->getValue().getValue().first, leftMember->getValue().getValue().first), 0)

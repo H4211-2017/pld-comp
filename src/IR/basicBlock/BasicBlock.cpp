@@ -13,6 +13,7 @@ BasicBlock::BasicBlock()
     name = "!bb";
     name.append( std::to_string(basicBlockNumber) );
     basicBlockNumber++;
+    basicBlockFlag = Flag::None;
 }
 
 /**
@@ -377,6 +378,16 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
         }
 
     }
+}
+
+Flag BasicBlock::getBasicBlockFlag() const
+{
+    return basicBlockFlag;
+}
+
+void BasicBlock::setBasicBlockFlag(const Flag &value)
+{
+    basicBlockFlag = value;
 }
 
 sh_Register BasicBlock::getConditionnalJumpRegister() const
