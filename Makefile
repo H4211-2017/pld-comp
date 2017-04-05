@@ -567,6 +567,30 @@ src/IR/instructions/Call.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/Call.cpp.s
 .PHONY : src/IR/instructions/Call.cpp.s
 
+src/IR/instructions/OperatorAnd.o: src/IR/instructions/OperatorAnd.cpp.o
+.PHONY : src/IR/instructions/OperatorAnd.o
+
+# target to build an object file
+src/IR/instructions/OperatorAnd.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorAnd.cpp.o
+.PHONY : src/IR/instructions/OperatorAnd.cpp.o
+
+src/IR/instructions/OperatorAnd.i: src/IR/instructions/OperatorAnd.cpp.i
+.PHONY : src/IR/instructions/OperatorAnd.i
+
+# target to preprocess a source file
+src/IR/instructions/OperatorAnd.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorAnd.cpp.i
+.PHONY : src/IR/instructions/OperatorAnd.cpp.i
+
+src/IR/instructions/OperatorAnd.s: src/IR/instructions/OperatorAnd.cpp.s
+.PHONY : src/IR/instructions/OperatorAnd.s
+
+# target to generate assembly for a file
+src/IR/instructions/OperatorAnd.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorAnd.cpp.s
+.PHONY : src/IR/instructions/OperatorAnd.cpp.s
+
 src/IR/instructions/OperatorBigger.o: src/IR/instructions/OperatorBigger.cpp.o
 .PHONY : src/IR/instructions/OperatorBigger.o
 
@@ -2457,6 +2481,9 @@ help:
 	@echo "... src/IR/instructions/Call.o"
 	@echo "... src/IR/instructions/Call.i"
 	@echo "... src/IR/instructions/Call.s"
+	@echo "... src/IR/instructions/OperatorAnd.o"
+	@echo "... src/IR/instructions/OperatorAnd.i"
+	@echo "... src/IR/instructions/OperatorAnd.s"
 	@echo "... src/IR/instructions/OperatorBigger.o"
 	@echo "... src/IR/instructions/OperatorBigger.i"
 	@echo "... src/IR/instructions/OperatorBigger.s"

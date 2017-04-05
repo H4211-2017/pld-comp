@@ -362,19 +362,19 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| uoperation {$$ = $1;} 
 	| affectation {$$ = $1;}
 	| appelfonc {$$ = $1;}
-	| expr BOOL_OR expr {$$ = new OrExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BOOL_OR expr {$$ = new OrExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
-	| expr BOOL_AND expr {$$ = new AndExpression(make_shared_expr($1), make_shared_expr($3)); 
+	| expr BOOL_AND expr {$$ = new AndExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
-	| expr BIT_OR expr {$$ = new BitwiseOrExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_OR expr {$$ = new BitwiseOrExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
-	| expr BIT_XOR expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_XOR expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
-	| expr BIT_AND expr {$$ = new BitwiseAndExpression(make_shared_expr($1), make_shared_expr($3)); 
+	| expr BIT_AND expr {$$ = new BitwiseAndExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
 	| expr BOOL_EQUAL expr {$$ = new EqExpression(make_shared_expr($1), make_shared_expr($3));
@@ -395,10 +395,10 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new SupEqExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_RIGHT_SHIFT expr {$$ = new BitwiseShiftRightExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_RIGHT_SHIFT expr {$$ = new BitwiseShiftRightExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
-	| expr BIT_LEFT_SHIFT expr {$$ = new BitwiseShiftLeftExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_LEFT_SHIFT expr {$$ = new BitwiseShiftLeftExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
 	| expr ADD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));
