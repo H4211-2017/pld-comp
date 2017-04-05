@@ -100,8 +100,7 @@ int main(int argc, char *argv[])
 		program->printTree(0);				
 		std::cout << std::endl;
 	}
-
-
+	
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
 
     std::cout << "main apres buildIR" << std::endl;
