@@ -29,25 +29,63 @@ namespace AST{
     class AffectationExpression : public AbstractExpression
     {
     public:
+		
+		 /**
+		 * @brief AffectationExpression constructor
+		 */
         AffectationExpression();
-        AffectationExpression(std::string id, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
-        AffectationExpression(std::shared_ptr<Variable> variable, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
-        virtual ~AffectationExpression();
-
-        virtual Value evaluate() const;
+        
         /**
-         * return a shared pointer to the value instancited by new if evaluable
-         * or empty shared pointer else
-         */
-
+		 * @brief AffectationExpression constructor
+		 * @param id the id of the variable that is the left part of the affectation
+		 * @param op AST::OPAffect indicating the type of affectation
+		 * @param rightMember a shared_ptr on the right part of the expression
+		 * @param scope a shared_ptr on the current Scope
+		 */
+        AffectationExpression(std::string id, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
+        
+        /**
+		 * @brief AffectationExpression constructor
+		 * @param variable a shared_ptr of the Variable that is the left part of the affectation
+		 * @param op AST::OPAffect indicating the type of affectation
+		 * @param rightMember a shared_ptr on the right part of the expression
+		 * @param scope a shared_ptr on the current Scope
+		 */
+        AffectationExpression(std::shared_ptr<Variable> variable, enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
+        
+        /**
+		* @brief AffectationExpression destructor
+		*/
+        virtual ~AffectationExpression();
+        
+		/**
+		* @brief evaluate pure virtual function
+		* @return the "Value" of the expression, mainly it's type.
+		*/
+        virtual Value evaluate() const;
+        
+		/**
+		* @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
+		* @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
+		* 		that is currently being completed
+		* @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
+		* 		shouldn't be callable
+		*/
         virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
+		/**
+		 * @brief printTree Prints the structure of the expression
+		 * @param tabulationNumber the tabulation of this current node.
+		 */
         virtual void printTree(int tabulationNumber) const;
         
     protected :
     	std::shared_ptr<AbstractVariable> var;
 		std::shared_ptr<AbstractExpression> transformedExpr;
 		
+		/**
+		 * @brief contains the switch used in the constructor
+		 */
 		void switchOperatorMake(enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
     };
 

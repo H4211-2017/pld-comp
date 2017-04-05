@@ -18,12 +18,35 @@ namespace AST {
     {
 
     public:
+		/**
+		 * @brief Value Constructor by default
+		 */
         Value();
+        
+        /**
+         * @brief Value Constructor
+         * @param type AST::Type, the type attribute's value
+         * @param value long int, the value attribute's value
+         */
         Value(Type type, long int value);
-
+		
+		/**
+		 * @brief setter for the value attribute
+		 * @param value a long int that will be the new value of this instance's value attribute
+		 */
         void setValue(long int value);
+        
+        /**
+         * @brief getter for the instance's attribute
+         * @return a pair like <TYPE, VAL> where TYPE is this instance's type attribute and VAL this instance's value attribute
+         * @remark TYPE is of type AST::Type and VAL is of type long int
+         */
         std::pair<Type, long int> getValue() const;
         
+        /**
+         * @brief returns the IR type corresponding to this instance's type attribute
+         * @return an IR::Type
+         */
         IR::Type getIRType() const;
 
     private:

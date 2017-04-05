@@ -11,15 +11,37 @@ class DecrIncrLeftExpression : public AbstractExpression
 
 public:
 
+	/**
+    * @brief DecrIncrLeft constructor
+    * @param valueOfIncrement int the value of incrementation
+    * @remark value of incrementation +1 is an incrementation, value of incrementation -1 is a decrementation 
+    */
     DecrIncrLeftExpression(std::shared_ptr<AbstractVariable> var, int valueOfIncrement);
 
+	/**
+	 * @brief DecrIncrLeft destructor
+	 */
     virtual ~DecrIncrLeftExpression();
 
+	/**
+     * @brief evaluate pure virtual function
+     * @return the "Value" of the expression, mainly it's type.
+     */
     virtual Value evaluate() const;
 
-    // TODO : create class CFG and replace comment below.
+    /**
+    * @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
+    * @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
+    * 		that is currently being completed
+    * @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
+    * 		shouldn't be callable
+    */
     virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
+	/**
+     * @brief printTree Prints the structure of the expression
+     * @param tabulationNumber the tabulation of this current node.
+     */
     virtual void printTree(int tabulationNumber) const;
 
 private:

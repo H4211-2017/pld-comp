@@ -90,20 +90,44 @@ namespace AST{
          */
         virtual void printTree(int tabulationNumber) const;
 
-        // TODO : replace comment below.
         /**
-         * @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
-         */
+		* @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
+		* @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
+		* 		that is currently being completed
+		* @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
+		* 		shouldn't be callable
+		*/
         virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const = 0;
         
+        /**
+         * @brief get a reference on the most local Scope for the node
+         * @return a shared pointer on the Scope object
+         */
         virtual std::shared_ptr<Scope> getScope() const;
         
+        /**
+         * @brief sets the Parent Scope of the node's most local Scope
+         * @param scope shared_ptr<Scope> a reference on the scope to be set as parent to the most local Scope
+         */
         virtual void setParentScope(std::shared_ptr<Scope> scope);
 
+		/**
+		 * @brief getter for the value attribute of the node
+		 * @return a Value object
+		 */
         Value getValue() const;
         
+        /**
+         * @brief set the type for the node
+         * @param type AST::Type the type to be set
+         */
 		virtual void setType(Type type);
         
+        /**
+         * @brief getter for the name attribute of the node
+         * @return a string
+         * @remark the name of the node define its use inside the AST
+         */
         std::string getName() const;
 
     protected:
