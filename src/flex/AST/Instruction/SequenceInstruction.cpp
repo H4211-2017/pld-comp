@@ -1,6 +1,6 @@
 #include "SequenceInstruction.h"
 
-#include "../../../IR/Generator/generator.h"
+#include "../../../IR/generator/Generator.h"
 
 using namespace AST;
 
