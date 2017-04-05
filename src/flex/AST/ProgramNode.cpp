@@ -32,7 +32,7 @@ Value ProgramNode::evaluate() const
 }
 
 // TODO : functions other than main
-std::shared_ptr<IR::ProgrameStructure> ProgramNode::buildIR()
+IR::sh_ProgrameStructure ProgramNode::buildIR()
 {
     std::cout << "ProgramNode::buildIR : main : " << main << std::endl;
     std::cout << "ProgramNode::buildIR avant creation programStructure " << std::endl;

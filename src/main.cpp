@@ -4,7 +4,6 @@
 
 #include "includeCommun.h"
 
-
 #include "bison.tab.hpp"
 #include <list>
 #include <cstring>
@@ -100,8 +99,10 @@ int main(int argc, char *argv[])
 		std::cout << std::endl;
 	}
 
+
     std::cout << "main avant buildIR" << std::endl;
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
+
 
     std::cout << "main apres buildIR" << std::endl;
 
