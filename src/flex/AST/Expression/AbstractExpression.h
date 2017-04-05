@@ -45,8 +45,8 @@ namespace AST
 
 /**
  * @brief Dynamically turn a polymorphed pointer on AbstractExpression into a shared_pointer
- * @param ptr AST::AbstractExpression* a polymorphed pointer on a subclass of AbstractExpression
- * @return a shared pointer
+ * @param ptr AST::AbstractExpression* a polymorphed pointer to a subclass of AbstractExpression
+ * @return a shared pointer to an AbstractExpression
  */
 std::shared_ptr<AST::AbstractExpression> make_shared_expr(AST::AbstractExpression* ptr);
 

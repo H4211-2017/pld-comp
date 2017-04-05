@@ -20,6 +20,11 @@ namespace AST
     };
 }
 
+/**
+ * @brief Dynamically turn a polymorphed pointer on AbstractInstruction into a shared_pointer
+ * @param ptr AST::AbstractInstruction* a polymorphed pointer to a subclass of AbstractInstruction
+ * @return a shared pointer to an AbstractInstruction
+ */
 std::shared_ptr<AST::AbstractInstruction> make_shared_instr(AST::AbstractInstruction* ptr);
 
 #endif // AST_ABSTRACTINSTRUCTION_H

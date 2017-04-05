@@ -40,7 +40,7 @@ namespace AST {
 		* 		that is currently being completed
 		* @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
 		* 		shouldn't be callable
-		*/.
+		*/
 		virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 		
 		/**
