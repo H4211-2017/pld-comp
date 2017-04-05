@@ -25,6 +25,18 @@ sh_Memory Generator::getNewUnusedMemmory(Type memoryType) const
     return newMemory;
 }
 
+std::list<sh_AbsInstruction> Generator::returnInstruction(sh_Memory returnValue) const
+{
+    std::list<sh_AbsInstruction> instructionList;
+    instructionList.push_back( std::make_shared<ReturnInstruction>(returnValue) );
+    return instructionList;
+}
+
+std::list<sh_AbsInstruction> Generator::breakInstruction() const
+{
+
+}
+
 /**
  * @brief Generator::readArrayCase read a case of an array into a given memory cell
  * @param array the array from whith the value will be read
