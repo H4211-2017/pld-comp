@@ -138,9 +138,9 @@ program : liext mainbody liext {*program = new ProgramNode(std::make_shared<Sequ
 								delete $3;}
     ;
     
-mainbody : maindecl bloc {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
-                                                        $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
-							delete $1;
+mainbody : maindecl bloc {$$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
+                                                        $1->setBlock(std::make_shared<Block>(*$2));
+                                                        delete $1;
 							delete $2;
 							currentContext = currentContext->getMother();}
 	;
@@ -185,8 +185,8 @@ declfonc : debutfonc SEMICOLON  {$$ = new FunctionDeclaration($1->getSignature()
 									delete $1;
 									currentContext = currentContext->getMother();}
     ;
-deffonc : debutfonc bloc        {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
-                                                                        $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
+deffonc : debutfonc bloc        {$$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
+                                                                        $1->setBlock(std::make_shared<Block>(*$2));
 									delete $1;
 									delete $2;
 									currentContext = currentContext->getMother();
