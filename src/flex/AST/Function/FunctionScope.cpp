@@ -24,7 +24,7 @@ void FunctionScope::declareFunction(std::string name, std::shared_ptr<Function> 
 	{
         scope.insert(std::pair<std::string, std::shared_ptr<Function> >(name, function));
 	}
-    else if(it->second->compareArguments(function) && !it->second->isDeclaration())
+    else if(it->second->isDeclaration())
 	{
 		scope.erase(it);
         scope.insert(std::pair<std::string, std::shared_ptr<Function> >(name, function));

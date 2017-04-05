@@ -37,15 +37,19 @@ IR::sh_ProgrameStructure ProgramNode::buildIR()
 
     for (std::shared_ptr<FunctionDeclaration> astFunction : liextBefore->getListFunctionDeclaration())
     {
+        std::cout << "ProgramNode::buildIR : before : avant if : addFunction(" << astFunction->getIdentifiant() << ")" << std::endl;
         if (!astFunction->isDeclaration())
         {
+            std::cout << "ProgramNode::buildIR : before : addFunction(" << astFunction->getIdentifiant() << ")" << std::endl;
             programStructure->addFunction(astFunction->getIrFunction());
         }
     }
     for (std::shared_ptr<FunctionDeclaration> astFunction : liextAfter->getListFunctionDeclaration())
     {
+        std::cout << "ProgramNode::buildIR : after : avant if : addFunction(" << astFunction->getIdentifiant() << ")" << std::endl;
         if (!astFunction->isDeclaration())
         {
+            std::cout << "ProgramNode::buildIR : after : addFunction(" << astFunction->getIdentifiant() << ")" << std::endl;
             programStructure->addFunction(astFunction->getIrFunction());
         }
     }

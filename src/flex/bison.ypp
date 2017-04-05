@@ -187,8 +187,9 @@ declfonc : debutfonc SEMICOLON  {$$ = new FunctionDeclaration($1->getSignature()
 									delete $1;
 									currentContext = currentContext->getMother();}
     ;
-deffonc : debutfonc bloc        {$$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
-                                                                        $1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
+deffonc : debutfonc bloc        {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
+                                    $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
+
 									delete $1;
 									delete $2;
 									currentContext = currentContext->getMother();
@@ -196,10 +197,10 @@ deffonc : debutfonc bloc        {$$ = new FunctionDeclaration($1->getSignature()
     ;
     
 debutfonc : sigfonc larg RIGHT_PARENTHESIS     {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))),
-																				std::make_shared<LArguments>( *( static_cast< LArguments* >($2))), currentContext);
-												delete $1;
-												delete $2;
-												currentContext = $$->getScope();
+                                                                                                       std::make_shared<LArguments>( *( static_cast< LArguments* >($2))), currentContext);
+                                                    delete $1;
+                                                    delete $2;
+                                                    currentContext = $$->getScope();
 												}
     | sigfonc RIGHT_PARENTHESIS                {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
 												delete $1;
