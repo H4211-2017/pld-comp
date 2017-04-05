@@ -639,6 +639,126 @@ src/IR/instructions/OperatorBiggerOrEqual.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBiggerOrEqual.cpp.s
 .PHONY : src/IR/instructions/OperatorBiggerOrEqual.cpp.s
 
+src/IR/instructions/OperatorBitWiseOr.o: src/IR/instructions/OperatorBitWiseOr.cpp.o
+.PHONY : src/IR/instructions/OperatorBitWiseOr.o
+
+# target to build an object file
+src/IR/instructions/OperatorBitWiseOr.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitWiseOr.cpp.o
+.PHONY : src/IR/instructions/OperatorBitWiseOr.cpp.o
+
+src/IR/instructions/OperatorBitWiseOr.i: src/IR/instructions/OperatorBitWiseOr.cpp.i
+.PHONY : src/IR/instructions/OperatorBitWiseOr.i
+
+# target to preprocess a source file
+src/IR/instructions/OperatorBitWiseOr.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitWiseOr.cpp.i
+.PHONY : src/IR/instructions/OperatorBitWiseOr.cpp.i
+
+src/IR/instructions/OperatorBitWiseOr.s: src/IR/instructions/OperatorBitWiseOr.cpp.s
+.PHONY : src/IR/instructions/OperatorBitWiseOr.s
+
+# target to generate assembly for a file
+src/IR/instructions/OperatorBitWiseOr.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitWiseOr.cpp.s
+.PHONY : src/IR/instructions/OperatorBitWiseOr.cpp.s
+
+src/IR/instructions/OperatorBitWiseXOr.o: src/IR/instructions/OperatorBitWiseXOr.cpp.o
+.PHONY : src/IR/instructions/OperatorBitWiseXOr.o
+
+# target to build an object file
+src/IR/instructions/OperatorBitWiseXOr.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitWiseXOr.cpp.o
+.PHONY : src/IR/instructions/OperatorBitWiseXOr.cpp.o
+
+src/IR/instructions/OperatorBitWiseXOr.i: src/IR/instructions/OperatorBitWiseXOr.cpp.i
+.PHONY : src/IR/instructions/OperatorBitWiseXOr.i
+
+# target to preprocess a source file
+src/IR/instructions/OperatorBitWiseXOr.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitWiseXOr.cpp.i
+.PHONY : src/IR/instructions/OperatorBitWiseXOr.cpp.i
+
+src/IR/instructions/OperatorBitWiseXOr.s: src/IR/instructions/OperatorBitWiseXOr.cpp.s
+.PHONY : src/IR/instructions/OperatorBitWiseXOr.s
+
+# target to generate assembly for a file
+src/IR/instructions/OperatorBitWiseXOr.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitWiseXOr.cpp.s
+.PHONY : src/IR/instructions/OperatorBitWiseXOr.cpp.s
+
+src/IR/instructions/OperatorBitwiseAnd.o: src/IR/instructions/OperatorBitwiseAnd.cpp.o
+.PHONY : src/IR/instructions/OperatorBitwiseAnd.o
+
+# target to build an object file
+src/IR/instructions/OperatorBitwiseAnd.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitwiseAnd.cpp.o
+.PHONY : src/IR/instructions/OperatorBitwiseAnd.cpp.o
+
+src/IR/instructions/OperatorBitwiseAnd.i: src/IR/instructions/OperatorBitwiseAnd.cpp.i
+.PHONY : src/IR/instructions/OperatorBitwiseAnd.i
+
+# target to preprocess a source file
+src/IR/instructions/OperatorBitwiseAnd.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitwiseAnd.cpp.i
+.PHONY : src/IR/instructions/OperatorBitwiseAnd.cpp.i
+
+src/IR/instructions/OperatorBitwiseAnd.s: src/IR/instructions/OperatorBitwiseAnd.cpp.s
+.PHONY : src/IR/instructions/OperatorBitwiseAnd.s
+
+# target to generate assembly for a file
+src/IR/instructions/OperatorBitwiseAnd.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitwiseAnd.cpp.s
+.PHONY : src/IR/instructions/OperatorBitwiseAnd.cpp.s
+
+src/IR/instructions/OperatorBitwiseShiftLeft.o: src/IR/instructions/OperatorBitwiseShiftLeft.cpp.o
+.PHONY : src/IR/instructions/OperatorBitwiseShiftLeft.o
+
+# target to build an object file
+src/IR/instructions/OperatorBitwiseShiftLeft.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitwiseShiftLeft.cpp.o
+.PHONY : src/IR/instructions/OperatorBitwiseShiftLeft.cpp.o
+
+src/IR/instructions/OperatorBitwiseShiftLeft.i: src/IR/instructions/OperatorBitwiseShiftLeft.cpp.i
+.PHONY : src/IR/instructions/OperatorBitwiseShiftLeft.i
+
+# target to preprocess a source file
+src/IR/instructions/OperatorBitwiseShiftLeft.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitwiseShiftLeft.cpp.i
+.PHONY : src/IR/instructions/OperatorBitwiseShiftLeft.cpp.i
+
+src/IR/instructions/OperatorBitwiseShiftLeft.s: src/IR/instructions/OperatorBitwiseShiftLeft.cpp.s
+.PHONY : src/IR/instructions/OperatorBitwiseShiftLeft.s
+
+# target to generate assembly for a file
+src/IR/instructions/OperatorBitwiseShiftLeft.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitwiseShiftLeft.cpp.s
+.PHONY : src/IR/instructions/OperatorBitwiseShiftLeft.cpp.s
+
+src/IR/instructions/OperatorBitwiseShiftRight.o: src/IR/instructions/OperatorBitwiseShiftRight.cpp.o
+.PHONY : src/IR/instructions/OperatorBitwiseShiftRight.o
+
+# target to build an object file
+src/IR/instructions/OperatorBitwiseShiftRight.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitwiseShiftRight.cpp.o
+.PHONY : src/IR/instructions/OperatorBitwiseShiftRight.cpp.o
+
+src/IR/instructions/OperatorBitwiseShiftRight.i: src/IR/instructions/OperatorBitwiseShiftRight.cpp.i
+.PHONY : src/IR/instructions/OperatorBitwiseShiftRight.i
+
+# target to preprocess a source file
+src/IR/instructions/OperatorBitwiseShiftRight.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitwiseShiftRight.cpp.i
+.PHONY : src/IR/instructions/OperatorBitwiseShiftRight.cpp.i
+
+src/IR/instructions/OperatorBitwiseShiftRight.s: src/IR/instructions/OperatorBitwiseShiftRight.cpp.s
+.PHONY : src/IR/instructions/OperatorBitwiseShiftRight.s
+
+# target to generate assembly for a file
+src/IR/instructions/OperatorBitwiseShiftRight.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorBitwiseShiftRight.cpp.s
+.PHONY : src/IR/instructions/OperatorBitwiseShiftRight.cpp.s
+
 src/IR/instructions/OperatorDiv.o: src/IR/instructions/OperatorDiv.cpp.o
 .PHONY : src/IR/instructions/OperatorDiv.o
 
@@ -782,6 +902,30 @@ src/IR/instructions/OperatorNotEquals.s: src/IR/instructions/OperatorNotEquals.c
 src/IR/instructions/OperatorNotEquals.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorNotEquals.cpp.s
 .PHONY : src/IR/instructions/OperatorNotEquals.cpp.s
+
+src/IR/instructions/OperatorOr.o: src/IR/instructions/OperatorOr.cpp.o
+.PHONY : src/IR/instructions/OperatorOr.o
+
+# target to build an object file
+src/IR/instructions/OperatorOr.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorOr.cpp.o
+.PHONY : src/IR/instructions/OperatorOr.cpp.o
+
+src/IR/instructions/OperatorOr.i: src/IR/instructions/OperatorOr.cpp.i
+.PHONY : src/IR/instructions/OperatorOr.i
+
+# target to preprocess a source file
+src/IR/instructions/OperatorOr.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorOr.cpp.i
+.PHONY : src/IR/instructions/OperatorOr.cpp.i
+
+src/IR/instructions/OperatorOr.s: src/IR/instructions/OperatorOr.cpp.s
+.PHONY : src/IR/instructions/OperatorOr.s
+
+# target to generate assembly for a file
+src/IR/instructions/OperatorOr.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/OperatorOr.cpp.s
+.PHONY : src/IR/instructions/OperatorOr.cpp.s
 
 src/IR/instructions/OperatorPlus.o: src/IR/instructions/OperatorPlus.cpp.o
 .PHONY : src/IR/instructions/OperatorPlus.o
@@ -2490,6 +2634,21 @@ help:
 	@echo "... src/IR/instructions/OperatorBiggerOrEqual.o"
 	@echo "... src/IR/instructions/OperatorBiggerOrEqual.i"
 	@echo "... src/IR/instructions/OperatorBiggerOrEqual.s"
+	@echo "... src/IR/instructions/OperatorBitWiseOr.o"
+	@echo "... src/IR/instructions/OperatorBitWiseOr.i"
+	@echo "... src/IR/instructions/OperatorBitWiseOr.s"
+	@echo "... src/IR/instructions/OperatorBitWiseXOr.o"
+	@echo "... src/IR/instructions/OperatorBitWiseXOr.i"
+	@echo "... src/IR/instructions/OperatorBitWiseXOr.s"
+	@echo "... src/IR/instructions/OperatorBitwiseAnd.o"
+	@echo "... src/IR/instructions/OperatorBitwiseAnd.i"
+	@echo "... src/IR/instructions/OperatorBitwiseAnd.s"
+	@echo "... src/IR/instructions/OperatorBitwiseShiftLeft.o"
+	@echo "... src/IR/instructions/OperatorBitwiseShiftLeft.i"
+	@echo "... src/IR/instructions/OperatorBitwiseShiftLeft.s"
+	@echo "... src/IR/instructions/OperatorBitwiseShiftRight.o"
+	@echo "... src/IR/instructions/OperatorBitwiseShiftRight.i"
+	@echo "... src/IR/instructions/OperatorBitwiseShiftRight.s"
 	@echo "... src/IR/instructions/OperatorDiv.o"
 	@echo "... src/IR/instructions/OperatorDiv.i"
 	@echo "... src/IR/instructions/OperatorDiv.s"
@@ -2508,6 +2667,9 @@ help:
 	@echo "... src/IR/instructions/OperatorNotEquals.o"
 	@echo "... src/IR/instructions/OperatorNotEquals.i"
 	@echo "... src/IR/instructions/OperatorNotEquals.s"
+	@echo "... src/IR/instructions/OperatorOr.o"
+	@echo "... src/IR/instructions/OperatorOr.i"
+	@echo "... src/IR/instructions/OperatorOr.s"
 	@echo "... src/IR/instructions/OperatorPlus.o"
 	@echo "... src/IR/instructions/OperatorPlus.i"
 	@echo "... src/IR/instructions/OperatorPlus.s"

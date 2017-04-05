@@ -10,7 +10,7 @@ using namespace IR;
 BasicBlock::BasicBlock()
 {
     static int basicBlockNumber = 0;
-    name = "!bb";
+    name = ".BB";
     name.append( std::to_string(basicBlockNumber) );
     basicBlockNumber++;
     basicBlockFlag = Flag::None;

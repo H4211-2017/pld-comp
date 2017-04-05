@@ -1,6 +1,8 @@
 #include "BitwiseAndExpression.h"
 
 #include <algorithm>
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorBitWiseAnd.h"
 
 using namespace AST;
 
@@ -27,7 +29,7 @@ Value BitwiseAndExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory BitwiseAndExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorBitWiseAnd>(currentBasicBlock);
 }
 
 void BitwiseAndExpression::printOperator() const

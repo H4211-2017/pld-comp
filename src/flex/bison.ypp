@@ -366,16 +366,16 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr BOOL_OR expr {$$ = new OrExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
-	| expr BOOL_AND expr {$$ = new AndExpression(make_shared_expr($1), make_shared_expr($3)); //
+	| expr BOOL_AND expr {$$ = new AndExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_OR expr {$$ = new BitwiseOrExpression(make_shared_expr($1), make_shared_expr($3)); //
+	| expr BIT_OR expr {$$ = new BitwiseOrExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_XOR expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3)); //
+	| expr BIT_XOR expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_AND expr {$$ = new BitwiseAndExpression(make_shared_expr($1), make_shared_expr($3)); //
+	| expr BIT_AND expr {$$ = new BitwiseAndExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
 	| expr BOOL_EQUAL expr {$$ = new EqExpression(make_shared_expr($1), make_shared_expr($3));
