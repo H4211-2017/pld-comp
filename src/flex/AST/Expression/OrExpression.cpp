@@ -1,6 +1,8 @@
 #include "OrExpression.h"
 
 #include <algorithm>
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorOr.h"
 
 using namespace AST;
 
@@ -27,7 +29,7 @@ Value OrExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory OrExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorOr>(currentBasicBlock);
 }
 
 void OrExpression::printOperator() const

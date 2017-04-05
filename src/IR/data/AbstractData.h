@@ -10,9 +10,9 @@ namespace IR {
 
     enum Type{
         VOID  =0,
-        CHAR  =1,
-        INT_32=2,
-        INT_64=4
+        CHAR  =2,
+        INT_32=4,
+        INT_64=8
     };
 
     class AbstractData

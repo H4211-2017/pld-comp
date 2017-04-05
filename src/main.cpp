@@ -20,11 +20,9 @@ extern FILE* yyin;
 
 int main(int argc, char *argv[])
 {
-	std::cout << "compile PL" << std::endl;
-	
-    std::string fileToCompile;
-	std::string target;
-	std::string ASTtarget;
+    std::string fileToCompile = "";
+    std::string target = "a.s";
+    std::string ASTtarget = "";
 	std::streambuf* oldBuf;
 	bool verbose = false;
 	int i = 1;
@@ -84,7 +82,9 @@ int main(int argc, char *argv[])
 	}
 	
     if(fileToCompile.length() > 0)
+    {
 		fclose(yyin);
+    }
     
     if(ASTtarget.length() > 0)
     {
@@ -101,19 +101,17 @@ int main(int argc, char *argv[])
 		std::cout << std::endl;
 	}
 	
-    std::cout << "main avant buildIR" << std::endl;
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
-
 
     std::cout << "main apres buildIR" << std::endl;
 
-    programStructure->printIR(std::cout);
+//    programStructure->printIR(std::cout);
     std::cout << "main apres printIR" << std::endl;
 
-   // programStructure->printASM(std::cout, IR::AsmType::X64Linux);
+    std::ofstream asmFileStream(target);
+    programStructure->printASM(asmFileStream, IR::AsmType::X64Linux);
 
     std::cout << "main apres printASM" << std::endl;
-	
 	delete program;
 
     return 0;

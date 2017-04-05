@@ -31,7 +31,7 @@ Value ModuloExpression::evaluate() const
 
 IR::sh_Memory ModuloExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorModulus>(currentBasicBlock);
 }
 
 void ModuloExpression::printOperator() const

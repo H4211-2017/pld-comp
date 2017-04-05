@@ -1,6 +1,8 @@
 #include "IneqExpression.h"
 
 #include <algorithm>
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorNotEquals.h"
 
 
 using namespace AST;
@@ -28,7 +30,7 @@ Value IneqExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory IneqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorNotEquals>(currentBasicBlock);
 }
 
 void IneqExpression::printOperator() const

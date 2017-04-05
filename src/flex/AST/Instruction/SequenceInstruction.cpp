@@ -14,7 +14,21 @@ void SequenceInstruction::addInstruction(std::shared_ptr<AbstractInstruction> in
     instructionsList.push_back(instruction);
     
     if(instruction != nullptr)
-		this->value = instruction->getValue();
+        this->value = instruction->getValue();
+}
+
+std::vector<std::shared_ptr<FunctionDeclaration>> SequenceInstruction::getListFunctionDeclaration() const
+{
+    std::vector<std::shared_ptr<FunctionDeclaration>> result;
+    for (std::shared_ptr<AbstractInstruction> instruction : instructionsList)
+    {
+        std::shared_ptr<FunctionDeclaration> functionDeclaration = std::dynamic_pointer_cast<FunctionDeclaration>(instruction);
+        if (functionDeclaration != nullptr)
+        {
+            result.push_back(functionDeclaration);
+        }
+    }
+    return result;
 }
 
 void SequenceInstruction::printTree(int tabulationNumber) const

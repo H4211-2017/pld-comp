@@ -29,7 +29,7 @@ namespace AST
         std::vector<std::shared_ptr<AbstractExpression> > getParameters();
 	protected:
 		
-        std::vector<std::shared_ptr<AbstractExpression> > parametres;
+        std::vector<std::shared_ptr<AbstractExpression> > parameters;
 		
 	};
 

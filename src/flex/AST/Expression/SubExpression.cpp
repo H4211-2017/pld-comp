@@ -29,7 +29,7 @@ Value SubExpression::evaluate() const
 
 IR::sh_Memory SubExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorMinus>(currentBasicBlock);
 }
 
 void SubExpression::printOperator() const

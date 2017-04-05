@@ -11,11 +11,19 @@ FunctionDeclaration::FunctionDeclaration(std::shared_ptr<FunctionSignature> sign
     scope->declareFunction(sig->getIdentifiant(), fct);
 }
 
+std::string FunctionDeclaration::getIdentifiant() const
+{
+   return fct->getSignature()->getIdentifiant();
+}
+
 std::shared_ptr<IR::FunctionBlock> FunctionDeclaration::getIrFunction() const
 {
-    std::cout << "FunctionDeclaration::getIrFunction : fct : " << fct << std::endl;
-    std::cout << "FunctionDeclaration::getIrFunction : fct->getIrFunction : " << fct->getIrFunction() << std::endl;
     return fct->getIrFunction();
+}
+
+bool FunctionDeclaration::isDeclaration() const
+{
+    return fct->isDeclaration();
 }
 
 void FunctionDeclaration::printTree(int tabulationNumber) const
@@ -34,8 +42,20 @@ Value FunctionDeclaration::evaluate() const
     return Value();
 }
 
+/**
+ * A FunctionDeclaration is the beginning of a new fonction. Consequently, it will get the basic block of the new function if
+ * it is defined, then call the buildIR of its child function with this basic block.
+ * If the function is defined but declared, do nothing.
+ * @brief FunctionDeclaration::buildIR Build the IR of corresponding to this node
+ */
 IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock)
-{   
-    std::cout << "FunctionDeclaration::buildIR : fct : " << fct << std::endl;
-    return fct->buildIR(currentBasicBlock);
+{
+    // Build something only if the function is declared.
+    if (!fct->isDeclaration())
+    {
+        IR::sh_BasicBlock functionCore = fct->getIrFunction()->getFunctionCore();
+        fct->buildIR(functionCore);
+    }
+    // TODO check if a return value (return fct->buildIR(functionCore)) is needed
+    return nullptr;
 }

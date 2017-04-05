@@ -26,7 +26,7 @@ public:
 protected:
     
     std::shared_ptr<Function> fct;
-    std::shared_ptr<LParametres> parametres;
+    std::shared_ptr<LParametres> parameters;
 
 };
 

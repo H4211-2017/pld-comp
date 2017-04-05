@@ -1,7 +1,7 @@
 #include "AndExpression.h"
 
 #include "../../../IR/generator/Generator.h"
-#include "../../../IR/instructions/OperatorMult.h"
+#include "../../../IR/instructions/OperatorAnd.h"
 
 #include <algorithm>
 
@@ -30,7 +30,7 @@ Value AndExpression::evaluate() const
 
 IR::sh_Memory AndExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorAnd>(currentBasicBlock);
 }
 
 void AndExpression::printOperator() const

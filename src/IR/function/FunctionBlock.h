@@ -1,5 +1,5 @@
-#ifndef FUNCTIONBLOCK_H
-#define FUNCTIONBLOCK_H
+#ifndef IR_FUNCTIONBLOCK_H
+#define IR_FUNCTIONBLOCK_H
 
 #include <memory>
 #include <queue>
@@ -34,7 +34,7 @@ namespace IR {
         void affectMemory();
         void manageReturnStatements();
 
-        sh_BasicBlock closestLoop(sh_BasicBlock source);
+        sh_BasicBlock closestLoop(const sh_BasicBlock &source);
 
         void exploreBasicBlock(sh_BasicBlock currentBlock);
         bool isBasicBlockAlreadyExplored(sh_BasicBlock currentBlock) const;
@@ -61,4 +61,4 @@ namespace IR {
     typedef std::shared_ptr<FunctionBlock> sh_FunctionBlock;
 }
 
-#endif // FUNCTIONBLOCK_H
+#endif // IR_FUNCTIONBLOCK_H

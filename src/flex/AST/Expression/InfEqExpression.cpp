@@ -1,6 +1,8 @@
 #include "InfEqExpression.h"
 
 #include <algorithm>
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorSmallerOrEqual.h"
 
 
 using namespace AST;
@@ -28,7 +30,7 @@ Value InfEqExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory InfEqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorSmallerOrEqual>(currentBasicBlock);
 }
 
 void InfEqExpression::printOperator() const

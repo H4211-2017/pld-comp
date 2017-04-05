@@ -29,6 +29,15 @@
 #include "../instructions/ReturnInstruction.h"
 #include "../instructions/BreakInstruction.h"
 
+#define BINARY_OPERATOR_IR(CLASS) IR::Generator gen; \
+	IR::sh_Memory leftMem = leftMember->buildIR(currentBasicBlock); \
+	IR::sh_Memory rightMem = rightMember->buildIR(currentBasicBlock); \
+	IR::Type irType = value.getIRType(); \
+	IR::sh_Memory destMem = gen.getNewUnusedMemmory(irType); \
+	std::list<IR::sh_AbsInstruction> instructionsList = gen.binaryOperator<IR::CLASS>(leftMem, rightMem, destMem); \
+	currentBasicBlock->pushInstructionBack(instructionsList); \
+	return destMem;
+
 namespace IR {
     class Generator
     {
@@ -87,6 +96,5 @@ namespace IR {
     }
 
 }
-
 
 #endif // GENERATOR_H

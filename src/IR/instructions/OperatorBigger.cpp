@@ -22,13 +22,13 @@ std::string OperatorBigger::toString() const
 std::string OperatorBigger::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
-    ret.append( this->firstValue->getAsmRegisterName() );
+    ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax" );
     ret.append( "\n\tcmpq\t");
-    ret.append( this->secondValue->getAsmRegisterName() );
+    ret.append( this->secondValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax");
     ret.append("\nsetg\t%al\n\tmovzbl\t%al, %eax\nmovq\t%rax, ");
-    ret.append( destination->getAsmRegisterName() );
+    ret.append( destination->getASMname(AsmType::X64Linux) );
     return ret;
 }
 

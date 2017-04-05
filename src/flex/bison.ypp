@@ -187,8 +187,9 @@ declfonc : debutfonc SEMICOLON  {$$ = new FunctionDeclaration($1->getSignature()
 									delete $1;
 									currentContext = currentContext->getMother();}
     ;
-deffonc : debutfonc bloc        {$$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
-                                                                        $1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
+deffonc : debutfonc bloc        {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
+                                    $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
+
 									delete $1;
 									delete $2;
 									currentContext = currentContext->getMother();
@@ -196,10 +197,10 @@ deffonc : debutfonc bloc        {$$ = new FunctionDeclaration($1->getSignature()
     ;
     
 debutfonc : sigfonc larg RIGHT_PARENTHESIS     {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))),
-																				std::make_shared<LArguments>( *( static_cast< LArguments* >($2))), currentContext);
-												delete $1;
-												delete $2;
-												currentContext = $$->getScope();
+                                                                                                       std::make_shared<LArguments>( *( static_cast< LArguments* >($2))), currentContext);
+                                                    delete $1;
+                                                    delete $2;
+                                                    currentContext = $$->getScope();
 												}
     | sigfonc RIGHT_PARENTHESIS                {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
 												delete $1;
@@ -362,10 +363,10 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| uoperation {$$ = $1;} 
 	| affectation {$$ = $1;}
 	| appelfonc {$$ = $1;}
-	| expr BOOL_OR expr {$$ = new OrExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BOOL_OR expr {$$ = new OrExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
-	| expr BOOL_AND expr {$$ = new AndExpression(make_shared_expr($1), make_shared_expr($3)); 
+	| expr BOOL_AND expr {$$ = new AndExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
 	| expr BIT_OR expr {$$ = new BitwiseOrExpression(make_shared_expr($1), make_shared_expr($3));
@@ -374,7 +375,7 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr BIT_XOR expr {$$ = new BitwiseXorExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_AND expr {$$ = new BitwiseAndExpression(make_shared_expr($1), make_shared_expr($3)); 
+	| expr BIT_AND expr {$$ = new BitwiseAndExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
 	| expr BOOL_EQUAL expr {$$ = new EqExpression(make_shared_expr($1), make_shared_expr($3));
@@ -395,10 +396,10 @@ expr : INT_VAL {$$ = new Constant($1);}
 	| expr BOOL_GREATER_OR_EQUAL expr {$$ = new SupEqExpression(make_shared_expr($1), make_shared_expr($3));
 								delete $1;
 								delete $3;}
-	| expr BIT_RIGHT_SHIFT expr {$$ = new BitwiseShiftRightExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_RIGHT_SHIFT expr {$$ = new BitwiseShiftRightExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
-	| expr BIT_LEFT_SHIFT expr {$$ = new BitwiseShiftLeftExpression(make_shared_expr($1), make_shared_expr($3));
+	| expr BIT_LEFT_SHIFT expr {$$ = new BitwiseShiftLeftExpression(make_shared_expr($1), make_shared_expr($3)); //
 								delete $1;
 								delete $3;}
 	| expr ADD expr {$$ = new AddExpression(make_shared_expr($1), make_shared_expr($3));

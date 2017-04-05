@@ -12,8 +12,7 @@ using namespace AST;
 Scope::Scope()
 	: mother(nullptr)
 {
-	std::shared_ptr<Function> getchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("getchar", Type::CHAR), 
-																	nullptr);
+	std::shared_ptr<Function> getchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("getchar", Type::CHAR), nullptr);
 	std::shared_ptr<Function> putchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("putchar", Type::ERROR), 
 																	std::make_shared<LArguments>(std::make_shared<VariableSignature>("car", Type::CHAR)), 
 																	nullptr);

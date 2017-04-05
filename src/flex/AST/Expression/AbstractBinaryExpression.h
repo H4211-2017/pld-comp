@@ -9,6 +9,7 @@
 #define SRC_FLEX_AST_ABSTRACTBINARYEXPRESSION_H_
 #include "AbstractExpression.h"
 
+#include "../../../IR/generator/Generator.h"
 
 namespace AST
 {
@@ -37,6 +38,23 @@ namespace AST
 
 		std::shared_ptr<AbstractExpression> rightMember;
 		std::shared_ptr<AbstractExpression> leftMember;
+		
+		template<typename T> 
+		IR::sh_Memory fcBuildIR(IR::sh_BasicBlock & currentBasicBlock) const
+		{ 
+			IR::Generator gen; 
+			IR::sh_Memory leftMem = this->leftMember->buildIR(currentBasicBlock); 
+			IR::sh_Memory rightMem = this->rightMember->buildIR(currentBasicBlock); 
+			IR::Type irType = this->value.getIRType(); 
+			IR::sh_Memory destMem = gen.getNewUnusedMemmory(irType); 
+			std::list<IR::sh_AbsInstruction> instructionsList = gen.binaryOperator<T>(leftMem, rightMem, destMem); 
+			currentBasicBlock->pushInstructionBack(instructionsList); 
+			return destMem; 
+		}
+		
 	};
+	
 }
+
+
 #endif /* SRC_FLEX_AST_ABSTRACTBINARYEXPRESSION_H_ */

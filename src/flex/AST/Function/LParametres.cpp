@@ -20,7 +20,7 @@ LParametres::LParametres(std::shared_ptr<AbstractExpression> parametre)
 		
 void LParametres::addParametre(std::shared_ptr<AbstractExpression> parametre)
 {
-	parametres.push_back(parametre);
+    parameters.push_back(parametre);
 	
 }
 		
@@ -33,16 +33,16 @@ void LParametres::printTree(int tabulationNumber) const
 {
 	AbstractNode::printTree(tabulationNumber);
 	std::cout << std::endl;
-	for(int i = 0; i < parametres.size(); i++)
+    for(int i = 0; i < parameters.size(); i++)
 	{
-		parametres[i]->printTree(tabulationNumber + 1);
+        parameters[i]->printTree(tabulationNumber + 1);
 		std::cout << std::endl;
 	}
 }
 
 std::vector<std::shared_ptr<AbstractExpression> > LParametres::getParameters()
 {
-    return parametres;
+    return parameters;
 }
 
 IR::sh_Memory LParametres::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
