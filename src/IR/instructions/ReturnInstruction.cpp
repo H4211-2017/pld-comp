@@ -11,10 +11,15 @@ ReturnInstruction::ReturnInstruction(sh_Memory returnValue):
 
 std::string ReturnInstruction::toLinuxX64() const
 {
-    std::string ret="\tmovq\t"; // movl ???
-    ret.append(returnedMemory->getASMname(AsmType::X64Linux));
-    ret.append(", %");
-    ret.append(ASM_X64_FUNCTION_RETURN_REGISTER);
+    std::string ret = "";
+    if(returnedMemory != nullptr)
+    {
+        ret="\tmovq\t"; // movl ???
+        ret.append(returnedMemory->getASMname(AsmType::X64Linux));
+        ret.append(", %");
+        ret.append(ASM_X64_FUNCTION_RETURN_REGISTER);
+    }
+    return ret;
 }
 
 std::string ReturnInstruction::toString() const

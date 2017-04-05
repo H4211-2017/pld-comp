@@ -12,12 +12,12 @@ AndExpression::AndExpression(std::shared_ptr<AbstractExpression> leftMember,  st
     : AbstractBinaryExpression("AndExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
 
 
-AndExpression::~AndExpression() {
-    // TODO Auto-generated destructor stub
+AndExpression::~AndExpression()
+{
+	
 }
 
 Value AndExpression::evaluate() const

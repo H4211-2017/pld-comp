@@ -26,6 +26,7 @@
 #include "../instructions/SetValue.h"
 #include "../instructions/OperatorBigger.h"
 #include "../instructions/OperatorPlus.h"
+#include "../instructions/ReturnInstruction.h"
 
 #define BINARY_OPERATOR_IR(CLASS) IR::Generator gen; \
 	IR::sh_Memory leftMem = leftMember->buildIR(currentBasicBlock); \
@@ -44,6 +45,8 @@ namespace IR {
 
         sh_Memory getNewUnusedMemmory(Type memoryType) const;
 
+        std::list<sh_AbsInstruction> returnInstruction(sh_Memory returnValue = nullptr) const;
+        std::list<sh_AbsInstruction> breakInstruction() const;
         std::list<sh_AbsInstruction> readArrayCase(sh_MemoryArray array, sh_Memory index, sh_Memory dest) const;
         std::list<sh_AbsInstruction> readArrayCase(sh_MemoryArray array, Constant index, sh_Memory dest) const;
         std::list<sh_AbsInstruction> setValue(Constant value, sh_Memory dest) const;
