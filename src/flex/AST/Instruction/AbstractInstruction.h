@@ -6,7 +6,6 @@
 
 namespace AST 
 {
-
     class AbstractInstruction : public AbstractNode
     {
     

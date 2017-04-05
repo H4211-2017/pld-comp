@@ -1,5 +1,7 @@
 #include "SequenceInstruction.h"
 
+#include "../../../IR/Generator/generator.h"
+
 using namespace AST;
 
 SequenceInstruction::SequenceInstruction()
@@ -39,15 +41,29 @@ Value SequenceInstruction::evaluate() const
 
 IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
+	IR::Generator gen;
+	
 	IR::sh_Memory last = nullptr;
 	
-    for(std::shared_ptr<AbstractInstruction> instruction : instructionsList)
-    {
-		if (instruction != nullptr)
+	if (instructionsList.size() == 0)
+	{
+		// void intruction sequence has to have valure = 0
+		//~ IR::Constant constant(IR::VOID, 0);
+		//~ last = gen.getNewUnusedMemmory(IR::VOID);
+		//~ std::list<IR::sh_AbsInstruction> absIntructions = gen.setValue(constant, last);
+		//~ currentBasicBlock->pushInstructionBack(absIntructions);	
+	}
+	else
+	{
+		for(std::shared_ptr<AbstractInstruction> instruction : instructionsList)
 		{
-			last = instruction->buildIR(currentBasicBlock);
+			if (instruction != nullptr)
+			{
+				last = instruction->buildIR(currentBasicBlock);
+			}
 		}
-	}   
+	}
+	
 	return last;
 }
 

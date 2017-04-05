@@ -22,10 +22,6 @@ void ReturnInstruction::printTree(int tabulationNumber) const
 	if(composedInstruction != nullptr)
 	{
 		std::cout << std::endl;
-		for(int i=0; i<=tabulationNumber; i++)
-		{
-			std::cout << "  ";
-		}
 		composedInstruction->printTree(tabulationNumber + 1);
 	}
 }

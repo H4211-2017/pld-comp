@@ -124,9 +124,3 @@ void Scope::setMother(std::shared_ptr<Scope> newMother)
 {
 	mother = newMother;
 }
-
-IR::Generator &Scope::getGenerator()
-{
-	return generator;
-}
-

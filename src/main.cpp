@@ -20,6 +20,8 @@ extern FILE* yyin;
 
 int main(int argc, char *argv[])
 {
+	std::cout << "compile PL" << std::endl;
+	
     std::string fileToCompile;
 	std::string target;
 	std::string ASTtarget;
@@ -98,8 +100,7 @@ int main(int argc, char *argv[])
 		program->printTree(0);				
 		std::cout << std::endl;
 	}
-
-
+	
     std::cout << "main avant buildIR" << std::endl;
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
 
