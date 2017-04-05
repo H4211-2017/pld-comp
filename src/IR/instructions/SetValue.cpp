@@ -21,5 +21,10 @@ std::string SetValue::toString() const
 
 std::string SetValue::toLinuxX64() const
 {
-    return "TODO !!!";
+    std::string ret = "";
+    ret.append("\tmovq\t$");
+    ret.append(std::to_string(this->value.getDataValue()));
+    ret.append(", ");
+    ret.append(this->dest->getASMname(AsmType::X64Linux));
+    return ret;
 }

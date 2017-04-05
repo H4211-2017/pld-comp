@@ -169,7 +169,16 @@ void FunctionBlock::manageReturnStatements()
             else if(std::dynamic_pointer_cast<IR::BreakInstruction>(inst))
             {
                 //this is a break
-                sh_BasicBlock currentBB = bb;
+                //find were to go
+                sh_BasicBlock loopTop = closestLoop(bb);
+                //jump to the end of the function
+                bb->setNextBlockTrue(loopTop);
+                bb->setNextBlockFalse(nullptr);
+                //remove every instruction after return in this block
+                it++;
+                instList.erase(it, instList.end());
+                //this basic block is finished
+                break;
             }
         }
     }
@@ -181,9 +190,35 @@ void FunctionBlock::manageReturnStatements()
  * @param source base of the exploration
  * @return the basic block contening the condition of the loop
  */
-sh_BasicBlock FunctionBlock::closestLoop(sh_BasicBlock source)
+sh_BasicBlock FunctionBlock::closestLoop(const sh_BasicBlock& source)
 {
-
+    //explore every previous block of the source block
+    for(sh_BasicBlock bb : source->getPreviousBlocks())
+    {
+        Flag bbFlag = bb->getBasicBlockFlag();
+        //if bb is a loop condition and we are comming from incide
+        if(bbFlag == Flag::LoopCondition && bb->getNextBlockTrue() == source)
+        {
+            return bb;
+        }
+        if(bb == functionInit)
+        {
+            std::cerr << "Error: break statement is not inside a loop (while/for)" << std::endl;
+            exit(-1);
+        }
+        //if we are not going down to a loop
+        if(bbFlag != Flag::LoopEnd)
+        {
+            //call recursively to look upside
+            const sh_BasicBlock &found = closestLoop(bb);
+            //if something is found
+            if(found != nullptr)
+            {
+                //return directly the found result
+                return found;
+            }
+        }
+    }
 }
 
 sh_BasicBlock FunctionBlock::getFunctionCore() const

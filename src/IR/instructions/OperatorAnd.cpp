@@ -22,10 +22,10 @@ std::string OperatorAnd::toString() const
 std::string OperatorAnd::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
-    ret.append( this->firstValue->getAsmRegisterName() );
+    ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax" );
     ret.append( "\n\ttestq\t");
-    ret.append( this->secondValue->getAsmRegisterName() );
+    ret.append( this->secondValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax");
     ret.append("\nsetg\t%al\ncmovne\t$1, %al\ncmove\t$0, %al\nmovq\t%rax, ");
     ret.append( destination->getAsmRegisterName() );
