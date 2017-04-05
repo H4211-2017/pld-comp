@@ -1,15 +1,10 @@
+#include <stdint.h>
+
 int32_t main(void)
 {
-    int32_t a = 0;
-    if (a == 0)
+	int32_t a;
+	
+    if (0)
     {
-        a = 1, a = 3;
     }
-    else
-    {
-        a = 2;
-    }
-    
-    if (a == 1)
-        a = 3;
 }

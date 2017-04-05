@@ -16,8 +16,6 @@ void VariableSignature::printTree(int tabulationNumber) const
     {
         std::cout << " | Variable name : " << identifiant;
     }
-
-
 }
 
 Value VariableSignature::evaluate() const

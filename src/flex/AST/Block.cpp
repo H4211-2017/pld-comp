@@ -35,7 +35,7 @@ std::shared_ptr<Scope> Block::getScope() const
 }
 
 IR::sh_Memory Block::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
-{
+{	
 	if (sequenceInstruction != nullptr)
 	{
 		return sequenceInstruction->buildIR(currentBasicBlock);

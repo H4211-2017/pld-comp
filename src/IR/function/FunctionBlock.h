@@ -33,6 +33,7 @@ namespace IR {
         void affectRegistry(std::queue<std::string> asmRegistryAvailable);
         void affectMemory();
         void manageReturnStatements();
+        void removeEmptyBasicBlock();
 
         sh_BasicBlock closestLoop(const sh_BasicBlock &source);
 

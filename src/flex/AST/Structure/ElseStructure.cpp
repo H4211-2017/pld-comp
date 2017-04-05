@@ -31,14 +31,14 @@ void ElseStructure::printTree(int tabulationNumber) const
 	}
 	else
 	{
-		std::cout << std::endl;
-		for(int i=0; i<= tabulationNumber; i++, std::cout << "\t");
 		std::cout << "EXECUTIVE INSTR : EMPTY";
 	}
 }
 
 IR::sh_Memory ElseStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-    this->intInstruction->buildIR(currentBasicBlock);
-	return nullptr;
+	if (intInstruction != nullptr)
+	{
+		return this->intInstruction->buildIR(currentBasicBlock);
+	}
 }

@@ -16,7 +16,7 @@ namespace AST
 	public:
         
         Variable(std::string name, std::shared_ptr<VariableSignature> signature, bool decl);
-        Variable(std::shared_ptr<VariableSignature> signature, bool decl, const IR::Generator &generator);
+        Variable(std::shared_ptr<VariableSignature> signature, bool decl);
         virtual ~Variable();
         
         bool isDeclaration() const;
