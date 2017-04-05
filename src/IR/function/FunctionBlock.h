@@ -34,6 +34,8 @@ namespace IR {
         void affectMemory();
         void manageReturnStatements();
 
+        sh_BasicBlock closestLoop(sh_BasicBlock source);
+
         void exploreBasicBlock(sh_BasicBlock currentBlock);
         bool isBasicBlockAlreadyExplored(sh_BasicBlock currentBlock) const;
 

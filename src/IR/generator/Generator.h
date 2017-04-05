@@ -27,6 +27,7 @@
 #include "../instructions/OperatorBigger.h"
 #include "../instructions/OperatorPlus.h"
 #include "../instructions/ReturnInstruction.h"
+#include "../instructions/BreakInstruction.h"
 
 namespace IR {
     class Generator

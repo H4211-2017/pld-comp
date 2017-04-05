@@ -25,6 +25,11 @@ sh_Memory Generator::getNewUnusedMemmory(Type memoryType) const
     return newMemory;
 }
 
+/**
+ * @brief Generator::returnInstruction get instruction to make a return
+ * @param returnValue value to be returned (can be nullptr if no return needed)
+ * @return the list of instruction making this operation
+ */
 std::list<sh_AbsInstruction> Generator::returnInstruction(sh_Memory returnValue) const
 {
     std::list<sh_AbsInstruction> instructionList;
@@ -32,9 +37,15 @@ std::list<sh_AbsInstruction> Generator::returnInstruction(sh_Memory returnValue)
     return instructionList;
 }
 
+/**
+ * @brief Generator::returnInstruction get instruction to make a break
+ * @return the list of instruction making this operation
+ */
 std::list<sh_AbsInstruction> Generator::breakInstruction() const
 {
-
+    std::list<sh_AbsInstruction> instructionList;
+    instructionList.push_back( std::make_shared<BreakInstruction>() );
+    return instructionList;
 }
 
 /**
