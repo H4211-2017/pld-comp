@@ -8,7 +8,8 @@
 
 namespace AST {
 
-	enum OPAffect {
+	enum OPAffect
+	{
 		AFFECT,
 		AFFECT_MULT,
 		AFFECT_DIV,
@@ -50,7 +51,6 @@ namespace AST{
 		
 		void switchOperatorMake(enum OPAffect op, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope);
     };
-
 }
 
 #endif
