@@ -17,9 +17,6 @@ namespace AST
         Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Scope> parentScope);
         Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Scope> parentScope);
         
-        Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope);
-        Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope);
-
         std::shared_ptr<IR::FunctionBlock> getIrFunction();
 
  

@@ -26,26 +26,6 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
     args = arguments;
 }
 
-Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
-    : Function(signature, parentScope)
-{
-    irFunction = std::make_shared<IR::FunctionBlock>(signature->getIdentifiant(), signature->getValue().getIRType());
-    content = content;
-}
-
-Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
-    : Function(signature, content, parentScope)
-{
-    args = arguments;
-	if(args != nullptr && args->isForDeclaration())
-	{
-		std::stringstream ss;
-		ss << "ERROR in definition of function <" << sig->getIdentifiant() << "> : one or more parameter is unnamed.";
-        throw std::runtime_error(ss.str());
-	}
-    args->prepareScope(currentScope);
-}
-
 std::shared_ptr<IR::FunctionBlock> Function::getIrFunction()
 {
     return irFunction;
@@ -85,7 +65,21 @@ bool Function::isDeclaration() const
 
 void Function::setBlock(std::shared_ptr<Block> content)
 {
-	this->content = content;
+
+    this->content = content;
+    if(args != nullptr && args->isForDeclaration())
+    {
+        std::stringstream ss;
+        ss << "ERROR in definition of function <" << sig->getIdentifiant() << "> : one or more parameter is unnamed.";
+        throw std::runtime_error(ss.str());
+    }
+    if (args != nullptr)
+    {
+        args->prepareScope(currentScope);
+    }
+
+    irFunction = std::make_shared<IR::FunctionBlock>(sig->getIdentifiant(), sig->getValue().getIRType());
+
 }
 
 std::shared_ptr<FunctionSignature> Function::getSignature() const
@@ -97,6 +91,9 @@ std::shared_ptr<FunctionSignature> Function::getSignature() const
 // TODO : Check comportment with declaration then definition
 std::shared_ptr<IR::FunctionBlock> Function::getIrFunction() const
 {
+    std::stringstream ss;
+    ss << "Compilation error : function used but not defined : " << sig->getIdentifiant() << std::endl;
+    throw std::runtime_error(ss.str());
     if (irFunction  == nullptr)
     {
         std::stringstream ss;
@@ -131,6 +128,7 @@ Value Function::evaluate() const
 
 IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
+    std::cout << "Function::buildIR : irFunction : " << irFunction << std::endl;
     if (args != nullptr)
     {
         std::vector<std::shared_ptr<VariableSignature>> argumentsList = args->getArguments();

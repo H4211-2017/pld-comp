@@ -34,5 +34,6 @@ Value FunctionDeclaration::evaluate() const
 
 IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {   
+    std::cout << "FunctionDeclaration::buildIR : fct : " << fct << std::endl;
     return fct->buildIR(currentBasicBlock);
 }
