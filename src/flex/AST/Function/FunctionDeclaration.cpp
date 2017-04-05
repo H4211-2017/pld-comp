@@ -13,6 +13,8 @@ FunctionDeclaration::FunctionDeclaration(std::shared_ptr<FunctionSignature> sign
 
 std::shared_ptr<IR::FunctionBlock> FunctionDeclaration::getIrFunction() const
 {
+    std::cout << "FunctionDeclaration::getIrFunction : fct : " << fct << std::endl;
+    std::cout << "FunctionDeclaration::getIrFunction : fct->getIrFunction : " << fct->getIrFunction() << std::endl;
     return fct->getIrFunction();
 }
 

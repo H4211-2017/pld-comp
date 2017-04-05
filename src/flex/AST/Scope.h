@@ -21,7 +21,7 @@ namespace AST{
 		
 		Scope( std::shared_ptr<Scope> Scope );
 		
-		Scope(const Scope & Scope); // declared but not defined
+		Scope(const Scope & scope); // declared but not defined
 		
 		virtual ~Scope();
 		
@@ -37,6 +37,8 @@ namespace AST{
          * @return a shared pointer on the variable in the scope, ends compilation if varaiable not found.
          */
         std::shared_ptr<AbstractVariable> findVariable(std::string identifiant);
+        
+        std::shared_ptr<AbstractVariable>* findVariableAddress(std::string identifiant);
         
         /**
          * @brief declareFunction adds a function to the dictionnary of the scope

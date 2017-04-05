@@ -21,12 +21,7 @@ AbstractBinaryExpression::~AbstractBinaryExpression()
 void AbstractBinaryExpression::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
-    std::cout << std::endl;
-
-    for (int i = 0; i < tabulationNumber + 1; i++)
-    {
-        std::cout << "  ";
-    }
+	std::cout << '\t';
     printOperator();
     std::cout << std::endl;
     leftMember->printTree(tabulationNumber + 1);

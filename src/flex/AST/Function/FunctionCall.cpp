@@ -40,7 +40,7 @@ void FunctionCall::printTree(int tabulationNumber) const
 
 IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	IR::Generator gen;
+    IR::Generator gen;
 	std::list<IR::sh_AbstractData> irParams;
     std::vector<std::shared_ptr<AbstractExpression> > params = parametres->getParameters();
 
@@ -52,6 +52,7 @@ IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     IR::Type returnType = getValue().getIRType();
     IR::sh_Memory returnStatement = gen.getNewUnusedMemmory(returnType);
 	// TODO : complete this function by using params
+
     std::list<IR::sh_AbsInstruction> absIntructions = gen.call(fct->getIrFunction(), irParams, returnStatement);
     currentBasicBlock->pushInstructionBack(absIntructions);
     return returnStatement;

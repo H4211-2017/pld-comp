@@ -11,6 +11,7 @@ namespace AST{
     public:
         Constant();
         Constant(long int value);
+        Constant(char value);
         virtual ~Constant();
 
 

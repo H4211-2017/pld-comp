@@ -14,6 +14,8 @@ namespace AST {
     
     	ComposedInstruction();
     	
+    	ComposedInstruction(std::string name);
+    	
         /**
          * @brief ComposedInstruction
          * @param abstractExpression the first abstract expression of a composed instruction
@@ -25,6 +27,8 @@ namespace AST {
          * @param expression to add expressions to a composed instruction
          */
         void addExpression(std::shared_ptr<AbstractExpression> expression);
+        
+        std::vector<std::shared_ptr<AbstractExpression>> getListExpr() const;
 
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;

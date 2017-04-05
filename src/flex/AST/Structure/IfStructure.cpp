@@ -40,6 +40,7 @@ void IfStructure::printTree(int tabulationNumber) const
 
 	if(elseStructure != nullptr)
 	{	
+		std::cout << std::endl;
 		elseStructure->printTree(tabulationNumber + 1);
 	}
 }

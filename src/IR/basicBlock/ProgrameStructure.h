@@ -17,6 +17,7 @@ namespace IR {
         std::list<std::shared_ptr<FunctionBlock> > getFuntionList() const;
 
         void printASM(std::ostream &os, AsmType asmType);
+        void printIR(std::ostream &os);
 
     private:
         void printX64prolog(std::ostream &os);

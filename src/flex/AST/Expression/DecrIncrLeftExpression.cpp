@@ -20,16 +20,18 @@ void DecrIncrLeftExpression::printTree(int tabulationNumber) const
     AbstractNode::printTree(tabulationNumber);
     if (valueOfIncrement == 1)
     {
-        std::cout << "| ++ left" << std::endl;
+        std::cout << "| ++ left";
     }
     else if (valueOfIncrement == -1)
     {
-        std::cout << "| -- left" << std::endl;
+        std::cout << "| -- left";
     }
     else
     {
         std::cerr << "DecrIncrRightExpression::printTree : error of valueOfIncrement : " << valueOfIncrement << std::endl;
-    }
+    }    
+    std::cout << std::endl;
+    var->printTree(tabulationNumber + 1);
 }
 Value DecrIncrLeftExpression::evaluate() const
 {

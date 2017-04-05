@@ -29,7 +29,7 @@ namespace AST {
         virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock);
 
     private:
-        std::vector<std::shared_ptr<AbstractInstruction>> instructionsList;
+        std::vector<std::shared_ptr<AbstractInstruction> > instructionsList;
     };
 }
 
