@@ -30,11 +30,6 @@ namespace AST{
 		Scope( std::shared_ptr<Scope> scope );
 		
 		/**
-		 * @brief Blocking the copy constructor
-		 */
-		Scope(const Scope & scope); // declared but not defined
-		
-		/**
 		 * @brief Scope destructor
 		 */
 		virtual ~Scope();

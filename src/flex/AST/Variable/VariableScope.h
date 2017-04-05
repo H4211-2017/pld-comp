@@ -36,7 +36,7 @@ namespace AST{
 	{
 	public:
 		VariableScope();
-		VariableScope( const VariableScope & variableScope); // declared but not defined		
+	
 		virtual ~VariableScope();
 
         void declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable);

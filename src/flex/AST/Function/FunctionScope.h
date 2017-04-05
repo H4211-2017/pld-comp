@@ -44,12 +44,7 @@ namespace AST{
 		 * @brief Scope constructor
 		 */
         FunctionScope();
-		
-		/**
-		 * @brief Blocking the copy constructor
-		 */
-        FunctionScope( const FunctionScope & fonctionScope); // declared but not defined
-		
+				
 		/**
 		 * @brief FunctionScope destructor
 		 */
