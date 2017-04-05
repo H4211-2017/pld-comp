@@ -25,6 +25,6 @@ std::string ReadFromMemory::toLinuxX64() const
     std::string ret = "\tmovq\t";
     ret.append( std::to_string(source->getAsmBasePointerOffset()) );
     ret.append( "(%rbp), " );
-    ret.append( destination->getAsmRegisterName() );
+    ret.append( destination->getASMname(AsmType::X64Linux) );
     return ret;
 }

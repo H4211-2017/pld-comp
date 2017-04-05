@@ -106,10 +106,10 @@ int main(int argc, char *argv[])
 
     std::cout << "main apres buildIR" << std::endl;
 
-    programStructure->printIR(std::cout);
+//    programStructure->printIR(std::cout);
     std::cout << "main apres printIR" << std::endl;
 
-   // programStructure->printASM(std::cout, IR::AsmType::X64Linux);
+    programStructure->printASM(std::cout, IR::AsmType::X64Linux);
 
     std::cout << "main apres printASM" << std::endl;
 	
