@@ -15,6 +15,13 @@ namespace IR {
     class BasicBlock;
     typedef std::shared_ptr<BasicBlock> sh_BasicBlock;
 
+    enum class Flag
+    {
+        None,
+        LoopCondition,
+        LoopEnd
+    };
+
     class BasicBlock : public std::enable_shared_from_this<BasicBlock>
     {
     public:
@@ -48,6 +55,11 @@ namespace IR {
 
         bool isConditionnal() const;
 
+        void setBasicBlockFlag(const Flag &value);
+        Flag getBasicBlockFlag() const;
+
+
+
 
     private:
         void printAsmLabel(std::ostream& os, AsmType asmType) const;
@@ -55,6 +67,7 @@ namespace IR {
 
     private:
         std::string name;
+        Flag basicBlockFlag;
         std::list<sh_AbsInstruction> instructionsList;
         sh_BasicBlock nextBlockTrue;
         sh_BasicBlock nextBlockFalse;

@@ -27,6 +27,7 @@
 #include "../instructions/OperatorBigger.h"
 #include "../instructions/OperatorPlus.h"
 #include "../instructions/ReturnInstruction.h"
+#include "../instructions/BreakInstruction.h"
 
 #define BINARY_OPERATOR_IR(CLASS) IR::Generator gen; \
 	IR::sh_Memory leftMem = leftMember->buildIR(currentBasicBlock); \

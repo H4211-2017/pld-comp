@@ -85,6 +85,8 @@ IR::sh_Memory ForStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     //test block go to loop if true and after if false
     testBasicBlock->setNextBlockTrue(loopBasicBlock);
     testBasicBlock->setNextBlockFalse(afterBasicBlock);
+    //add a flag on basic block
+    testBasicBlock->setBasicBlockFlag(IR::Flag::LoopCondition);
     //loop block always go back to test block
     loopBasicBlock->setNextBlockTrue(testBasicBlock);
 
@@ -95,6 +97,8 @@ IR::sh_Memory ForStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     this->intInstruction->buildIR(loopBasicBlock);
     //... and finish by executing the increment (don't forget that loopBasicBlock may have been updated durring the previous call)
     this->condInstr3->buildIR(loopBasicBlock);
+    //add a flag on the loopBasicBlock
+    loopBasicBlock->setBasicBlockFlag(IR::Flag::LoopEnd);
 
     //update currentBasicBlock so that the caller use the right basic block
     currentBasicBlock = afterBasicBlock;

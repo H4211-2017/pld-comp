@@ -24,7 +24,12 @@ std::string ReturnInstruction::toLinuxX64() const
 
 std::string ReturnInstruction::toString() const
 {
-
+    std::string ret = "return ";
+    if(this->returnedMemory != nullptr)
+    {
+        ret.append(this->returnedMemory->getName());
+    }
+    return ret;
 }
 
 
