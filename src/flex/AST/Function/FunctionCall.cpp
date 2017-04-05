@@ -10,9 +10,9 @@ FunctionCall::FunctionCall(std::string id,  std::shared_ptr<LParametres> params,
     : AbstractExpression("FunctionCall")
 {
     fct = scope->findFunction(id);
-	parametres = params;
+    parameters = params;
 	
-	if(!fct->checkParametres(parametres))
+    if(!fct->checkParametres(parameters))
 	{
 		std::cerr << "ERROR : parameters number does not match. " << std::endl;
 		exit(-1);
@@ -23,7 +23,6 @@ FunctionCall::FunctionCall(std::string id,  std::shared_ptr<LParametres> params,
 
 
 FunctionCall::~FunctionCall() {
-	// TODO Auto-generated destructor stub
 }
 
 Value FunctionCall::evaluate() const
@@ -35,14 +34,14 @@ void FunctionCall::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
     std::cout << std::endl;
-    parametres->printTree(tabulationNumber + 1);
+    parameters->printTree(tabulationNumber + 1);
 }
 
 IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     IR::Generator gen;
 	std::list<IR::sh_AbstractData> irParams;
-    std::vector<std::shared_ptr<AbstractExpression> > params = parametres->getParameters();
+    std::vector<std::shared_ptr<AbstractExpression> > params = parameters->getParameters();
 
     for(int i = 0; i < params.size(); i++){
         std::shared_ptr<AbstractExpression> expr = params[i];

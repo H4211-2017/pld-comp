@@ -67,7 +67,7 @@ bool LArguments::checkParametres(std::shared_ptr<LParametres> params) const
 		
 		return arguments.size() == 0;
 	}
-	if(arguments.size() == params->parametres.size())
+	if(arguments.size() == params->parameters.size())
 	{
 		return true;
 	}

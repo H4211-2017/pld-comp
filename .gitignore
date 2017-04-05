@@ -89,3 +89,7 @@ bin/*
 Makefile
 cmake_install.cmake
 lex.yy.cpp
+
+#Program output
+*.s
+*.out

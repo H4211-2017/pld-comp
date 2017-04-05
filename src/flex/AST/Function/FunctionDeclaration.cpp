@@ -11,6 +11,11 @@ FunctionDeclaration::FunctionDeclaration(std::shared_ptr<FunctionSignature> sign
     scope->declareFunction(sig->getIdentifiant(), fct);
 }
 
+std::string FunctionDeclaration::getIdentifiant() const
+{
+   return fct->getSignature()->getIdentifiant();
+}
+
 std::shared_ptr<IR::FunctionBlock> FunctionDeclaration::getIrFunction() const
 {
     return fct->getIrFunction();
