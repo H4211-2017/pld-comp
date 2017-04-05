@@ -92,3 +92,4 @@ lex.yy.cpp
 
 #Program output
 *.s
+*.out
