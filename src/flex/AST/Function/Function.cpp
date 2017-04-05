@@ -26,11 +26,6 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
     args = arguments;
 }
 
-std::shared_ptr<IR::FunctionBlock> Function::getIrFunction()
-{
-    return irFunction;
-}
-
 bool Function::compareArguments(std::shared_ptr<Function> f2) const
 {
 	if(args == nullptr ^ f2->args == nullptr)
@@ -79,6 +74,7 @@ void Function::setBlock(std::shared_ptr<Block> content)
     }
 
     irFunction = std::make_shared<IR::FunctionBlock>(sig->getIdentifiant(), sig->getValue().getIRType());
+    std::cout << "Function::setBlock : irFunction : " << irFunction << std::endl;
 
 }
 
@@ -91,9 +87,7 @@ std::shared_ptr<FunctionSignature> Function::getSignature() const
 // TODO : Check comportment with declaration then definition
 std::shared_ptr<IR::FunctionBlock> Function::getIrFunction() const
 {
-    std::stringstream ss;
-    ss << "Compilation error : function used but not defined : " << sig->getIdentifiant() << std::endl;
-    throw std::runtime_error(ss.str());
+    std::cout << "Function::getIrFunction : begin" << std::endl;
     if (irFunction  == nullptr)
     {
         std::stringstream ss;

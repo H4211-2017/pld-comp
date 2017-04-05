@@ -2,6 +2,8 @@
 #define ARRAYDECLARATION_H
 
 #include "Instruction/AbstractInstruction.h"
+#include "Instruction/ComposedInstruction.h"
+#include "Expression/AbstractExpression.h"
 
 namespace AST {
 	
@@ -15,6 +17,18 @@ namespace AST {
     
         ArrayDeclaration(std::shared_ptr<VariableSignature> signature, 
 				long int size, std::shared_ptr<Scope> scope);
+				
+		ArrayDeclaration(std::shared_ptr<VariableSignature> signature, 
+				long int size, char* valeurs, std::shared_ptr<Scope> scope);
+				
+		ArrayDeclaration(std::shared_ptr<VariableSignature> signature,
+						char* valeurs, std::shared_ptr<Scope> scope);
+						
+		ArrayDeclaration(std::shared_ptr<VariableSignature> signature, 
+				long int size, std::shared_ptr<ComposedInstruction> valeurs, std::shared_ptr<Scope> scope);
+				
+		ArrayDeclaration(std::shared_ptr<VariableSignature> signature,
+						std::shared_ptr<ComposedInstruction> valeurs, std::shared_ptr<Scope> scope);
         
         virtual void printTree(int tabulationNumber) const;
         virtual Value evaluate() const;
@@ -22,6 +36,8 @@ namespace AST {
         
     protected:
         std::shared_ptr<Array> array;
+        std::vector<std::shared_ptr<AbstractExpression>> eventualTabInit;
+        char *eventualInit;
     };
 }
 

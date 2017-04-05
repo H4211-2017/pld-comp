@@ -41,6 +41,7 @@ namespace AST{
 
         void declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable);
         std::shared_ptr<AbstractVariable> findVariable(std::string identifiant);
+        std::shared_ptr<AbstractVariable>* findVariableAddress(std::string identifiant);
 		
 	protected:
 		std::map< std::string, std::shared_ptr<AbstractVariable> > scope;

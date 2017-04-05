@@ -6,6 +6,9 @@
 
 #include "bison.tab.hpp"
 #include <list>
+#include <cstring>
+#include <fstream> 
+#include <iostream> 
 
 #include "IR/generator/Generator.h"
 #include "IR/function/FunctionBlock.h"
@@ -13,32 +16,104 @@
 #include "IR/basicBlock/ProgrameStructure.h"
 
 extern "C" int yylex();
-
+extern FILE* yyin;
 
 int main(int argc, char *argv[])
 {
-    try
+    std::string fileToCompile;
+	std::string target;
+	std::string ASTtarget;
+	std::streambuf* oldBuf;
+	bool verbose = false;
+	int i = 1;
+	if( argc > 7 )
+	{
+		std::cerr << "ERROR : Too many arguments" << std::endl;
+		exit(-1);
+	}
+	for(; i<argc; i++)
+	{
+		if(strcmp(argv[i], "-o") == 0)
+		{
+			i++;
+			if(i == argc || argv[i][0] == '-')
+			{
+				std::cerr << "ERROR : no target defined" << std::endl;
+				exit(-1);
+			}
+			target = argv[i];
+		}
+		else if(strcmp(argv[i], "-t") == 0)
+		{
+			i++;
+			if(i == argc || argv[i][0] == '-')
+			{
+				std::cerr << "ERROR : no AST-target defined" << std::endl;
+				exit(-1);
+			}
+			ASTtarget = argv[i];
+		}
+		else if(strcmp(argv[i], "-v") == 0)
+		{
+			verbose = true;
+		}
+		else
+		{
+            fileToCompile = argv[i];
+		}
+	}
+	
+    if(fileToCompile.length() > 0)
+	{
+        yyin = fopen(fileToCompile.c_str(), "r");
+	}
+	
+    AST::ProgramNode * program;
+	
+	if(!verbose)
+	{
+		std::cout.setstate(std::ios_base::failbit);
+		yyparse(&program);
+		std::cout.clear();
+	}
+	else
+	{
+		yyparse(&program);	
+	}
+	
+    if(fileToCompile.length() > 0)
+		fclose(yyin);
+    
+    if(ASTtarget.length() > 0)
     {
-        std::cout << "test" << std::endl;
-        std::cout << "main avant flex" << std::endl;
-        AST::ProgramNode * program;
-        yyparse(&program);
-        std::cout << "main avant printTree" << std::endl;
-        program->printTree(0);
-        std::cout << "main apres printTree" << std::endl;
-
-        IR::sh_ProgrameStructure programStructure = program->buildIR();
-
-        std::cout << "main apres buildIR" << std::endl;
-
-        programStructure->printASM(std::cout, IR::AsmType::X64Linux);
-
-        std::cout << "main apres printASM" << std::endl;
-    }
-    catch (std::runtime_error e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+		std::ofstream out(ASTtarget); 
+		oldBuf = std::cout.rdbuf(out.rdbuf()); 
+	  	
+		program->printTree(0);
+		// Restauration du streambuf initial de std::cout (affichage sur la console) 
+		std::cout.rdbuf(oldBuf); 
+	}
+	else if(verbose)
+	{
+		program->printTree(0);				
+		std::cout << std::endl;
+	}
 
 
+    std::cout << "main avant buildIR" << std::endl;
+    std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
+
+
+    std::cout << "main apres buildIR" << std::endl;
+
+    programStructure->printIR(std::cout);
+    std::cout << "main apres printIR" << std::endl;
+
+   // programStructure->printASM(std::cout, IR::AsmType::X64Linux);
+
+    std::cout << "main apres printASM" << std::endl;
+	
+	delete program;
+
+    return 0;
 }

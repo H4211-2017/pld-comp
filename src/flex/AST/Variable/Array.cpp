@@ -14,7 +14,7 @@ Array::Array(std::shared_ptr<VariableSignature> signature, long int size)
 void Array::printTree(int tabulationNumber) const
 {
 	AbstractVariable::printTree(tabulationNumber);
-	std::cout << "[" << size << "]" << std::endl;
+	std::cout << "[" << size << "]";
 }
 
 Value Array::evaluate() const

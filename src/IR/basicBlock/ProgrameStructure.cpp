@@ -33,6 +33,15 @@ void ProgrameStructure::printASM(std::ostream &os, AsmType asmType)
 
 }
 
+void ProgrameStructure::printIR(std::ostream &os)
+{
+    for(std::shared_ptr<FunctionBlock> func : this->funtionList)
+    {
+        func->generateIR();
+        func->printIR(os);
+    }
+}
+
 void ProgrameStructure::printX64prolog(std::ostream &os)
 {
     os << "\t.text" << std::endl;

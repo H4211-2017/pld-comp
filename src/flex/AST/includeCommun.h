@@ -17,6 +17,7 @@
 #include "Expression/BitwiseAndExpression.h"
 #include "Expression/BitwiseOrExpression.h"
 #include "Expression/BitwiseShiftLeftExpression.h"
+#include "Expression/BitwiseShiftRightExpression.h"
 #include "Expression/BitwiseXorExpression.h"
 #include "Expression/ModuloExpression.h"
 #include "Expression/AndExpression.h"
@@ -32,6 +33,7 @@
 #include "Expression/SupExpression.h"
 #include "Expression/DecrIncrRightExpression.h"
 #include "Expression/DecrIncrLeftExpression.h"
+#include "Expression/Ternary.h"
 
 #include "Instruction/ComposedInstruction.h"
 #include "Instruction/UnitInstruction.h"
