@@ -23,7 +23,8 @@ std::string OperatorBitWiseXOr::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
-    ret.append( ", %rax" );
+    ret.append( ", " );
+    ret.append( destination->getASMname(AsmType::X64Linux) );
     ret.append( "\n\txorq\t");
     ret.append( this->secondValue->getASMname(AsmType::X64Linux) );
     ret.append( ", ");
