@@ -20,7 +20,9 @@ Type AbstractData::getType() const
 
 int AbstractData::getSizeInMemory() const
 {
-    return dataType;
+    //return dataType;
+    return Type::INT_64; //force data to be long
+    //TODO remove that
 }
 
 std::string AbstractData::getASMname(AsmType asmType) const

@@ -20,9 +20,9 @@ extern FILE* yyin;
 
 int main(int argc, char *argv[])
 {
-    std::string fileToCompile;
-	std::string target;
-	std::string ASTtarget;
+    std::string fileToCompile = "";
+    std::string target = "a.s";
+    std::string ASTtarget = "";
 	std::streambuf* oldBuf;
 	bool verbose = false;
 	int i = 1;
@@ -109,7 +109,8 @@ int main(int argc, char *argv[])
 //    programStructure->printIR(std::cout);
     std::cout << "main apres printIR" << std::endl;
 
-    programStructure->printASM(std::cout, IR::AsmType::X64Linux);
+    std::ofstream asmFileStream(target);
+    programStructure->printASM(asmFileStream, IR::AsmType::X64Linux);
 
     std::cout << "main apres printASM" << std::endl;
 	
