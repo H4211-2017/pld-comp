@@ -32,9 +32,9 @@ Value ProgramNode::evaluate() const
 }
 
 // TODO : functions other than main
-std::shared_ptr<IR::ProgrameStructure> ProgramNode::buildIR()
+IR::sh_ProgrameStructure ProgramNode::buildIR()
 {
-    std::shared_ptr<IR::ProgrameStructure> programStructure = std::make_shared<IR::ProgrameStructure>();
+    IR::sh_ProgrameStructure programStructure = std::make_shared<IR::ProgrameStructure>();
     programStructure->addFunction(main->getIrFunction());
     IR::sh_BasicBlock mainCoreIR = main->getIrFunction()->getFunctionCore();
     main->buildIR(mainCoreIR);

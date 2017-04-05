@@ -4,7 +4,6 @@
 
 #include "includeCommun.h"
 
-
 #include "bison.tab.hpp"
 #include <list>
 
@@ -24,7 +23,7 @@ int main(int argc, char *argv[])
     program->printTree(0);
     std::cout << "main apres flex" << std::endl;
 
-    std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
+    IR::sh_ProgrameStructure programStructure = program->buildIR();
 
     std::cout << "main apres buildIR" << std::endl;
 
