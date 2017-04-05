@@ -7,5 +7,5 @@ int32_t main()
 
 int32_t fonctionAvant()
 {
-	37+55;
+    37+55;
 }

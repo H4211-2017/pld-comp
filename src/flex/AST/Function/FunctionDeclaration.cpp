@@ -16,6 +16,11 @@ std::shared_ptr<IR::FunctionBlock> FunctionDeclaration::getIrFunction() const
     return fct->getIrFunction();
 }
 
+bool FunctionDeclaration::isDeclaration() const
+{
+    return fct->isDeclaration();
+}
+
 void FunctionDeclaration::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
@@ -37,16 +42,15 @@ Value FunctionDeclaration::evaluate() const
  * it is defined, then call the buildIR of its child function with this basic block.
  * If the function is defined but declared, do nothing.
  * @brief FunctionDeclaration::buildIR Build the IR of corresponding to this node
- * @param currentBasicBlock Not used in this function => a new basic block is used instead
- * @return nullptr.
  */
 IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {
     // Build something only if the function is declared.
-    if (fct->getIrFunction() != nullptr)
+    if (!fct->isDeclaration())
     {
         IR::sh_BasicBlock functionCore = fct->getIrFunction()->getFunctionCore();
         fct->buildIR(functionCore);
     }
-    return nullptr; // TODO check if it should not return fct->buildIR
+    // TODO check if a return value (return fct->buildIR(functionCore)) is needed
+    return nullptr;
 }

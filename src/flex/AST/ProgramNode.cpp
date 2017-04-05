@@ -31,23 +31,37 @@ Value ProgramNode::evaluate() const
 	return Value();
 }
 
-// TODO : functions other than main
 IR::sh_ProgrameStructure ProgramNode::buildIR()
 {
     std::shared_ptr<IR::ProgrameStructure> programStructure = std::make_shared<IR::ProgrameStructure>();
 
     for (std::shared_ptr<FunctionDeclaration> astFunction : liextBefore->getListFunctionDeclaration())
     {
-        programStructure->addFunction(astFunction->getIrFunction());
+        if (!astFunction->isDeclaration())
+        {
+            programStructure->addFunction(astFunction->getIrFunction());
+        }
     }
     for (std::shared_ptr<FunctionDeclaration> astFunction : liextAfter->getListFunctionDeclaration())
     {
-        programStructure->addFunction(astFunction->getIrFunction());
+        if (!astFunction->isDeclaration())
+        {
+            programStructure->addFunction(astFunction->getIrFunction());
+        }
     }
     programStructure->addFunction(main->getIrFunction());
 
-    IR::sh_BasicBlock mainCoreIR = main->getIrFunction()->getFunctionCore();
-    main->buildIR(mainCoreIR);
-    
+
+     /* SequenceInstruction::buildIR need a basic block. However, as only declaration/definition function are in liextBefore and
+     liextAfter, the basic block will not be used. */
+    IR::sh_BasicBlock unused;
+    std::cout << "ProgramNode::buildIR : avant liextBefore" << std::endl;
+    liextBefore->buildIR(unused);
+    std::cout << "ProgramNode::buildIR : apres liextBefore" << std::endl;
+    main->buildIR(unused);
+    std::cout << "ProgramNode::buildIR apres main" << std::endl;
+    liextAfter->buildIR(unused);
+    std::cout << "ProgramNode::buildIR apres liextAfter" << std::endl;
+
     return programStructure;
 }
