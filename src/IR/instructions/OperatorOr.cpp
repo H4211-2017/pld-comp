@@ -25,12 +25,12 @@ std::string OperatorOr::toLinuxX64() const
     ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax" );
     ret.append( "\n\taddq\t");
-    ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
+    ret.append( this->secondValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax");
     ret.append("\n\tcmpq\t$0, %rax");
     ret.append("\n\tmovq\t$0, %rcx\n\tmovq\t$1, %rdx");
-    ret.append("\n\tcmovne\t%rdx, %al\n\tcmove\t%rcx, %al\n\tmovq\t%rax, ");
-    ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
+    ret.append("\n\tcmovne\t%rdx, %rax\n\tcmove\t%rcx, %rax\n\tmovq\t%rax, ");
+    ret.append( this->destination->getASMname(AsmType::X64Linux) );
     return ret;
 }
 
