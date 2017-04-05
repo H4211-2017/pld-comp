@@ -39,14 +39,34 @@ namespace AST{
     class FunctionScope
 	{
 	public:
+		
+		/**
+		 * @brief Scope constructor
+		 */
         FunctionScope();
 		
+		/**
+		 * @brief Blocking the copy constructor
+		 */
         FunctionScope( const FunctionScope & fonctionScope); // declared but not defined
 		
+		/**
+		 * @brief FunctionScope destructor
+		 */
         virtual ~FunctionScope();
 		
+		/**
+         * @brief declareFunction adds a function to the dictionnary of the FunctionScope
+         * @param identifiant the id of the function to add to the dictionary.
+         * @param decl the function to add to the dictionary
+         */
         void declareFunction(std::string name, std::shared_ptr<Function> decl);
 		
+		/**
+         * @brief findVariable to find a function in the scope.
+         * @param identifiant the id of the function to find.
+         * @return a shared pointer on the function in the scope, ends compilation if function not found.
+         */
         std::shared_ptr<Function> findFunction(std::string identifiant);
 		
 	protected:
