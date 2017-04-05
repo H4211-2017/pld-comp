@@ -59,17 +59,13 @@ namespace AST{
          * @param newMother the new mother scope
          */
 		void setMother(std::shared_ptr<Scope> newMother);
-       			
-       	IR::Generator &getGenerator();
+  
 	protected:
 		//tree hierarchy
 		std::shared_ptr<Scope> mother;
 		
 		VariableScope vScope;
         FunctionScope fScope;
-        
-    private:
-       	IR::Generator generator;
     };
 }
 

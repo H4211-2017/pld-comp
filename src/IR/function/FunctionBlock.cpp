@@ -35,8 +35,10 @@ void FunctionBlock::init()
  */
 void FunctionBlock::generateBasicBlockList()
 {
+    //TODO transform depth first to width first
     coreList.clear();
     exploreBasicBlock(functionInit);
+    coreList.push_back(functionReturn);
 }
 
 /**
@@ -185,6 +187,43 @@ void FunctionBlock::manageReturnStatements()
 }
 
 /**
+ * @brief FunctionBlock::removeEmptyBasicBlock remoe empty basic bloc from the function
+ * @remark coreList must be set as well as every basic block predecesor
+ */
+void FunctionBlock::removeEmptyBasicBlock()
+{
+    bool changeDuringLoop = false;
+    while (!changeDuringLoop)
+    {
+        for(sh_BasicBlock bb : coreList)
+        {
+            if(bb->getInstructionsList().size() == 0 && bb != functionReturn && bb != functionInit)
+            {
+                //if the basic block is empty the next is the true
+                sh_BasicBlock nextBlock = bb->getNextBlockTrue();
+                for(sh_BasicBlock previousBB : bb->getPreviousBlocks())
+                {
+                    if(previousBB->getNextBlockFalse() == bb)
+                    {
+                        previousBB->setNextBlockFalse(nextBlock);
+                        changeDuringLoop = true;
+                    }
+                    else if(previousBB->getNextBlockTrue() == bb)
+                    {
+                        previousBB->setNextBlockTrue(nextBlock);
+                        changeDuringLoop = true;
+                    }
+                }
+            }
+        }
+        if(changeDuringLoop)
+        {
+            this->generateBasicBlockList();
+        }
+    }
+}
+
+/**
  * @brief FunctionBlock::closestLoop recursively explore parent of
  * the given basic block until finding the clossest parent
  * @param source base of the exploration
@@ -275,6 +314,7 @@ void FunctionBlock::generateASM(AsmType asmType)
     //re generate basic block list in case obvious dead code came
     generateBasicBlockList();
     affectPreviousBasicBlock();
+    removeEmptyBasicBlock();
     getMemoryFromBasicBlock();
     aliveRegistryDetection();
     affectMemory();
@@ -298,6 +338,11 @@ void FunctionBlock::generateASM(AsmType asmType)
  */
 void FunctionBlock::exploreBasicBlock(sh_BasicBlock currentBlock)
 {
+    //do not add the function epiloge (force it to be at the end)
+    if(currentBlock == functionReturn)
+    {
+        return;
+    }
     coreList.push_back(currentBlock);
     //if the current block is not the epiloge and as no following block, link to epiloge
     if(currentBlock->getNextBlockFalse() == nullptr && currentBlock->getNextBlockTrue() == nullptr && currentBlock != functionReturn)

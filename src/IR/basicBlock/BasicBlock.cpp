@@ -255,11 +255,11 @@ void BasicBlock::printIr(std::ostream &os) const
 
     }
     //if only one is set, no need to check any things
-    else if(nextBlockFalse != nullptr)
+    else if(nextBlockTrue == nullptr)
     {
         os << "Jump to: " << nextBlockFalse->getName() << std::endl;
     }
-    else if(nextBlockTrue != nullptr)
+    else if(nextBlockFalse == nullptr)
     {
         os << "Jump to: " << nextBlockTrue->getName() << std::endl;
     }

@@ -56,6 +56,7 @@ IR::sh_Memory IfStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     this->condition->buildIR(currentBasicBlock);
 
     IR::sh_BasicBlock thenBasicBlock = std::make_shared<IR::BasicBlock>();
+	IR::sh_BasicBlock elseBasicBlock = std::make_shared<IR::BasicBlock>();
     IR::sh_BasicBlock afterBasicBlock = std::make_shared<IR::BasicBlock>();
 
     //set next block of after block as the old next bock of current block
@@ -63,25 +64,14 @@ IR::sh_Memory IfStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     //set then block links
     currentBasicBlock->setNextBlockTrue(thenBasicBlock);
     thenBasicBlock->setNextBlockTrue(afterBasicBlock);
-
-    //feed then block
+	//feed then block
     this->intInstruction->buildIR(thenBasicBlock);
 
-    if(this->elseStructure == nullptr)
-    {
-        //if else don't exist
-        //link current block to after block in case of false
-        currentBasicBlock->setNextBlockFalse(afterBasicBlock);
-    }
-    else
-    {
-        IR::sh_BasicBlock elseBasicBlock = std::make_shared<IR::BasicBlock>();
-        //set else block links
-        currentBasicBlock->setNextBlockFalse(elseBasicBlock);
-        elseBasicBlock->setNextBlockTrue(afterBasicBlock);
-        //feed else block
-        this->elseStructure->buildIR(elseBasicBlock);
-    }
+	//set else block links
+	currentBasicBlock->setNextBlockFalse(elseBasicBlock);
+	elseBasicBlock->setNextBlockTrue(afterBasicBlock);
+	//feed else block
+	this->elseStructure->buildIR(elseBasicBlock);
 
     //update currentBasicBlock so that the caller use the right basic block
     currentBasicBlock = afterBasicBlock;
