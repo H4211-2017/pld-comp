@@ -17,12 +17,26 @@ namespace AST{
 	class Scope
 	{
 	public:
+	
+		/**
+		 * @brief Scope constructor
+		 */
 		Scope();
 		
-		Scope( std::shared_ptr<Scope> Scope );
+		/**
+		 * @brief Scope constructor
+		 * @param scope a shared_ptr to the mother scope
+		 */
+		Scope( std::shared_ptr<Scope> scope );
 		
+		/**
+		 * @brief Blocking the copy constructor
+		 */
 		Scope(const Scope & scope); // declared but not defined
 		
+		/**
+		 * @brief Scope destructor
+		 */
 		virtual ~Scope();
 		
         /**
@@ -31,13 +45,19 @@ namespace AST{
          * @param variable the variable to add to the dictionary
          */
         void declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable);
+        
         /**
          * @brief findVariable to find a variable in the scope.
          * @param identifiant the id of the variable to find.
-         * @return a shared pointer on the variable in the scope, ends compilation if varaiable not found.
+         * @return a shared pointer on the variable in the scope, ends compilation if variable not found.
          */
         std::shared_ptr<AbstractVariable> findVariable(std::string identifiant);
         
+         /**
+         * @brief findVariable to find a variable in the scope.
+         * @param identifiant the id of the variable to find.
+         * @return a pointer on a shared pointer on the variable in the scope, ends compilation if variable not found.
+         */
         std::shared_ptr<AbstractVariable>* findVariableAddress(std::string identifiant);
         
         /**
@@ -46,6 +66,12 @@ namespace AST{
          * @param decl the function to add to the dictionary
          */
         void declareFunction(std::string identifiant, std::shared_ptr<Function> decl);
+        
+        /**
+         * @brief findVariable to find a function in the scope.
+         * @param identifiant the id of the function to find.
+         * @return a shared pointer on the function in the scope, ends compilation if function not found.
+         */
         std::shared_ptr<Function> findFunction(std::string identifiant);
 		
         /**
@@ -59,7 +85,12 @@ namespace AST{
          * @param newMother the new mother scope
          */
 		void setMother(std::shared_ptr<Scope> newMother);
-       			
+       	
+       	/**
+       	 * @brief Deprecated Function
+       	 * 
+       	 * TODO DELETE
+       	 */
        	IR::Generator &getGenerator();
 	protected:
 		//tree hierarchy
@@ -69,7 +100,7 @@ namespace AST{
         FunctionScope fScope;
         
     private:
-       	IR::Generator generator;
+       	IR::Generator generator; //TODO Deprecated attribute
     };
 }
 

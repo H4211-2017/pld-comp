@@ -21,9 +21,9 @@ Scope::Scope()
 	fScope.declareFunction("putchar", putchar);
 }
 
-Scope::Scope( std::shared_ptr<Scope> Scope )
+Scope::Scope( std::shared_ptr<Scope> scope )
 {
-	mother = Scope;
+	mother = scope;
 }
 
 Scope::~Scope()

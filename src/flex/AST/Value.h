@@ -44,9 +44,12 @@ namespace AST {
         std::pair<Type, long int> getValue() const;
         
         /**
-         * @brief returns the IR type corresponding to this instance's type attribute
-         * @return an IR::Type
-         */
+		* @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
+		* @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
+		* 		that is currently being completed
+		* @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
+		* 		shouldn't be callable
+		*/
         IR::Type getIRType() const;
 
     private:
