@@ -96,5 +96,4 @@ namespace IR {
 
 }
 
-
 #endif // GENERATOR_H

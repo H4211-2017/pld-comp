@@ -19,7 +19,7 @@ std::string OperatorNotEquals::toString() const
     return ret;
 }
 
-std::string OperatorNotEquals::toLinuxX86() const
+std::string OperatorNotEquals::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
     ret.append( this->firstValue->getAsmRegisterName() );

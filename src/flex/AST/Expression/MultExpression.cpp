@@ -1,6 +1,8 @@
 #include "MultExpression.h"
 
 #include <algorithm>
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorMult.h"
 
 using namespace AST;
 
@@ -26,7 +28,7 @@ Value MultExpression::evaluate() const
 
 IR::sh_Memory MultExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorMult>(currentBasicBlock);
 }
 
 void MultExpression::printOperator() const

@@ -1,6 +1,8 @@
 #include "InfExpression.h"
 
 #include <algorithm>
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorSmaller.h"
 
 
 using namespace AST;
@@ -28,7 +30,7 @@ Value InfExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory InfExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorSmaller>(currentBasicBlock);
 }
 
 void InfExpression::printOperator() const

@@ -27,7 +27,7 @@ Value AddExpression::evaluate() const
 
 IR::sh_Memory AddExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	BINARY_OPERATOR_IR(OperatorPlus);
+	return fcBuildIR<IR::OperatorPlus>(currentBasicBlock);
 }
 
 void AddExpression::printOperator() const

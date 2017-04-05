@@ -30,18 +30,7 @@ Value EqExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory EqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	IR::Generator gen;
-	IR::sh_Memory leftMem = leftMember->buildIR(currentBasicBlock);
-	IR::sh_Memory rightMem = rightMember->buildIR(currentBasicBlock);
-	
-	IR::Type irType = value.getIRType();
-	IR::sh_Memory destMem = gen.getNewUnusedMemmory(irType);
-	
-	std::list<IR::sh_AbsInstruction> instructionsList = gen.binaryOperator<IR::OperatorEquals>(leftMem, rightMem, destMem);
-	
-	currentBasicBlock->pushInstructionBack(instructionsList);
-	
-	return destMem;
+	BINARY_OPERATOR_IR(OperatorEquals)
 }
 
 void EqExpression::printOperator() const
