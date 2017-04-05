@@ -1,6 +1,8 @@
 #include "EqExpression.h"
 
 #include <algorithm>
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorEquals.h"
 
 
 using namespace AST;
@@ -28,7 +30,18 @@ Value EqExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory EqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	IR::Generator gen;
+	IR::sh_Memory leftMem = leftMember->buildIR(currentBasicBlock);
+	IR::sh_Memory rightMem = rightMember->buildIR(currentBasicBlock);
+	
+	IR::Type irType = value.getIRType();
+	IR::sh_Memory destMem = gen.getNewUnusedMemmory(irType);
+	
+	std::list<IR::sh_AbsInstruction> instructionsList = gen.binaryOperator<IR::OperatorEquals>(leftMem, rightMem, destMem);
+	
+	currentBasicBlock->pushInstructionBack(instructionsList);
+	
+	return destMem;
 }
 
 void EqExpression::printOperator() const
