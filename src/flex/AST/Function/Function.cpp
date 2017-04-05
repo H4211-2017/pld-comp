@@ -47,7 +47,7 @@ bool Function::checkParametres(std::shared_ptr<LParametres> params) const
 	}
 	else if(args == nullptr)
 	{
-		return params->parametres.size() == 0;
+        return params->parameters.size() == 0;
 	}
 	return args->checkParametres(params);
 	
@@ -60,7 +60,7 @@ bool Function::isDeclaration() const
 
 void Function::setBlock(std::shared_ptr<Block> content)
 {
-
+    std::cout << "Function::setBlock : " << sig->getIdentifiant() << " : begin" << std::endl;
     this->content = content;
     if(args != nullptr && args->isForDeclaration())
     {

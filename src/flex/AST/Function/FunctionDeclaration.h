@@ -18,6 +18,7 @@ namespace AST
 
         FunctionDeclaration(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<Function> function, std::shared_ptr<Scope> scope);
 
+        std::string getIdentifiant() const;
         std::shared_ptr<IR::FunctionBlock> getIrFunction() const;
         bool isDeclaration() const;
 
