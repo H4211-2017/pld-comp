@@ -25,9 +25,9 @@ std::string OperatorDiv::toLinuxX64() const
     ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
     ret.append( ", " );
     ret.append( destination->getASMname(AsmType::X64Linux) );
-    ret.append( "\ncqto\n\tidivq\t");
+    ret.append( "\n\tcqto\n\tidivq\t");
     ret.append( this->secondValue->getASMname(AsmType::X64Linux) );
-    ret.append(" \nmovq\t%rax,");
+    ret.append(" \n\tmovq\t%rax,");
     ret.append( destination->getASMname(AsmType::X64Linux) );
     return ret;
 }

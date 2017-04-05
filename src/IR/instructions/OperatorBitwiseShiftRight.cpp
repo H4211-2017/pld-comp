@@ -22,12 +22,12 @@ std::string OperatorBitWiseShiftRight::toString() const
 std::string OperatorBitWiseShiftRight::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
-    ret.append( this->firstValue->getAsmRegisterName() );
+    ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax" );
     ret.append( "\n\tshrq\t");
-    ret.append( this->secondValue->getAsmRegisterName() );
+    ret.append( this->secondValue->getASMname(AsmType::X64Linux) );
     ret.append( ", ");
-    ret.append( destination->getAsmRegisterName() );
+    ret.append( destination->getASMname(AsmType::X64Linux) );
     return ret;
 }
 

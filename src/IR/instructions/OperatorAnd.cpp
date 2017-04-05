@@ -27,16 +27,18 @@ std::string OperatorAnd::toLinuxX64() const
     ret.append( "\n\ttestq\t");
     ret.append( this->secondValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax");
-    ret.append("\nsetg\t%al\ncmovne\t$1, %al\ncmove\t$0, %al\nmovq\t%rax, ");
-    ret.append( destination->getAsmRegisterName() );
+    ret.append("\n\tmovq\t$0, %rcx\n\tmovq\t$1, %rdx");
+    ret.append("\n\tcmovne\t%rdx, %al\n\tcmove\t%rcx, %al\n\tmovq\t%rax, ");
+    ret.append( destination->getASMname(AsmType::X64Linux) );
     return ret;
 }
 
 /* Code en sortie :
     movq	-24(%rbp), %rax
     testq	-16(%rbp), %rax  // a & b
-    setg 	%al
-    cmovne	$1, %al
-    cmove $0, %al
+    movq	$0, %rcx
+	movq	$1, %rdx
+    cmovne	$1, %rax
+    cmove $0, %rax
     movq	%rax, -8(%rbp)
 */
