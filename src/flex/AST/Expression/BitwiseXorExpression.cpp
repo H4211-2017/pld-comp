@@ -1,5 +1,8 @@
 #include "BitwiseXorExpression.h"
 
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorBitWiseXOr.h"
+
 using namespace AST;
 
 BitwiseXorExpression::BitwiseXorExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
@@ -25,7 +28,7 @@ Value BitwiseXorExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory BitwiseXorExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorBitWiseXOr>(currentBasicBlock);
 }
 
 void BitwiseXorExpression::printOperator() const

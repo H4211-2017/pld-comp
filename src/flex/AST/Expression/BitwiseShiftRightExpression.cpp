@@ -1,5 +1,8 @@
 #include "BitwiseShiftRightExpression.h"
 
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/OperatorBitWiseShiftRight.h"
+
 using namespace AST;
 
 BitwiseShiftRightExpression::BitwiseShiftRightExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
@@ -25,7 +28,7 @@ Value BitwiseShiftRightExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory BitwiseShiftRightExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	return fcBuildIR<IR::OperatorBitWiseShiftRight>(currentBasicBlock);
 }
 
 void BitwiseShiftRightExpression::printOperator() const

@@ -1,5 +1,5 @@
-#ifndef FUNCTIONBLOCK_H
-#define FUNCTIONBLOCK_H
+#ifndef IR_FUNCTIONBLOCK_H
+#define IR_FUNCTIONBLOCK_H
 
 #include <memory>
 #include <queue>
@@ -61,4 +61,4 @@ namespace IR {
     typedef std::shared_ptr<FunctionBlock> sh_FunctionBlock;
 }
 
-#endif // FUNCTIONBLOCK_H
+#endif // IR_FUNCTIONBLOCK_H

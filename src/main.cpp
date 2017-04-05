@@ -82,7 +82,9 @@ int main(int argc, char *argv[])
 	}
 	
     if(fileToCompile.length() > 0)
+    {
 		fclose(yyin);
+    }
     
     if(ASTtarget.length() > 0)
     {
@@ -100,9 +102,7 @@ int main(int argc, char *argv[])
 	}
 
 
-    std::cout << "main avant buildIR" << std::endl;
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
-
 
     std::cout << "main apres buildIR" << std::endl;
 
@@ -113,7 +113,6 @@ int main(int argc, char *argv[])
     programStructure->printASM(asmFileStream, IR::AsmType::X64Linux);
 
     std::cout << "main apres printASM" << std::endl;
-	
 	delete program;
 
     return 0;

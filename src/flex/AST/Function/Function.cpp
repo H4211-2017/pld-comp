@@ -74,8 +74,6 @@ void Function::setBlock(std::shared_ptr<Block> content)
     }
 
     irFunction = std::make_shared<IR::FunctionBlock>(sig->getIdentifiant(), sig->getValue().getIRType());
-    std::cout << "Function::setBlock : irFunction : " << irFunction << std::endl;
-
 }
 
 std::shared_ptr<FunctionSignature> Function::getSignature() const
@@ -87,7 +85,6 @@ std::shared_ptr<FunctionSignature> Function::getSignature() const
 // TODO : Check comportment with declaration then definition
 std::shared_ptr<IR::FunctionBlock> Function::getIrFunction() const
 {
-    std::cout << "Function::getIrFunction : begin" << std::endl;
     if (irFunction  == nullptr)
     {
         std::stringstream ss;
@@ -122,7 +119,6 @@ Value Function::evaluate() const
 
 IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-    std::cout << "Function::buildIR : irFunction : " << irFunction << std::endl;
     if (args != nullptr)
     {
         std::vector<std::shared_ptr<VariableSignature>> argumentsList = args->getArguments();
