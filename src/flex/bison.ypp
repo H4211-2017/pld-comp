@@ -495,13 +495,10 @@ structurewhile : WHILE LEFT_PARENTHESIS iintcomp RIGHT_PARENTHESIS iint {$$ = ne
 																			delete $5;}
 	;
 
-structurefor : FOR LEFT_PARENTHESIS ifor SEMICOLON ifor SEMICOLON ifor RIGHT_PARENTHESIS iint { long int i = 1l;
-																								Constant * cst = new Constant(i);
-																								$$ = new ForStructure($3 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),
-																													$5 == nullptr ? std::make_shared<ComposedInstruction>(make_shared_expr(cst)) : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($5) )),
+structurefor : FOR LEFT_PARENTHESIS ifor SEMICOLON ifor SEMICOLON ifor RIGHT_PARENTHESIS iint { $$ = new ForStructure($3 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($3) )),
+																													$5 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($5) )),
 																													$7 == nullptr ? nullptr : std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($7) )),
-																													make_shared_instr($9));
-																								delete cst;				
+																													make_shared_instr($9));			
 																								delete $3;
 																								delete $5;
 																								delete $7;
