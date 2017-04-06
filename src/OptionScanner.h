@@ -1,9 +1,11 @@
 #ifndef OPTIONSCANNER_H
 #define OPTIONSCANNER_H
 
-namespace lake{
+namespace lake
+{
 	
-	class OptionScanner {
+	class OptionScanner
+	{
 		public:
 			
 			OptionScanner();
@@ -20,11 +22,6 @@ namespace lake{
 		protected:
 			void reset();
 	};
-	
-	
-	
-	
-	
 }
 
 #endif // OPTIONSCANNER_H

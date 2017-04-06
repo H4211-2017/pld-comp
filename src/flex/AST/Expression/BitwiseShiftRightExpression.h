@@ -3,10 +3,12 @@
 
 #include "AbstractBinaryExpression.h"
 
-namespace AST{
-class BitwiseShiftRightExpression : public AbstractBinaryExpression
+namespace AST
 {
-public:
+	class BitwiseShiftRightExpression : public AbstractBinaryExpression
+	{
+	public:
+	
 		/**
 		 * @brief BitwiseShiftRightExpression constructor
 		 * @param leftMember a shared_ptr on the left part of the expression
@@ -17,29 +19,29 @@ public:
 		/**
 		 * @brief BitwiseShiftLeftExpression destructor
 		 */
-        virtual ~BitwiseShiftRightExpression();
+		virtual ~BitwiseShiftRightExpression();
 
 		/**
-		 * @brief evaluate pure virtual function
-		 * @return the "Value" of the expression, mainly it's type.
+		 * @brief evaluate compute evaluation if possible beacuse of constants-composed expression
+		 * @return the "Value" of the expression if evaluable, or error-type value else
 		 */
-        virtual Value evaluate() const;
+		virtual Value evaluate() const;
 
         /**
-		* @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
-		* @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
-		* 		that is currently being completed
-		* @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
-		* 		shouldn't be callable
+		* @brief buildIR build the IR from this node, and put the correspondant instructions in the provided basic block
+		* @param currentBasicBlock, the reference to a shared pointer on the BasicBlock that is currently being completed
+		* @return a shared pointer on the IR memory index that will contain the node's value once executed
+		* 		or nullptr if the node shouldn't be calculated to be a value
 		*/
-        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+		virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
-protected:
+	protected:
+	
 		/**
 		 * @brief printOperator Prints the operator of the binary expression. Used in printTree
 		 */
 		virtual void printOperator() const;
-};
+	};
 }
 
 #endif // BITEWISESHIFTLEFTEXPRESSION_H

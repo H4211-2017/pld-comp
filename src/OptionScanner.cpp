@@ -76,11 +76,11 @@ void OptionScanner::parseConsoleOptions(int argc, char *argv[])
 void OptionScanner::printOptions()
 {
 	if( srcFile.length() > 0 ) 
-		std::cout << "Fichier Source : " << srcFile << std::endl;
+		std::cout << "Source File : " << srcFile << std::endl;
 	if( target.length() > 0 ) 
-		std::cout << "Fichier Construit : " << target << std::endl;
+		std::cout << "Built File : " << target << std::endl;
 	if( ASTtarget.length() > 0 ) 
-		std::cout << "Fichier Source : " << ASTtarget << std::endl;
+		std::cout << "Source File : " << ASTtarget << std::endl;
 	if( verbose ){
 		std::cout << "Verbose Enabled" << std::endl;
 	} else {

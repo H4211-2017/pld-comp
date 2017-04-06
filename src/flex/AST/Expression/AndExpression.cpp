@@ -1,20 +1,17 @@
 #include "AndExpression.h"
 
+#include <algorithm>
+
 #include "../../../IR/generator/Generator.h"
 #include "../../../IR/instructions/OperatorMult.h"
 
-#include <algorithm>
-
-
 using namespace AST;
 
-AndExpression::AndExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
+AndExpression::AndExpression(std::shared_ptr<AbstractExpression> leftMember, std::shared_ptr<AbstractExpression> rightMember)
     : AbstractBinaryExpression("AndExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
-
 
 AndExpression::~AndExpression() {
     // TODO Auto-generated destructor stub

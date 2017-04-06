@@ -2,19 +2,18 @@
 
 #include <algorithm>
 
-
 using namespace AST;
 
 IneqExpression::IneqExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractBinaryExpression("IneqExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
 
 
-IneqExpression::~IneqExpression() {
-    // TODO Auto-generated destructor stub
+IneqExpression::~IneqExpression()
+{
+
 }
 
 Value IneqExpression::evaluate() const
@@ -25,7 +24,6 @@ Value IneqExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory IneqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

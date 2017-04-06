@@ -24,7 +24,7 @@ namespace AST
         Variable(std::string name, std::shared_ptr<VariableSignature> signature, bool decl);
         
         //TODO Comment this
-        Variable(std::shared_ptr<VariableSignature> signature, bool decl, const IR::Generator &generator);
+        Variable(std::shared_ptr<VariableSignature> signature, bool decl);
         
         /**
          * @brief Variable destructor

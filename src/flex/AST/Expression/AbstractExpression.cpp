@@ -1,14 +1,14 @@
+#include "AbstractExpression.h"
+
 #include <memory>
 #include <string>
 #include <stdexcept>
 
-#include "AbstractExpression.h"
 #include "UnaryExpression.h"
 #include "AddExpression.h"
 #include "IDExpression.h"
 #include "AffectationExpression.h"
 #include "Constant.h"
-#include "Function/FunctionCall.h"
 #include "BitwiseAndExpression.h"
 #include "BitwiseOrExpression.h"
 #include "BitwiseShiftLeftExpression.h"
@@ -18,7 +18,6 @@
 #include "DecrIncrRightExpression.h"
 #include "DecrIncrLeftExpression.h"
 #include "Ternary.h"
-
 #include "AndExpression.h"
 #include "DivExpression.h"
 #include "EqExpression.h"
@@ -30,9 +29,9 @@
 #include "SubExpression.h"
 #include "SupEqExpression.h"
 #include "SupExpression.h"
+#include "Function/FunctionCall.h"
 
 using namespace AST;
-
 
 AbstractExpression::AbstractExpression(std::string name)
     : AbstractNode(name)

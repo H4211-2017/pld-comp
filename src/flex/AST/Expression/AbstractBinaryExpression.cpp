@@ -1,12 +1,7 @@
-/*
- * AbstractBinaryExpression.cpp
- *
- *  Created on: Mar 23, 2017
- *      Author: florent
- */
-
 #include "AbstractBinaryExpression.h"
+
 using namespace AST;
+
 AbstractBinaryExpression::AbstractBinaryExpression(std::string name, std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractExpression(name, std::max(rightMember->getValue().getValue().first, leftMember->getValue().getValue().first), 0)
 {
@@ -16,6 +11,7 @@ AbstractBinaryExpression::AbstractBinaryExpression(std::string name, std::shared
 
 AbstractBinaryExpression::~AbstractBinaryExpression() 
 {
+	
 }
 
 void AbstractBinaryExpression::printTree(int tabulationNumber) const

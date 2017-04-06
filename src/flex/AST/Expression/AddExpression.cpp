@@ -1,6 +1,7 @@
 #include "AddExpression.h"
 
 #include <algorithm>
+
 #include "../../../IR/generator/Generator.h"
 #include "../../../IR/instructions/OperatorPlus.h"
 

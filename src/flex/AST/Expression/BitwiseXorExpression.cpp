@@ -10,8 +10,9 @@ BitwiseXorExpression::BitwiseXorExpression(std::shared_ptr<AbstractExpression> l
 }
 
 
-BitwiseXorExpression::~BitwiseXorExpression() {
-        // TODO Auto-generated destructor stub
+BitwiseXorExpression::~BitwiseXorExpression()
+{
+
 }
 
 Value BitwiseXorExpression::evaluate() const
@@ -22,7 +23,6 @@ Value BitwiseXorExpression::evaluate() const
         return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory BitwiseXorExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

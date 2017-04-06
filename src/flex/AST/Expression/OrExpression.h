@@ -1,27 +1,25 @@
 #ifndef OREXPRESSION_H
 #define OREXPRESSION_H
 #include "AbstractBinaryExpression.h"
-namespace AST {
-
-class OrExpression : public AbstractBinaryExpression
+namespace AST
 {
+	class OrExpression : public AbstractBinaryExpression
+	{
 
-public:
+	public:
 
-    OrExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
+		OrExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
 
-    virtual ~OrExpression();
+		virtual ~OrExpression();
 
-    virtual Value evaluate() const;
+		virtual Value evaluate() const;
+		
+		virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
-    // TODO : create class CFG and replace comment below.
-    virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
-
-protected:
-    virtual void printOperator() const;
-
-};
-
+	protected:
+	
+		virtual void printOperator() const;
+	};
 } /* namespace AST */
 
 #endif //OREXPRESSION_H

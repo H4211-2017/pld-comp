@@ -6,12 +6,12 @@ BitwiseShiftRightExpression::BitwiseShiftRightExpression(std::shared_ptr<Abstrac
     : AbstractBinaryExpression("BitwiseShiftRightExpression", leftMember, rightMember)
 {
         this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
-
 }
 
 
-BitwiseShiftRightExpression::~BitwiseShiftRightExpression() {
-        // TODO Auto-generated destructor stub
+BitwiseShiftRightExpression::~BitwiseShiftRightExpression()
+{
+
 }
 
 Value BitwiseShiftRightExpression::evaluate() const
@@ -22,7 +22,6 @@ Value BitwiseShiftRightExpression::evaluate() const
         return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory BitwiseShiftRightExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

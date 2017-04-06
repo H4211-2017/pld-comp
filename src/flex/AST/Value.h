@@ -2,9 +2,11 @@
 #define VALUE_H
 
 #include <utility>
+
 #include "../../../IR/data/AbstractData.h"
 
-namespace AST {
+namespace AST 
+{
     enum Type
     {
         CHAR,
@@ -19,7 +21,7 @@ namespace AST {
 
     public:
 		/**
-		 * @brief Value Constructor by default
+		 * @brief Value Constructor by default, type : Error, value : 0
 		 */
         Value();
         
@@ -37,18 +39,16 @@ namespace AST {
         void setValue(long int value);
         
         /**
-         * @brief getter for the instance's attribute
+         * @brief getter for the instance's attributes
          * @return a pair like <TYPE, VAL> where TYPE is this instance's type attribute and VAL this instance's value attribute
          * @remark TYPE is of type AST::Type and VAL is of type long int
          */
         std::pair<Type, long int> getValue() const;
         
         /**
-		* @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
-		* @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
-		* 		that is currently being completed
-		* @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
-		* 		shouldn't be callable
+		* @brief getIRType gives the Type of the instance, typed by IR
+		* @return a IR::Type enum that corresponds to the type of the instance,
+		* @remark ends compilation if called on a Value of type Error
 		*/
         IR::Type getIRType() const;
 

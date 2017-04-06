@@ -1,4 +1,5 @@
 #include "VariableDeclaration.h"
+
 #include "VariableScope.h"
 
 using namespace AST;
@@ -6,14 +7,14 @@ using namespace AST;
 VariableDeclaration::VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<Scope> scope)
     : AbstractInstruction("VariableDeclaration")
 {
-	var = std::make_shared<Variable>(signature, true, scope->getGenerator());
+	var = std::make_shared<Variable>(signature, true);
     scope->declareVariable(signature->getIdentifiant(), var);
 }
 
 VariableDeclaration::VariableDeclaration(std::shared_ptr<VariableSignature> signature, std::shared_ptr<AbstractExpression> rightMember, std::shared_ptr<Scope> scope)
 	: AbstractInstruction("VariableDeclaration"), val(rightMember)
 {
-	var = std::make_shared<Variable>(signature, false, scope->getGenerator());
+	var = std::make_shared<Variable>(signature, false);
     scope->declareVariable(signature->getIdentifiant(), var);
 }
 

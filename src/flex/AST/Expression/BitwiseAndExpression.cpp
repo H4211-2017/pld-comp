@@ -8,12 +8,12 @@ BitwiseAndExpression::BitwiseAndExpression(std::shared_ptr<AbstractExpression> l
     : AbstractBinaryExpression("BitwiseAndExpression", leftMember, rightMember)
 {
         this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
-
 }
 
 
-BitwiseAndExpression::~BitwiseAndExpression() {
-        // TODO Auto-generated destructor stub
+BitwiseAndExpression::~BitwiseAndExpression()
+{
+
 }
 
 Value BitwiseAndExpression::evaluate() const
@@ -24,7 +24,6 @@ Value BitwiseAndExpression::evaluate() const
         return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory BitwiseAndExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

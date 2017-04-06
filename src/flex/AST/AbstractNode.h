@@ -9,8 +9,8 @@
 #include "Value.h"
 #include "../../IR/basicBlock/BasicBlock.h"
 
-namespace AST{
-
+namespace AST
+{
     class Scope;
 
     class AbstractNode
@@ -24,7 +24,7 @@ namespace AST{
 
         /**
          * @brief AbstractNode constructor
-         * @param name the name of the node
+         * @param name the name of the node (used by printTree)
          * @param value setting the Value of this node, with its type.
          */
         AbstractNode(std::string name, Value value);
@@ -79,25 +79,18 @@ namespace AST{
         virtual ~AbstractNode();
 
         /**
-         * return a shared pointer to the value instancited by new if evaluable
-         * or empty shared pointer else
+         * @brief evaluate calculate the value of the node if directly evaluable at compilation
+         * 			(useful for optimisation)
+         * @return a Value object that respresent the evaluation of the node or a null value
+         * 			with type error if the node is not evaluable
          */
         virtual Value evaluate() const = 0;
 
         /**
-         * @brief printTree Print the tree from this node, with a number a tabulation equal to tabulationNumber
+         * @brief printTree Print the AST tree from this node, with a number a tabulation equal to tabulationNumber
          * @param tabulationNumber The number of tabulation before each line of the tree of this node
          */
         virtual void printTree(int tabulationNumber) const;
-
-        /**
-		* @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
-		* @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
-		* 		that is currently being completed
-		* @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
-		* 		shouldn't be callable
-		*/
-        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const = 0;
         
         /**
          * @brief get a reference on the most local Scope for the node
@@ -107,7 +100,7 @@ namespace AST{
         
         /**
          * @brief sets the Parent Scope of the node's most local Scope
-         * @param scope shared_ptr<Scope> a reference on the scope to be set as parent to the most local Scope
+         * @param scope a shared pointer on the Scope to be set as parent to the most local Scope
          */
         virtual void setParentScope(std::shared_ptr<Scope> scope);
 
@@ -125,7 +118,7 @@ namespace AST{
         
         /**
          * @brief getter for the name attribute of the node
-         * @return a string
+         * @return a string : sthe class name of the node
          * @remark the name of the node define its use inside the AST
          */
         std::string getName() const;
@@ -139,7 +132,6 @@ namespace AST{
         std::string name;
 
     };
-
 }
 	
 #endif // ABSTRACTNODE_H

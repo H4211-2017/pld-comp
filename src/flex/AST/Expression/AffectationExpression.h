@@ -1,14 +1,17 @@
 #ifndef AFFECTATION_EXPRESSION_H
 #define AFFECTATION_EXPRESSION_H
 
-#include <memory>
 #include "AbstractExpression.h"
-#include "Variable/Variable.h"
+
+#include <memory>
 #include <string>
 
-namespace AST {
+#include "Variable/Variable.h"
 
-	enum OPAffect {
+namespace AST 
+{
+	enum OPAffect
+	{
 		AFFECT,
 		AFFECT_MULT,
 		AFFECT_DIV,
@@ -22,9 +25,6 @@ namespace AST {
 		AFFECT_BIT_RIGHT_SHIFT
 	};
 	typedef enum OPAffect OPAffect;
-}
-
-namespace AST{
 	
     class AffectationExpression : public AbstractExpression
     {
@@ -59,24 +59,23 @@ namespace AST{
         virtual ~AffectationExpression();
         
 		/**
-		* @brief evaluate pure virtual function
-		* @return the "Value" of the expression, mainly it's type.
-		*/
+		 * @brief evaluate compute evaluation if possible beacuse of constants-composed expression
+		 * @return the "Value" of the expression if evaluable, or error-type value else
+		 */
         virtual Value evaluate() const;
         
-		/**
-		* @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
-		* @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
-		* 		that is currently being completed
-		* @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
-		* 		shouldn't be callable
+        /**
+		* @brief buildIR build the IR from this node, and put the correspondant instructions in the provided basic block
+		* @param currentBasicBlock, the reference to a shared pointer on the BasicBlock that is currently being completed
+		* @return a shared pointer on the IR memory index that will contain the node's value once executed
+		* 		or nullptr if the node shouldn't be calculated to be a value
 		*/
         virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
-		/**
-		 * @brief printTree Prints the structure of the expression
-		 * @param tabulationNumber the tabulation of this current node.
-		 */
+		 /**
+         * @brief printTree the AST tree corresponding to this node and it's children.
+         * @param tabulationNumber the number of tabulations corresponding to this node
+         */
         virtual void printTree(int tabulationNumber) const;
         
     protected :

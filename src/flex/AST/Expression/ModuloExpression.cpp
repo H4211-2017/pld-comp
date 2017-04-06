@@ -1,24 +1,21 @@
 #include "ModuloExpression.h"
 
-#include "../../../IR/generator/Generator.h"
-#include "../../../IR/instructions/OperatorModulus.h"
-
 #include <algorithm>
 
+#include "../../../IR/instructions/OperatorModulus.h"
+
 using namespace AST;
-
-
 
 ModuloExpression::ModuloExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractBinaryExpression("ModuloExpression", leftMember, rightMember)
 {
     this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
-
 }
 
 
-ModuloExpression::~ModuloExpression() {
-    // TODO Auto-generated destructor stub
+ModuloExpression::~ModuloExpression()
+{
+	
 }
 
 Value ModuloExpression::evaluate() const

@@ -1,9 +1,10 @@
 #ifndef BLOCKNODE_H
 #define BLOCKNODE_H
 
+#include "AbstractNode.h"
+
 #include "Value.h"
 #include "Scope.h"
-#include "AbstractNode.h"
 #include "Instruction/SequenceInstruction.h"
 
 namespace AST
@@ -13,7 +14,7 @@ namespace AST
 	public:
 	
 		/**
-         * @brief Block constructor
+         * @brief default Block constructor, create a void block
          */
         Block();
         
@@ -26,28 +27,28 @@ namespace AST
 
         /**
          * @brief evaluate the Value of this node
-         * @return the value of its sequence of instructions
+         * @return the value of its sequence of instructions or error null value
+         * if the block has no instruction inside
          */
         virtual Value evaluate() const;
 
-        /**
-         * @brief printTree the tree corresponding to this node and it's children.
-         * @param tabulationNumber the tabulation of this current node.
+		 /**
+         * @brief printTree the AST tree corresponding to this node and it's children.
+         * @param tabulationNumber the number of tabulations corresponding to this node
          */
         virtual void printTree(int tabulationNumber) const;
 
         /**
-		* @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
-		* @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
-		* 		that is currently being completed
-		* @return a shared pointer to the IR memory index that will contain the node's value once evaluated or nullptr if the node
-		* 		shouldn't be callable
+		* @brief buildIR build the IR from this node, and put the correspondant instructions in the provided basic block
+		* @param currentBasicBlock, the reference to a shared pointer on the BasicBlock that is currently being completed
+		* @return a shared pointer on the IR memory index that will contain the node's value once executed
+		* 		or nullptr if the node shouldn't be calculated to be a value
 		*/
         virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
-		/**
-         * @brief get a reference to the most local Scope for the node
-         * @return a shared pointer to the Scope object
+        /**
+         * @brief get a reference on the most local Scope for the node
+         * @return a shared pointer on the Scope object
          */
         virtual std::shared_ptr<Scope> getScope() const;
      
@@ -56,7 +57,5 @@ namespace AST
         std::shared_ptr<SequenceInstruction> sequenceInstruction;
 	};
 }
-
-
 
 #endif // BLOCKNODE_H

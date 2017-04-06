@@ -1,5 +1,5 @@
-#ifndef SCOPE
-#define SCOPE
+#ifndef SCOPE_H
+#define SCOPE_H
 
 #include <memory>
 #include <string>
@@ -10,8 +10,8 @@
 
 #include "../../IR/generator/Generator.h"
 
-namespace AST{	
-	
+namespace AST
+{	
 	class AbstractExpression;
 
 	class Scope
@@ -19,7 +19,9 @@ namespace AST{
 	public:
 	
 		/**
-		 * @brief Scope constructor
+		 * @brief default Scope constructor, used for global Scope building,
+		 * 		add putchar and getchar as functions declarations in the global scope 
+		 * 		of all compiled programs
 		 */
 		Scope();
 		
@@ -35,9 +37,11 @@ namespace AST{
 		virtual ~Scope();
 		
         /**
-         * @brief declareVariable adds a variable to the dictionary
-         * @param identifiant the id of the variable to add to the dictionary
-         * @param variable the variable to add to the dictionary
+         * @brief declareVariable adds a variable to the scope, with testing
+         * 		if variable not already declared. Ends compilation if variable
+         * 		already defined.
+         * @param identifiant the id of the variable to add to the scope
+         * @param variable the variable to add to the scope
          */
         void declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable);
         
@@ -56,7 +60,9 @@ namespace AST{
         std::shared_ptr<AbstractVariable>* findVariableAddress(std::string identifiant);
         
         /**
-         * @brief declareFunction adds a function to the dictionnary of the scope
+         * @brief declareFunction adds a function to the dictionnary of the scope,
+         * 		with testing if function already declared : ends compilation if
+         * 		fuction already declared.
          * @param identifiant the id of the function to add to the dictionary.
          * @param decl the function to add to the dictionary
          */
@@ -71,7 +77,7 @@ namespace AST{
 		
         /**
          * @brief getMother
-         * @return  the mother of this scope, is the larger scope
+         * @return the mother scope of this scope, which is the larger scope
          */
 		std::shared_ptr<Scope> getMother() const;
 
@@ -81,22 +87,13 @@ namespace AST{
          */
 		void setMother(std::shared_ptr<Scope> newMother);
        	
-       	/**
-       	 * @brief Deprecated Function
-       	 * 
-       	 * TODO DELETE
-       	 */
-       	IR::Generator &getGenerator();
 	protected:
 		//tree hierarchy
 		std::shared_ptr<Scope> mother;
 		
 		VariableScope vScope;
         FunctionScope fScope;
-        
-    private:
-       	IR::Generator generator; //TODO Deprecated attribute
     };
 }
 
-#endif // SCOPE
+#endif // SCOPE_H

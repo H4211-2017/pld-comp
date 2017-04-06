@@ -3,6 +3,8 @@
 #include <sstream>
 #include <iostream>
 
+#include "../../../IR/generator/Generator.h"
+
 using namespace AST;
 
 Variable::Variable(std::string name, std::shared_ptr<VariableSignature> signature, bool decl)
@@ -11,11 +13,12 @@ Variable::Variable(std::string name, std::shared_ptr<VariableSignature> signatur
 
 }
 
-Variable::Variable(std::shared_ptr<VariableSignature> signature, bool decl, const IR::Generator &generator)
+Variable::Variable(std::shared_ptr<VariableSignature> signature, bool decl)
 	: AbstractVariable("Variable", signature, decl)
 {
+	IR::Generator gen;
 	IR::Type irType = signature->getValue().getIRType();
-	memory = generator.getNewUnusedMemmory(irType);
+	memory = gen.getNewUnusedMemmory(irType);
 }
 
 Variable::~Variable()

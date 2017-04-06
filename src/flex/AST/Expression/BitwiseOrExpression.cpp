@@ -6,12 +6,12 @@ BitwiseOrExpression::BitwiseOrExpression(std::shared_ptr<AbstractExpression> lef
     : AbstractBinaryExpression("BitwiseOrExpression", leftMember, rightMember)
 {
         this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
-
 }
 
 
-BitwiseOrExpression::~BitwiseOrExpression() {
-        // TODO Auto-generated destructor stub
+BitwiseOrExpression::~BitwiseOrExpression()
+{
+	
 }
 
 Value BitwiseOrExpression::evaluate() const
@@ -22,7 +22,6 @@ Value BitwiseOrExpression::evaluate() const
         return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory BitwiseOrExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

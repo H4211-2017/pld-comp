@@ -13,6 +13,7 @@ DecrIncrRightExpression::DecrIncrRightExpression(std::shared_ptr<AbstractVariabl
 
 DecrIncrRightExpression::~DecrIncrRightExpression()
 {
+	
 }
 
 void DecrIncrRightExpression::printTree(int tabulationNumber) const
@@ -33,6 +34,7 @@ void DecrIncrRightExpression::printTree(int tabulationNumber) const
     std::cout << std::endl;
     var->printTree(tabulationNumber + 1);
 }
+
 Value DecrIncrRightExpression::evaluate() const
 {
     Value leftVal = this->var->evaluate();
@@ -40,7 +42,6 @@ Value DecrIncrRightExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory DecrIncrRightExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     return nullptr;

@@ -10,8 +10,9 @@ BitwiseShiftLeftExpression::BitwiseShiftLeftExpression(std::shared_ptr<AbstractE
 }
 
 
-BitwiseShiftLeftExpression::~BitwiseShiftLeftExpression() {
-        // TODO Auto-generated destructor stub
+BitwiseShiftLeftExpression::~BitwiseShiftLeftExpression()
+{
+
 }
 
 Value BitwiseShiftLeftExpression::evaluate() const
@@ -22,7 +23,6 @@ Value BitwiseShiftLeftExpression::evaluate() const
         return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory BitwiseShiftLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

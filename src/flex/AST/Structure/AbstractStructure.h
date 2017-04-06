@@ -3,6 +3,8 @@
 
 #include "AbstractNode.h"
 
+#include "../../../IR/data/Memory.h"
+
 namespace AST
 {
     
@@ -15,6 +17,14 @@ namespace AST
          * @param name the type of the node created, used when printing the tree.
          */
 		AbstractStructure(std::string name);
+		
+		/**
+		* @brief buildIR build the IR from this node, and put the correspondant instructions in the provided basic block
+		* @param currentBasicBlock, the reference to a shared pointer on the BasicBlock that is currently being completed
+		* @return a shared pointer on the IR memory index that will contain the node's value once executed
+		* 		or nullptr if the node shouldn't be calculated to be a value
+		*/
+		virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const = 0;
 	};
 
 }

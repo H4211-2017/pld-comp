@@ -1,6 +1,7 @@
+#include "Scope.h"
+
 #include <iostream>
 
-#include "Scope.h"
 #include "Function/Function.h"
 #include "Function/FunctionSignature.h"
 #include "Function/LArguments.h"
@@ -13,10 +14,9 @@ Scope::Scope()
 	: mother(nullptr)
 {
 	std::shared_ptr<Function> getchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("getchar", Type::CHAR), 
-																	nullptr);
+			nullptr);
 	std::shared_ptr<Function> putchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("putchar", Type::ERROR), 
-																	std::make_shared<LArguments>(std::make_shared<VariableSignature>("car", Type::CHAR)), 
-																	nullptr);
+			std::make_shared<LArguments>(std::make_shared<VariableSignature>("car", Type::CHAR)), nullptr);
 	fScope.declareFunction("getchar", getchar);
 	fScope.declareFunction("putchar", putchar);
 }
@@ -28,6 +28,7 @@ Scope::Scope( std::shared_ptr<Scope> scope )
 
 Scope::~Scope()
 {
+	
 }
 
 void Scope::declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable)
@@ -124,9 +125,3 @@ void Scope::setMother(std::shared_ptr<Scope> newMother)
 {
 	mother = newMother;
 }
-
-IR::Generator &Scope::getGenerator()
-{
-	return generator;
-}
-

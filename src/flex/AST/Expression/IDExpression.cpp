@@ -46,8 +46,9 @@ IDExpression::IDExpression(std::string name, std::shared_ptr<AbstractVariable> v
 	}
 }
 
-IDExpression::~IDExpression() {
-	// TODO Auto-generated destructor stub
+IDExpression::~IDExpression()
+{
+
 }
 
 Value IDExpression::evaluate() const

@@ -7,12 +7,6 @@
 
 using namespace AST;
 
-Constant::Constant()
-    : AbstractExpression("Constant")
-{
-	
-}
-
 Constant::Constant(long int value)
     : AbstractExpression("Constant", Type::INT_64, value)
 {

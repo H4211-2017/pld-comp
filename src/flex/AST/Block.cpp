@@ -5,6 +5,7 @@ using namespace AST;
 Block::Block()
     : AbstractNode("Block")
 {
+	
 }
 
 Block::Block(std::shared_ptr<Scope> scope, std::shared_ptr<SequenceInstruction> sequenceInstr)
