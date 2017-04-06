@@ -54,6 +54,7 @@ IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock
     if (!fct->isDeclaration())
     {
         IR::sh_BasicBlock functionCore = fct->getIrFunction()->getFunctionCore();
+        std::cout << "FunctionDeclaration::buildIR : avant fct->buildIR" << std::endl;
         fct->buildIR(functionCore);
     }
     // TODO check if a return value (return fct->buildIR(functionCore)) is needed

@@ -50,7 +50,6 @@ bool Function::checkParametres(std::shared_ptr<LParametres> params) const
         return params->parameters.size() == 0;
 	}
 	return args->checkParametres(params);
-	
 }
 
 bool Function::isDeclaration() const
@@ -60,7 +59,6 @@ bool Function::isDeclaration() const
 
 void Function::setBlock(std::shared_ptr<Block> content)
 {
-    std::cout << "Function::setBlock : " << sig->getIdentifiant() << " : begin" << std::endl;
     this->content = content;
     if(args != nullptr && args->isForDeclaration())
     {
@@ -131,6 +129,7 @@ IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 
     if (content != nullptr)
     {
+        std::cout << "Function::buildIR : avant content->buildIR" << std::endl;
         return content->buildIR(currentBasicBlock);
     }
 

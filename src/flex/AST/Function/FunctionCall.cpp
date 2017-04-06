@@ -7,10 +7,9 @@
 using namespace AST;
 
 FunctionCall::FunctionCall(std::string id,  std::shared_ptr<LParametres> params, std::shared_ptr<Scope> scope)
-    : AbstractExpression("FunctionCall")
+    : AbstractExpression("FunctionCall"), parameters(params), functionIdentifiant(id)
 {
-    fct = scope->findFunction(id);
-    parameters = params;
+    std::shared_ptr<Function> fct = scope->findFunction(id); // check if function exists in scope (at least declared)
 	
     if(!fct->checkParametres(parameters))
 	{
@@ -42,6 +41,7 @@ IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     IR::Generator gen;
 	std::list<IR::sh_AbstractData> irParams;
     std::vector<std::shared_ptr<AbstractExpression> > params = parameters->getParameters();
+    std::shared_ptr<Function> fct = currentScope->findFunction(functionIdentifiant);
 
     for(int i = 0; i < params.size(); i++){
         std::shared_ptr<AbstractExpression> expr = params[i];
