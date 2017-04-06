@@ -144,7 +144,7 @@ void FunctionBlock::affectMemory()
         currentOffset -= (-currentOffset) % mem->getType();
         mem->setAsmBasePointerOffset(currentOffset);
     }
-    lastMemoryOffset = currentOffset;
+    lastMemoryOffset = -currentOffset;
 }
 
 /**
