@@ -2,15 +2,16 @@
 #define AST_ABSTRACTINSTRUCTION_H
 
 #include "AbstractNode.h"
+
 #include <memory>
 
 namespace AST 
 {
-
     class AbstractInstruction : public AbstractNode
     {
     
     public:
+    
         /**
          * @brief AbstractInstruction constructor
          * @param name the name of the node
@@ -23,8 +24,7 @@ namespace AST
 		* @return a shared pointer on the IR memory index that will contain the node's value once executed
 		* 		or nullptr if the node shouldn't be calculated to be a value
 		*/
-		virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const = 0;
-        
+		virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const = 0;       
     };
 }
 

@@ -1,9 +1,9 @@
 #include "SubExpression.h"
 
+#include <algorithm>
+
 #include "../../../IR/generator/Generator.h"
 #include "../../../IR/instructions/OperatorMinus.h"
-
-#include <algorithm>
 
 using namespace AST;
 
@@ -11,12 +11,12 @@ SubExpression::SubExpression(std::shared_ptr<AbstractExpression> leftMember,  st
     : AbstractBinaryExpression("SubExpression", leftMember, rightMember)
 {
     this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
-
 }
 
 
-SubExpression::~SubExpression() {
-    // TODO Auto-generated destructor stub
+SubExpression::~SubExpression()
+{
+
 }
 
 Value SubExpression::evaluate() const

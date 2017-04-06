@@ -1,12 +1,11 @@
-#include <iostream>
-
 #include "FunctionScope.h"
-#include "Function.h"
 
+#include <iostream>
 #include <sstream>
 
-using namespace AST;
+#include "Function.h"
 
+using namespace AST;
 
 FunctionScope::FunctionScope()
 {
@@ -14,7 +13,9 @@ FunctionScope::FunctionScope()
 }
 
 FunctionScope::~FunctionScope()
-{}
+{
+
+}
 
 void FunctionScope::declareFunction(std::string name, std::shared_ptr<Function> decl)
 {
@@ -36,7 +37,6 @@ void FunctionScope::declareFunction(std::string name, std::shared_ptr<Function> 
 		std::cerr << ss.str() << std::endl;
 		exit(-1);
 	}
-    
 }
 
 std::shared_ptr<Function> FunctionScope::findFunction(std::string identifiant)
@@ -45,7 +45,6 @@ std::shared_ptr<Function> FunctionScope::findFunction(std::string identifiant)
 	if( it == scope.end() )
 	{
 		throw UndeclaredIdFctException();
-		
 	}
 	else
 	{

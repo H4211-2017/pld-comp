@@ -1,9 +1,9 @@
 #include "Function.h"
 
-#include "LParametres.h"
-
 #include <sstream>
 #include <iostream>
+
+#include "LParametres.h"
 
 using namespace AST;
 
@@ -15,7 +15,7 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 	this->setType(sig->getValue().getValue().first);
 	args = nullptr;
 	content = nullptr;
-	irFunction = std::make_shared<IR::ExternalFunction>(signature->getIdentifiant());
+	irFunction = std::make_shared<IR::FunctionBlock>(signature->getIdentifiant());
 }
 
 Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Scope> parentScope)
@@ -45,7 +45,6 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr<LArguments> arguments, std::shared_ptr<Block> content, std::shared_ptr<Scope> parentScope)
     : Function(signature, arguments, parentScope)
 {
-	
 	currentScope = std::make_shared<Scope>(parentScope);
 		
 	this->setBlock(content);
@@ -62,7 +61,7 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
 	}
 }
 
-std::shared_ptr<IR::ExternalFunction> Function::getIrFunction()
+std::shared_ptr<IR::FunctionBlock> Function::getIrFunction()
 {
 	return irFunction;
 }
@@ -91,7 +90,6 @@ bool Function::checkParametres(std::shared_ptr<LParametres> params) const
 		return params->parametres.size() == 0;
 	}
 	return args->checkParametres(params);
-	
 }
 
 bool Function::isDeclaration() const

@@ -28,7 +28,6 @@ namespace AST
          */
 		virtual void printTree(int tabulationNumber) const;
 		
-
         /**
 		* @brief buildIR build the IR from this node, and put the correspondant instructions in the provided basic block
 		* @param currentBasicBlock, the reference to a shared pointer on the BasicBlock that is currently being completed

@@ -43,12 +43,15 @@ void ComposedInstruction::printTree(int tabulationNumber) const
     }
 }
 
-// TODO
 Value ComposedInstruction::evaluate() const
 {
-	return listExpressions[listExpressions.size()-1]->evaluate();
+	if (listExpressions.size() > 0)
+	{
+		return listExpressions[listExpressions.size()-1]->evaluate();
+	}
+	
+	return Value();
 }
-
 
 IR::sh_Memory ComposedInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {

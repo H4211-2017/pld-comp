@@ -5,6 +5,7 @@ using namespace AST;
 SequenceInstruction::SequenceInstruction()
     : AbstractNode("SequenceInstruction")
 {
+
 }
 
 void SequenceInstruction::addInstruction(std::shared_ptr<AbstractInstruction> instruction)
@@ -32,7 +33,6 @@ void SequenceInstruction::printTree(int tabulationNumber) const
     }
 }
 
-// TODO
 Value SequenceInstruction::evaluate() const
 {
 	return Value();

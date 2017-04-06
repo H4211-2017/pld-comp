@@ -1,10 +1,3 @@
-/*
- * AbstractBinaryExpression.cpp
- *
- *  Created on: Mar 23, 2017
- *      Author: jerome
- */
-
 #include "UnaryExpression.h"
 
 using namespace AST;
@@ -15,12 +8,11 @@ UnaryExpression::UnaryExpression(std::shared_ptr<AbstractExpression> expr, enum 
 	this->expr = expr;
 	this->setType(expr->getValue().getValue().first);
 	this->op = op;
-	
-	
 }
 
 UnaryExpression::~UnaryExpression()
 {
+
 }
 
 UnaryOp UnaryExpression::getOp() const

@@ -1,6 +1,6 @@
-#line 2 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
+#line 2 "/home/pl/git/pld-comp/lex.yy.cpp"
 
-#line 4 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
+#line 4 "/home/pl/git/pld-comp/lex.yy.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -552,8 +552,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
-#line 2 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 1 "/home/pl/git/pld-comp/src/flex/tokens.lex"
+#line 2 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -569,7 +569,7 @@ extern int yylex();
 
 /*Etat pendant qu on est dans un commentaire multiligne*/
 
-#line 573 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
+#line 573 "/home/pl/git/pld-comp/lex.yy.cpp"
 
 #define INITIAL 0
 #define comment 1
@@ -757,11 +757,11 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 35 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 35 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 
 
 
-#line 765 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
+#line 765 "/home/pl/git/pld-comp/lex.yy.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -846,302 +846,302 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 38 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 38 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "MULTILINE COMMENT : " << yytext;
 								BEGIN(comment);}/*switch to comment state*/
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 40 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 40 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << yytext;}/* eat anything that's not a '*' */
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 41 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 41 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << yytext;}/* eat up '*'s not followed by '/'s */
 	YY_BREAK
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 42 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 42 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << yytext;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 43 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 43 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "\nEND OF MULTILINE COMMENT" << yytext;
 								BEGIN(INITIAL);}/*switch back to initial state*/
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 46 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 46 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "PREPROCESSOR : " <<  yytext;}
 	YY_BREAK
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 47 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 47 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "LINE_COM : " <<  yytext;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 48 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 48 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "IF "; return IF;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 49 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 49 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "ELSE "; return ELSE;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 50 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 50 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "WHILE "; return WHILE;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 51 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 51 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "FOR "; return FOR;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 52 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 52 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "MAIN "; return MAIN;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 53 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 53 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "LEFT_BRACES "; return LEFT_BRACES;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 54 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 54 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "RIGHT_BRACES "; return RIGHT_BRACES;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 55 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 55 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "LEFT_PARENTHESIS "; return LEFT_PARENTHESIS;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 56 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 56 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "RIGHT_PARENTHESIS "; return RIGHT_PARENTHESIS;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 57 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 57 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "LEFT_BRACKET "; return LEFT_BRACKET;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 58 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 58 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "RIGHT_BRACKET "; return RIGHT_BRACKET;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 59 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 59 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BOOL_EQUAL "; return BOOL_EQUAL;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 60 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 60 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "RETURN "; return RETURN;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 61 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 61 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BOOL_DIF "; return BOOL_DIF;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 62 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 62 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BOOL_LESS_OR_EQUAL "; return BOOL_LESS_OR_EQUAL;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 63 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 63 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BOOL_GREATER_OR_EQUAL "; return BOOL_GREATER_OR_EQUAL;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 64 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 64 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BOOL_LESS "; return BOOL_LESS;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 65 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 65 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BOOL_GREATER "; return BOOL_GREATER;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 66 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 66 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "TERNARY_ASK "; return TERNARY_ASK;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 67 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 67 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "TERNARY_CHOOSE "; return TERNARY_CHOOSE;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 68 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 68 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_ADD "; return AFFECT_ADD;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 69 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 69 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_SUB "; return AFFECT_SUB;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 70 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 70 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_MULT "; return AFFECT_MULT;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 71 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 71 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_DIV "; return AFFECT_DIV;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 72 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 72 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_MOD "; return AFFECT_MOD;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 73 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 73 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_BIT_AND "; return AFFECT_BIT_AND;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 74 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 74 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_BIT_XOR "; return AFFECT_BIT_XOR;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 75 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 75 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_BIT_OR "; return AFFECT_BIT_OR;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 76 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 76 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_BIT_LEFT_SHIFT "; return AFFECT_BIT_LEFT_SHIFT;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 77 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 77 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT_BIT_RIGHT_SHIFT "; return AFFECT_BIT_RIGHT_SHIFT;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 78 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 78 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "INCREMENT "; return INCREMENT;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 79 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 79 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "DECREMENT "; return DECREMENT;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 80 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 80 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "AFFECT "; return AFFECT;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 81 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 81 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "ADD "; return ADD;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 82 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 82 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "SUB "; return SUB;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 83 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 83 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "MULT "; return MULT;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 84 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 84 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "DIV "; return DIV;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 85 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 85 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "MOD "; return MOD;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 86 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 86 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BOOL_AND "; return BOOL_AND;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 87 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 87 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BOOL_OR "; return BOOL_OR;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 88 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 88 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BOOL_NOT "; return BOOL_NOT;}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 89 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 89 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BIT_AND "; return BIT_AND;}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 90 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 90 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BIT_OR "; return BIT_OR;}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 91 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 91 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BIT_XOR "; return BIT_XOR;}
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 92 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 92 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BIT_NOT "; return BIT_NOT;}
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 93 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 93 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BIT_LEFT_SHIFT "; return BIT_LEFT_SHIFT;}
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 94 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 94 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "BIT_RIGHT_SHIFT "; return BIT_RIGHT_SHIFT;}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 95 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 95 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "VOID "; return VOID;}
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 96 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 96 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "CHAR "; return CHAR;}
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 97 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 97 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "INT32 "; return INT32;}
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 98 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 98 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "INT64 "; return INT64;}
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 99 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 99 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "{number} ";
 								std::stringstream ss(strdup(yytext));
 								long int tmp;
@@ -1152,7 +1152,7 @@ YY_RULE_SETUP
 case 60:
 /* rule 60 can match eol */
 YY_RULE_SETUP
-#line 105 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 105 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "'{alphanumex}' "; 
 								yylval.cVal = strdup(yytext)[1]; 
 								return CHAR_VAL;}
@@ -1160,45 +1160,45 @@ YY_RULE_SETUP
 case 61:
 /* rule 61 can match eol */
 YY_RULE_SETUP
-#line 108 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 108 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "\"{alphanumsex}\" "; 
 								yylval.sVal = strndup(&yytext[1], sizeof(char)*(strlen(yytext)-2));
 								return CHAIN;}
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 111 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 111 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "identifiant "; 
 								yylval.id = strdup(yytext); 
 								return ID;}
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 114 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 114 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "SEMICOLON "; return SEMICOLON;}
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 115 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 115 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "COMMA "; return COMMA;}
 	YY_BREAK
 case 65:
 /* rule 65 can match eol */
 YY_RULE_SETUP
-#line 116 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 116 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout  <<  yytext;}
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
-#line 117 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 117 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 {std::cout << "UNEXPECTED "; return UNEXPECTED;}
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 118 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 118 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 ECHO;
 	YY_BREAK
-#line 1202 "/home/pllefebvre/git/pld-comp/lex.yy.cpp"
+#line 1202 "/home/pl/git/pld-comp/lex.yy.cpp"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(comment):
 	yyterminate();
@@ -2197,7 +2197,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 118 "/home/pllefebvre/git/pld-comp/src/flex/tokens.lex"
+#line 118 "/home/pl/git/pld-comp/src/flex/tokens.lex"
 
 
 

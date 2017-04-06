@@ -9,7 +9,6 @@
 
 namespace AST 
 {
-
     class ReturnInstruction : public AbstractNode
     {
     
@@ -25,24 +24,22 @@ namespace AST
          */
         ReturnInstruction(std::shared_ptr<ComposedInstruction> composedInstruction);
         
-        /**
-		 * @brief printTree Prints the structure of the expression
-		 * @param tabulationNumber the tabulation of this current node.
-		 */
+		/**
+         * @brief printTree the AST tree corresponding to this node and it's children.
+         * @param tabulationNumber the number of tabulations corresponding to this node
+         */
 		virtual void printTree(int tabulationNumber) const;
 		
 		/**
-		 * @brief evaluate pure virtual function
-		 * @return the "Value" of the expression, mainly it's type.
+		 * @brief return the Value of return of associated function if it is determinist or a null error-type Value otherwise
+		 * @return the value corresponding
 		 */
         virtual Value evaluate() const;
         
         /**
-		* @brief buildIR build the IR, and put the correspondant instructions in the provided basic block
-		* @param currentBasicBlock IR::sh_BasicBlock & currentBasicBlock, the reference to a shared pointer on the current BasicBlock 
-		* 		that is currently being completed
-		* @return a shared pointer on the IR memory index that will contain the node's value once evaluated or nullptr if the node
-		* 		shouldn't be callable
+		* @brief buildIR build the IR from this node, and put the correspondant instructions in the provided basic block
+		* @param currentBasicBlock, the reference to a shared pointer on the BasicBlock that is currently being completed
+		* @return a shared pointer on the IR memory index that will contain the return value once executed
 		*/
         virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
         

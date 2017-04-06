@@ -40,7 +40,6 @@ Value ReturnInstruction::evaluate() const
 	}
 }
 
-// TODO
 IR::sh_Memory ReturnInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

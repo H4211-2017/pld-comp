@@ -53,7 +53,6 @@ void UnitInstruction::printTree(int tabulationNumber) const
 	}
 }
 
-// TODO
 Value UnitInstruction::evaluate() const
 {
 	switch(content)

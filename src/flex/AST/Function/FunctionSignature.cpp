@@ -21,7 +21,7 @@ void FunctionSignature::printTree(int tabulationNumber) const
 
 Value FunctionSignature::evaluate() const
 {
-
+	return Value();
 }
 
 IR::sh_Memory FunctionSignature::buildIR(IR::sh_BasicBlock & currentBasicBlock) const

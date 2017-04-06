@@ -42,8 +42,7 @@ std::shared_ptr<AbstractInstruction> make_shared_instr(AbstractInstruction* ptr)
         return std::make_shared<FunctionDeclaration>( *( static_cast< FunctionDeclaration* >(ptr) ) );
 	}
 	else
-	{	
-		
+	{			
         std::cerr<< " AbstractInstruction :: make_shared_ptr found no type like '" << name << "'" << std::endl;
         throw std::runtime_error("Bad cast");
 	}

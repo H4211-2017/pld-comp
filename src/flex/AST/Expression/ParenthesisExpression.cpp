@@ -7,12 +7,12 @@ ParenthesisExpression::ParenthesisExpression(std::shared_ptr<AbstractInstruction
 {
 	this->instr = instr;
 	this->setType(instr->getValue().getValue().first);
-	
 }
 
 
-ParenthesisExpression::~ParenthesisExpression() {
-	// TODO Auto-generated destructor stub
+ParenthesisExpression::~ParenthesisExpression() 
+{
+
 }
 
 Value ParenthesisExpression::evaluate() const
@@ -27,7 +27,6 @@ void ParenthesisExpression::printTree(int tabulationNumber) const
     instr->printTree(tabulationNumber + 1);
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory ParenthesisExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {	
 	return instr->buildIR(currentBasicBlock);
