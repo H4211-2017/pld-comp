@@ -10,7 +10,6 @@ using namespace AST;
 
 
 Scope::Scope()
-	: mother(nullptr)
 {
 	std::shared_ptr<Function> getchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("getchar", Type::CHAR), nullptr);
 	std::shared_ptr<Function> putchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("putchar", Type::ERROR), 
@@ -18,6 +17,7 @@ Scope::Scope()
 																	nullptr);
 	fScope.declareFunction("getchar", getchar);
 	fScope.declareFunction("putchar", putchar);
+    mother = nullptr;
 }
 
 Scope::Scope( std::shared_ptr<Scope> Scope )
@@ -91,9 +91,10 @@ void Scope::declareFunction(std::string identifiant, std::shared_ptr<Function> d
 
 std::shared_ptr<Function> Scope::findFunction(std::string identifiant)
 {
+    //std::cout << "Scope::findFunction : fscope : " << fScope << std::endl;
 	try
 	{
-        auto val = fScope.findFunction(identifiant);
+        std::shared_ptr<Function> val = fScope.findFunction(identifiant);
 		return val;
 		
 		
@@ -101,7 +102,7 @@ std::shared_ptr<Function> Scope::findFunction(std::string identifiant)
 	catch(UndeclaredIdFctException& e)
 	{
 		try {
-			if(mother != nullptr)
+            if(mother != nullptr && &(*mother) != this)
                 return mother->findFunction(identifiant);
 			else
 				throw UndeclaredIdFctException();
@@ -117,9 +118,4 @@ std::shared_ptr<Function> Scope::findFunction(std::string identifiant)
 std::shared_ptr<Scope> Scope::getMother() const
 {
 	return mother;
-}
-
-void Scope::setMother(std::shared_ptr<Scope> newMother)
-{
-	mother = newMother;
 }

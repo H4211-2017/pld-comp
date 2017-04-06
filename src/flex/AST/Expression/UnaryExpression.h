@@ -14,10 +14,10 @@ namespace AST{
 
 enum UnaryOp
 {
-	UMINUS,
-	UPLUS,
-	UBITN,
-	UBOOLN
+    UMINUS, // -
+    UPLUS,  // +
+    UBITN,  // ~
+    UBOOLN  // !
 };
 
 typedef enum UnaryOp UnaryOp;

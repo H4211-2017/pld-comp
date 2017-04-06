@@ -97,8 +97,6 @@ namespace AST{
         //virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const = 0;
         
         virtual std::shared_ptr<Scope> getScope() const;
-        
-        virtual void setParentScope(std::shared_ptr<Scope> scope);
 
         Value getValue() const;
         

@@ -61,7 +61,7 @@ IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock
 	
 	if (instructionsList.size() == 0)
 	{
-		// void intruction sequence has to have valure = 0
+        // void intruction sequence has to have value = 0
 		//~ IR::Constant constant(IR::VOID, 0);
 		//~ last = gen.getNewUnusedMemmory(IR::VOID);
 		//~ std::list<IR::sh_AbsInstruction> absIntructions = gen.setValue(constant, last);
