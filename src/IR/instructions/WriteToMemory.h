@@ -2,15 +2,14 @@
 #define WRITETOMEMORY_H
 
 #include "AbstractMemoryAcess.h"
+#include "../data/Constant.h"
 
 namespace IR {
     class WriteToMemory : public AbstractMemoryAcess
     {
     public:
         WriteToMemory(sh_Register from, sh_Memory to);
-        WriteToMemory(char value, sh_Memory to);
-        WriteToMemory(int value, sh_Memory to);
-        WriteToMemory(long value, sh_Memory to);
+        ~WriteToMemory();
 
         virtual std::string toString() const;
         virtual std::string toLinuxX64() const;
@@ -18,15 +17,6 @@ namespace IR {
     private:
         sh_Register source;
         sh_Memory destination;
-        int type;
-        char charValue;
-        int intValue;
-        long longValue;
-
-        static const int MEMORY_TYPE;
-        static const int CHAR_TYPE;
-        static const int INT_TYPE;
-        static const int LONG_TYPE;
     };
 }
 

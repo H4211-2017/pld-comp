@@ -35,3 +35,33 @@ std::string AbstractData::getASMname(AsmType asmType) const
         break;
     }
 }
+
+void AbstractData::incrementReadCount()
+{
+    readCount++;
+}
+
+void AbstractData::decrementReadCount()
+{
+    readCount--;
+}
+
+void AbstractData::incrementWriteCount()
+{
+    writeCount++;
+}
+
+void AbstractData::decrementWriteCount()
+{
+    writeCount--;
+}
+
+int AbstractData::getReadCount() const
+{
+    return readCount;
+}
+
+int AbstractData::getWriteCount() const
+{
+    return writeCount;
+}

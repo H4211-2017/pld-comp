@@ -34,7 +34,16 @@ sh_Memory Generator::getNewUnusedMemmory(Type memoryType) const
 std::list<sh_AbsInstruction> Generator::returnInstruction(sh_Memory returnValue) const
 {
     std::list<sh_AbsInstruction> instructionList;
-    instructionList.push_back( std::make_shared<ReturnInstruction>(returnValue) );
+    if(returnValue != nullptr)
+    {
+        sh_Register tmp = getNewUnusedRegister(returnValue->getType());
+        instructionList.push_back( std::make_shared<ReadFromMemory>(returnValue,tmp) );
+        instructionList.push_back( std::make_shared<ReturnInstruction>(tmp) );
+    }
+    else
+    {
+        instructionList.push_back( std::make_shared<ReturnInstruction>(nullptr) );
+    }
     return instructionList;
 }
 

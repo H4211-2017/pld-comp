@@ -23,10 +23,11 @@ int main(int argc, char *argv[])
     std::string fileToCompile = "";
     std::string target = "a.s";
     std::string ASTtarget = "";
+    IR::OptimisationLevel optimisationlevel = IR::OptimisationLevel::O0;
 	std::streambuf* oldBuf;
 	bool verbose = false;
 	int i = 1;
-	if( argc > 7 )
+    if( argc > 8 )
 	{
 		std::cerr << "ERROR : Too many arguments" << std::endl;
 		exit(-1);
@@ -53,10 +54,22 @@ int main(int argc, char *argv[])
 			}
 			ASTtarget = argv[i];
 		}
-		else if(strcmp(argv[i], "-v") == 0)
+        else if(strcmp(argv[i], "-v") == 0)
 		{
 			verbose = true;
 		}
+        else if(strcmp(argv[i], "-O0") == 0)
+        {
+            optimisationlevel = IR::OptimisationLevel::O0;
+        }
+        else if(strcmp(argv[i], "-O1") == 0)
+        {
+            optimisationlevel = IR::OptimisationLevel::O1;
+        }
+        else if(strcmp(argv[i], "-O2") == 0)
+        {
+            optimisationlevel = IR::OptimisationLevel::O2;
+        }
 		else
 		{
             fileToCompile = argv[i];
@@ -105,7 +118,7 @@ int main(int argc, char *argv[])
 //    programStructure->printIR(std::cout);
 
     std::ofstream asmFileStream(target);
-    programStructure->printASM(asmFileStream, IR::AsmType::X64Linux);
+    programStructure->printASM(asmFileStream, IR::AsmType::X64Linux, optimisationlevel);
 
 	delete program;
 

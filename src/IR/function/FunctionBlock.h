@@ -9,6 +9,13 @@
 #include "../basicBlock/BasicBlock.h"
 
 namespace IR {
+
+    enum class OptimisationLevel{
+        O0 = 0,
+        O1 = 1,
+        O2 = 2
+    };
+
     class FunctionBlock : public AbstractFunction
     {
     public:
@@ -23,7 +30,7 @@ namespace IR {
         void printIR(std::ostream &os) const;
         void printASM(std::ostream &os, AsmType asmType) const;
         void generateIR();
-        void generateASM(AsmType asmType);
+        void generateASM(AsmType asmType, OptimisationLevel opLvl = OptimisationLevel::O0);
 
     protected:
         void generateBasicBlockList();
@@ -34,6 +41,7 @@ namespace IR {
         void affectMemory();
         void manageReturnStatements();
         void removeEmptyBasicBlock();
+        void removeUnreadMemory();
 
         sh_BasicBlock closestLoop(const sh_BasicBlock &source);
 

@@ -12,7 +12,7 @@ void ProgrameStructure::addFunction(std::shared_ptr<FunctionBlock> function)
     this->funtionList.push_back(function);
 }
 
-void ProgrameStructure::printASM(std::ostream &os, AsmType asmType)
+void ProgrameStructure::printASM(std::ostream &os, AsmType asmType, OptimisationLevel optLvl)
 {
     switch (asmType)
     {
@@ -25,7 +25,7 @@ void ProgrameStructure::printASM(std::ostream &os, AsmType asmType)
 
     for(std::shared_ptr<FunctionBlock> func : this->funtionList)
     {
-        func->generateASM(asmType);
+        func->generateASM(asmType, optLvl);
         func->printASM(os,asmType);
     }
 

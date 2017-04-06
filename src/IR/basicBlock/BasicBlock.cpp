@@ -90,7 +90,13 @@ void BasicBlock::pushInstructionBack(sh_AbsInstruction instruction)
     //the first register is used as no instruction can wrote two register
     if(instruction->getWroteRegisterList().size() > 0)
     {
+        //if the register was already set decrement its read number value
+        if(conditionnalJumpRegister != nullptr)
+        {
+            conditionnalJumpRegister->decrementReadCount();
+        }
         conditionnalJumpRegister = instruction->getWroteRegisterList().front();
+        conditionnalJumpRegister->incrementReadCount();
     }
 }
 

@@ -6,8 +6,16 @@ UnaryOperator::UnaryOperator(sh_Register resultRegister, sh_Register firstValueR
     destination(resultRegister), firstValue(firstValueRegister), op(opVal)
 {
     this->readRegisterList.push_back(firstValueRegister);
-
     this->writtenRegisterList.push_back(resultRegister);
+
+    destination->incrementWriteCount();
+    firstValue->incrementReadCount();
+}
+
+UnaryOperator::~UnaryOperator()
+{
+    destination->decrementWriteCount();
+    firstValue->decrementReadCount();
 }
 
 std::string UnaryOperator::toString() const

@@ -10,6 +10,7 @@ namespace IR {
     {
     public:
         ReadArrayValue(sh_MemoryArray array, sh_Register caseNumber, sh_Register dest);
+        ~ReadArrayValue();
 
         virtual std::string toString() const;
         virtual std::string toLinuxX64() const;

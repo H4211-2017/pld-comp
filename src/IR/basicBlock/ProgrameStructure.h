@@ -16,7 +16,7 @@ namespace IR {
         void addFunction(std::shared_ptr<FunctionBlock> function);
         std::list<std::shared_ptr<FunctionBlock> > getFuntionList() const;
 
-        void printASM(std::ostream &os, AsmType asmType);
+        void printASM(std::ostream &os, AsmType asmType, OptimisationLevel optLvl = OptimisationLevel::O0);
         void printIR(std::ostream &os);
 
     private:

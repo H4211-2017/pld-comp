@@ -12,6 +12,7 @@ namespace IR {
     {
     public:
         UnaryOperator(sh_Register resultRegister, sh_Register firstValueRegister, enum AST::UnaryOp op);
+        ~UnaryOperator();
         virtual std::string toLinuxX64() const;
         virtual std::string toString() const;
     protected:

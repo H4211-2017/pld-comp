@@ -11,6 +11,7 @@ namespace IR {
     {
     public:
         AbstractOperator(sh_Register resultRegister, sh_Register firstValueRegister, sh_Register secondValueRegister);
+        virtual ~AbstractOperator();
     protected:
         sh_Register destination;
         sh_Register firstValue;
