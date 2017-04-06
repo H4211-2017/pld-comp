@@ -18,11 +18,13 @@ Scope::Scope()
 																	nullptr);
 	fScope.declareFunction("getchar", getchar);
 	fScope.declareFunction("putchar", putchar);
+	//std::cout << "Creation Context mere -nom : " << this << std::endl;
 }
 
 Scope::Scope( std::shared_ptr<Scope> Scope )
 {
 	mother = Scope;
+	//std::cout << "Creation Context -nom : " << this << "\tfille de : " << mother << std::endl;
 }
 
 Scope::~Scope()
