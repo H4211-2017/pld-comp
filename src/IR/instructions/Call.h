@@ -12,7 +12,7 @@ namespace IR {
     class Call : public AbstractInstruction
     {
     public:
-        Call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> parameters, sh_Register returnRegister);
+        Call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> parameters, sh_Register returnRegister=nullptr);
         ~Call();
 
         virtual std::string toString() const;

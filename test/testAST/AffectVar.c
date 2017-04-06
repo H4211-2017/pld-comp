@@ -24,5 +24,12 @@ int32_t main()
     //return ~6;
     //return +6;
     //return -6;
-    return 1 == 2;
+    int32_t i;
+    i=0;
+    for(;;)
+    {
+        i = 1;
+    }
+    putchar('O');
+    return 42;
 }
