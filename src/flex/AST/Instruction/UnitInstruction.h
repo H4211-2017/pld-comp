@@ -4,11 +4,12 @@
 #include "AbstractInstruction.h"
 #include "Structure/AbstractStructure.h"
 #include "Block.h"
-#include "Instruction/ReturnInstruction.h"
 #include "AbstractNode.h"
 
 namespace AST {
 
+	class ReturnInstruction;
+	
     class UnitInstruction : public AbstractInstruction
     {
     public:
@@ -25,6 +26,7 @@ namespace AST {
          */
         UnitInstruction(std::shared_ptr<AbstractStructure> struc);
         UnitInstruction(std::shared_ptr<ReturnInstruction> ret);
+        UnitInstruction(bool isBreak);
         
         
         virtual void printTree(int tabulationNumber) const;
@@ -38,6 +40,8 @@ namespace AST {
     		BLOCK,
     		STRUCT,
     		RETURN,
+    		BREAK,
+    		CONTINUE,
     		ERROR
     	};
     

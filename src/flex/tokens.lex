@@ -58,6 +58,8 @@ anymultilinechain	(.|\n|\r)*
 "]"							{std::cout << "RIGHT_BRACKET "; return RIGHT_BRACKET;}
 "=="						{std::cout << "BOOL_EQUAL "; return BOOL_EQUAL;}
 "return"					{std::cout << "RETURN "; return RETURN;}
+"break"						{std::cout << "BREAK "; return BREAK;}
+"continue"					{std::cout << "CONTINUE "; return CONTINUE;}
 "!="						{std::cout << "BOOL_DIF "; return BOOL_DIF;}
 "<="						{std::cout << "BOOL_LESS_OR_EQUAL "; return BOOL_LESS_OR_EQUAL;}
 ">="						{std::cout << "BOOL_GREATER_OR_EQUAL "; return BOOL_GREATER_OR_EQUAL;}
