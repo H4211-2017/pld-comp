@@ -35,8 +35,6 @@ namespace AST
 
         virtual std::shared_ptr<Scope> getScope() const;
         
-        //virtual void setParentScope(std::shared_ptr<Scope> mother) const;
-     
     private:
     	
         std::shared_ptr<SequenceInstruction> sequenceInstruction;

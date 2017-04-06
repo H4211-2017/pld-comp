@@ -64,7 +64,6 @@ bool Function::isDeclaration() const
 void Function::setBlock(std::shared_ptr<Block> content)
 {
     this->content = content;
-    //this->content->setParentScope(currentScope);
     if(args != nullptr && args->isForDeclaration())
     {
         std::stringstream ss;
@@ -130,7 +129,6 @@ IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 
     if (content != nullptr)
     {
-        std::cout << "Function::buildIR : avant content->buildIR" << std::endl;
         return content->buildIR(currentBasicBlock);
     }
 
