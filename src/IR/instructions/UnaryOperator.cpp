@@ -48,7 +48,7 @@ std::string UnaryOperator::toLinuxX64() const
 {
     std::string ret = "";
     //move source into destination (unless they are the same or the operation is a '!')
-    if(op != AST::UnaryOp::UBOOLN && firstValue != destination)
+    if(op != AST::UnaryOp::UBOOLN && firstValue->getASMname(AsmType::X64Linux) != destination->getASMname(AsmType::X64Linux))
     {
         ret.append( "\tmovq\t");
         ret.append( this->firstValue->getASMname(AsmType::X64Linux) );

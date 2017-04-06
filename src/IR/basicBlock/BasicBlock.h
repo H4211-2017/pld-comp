@@ -9,11 +9,9 @@
 #include "../instructions/AbstractInstruction.h"
 #include "../data/Memory.h"
 #include "../data/Register.h"
+#include "../config/Enums.h"
 
 namespace IR {
-
-    class BasicBlock;
-    typedef std::shared_ptr<BasicBlock> sh_BasicBlock;
 
     enum class Flag
     {
@@ -21,6 +19,9 @@ namespace IR {
         LoopCondition,
         LoopEnd
     };
+
+    class BasicBlock;
+    typedef std::shared_ptr<BasicBlock> sh_BasicBlock;
 
     class BasicBlock : public std::enable_shared_from_this<BasicBlock>
     {
@@ -37,7 +38,7 @@ namespace IR {
         void setNextBlockFalse(sh_BasicBlock basicBlock);
 
         void updateChildPreviousBlock();
-        void affectRegistry(std::queue<std::string> availableAsmRegistry);
+        void affectRegistry(std::queue<std::string> availableAsmRegistry, OptimisationLevel opLvl=OptimisationLevel::O0);
         bool isRegistryAfectable() const;
 
         void printIr(std::ostream& os) const;
@@ -78,6 +79,8 @@ namespace IR {
 
         sh_Register conditionnalJumpRegister;
     };
+
+
 
 
 }

@@ -92,7 +92,7 @@ void FunctionBlock::aliveRegistryDetection()
  * @remarks The list of function basic block must be generated (FunctionBlock::generateBasicBlockList())
  * @remarks The basic block must have their alive registry set (FunctionBlock::aliveRegistryDetection())
  */
-void FunctionBlock::affectRegistry(std::queue<std::string> asmRegistryAvailable)
+void FunctionBlock::affectRegistry(std::queue<std::string> asmRegistryAvailable, OptimisationLevel opLvl)
 {
     std::list<sh_BasicBlock> waitingForAffectation = coreList;
     while (waitingForAffectation.size() > 0) {
@@ -103,7 +103,7 @@ void FunctionBlock::affectRegistry(std::queue<std::string> asmRegistryAvailable)
             if(bb->isRegistryAfectable())
             {
                 //then affect his register
-                bb->affectRegistry(asmRegistryAvailable);
+                bb->affectRegistry(asmRegistryAvailable, opLvl);
                 //save the value of it
                 auto newIt = it;
                 newIt--;
@@ -370,7 +370,6 @@ void FunctionBlock::generateASM(AsmType asmType, OptimisationLevel opLvl)
     removeEmptyBasicBlock();
     getMemoryFromBasicBlock();
     aliveRegistryDetection();
-    affectMemory();
     std::deque<std::string> regList;
     switch (asmType) {
     case AsmType::X64Linux:
@@ -382,7 +381,13 @@ void FunctionBlock::generateASM(AsmType asmType, OptimisationLevel opLvl)
         break;
     }
     std::queue<std::string> regQueue(regList);
-    affectRegistry(regQueue);
+    affectRegistry(regQueue,opLvl);
+    if(opLvl > OptimisationLevel::O1)
+    {
+        removeUnreadMemory();
+        removeEmptyBasicBlock();
+    }
+    affectMemory();
 }
 
 /**
@@ -508,7 +513,7 @@ void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
                 //if we are still on param passed by register
                 //move the wanted register to it's coresponding AbstracData
                 const sh_AbstractData &absData = *memParmIt;
-                os << "\tmovq\t" << *regNameIt << ", " << absData->getASMname(asmType) << std::endl;
+                os << "\tmovq\t%" << *regNameIt << ", " << absData->getASMname(asmType) << std::endl;
                 //TODO: manage arrays on function param (pointer...)
                 regNameIt++;
             }
