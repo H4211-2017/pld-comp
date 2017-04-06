@@ -62,6 +62,7 @@ void Function::setBlock(std::shared_ptr<Block> content)
 {
     std::cout << "Function::setBlock : " << sig->getIdentifiant() << " : begin" << std::endl;
     this->content = content;
+    this->content->setParentScope(currentScope);
     if(args != nullptr && args->isForDeclaration())
     {
         std::stringstream ss;
