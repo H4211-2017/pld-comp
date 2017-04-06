@@ -43,11 +43,6 @@ std::shared_ptr<Scope> AbstractNode::getScope() const
 	return currentScope;
 }
 
-//void AbstractNode::setParentScope(std::shared_ptr<Scope> scope)
-//{
-//	currentScope->setMother(scope);
-//}
-
 Value AbstractNode::getValue() const
 {
     return value;
@@ -82,6 +77,9 @@ void AbstractNode::printTree(int tabulationNumber) const
         break;
     case ERROR:
         std::cout << "TYPE : Error ";
+        break;
+    case VOID:
+        std::cout << "TYPE : Void ";
         break;
     default:
         std::cerr << "ERROR AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;

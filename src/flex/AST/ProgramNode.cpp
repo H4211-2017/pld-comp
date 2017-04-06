@@ -56,13 +56,9 @@ IR::sh_ProgrameStructure ProgramNode::buildIR()
      /* SequenceInstruction::buildIR need a basic block. However, as only declaration/definition function are in liextBefore and
      liextAfter, the basic block will not be used. */
     IR::sh_BasicBlock unused;
-    std::cout << "ProgramNode::buildIR : before liextBefore" << std::endl;
     liextBefore->buildIR(unused);
-    std::cout << "ProgramNode::buildIR : before main" << std::endl;
     main->buildIR(unused);
-    std::cout << "ProgramNode::buildIR : after main" << std::endl;
     liextAfter->buildIR(unused);
-    std::cout << "ProgramNode::buildIR : after liextAfter" << std::endl;
 
     return programStructure;
 }

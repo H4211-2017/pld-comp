@@ -10,12 +10,6 @@
 
 namespace IR {
 
-    enum class OptimisationLevel{
-        O0 = 0,
-        O1 = 1,
-        O2 = 2
-    };
-
     class FunctionBlock : public AbstractFunction
     {
     public:
@@ -37,7 +31,7 @@ namespace IR {
         void affectPreviousBasicBlock();
         void getMemoryFromBasicBlock();
         void aliveRegistryDetection();
-        void affectRegistry(std::queue<std::string> asmRegistryAvailable);
+        void affectRegistry(std::queue<std::string> asmRegistryAvailable, OptimisationLevel opLvl = OptimisationLevel::O0);
         void affectMemory();
         void manageReturnStatements();
         void removeEmptyBasicBlock();

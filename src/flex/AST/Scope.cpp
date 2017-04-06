@@ -18,13 +18,11 @@ Scope::Scope()
 	fScope.declareFunction("getchar", getchar);
 	fScope.declareFunction("putchar", putchar);
     mother = nullptr;
-    std::cout << "Scope::Scope : contruction scope mere : this : " << this << std::endl;
 }
 
 Scope::Scope( std::shared_ptr<Scope> Scope )
 {
 	mother = Scope;
-    std::cout << "Scope::Scope : construction scope fille : this : " << this << " mere : " << mother << std::endl;
 }
 
 Scope::~Scope()
@@ -93,11 +91,6 @@ void Scope::declareFunction(std::string identifiant, std::shared_ptr<Function> d
 
 std::shared_ptr<Function> Scope::findFunction(std::string identifiant)
 {
-    std::cout << "Scope::findFunction : begin : identifiant : " << identifiant << std::endl;
-    static int i = 0;
-    std::cout << "Scope::findFunction : i : " << i++ << std::endl;
-    std::cout << "Scope::findFunction : this : " << this << std::endl;
-    std::cout << "Scope::findFunction : mother : " << mother << std::endl;
     //std::cout << "Scope::findFunction : fscope : " << fScope << std::endl;
 	try
 	{
@@ -126,9 +119,3 @@ std::shared_ptr<Scope> Scope::getMother() const
 {
 	return mother;
 }
-
-//void Scope::setMother(std::shared_ptr<Scope> newMother)
-//{
-//    std::cout << "Scope::setMother : this : " << this << " mother : " << mother << " newMother : " << newMother << std::endl;
-//    mother = newMother;
-//}
