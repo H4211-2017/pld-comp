@@ -23,5 +23,5 @@ int32_t main()
     //return ~6;
     //return +6;
     //return -6;
-    return 1 == 2;
+    return 1 == 1;
 }

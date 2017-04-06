@@ -367,7 +367,7 @@ void FunctionBlock::generateASM(AsmType asmType, OptimisationLevel opLvl)
     {
         removeUnreadMemory();
     }
-    removeEmptyBasicBlock();
+    //removeEmptyBasicBlock();
     getMemoryFromBasicBlock();
     aliveRegistryDetection();
     affectMemory();

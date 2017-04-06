@@ -71,7 +71,11 @@ void ForStructure::printTree(int tabulationNumber) const
 IR::sh_Memory ForStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     //add init statement to the current block
-    this->condInstr1->buildIR(currentBasicBlock);
+    
+    if(condInstr1 != nullptr)
+    {
+		this->condInstr1->buildIR(currentBasicBlock);
+	}
 
     IR::sh_BasicBlock loopBasicBlock = std::make_shared<IR::BasicBlock>();
     IR::sh_BasicBlock testBasicBlock = std::make_shared<IR::BasicBlock>();
@@ -92,11 +96,19 @@ IR::sh_Memory ForStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 
     //feed the blocks
     //test block is only the tests instructions
-    this->condInstr2->buildIR(testBasicBlock);
+    
+    if(condInstr2 != nullptr)
+    {
+		this->condInstr2->buildIR(testBasicBlock);
+	}
     //loop block is full of instrucitons...
     this->intInstruction->buildIR(loopBasicBlock);
     //... and finish by executing the increment (don't forget that loopBasicBlock may have been updated durring the previous call)
-    this->condInstr3->buildIR(loopBasicBlock);
+    
+    if(condInstr3 != nullptr)
+    {
+		this->condInstr3->buildIR(loopBasicBlock);
+	}
     //add a flag on the loopBasicBlock
     loopBasicBlock->setBasicBlockFlag(IR::Flag::LoopEnd);
 
