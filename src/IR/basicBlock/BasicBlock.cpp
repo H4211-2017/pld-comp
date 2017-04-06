@@ -174,7 +174,7 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
             availableAsmRegistry.push(regAsmName);
         }
     }
-    ///Affect asm name the the registry
+    ///Affect asm name the registry
     for(sh_AbsInstruction inst : instructionsList)
     {
         //update avaibleRegistry queue by adding now unused register

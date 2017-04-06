@@ -24,60 +24,64 @@ std::string UnaryOperator::toString() const
     ret.append( destination->getName() );
     ret.append( " = ");
     switch(op)
-	{
-		case AST::UnaryOp::UMINUS:
-			ret.append( " - ");
-			break;
-		case AST::UnaryOp::UPLUS:
-			ret.append( " + ");
-			break;
-		case AST::UnaryOp::UBITN:
-			ret.append( " ~ ");
-			break;
-		case AST::UnaryOp::UBOOLN:
-			ret.append( " ! ");
-			break;
-		default:
-			std::cerr << "UnaryOperator::toString() : ERROR unknown op" << std::endl;
-	}
+    {
+    case AST::UnaryOp::UMINUS:
+        ret.append( " - ");
+        break;
+    case AST::UnaryOp::UPLUS:
+        ret.append( " + ");
+        break;
+    case AST::UnaryOp::UBITN:
+        ret.append( " ~ ");
+        break;
+    case AST::UnaryOp::UBOOLN:
+        ret.append( " ! ");
+        break;
+    default:
+        std::cerr << "UnaryOperator::toString() : ERROR unknown op" << std::endl;
+    }
     ret.append( this->firstValue->getName() );
     return ret;
 }
 
 std::string UnaryOperator::toLinuxX64() const
 {
-    std::string ret = "\tmovq\t";
-    ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
-    ret.append( ", %rax" );
+    std::string ret = "";
+    //move source into destination (unless they are the same or the operation is a '!')
+    if(op != AST::UnaryOp::UBOOLN && firstValue != destination)
+    {
+        ret.append( "\tmovq\t");
+        ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
+        ret.append( ", ");
+        ret.append( this->destination->getASMname(AsmType::X64Linux));
+    }
+
     switch(op)
-	{
-		case AST::UnaryOp::UMINUS:
-			ret.append("\n\tmovq\t$0, %rdx");
-			ret.append( "\n\tsubq\t%rax, %rdx");
-			ret.append("\n\tmovq\t%rdx, ");
-			ret.append( destination->getASMname(AsmType::X64Linux) );
-			break;
-		case AST::UnaryOp::UPLUS:
-			ret.append("\n\tmovq\t%rax, ");
-			ret.append( destination->getASMname(AsmType::X64Linux) );
-			break;
-		case AST::UnaryOp::UBITN:
-			ret.append("\n\tmovq\t$0xFFFFFFFFFFFFFFFF, %rdx");
-			ret.append( "\n\txorq\t%rax, %rdx");
-			ret.append("\n\tmovq\t%rdx, ");
-			ret.append( destination->getASMname(AsmType::X64Linux) );
-			break;
-		case AST::UnaryOp::UBOOLN:		
-			ret.append( "\n\tcmpq\t$0");
-			ret.append( ", %rax");
-			ret.append("\n\tsete\t%al\n\tmovzbl\t%al, %eax\n\tmovq\t%rax, ");
-			ret.append( destination->getASMname(AsmType::X64Linux) );
-			break;
-		default:
-			std::cerr << "UnaryOperator::toLinuxX64() : ERROR unknown op" << std::endl;
-	}
-	
-	return ret;
+    {
+    case AST::UnaryOp::UMINUS:
+        ret.append("\n\tnegq\t");
+        ret.append( this->destination->getASMname(AsmType::X64Linux) );
+        break;
+    case AST::UnaryOp::UPLUS:
+        //nothing to do
+        break;
+    case AST::UnaryOp::UBITN:
+        ret.append("\n\tnotq\t");
+        ret.append( this->destination->getASMname(AsmType::X64Linux) );
+        break;
+    case AST::UnaryOp::UBOOLN:
+        ret.append( "\n\tcmpq\t$0, " );
+        ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
+        ret.append( "\n\tsete\t%al");
+        ret.append( "\n\tmovzbl\t%al, %eax");
+        ret.append( "\n\tmovq\t%rax, ");
+        ret.append( destination->getASMname(AsmType::X64Linux) );
+        break;
+    default:
+        std::cerr << "UnaryOperator::toLinuxX64() : ERROR unknown op" << std::endl;
+    }
+
+    return ret;
 }
 
 /* Code en sortie :
@@ -85,7 +89,7 @@ std::string UnaryOperator::toLinuxX64() const
     imulq	-16(%rbp), %rax  // a & b
     cmpq 	$0, %rax
     movq	$0, %rcx
-	movq	$1, %rdx
+    movq	$1, %rdx
     cmovne	%rdx, %rax
     cmove %rcx, %rax
     movq	%rax, -8(%rbp)
