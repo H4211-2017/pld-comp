@@ -367,7 +367,7 @@ void FunctionBlock::generateASM(AsmType asmType, OptimisationLevel opLvl)
     {
         removeUnreadMemory();
     }
-    removeEmptyBasicBlock();
+    //removeEmptyBasicBlock();
     getMemoryFromBasicBlock();
     aliveRegistryDetection();
     std::deque<std::string> regList;
@@ -447,7 +447,10 @@ void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBloc
     {
         //se this register as alive
         const sh_Register &reg = basicBlock->getConditionnalJumpRegister();
-        aliveRegister[reg->getName()] = reg;
+        if(reg != nullptr)
+        {
+            aliveRegister[reg->getName()] = reg;
+        }
     }
     auto instList = basicBlock->getInstructionsList();
     //loop on every basic block instruction from the last one to the first (using reverse iterator)

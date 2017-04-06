@@ -78,6 +78,9 @@ void AbstractNode::printTree(int tabulationNumber) const
     case ERROR:
         std::cout << "TYPE : Error ";
         break;
+    case VOID:
+        std::cout << "TYPE : Void ";
+        break;
     default:
         std::cerr << "ERROR AbstractNode::printTree : Error in value of type : " << value.getValue().first << std::endl;
         break;

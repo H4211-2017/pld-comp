@@ -350,11 +350,11 @@ void BasicBlock::printIr(std::ostream &os) const
 
     }
     //if only one is set, no need to check any things
-    else if(nextBlockTrue == nullptr)
+    else if(nextBlockFalse != nullptr && nextBlockTrue == nullptr)
     {
         os << "Jump to: " << nextBlockFalse->getName() << std::endl;
     }
-    else if(nextBlockFalse == nullptr)
+    else if((nextBlockFalse == nullptr && nextBlockTrue != nullptr) || conditionnalJumpRegister == nullptr)
     {
         os << "Jump to: " << nextBlockTrue->getName() << std::endl;
     }
@@ -365,6 +365,7 @@ void BasicBlock::printIr(std::ostream &os) const
            << nextBlockFalse->getName() << " (False block)" << std::endl;
         os << "Jump to: " << nextBlockTrue->getName() << std::endl;
     }
+   
 }
 
 void BasicBlock::printAsm(std::ostream &os, AsmType asmType) const
@@ -439,7 +440,7 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
 
     }
     //if only one is set, no need to check any things
-    else if(nextBlockFalse != nullptr)
+    else if(nextBlockFalse != nullptr && nextBlockTrue == nullptr)
     {
         switch (asmType) {
         case AsmType::X64Linux:
@@ -449,7 +450,7 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
             break;
         }
     }
-    else if(nextBlockTrue != nullptr || conditionnalJumpRegister == nullptr)
+    else if((nextBlockFalse == nullptr && nextBlockTrue != nullptr) || conditionnalJumpRegister == nullptr)
     {//if the only the nextblockTrue is set or if the conditionnalRegister is undeffined
         switch (asmType) {
         case AsmType::X64Linux:
@@ -464,7 +465,7 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
         //else the two are set, need to do a conditionnal jump
         switch (asmType) {
         case AsmType::X64Linux:
-            os << "\tcmpq\t$0, " << conditionnalJumpRegister->getName() << std::endl;
+            os << "\tcmpq\t$0, " << conditionnalJumpRegister->getASMname(AsmType::X64Linux) << std::endl;
             os << "\tjne " << nextBlockTrue->getName() << std::endl;
             os << "\tjmp " << nextBlockFalse->getName() << std::endl;
             break;
