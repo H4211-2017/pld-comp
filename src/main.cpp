@@ -114,7 +114,9 @@ int main(int argc, char *argv[])
 		std::cout << std::endl;
 	}
 	
+    std::cout << "main before buildIR" << std::endl;
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
+    std::cout << "main after buildIR" << std::endl;
     programStructure->printIR(std::cout);
 	
 	std::cout << "main apres printIR" << std::endl;

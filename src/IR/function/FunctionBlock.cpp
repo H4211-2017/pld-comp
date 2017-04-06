@@ -445,7 +445,7 @@ void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBloc
     //if the basic block use a regsiter for is jump
     if(basicBlock->isConditionnal())
     {
-        //se this register as alive
+        //set this register as alive
         const sh_Register &reg = basicBlock->getConditionnalJumpRegister();
         if(reg != nullptr)
         {

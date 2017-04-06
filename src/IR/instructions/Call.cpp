@@ -62,7 +62,7 @@ std::string Call::toLinuxX64() const
             const sh_AbstractData &absData = *memParmIt;
             ret.append("\tmovq\t");
             ret.append(absData->getASMname(AsmType::X64Linux));
-            ret.append(", ");
+            ret.append(", %");
             ret.append(*regNameIt);
             ret.append("\n");
             //TODO: manage arrays on function param (pointer...)

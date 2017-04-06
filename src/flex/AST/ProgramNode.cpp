@@ -6,11 +6,11 @@
 using namespace AST;
 
 ProgramNode::ProgramNode(std::shared_ptr<SequenceInstruction> liextBefore, std::shared_ptr<FunctionDeclaration> main, std::shared_ptr<SequenceInstruction> liextAfter)
-	: AbstractNode("ProgramNode")
+    : AbstractNode("ProgramNode")
 {
-	this->liextBefore = liextBefore;
-	this->liextAfter = liextAfter;
-	this->main = main;
+    this->liextBefore = liextBefore;
+    this->liextAfter = liextAfter;
+    this->main = main;
 }
 
 void ProgramNode::printTree(int tabulationNumber) const
@@ -28,7 +28,7 @@ void ProgramNode::printTree(int tabulationNumber) const
 
 Value ProgramNode::evaluate() const
 {
-	return Value();
+    return Value();
 }
 
 IR::sh_ProgrameStructure ProgramNode::buildIR()
@@ -53,7 +53,7 @@ IR::sh_ProgrameStructure ProgramNode::buildIR()
     programStructure->addFunction(main->getIrFunction());
 
 
-     /* SequenceInstruction::buildIR need a basic block. However, as only declaration/definition function are in liextBefore and
+    /* SequenceInstruction::buildIR need a basic block. However, as only declaration/definition function are in liextBefore and
      liextAfter, the basic block will not be used. */
     IR::sh_BasicBlock unused;
     liextBefore->buildIR(unused);
