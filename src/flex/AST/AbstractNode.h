@@ -98,7 +98,7 @@ namespace AST{
         
         virtual std::shared_ptr<Scope> getScope() const;
         
-        virtual void setParentScope(std::shared_ptr<Scope> scope);
+        //virtual void setParentScope(std::shared_ptr<Scope> scope);
 
         Value getValue() const;
         

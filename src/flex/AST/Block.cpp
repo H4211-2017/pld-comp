@@ -44,7 +44,7 @@ IR::sh_Memory Block::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 	return nullptr;
 }
 
-void Block::setParentScope(std::shared_ptr<Scope> mother) const
-{
-	this->currentScope->setMother(mother);
-}
+//void Block::setParentScope(std::shared_ptr<Scope> mother) const
+//{
+//	this->currentScope->setMother(mother);
+//}

@@ -144,23 +144,25 @@ mainbody : maindecl bloc {$1->setBlock(std::make_shared<Block>( *( static_cast< 
                                                        currentContext->getMother());
                         delete $1;
                         delete $2;
-                        currentContext = currentContext->getMother();}
+                        currentContext = currentContext->getMother();
+                       std::cout << "bison::mainbody : changement de contexte : currentContext : " << currentContext << std::endl;}
 	;
 
 maindecl : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS {if($4 != nullptr)
-																		{
+                                                                        {
                                                                             $$ = new Function(std::make_shared<FunctionSignature>("main", *$1),
-																					std::make_shared<LArguments>( *( static_cast< LArguments* >($4))), currentContext);	
-																			delete $1;
-																			delete $4;
-																		}
-																		else
-																		{
+                                                                                                std::make_shared<LArguments>( *( static_cast< LArguments* >($4))), currentContext);
+                                                                                delete $1;
+                                                                                delete $4;
+                                                                        }
+                                                                        else
+                                                                        {
                                                                             $$ = new Function(std::make_shared<FunctionSignature>("main", *$1), currentContext);
-																			delete $1;	
-																		}			
-																		currentContext = $$->getScope();
-																	}
+                                                                                delete $1;
+                                                                        }
+                                                                        currentContext = $$->getScope();
+                                                                       std::cout << "bison::mainbody : changement de contexte : currentContext : " << currentContext << std::endl;
+                                                                    }
     ;
 maintype : type         {$$ = $1;}
     | VOID              {$$ = new Type(Type::VOID);}
@@ -185,13 +187,16 @@ iext : deffonc    {$$ = $1;}
 
 declfonc : debutfonc SEMICOLON  {$$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
 									delete $1;
-									currentContext = currentContext->getMother();}
+                                                                        currentContext = currentContext->getMother();
+                                std::cout << "bison::declfonc : changement de contexte : currentContext : " << currentContext << std::endl;}
     ;
 deffonc : debutfonc bloc        {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
                                     $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
                                                                         delete $1;
 									delete $2;
+                                                                        std::cout << "bison::deffonc : currentContext : " << currentContext << " mother : " << currentContext->getMother() << std::endl;
                                                                         currentContext = currentContext->getMother();
+                                                                        std::cout << "bison::deffonc : changement de contexte : currentContext : " << currentContext << std::endl;
                                                                 }
     ;
     
@@ -200,14 +205,17 @@ debutfonc : sigfonc larg RIGHT_PARENTHESIS     {$$ = new Function(std::make_shar
                                                     delete $1;
                                                     delete $2;
                                                     currentContext = $$->getScope();
+                                                    std::cout << "bison::debutfonc : changement de contexte : currentContext : " << currentContext << std::endl;
 												}
     | sigfonc RIGHT_PARENTHESIS                {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
 												delete $1;
 												currentContext = $$->getScope();
+                                                                                                std::cout << "bison::debutfonc : changement de contexte : currentContext : " << currentContext << std::endl;
 												}
     | sigfonc VOID RIGHT_PARENTHESIS           {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
 												delete $1;
 												currentContext = $$->getScope();
+                                                                                                std::cout << "bison::debutfonc : changement de contexte : currentContext : " << currentContext << std::endl;
 												}
     ;
     
@@ -300,10 +308,12 @@ sigfonc : type ID LEFT_PARENTHESIS          {$$ = new FunctionSignature($2, *$1)
 
 /* ===== INSTRUCTIONS INTERIEURES ===== */
 
-open_context : LEFT_BRACES {currentContext = std::make_shared<Scope>(currentContext);}
+open_context : LEFT_BRACES {currentContext = std::make_shared<Scope>(currentContext);
+                           std::cout << "bison::open_context : changement de contexte : currentContext : " << currentContext << std::endl;}
 	;
 	
-close_context : RIGHT_BRACES {currentContext = currentContext->getMother();}
+close_context : RIGHT_BRACES {currentContext = currentContext->getMother();
+                           std::cout << "bison::close_context : changement de contexte : currentContext : " << currentContext << std::endl;}
 
 bloc : open_context seqint close_context    {$$ = new Block(currentContext, std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($2) )));}
     ;

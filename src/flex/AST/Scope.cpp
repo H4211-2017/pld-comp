@@ -127,7 +127,8 @@ std::shared_ptr<Scope> Scope::getMother() const
 	return mother;
 }
 
-void Scope::setMother(std::shared_ptr<Scope> newMother)
-{
-	mother = newMother;
-}
+//void Scope::setMother(std::shared_ptr<Scope> newMother)
+//{
+//    std::cout << "Scope::setMother : this : " << this << " mother : " << mother << " newMother : " << newMother << std::endl;
+//    mother = newMother;
+//}

@@ -58,7 +58,7 @@ namespace AST{
          * @brief setMother to change the mother scope
          * @param newMother the new mother scope
          */
-		void setMother(std::shared_ptr<Scope> newMother);
+        //void setMother(std::shared_ptr<Scope> newMother);
   
 	protected:
 		//tree hierarchy
