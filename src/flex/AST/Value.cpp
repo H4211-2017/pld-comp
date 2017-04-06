@@ -65,7 +65,7 @@ IR::Type Value::getIRType() const
             irType = IR::VOID;
             break;
         default :
-            std::cerr << "ERROR Value::getIRType : Error in value of type : " << std::endl;
+            std::cerr << "ERROR Value::getIRType : Error in value of type : " << type << std::endl;
             exit(-1);
             break;
 	}
