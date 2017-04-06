@@ -116,8 +116,8 @@ int main(int argc, char *argv[])
 	
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
     programStructure->printIR(std::cout);
-
-    std::cout << "main after printIR" << std::endl;
+	
+	std::cout << "main apres printIR" << std::endl;
     std::ofstream asmFileStream(target);
     programStructure->printASM(asmFileStream, IR::AsmType::X64Linux, optimisationlevel);
     std::cout << "main after printASM" << std::endl;

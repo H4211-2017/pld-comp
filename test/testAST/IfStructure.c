@@ -6,5 +6,10 @@ int32_t main(void)
 	
     if (0)
     {
-    }
-}
+		a = 23;
+	}
+	else if (1)
+	{
+		a = 45;
+	}
+ }

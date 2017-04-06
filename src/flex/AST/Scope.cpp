@@ -20,9 +20,9 @@ Scope::Scope()
     mother = nullptr;
 }
 
-Scope::Scope( std::shared_ptr<Scope> Scope )
+Scope::Scope( std::shared_ptr<Scope> scope )
 {
-	mother = Scope;
+	mother = scope;
 }
 
 Scope::~Scope()

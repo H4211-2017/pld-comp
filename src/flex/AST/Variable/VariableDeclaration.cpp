@@ -1,5 +1,7 @@
 #include "VariableDeclaration.h"
+
 #include "VariableScope.h"
+#include "../../../IR/generator/Generator.h"
 
 using namespace AST;
 
@@ -37,6 +39,20 @@ Value VariableDeclaration::evaluate() const
 
 IR::sh_Memory VariableDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 {	
-	return nullptr;
+	IR::Generator gen;
+	
+	IR::sh_Memory dest = var->buildIR(currentBasicBlock);
+	IR::sh_Memory value = nullptr;
+	
+	// if definition of variable instead declaration
+	if (val != nullptr)
+	{
+		// such as AffectationExrpession::buildIR
+		value = val->buildIR(currentBasicBlock);
+		std::list<IR::sh_AbsInstruction> absIntructions = gen.setValue(value, dest);
+		currentBasicBlock->pushInstructionBack(absIntructions); 
+	}
+	
+	return value;
 }
 
