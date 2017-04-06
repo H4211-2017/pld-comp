@@ -535,7 +535,7 @@ void FunctionBlock::printASMepilog(std::ostream &os, AsmType asmType) const
 {
     switch (asmType) {
     case AsmType::X64Linux:
-        os << "\tpopq\t%rbp" << std::endl;
+        os << "\tleave" << std::endl;
         os << "\tret" << std::endl;
         os << "\t.size\t" << this->functionName << ", .-" << this->functionName << std::endl;
         break;
