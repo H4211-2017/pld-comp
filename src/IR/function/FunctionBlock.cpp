@@ -144,6 +144,7 @@ void FunctionBlock::affectMemory()
         currentOffset -= (-currentOffset) % mem->getType();
         mem->setAsmBasePointerOffset(currentOffset);
     }
+    lastMemoryOffset = currentOffset;
 }
 
 /**
@@ -461,7 +462,7 @@ void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBloc
         for(sh_Register reg : inst->getWroteRegisterList())
         {
             auto it = aliveRegister.find(reg->getName());
-            assert(it != aliveRegister.end()); // reg must be alive ! (optimisation may create unused register)
+            //assert(it != aliveRegister.end()); // reg must be alive ! (optimisation may create unused register)
             aliveRegister.erase(it);
         }
         //add the read registry to the alive list (map)
@@ -507,6 +508,7 @@ void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
         os << this->functionName << ":" << std::endl;
         os << "\tpush\t%rbp" << std::endl;
         os << "\tmovq\t%rsp, %rbp" << std::endl;
+        os << "\tsubq\t$" << lastMemoryOffset + 16 - lastMemoryOffset%16 << ", %rsp" << std::endl;
         //load function param into the wanted memory / register
         auto regNameIt = ASM_X64_CALL_PARAMETERS_REGISTRY.rbegin();
         auto memParmIt = this->functionParam.begin();

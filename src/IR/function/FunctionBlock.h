@@ -59,6 +59,7 @@ namespace IR {
         std::list<sh_BasicBlock> coreList;
 
         std::map<std::string,sh_Memory> usedMemory;
+        int lastMemoryOffset;
     };
 
     typedef std::shared_ptr<FunctionBlock> sh_FunctionBlock;
