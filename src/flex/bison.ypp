@@ -56,7 +56,7 @@ std::shared_ptr<Scope> currentContext = global;
 %token SHARP LINE_COM BEGIN_COM END_COM 
 %token IF ELSE WHILE FOR MAIN 
 %token LEFT_BRACES RIGHT_BRACES LEFT_PARENTHESIS RIGHT_PARENTHESIS 
-%token LEFT_BRACKET RIGHT_BRACKET BOOL_EQUAL RETURN 
+%token LEFT_BRACKET RIGHT_BRACKET BOOL_EQUAL RETURN BREAK CONTINUE
 %token BOOL_DIF BOOL_LESS_OR_EQUAL BOOL_GREATER_OR_EQUAL BOOL_LESS BOOL_GREATER 
 %token AFFECT_ADD AFFECT_SUB AFFECT_MULT AFFECT_DIV AFFECT_MOD TERNARY_ASK TERNARY_CHOOSE
 %token AFFECT_BIT_LEFT_SHIFT AFFECT_BIT_RIGHT_SHIFT
@@ -334,6 +334,8 @@ iintunit : bloc {$$ = new UnitInstruction(std::make_shared<Block>( *( static_cas
 					delete $1;} 
 	| ireturn {$$ = new UnitInstruction(std::make_shared<ReturnInstruction>( *( static_cast< ReturnInstruction* >($1) ) ));
 					delete $1;} 
+	| BREAK SEMICOLON {$$ = new UnitInstruction(true);}
+	| CONTINUE SEMICOLON {$$ = new UnitInstruction(false);}
 	;
 	
 ireturn : RETURN iintcomp SEMICOLON {$$ = new ReturnInstruction(std::make_shared<ComposedInstruction>( *( static_cast< ComposedInstruction* >($2) ) ));

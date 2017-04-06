@@ -1,5 +1,7 @@
 #include "UnitInstruction.h"
 
+#include "ReturnInstruction.h"
+
 using namespace AST;
 
 UnitInstruction::UnitInstruction()
@@ -32,6 +34,16 @@ UnitInstruction::UnitInstruction(std::shared_ptr<ReturnInstruction> ret)
 	this->value = this->ret->getValue();
 }
 
+UnitInstruction::UnitInstruction(bool isBreak)
+	: UnitInstruction()
+{
+	if(isBreak)
+		this->content = BREAK;
+	else
+		this->content = CONTINUE;
+	this->value = Value();
+}
+
 void UnitInstruction::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
@@ -47,6 +59,14 @@ void UnitInstruction::printTree(int tabulationNumber) const
 			break;
 		case RETURN:
 			this->ret->printTree(tabulationNumber + 1);
+			break;
+		case BREAK:
+			for(int i=0; i<=tabulationNumber; i++, std::cout << "  ");
+			std::cout << "BreakInstruction";
+			break;
+		case CONTINUE:
+			for(int i=0; i<=tabulationNumber; i++, std::cout << "  ");
+			std::cout << "BreakInstruction";
 			break;
 		default:
 			break;
@@ -77,6 +97,13 @@ IR::sh_Memory UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
 		    break;
 		case RETURN:
 			return ret->buildIR(currentBasicBlock);
+			break;
+		case BREAK:
+			return nullptr;
+			break;
+		case CONTINUE:
+			return nullptr;
+			break;
 		default:
 			std::cerr << "ERROR : UnitInstruction::buildIR : bad construction of unit instruction" << std::endl;
 		    break;
