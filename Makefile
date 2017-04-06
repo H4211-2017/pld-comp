@@ -1095,6 +1095,30 @@ src/IR/instructions/SetValue.cpp.s:
 	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/SetValue.cpp.s
 .PHONY : src/IR/instructions/SetValue.cpp.s
 
+src/IR/instructions/UnaryOperator.o: src/IR/instructions/UnaryOperator.cpp.o
+.PHONY : src/IR/instructions/UnaryOperator.o
+
+# target to build an object file
+src/IR/instructions/UnaryOperator.cpp.o:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/UnaryOperator.cpp.o
+.PHONY : src/IR/instructions/UnaryOperator.cpp.o
+
+src/IR/instructions/UnaryOperator.i: src/IR/instructions/UnaryOperator.cpp.i
+.PHONY : src/IR/instructions/UnaryOperator.i
+
+# target to preprocess a source file
+src/IR/instructions/UnaryOperator.cpp.i:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/UnaryOperator.cpp.i
+.PHONY : src/IR/instructions/UnaryOperator.cpp.i
+
+src/IR/instructions/UnaryOperator.s: src/IR/instructions/UnaryOperator.cpp.s
+.PHONY : src/IR/instructions/UnaryOperator.s
+
+# target to generate assembly for a file
+src/IR/instructions/UnaryOperator.cpp.s:
+	$(MAKE) -f CMakeFiles/pld-comp.dir/build.make CMakeFiles/pld-comp.dir/src/IR/instructions/UnaryOperator.cpp.s
+.PHONY : src/IR/instructions/UnaryOperator.cpp.s
+
 src/IR/instructions/WriteToMemory.o: src/IR/instructions/WriteToMemory.cpp.o
 .PHONY : src/IR/instructions/WriteToMemory.o
 
@@ -2691,6 +2715,9 @@ help:
 	@echo "... src/IR/instructions/SetValue.o"
 	@echo "... src/IR/instructions/SetValue.i"
 	@echo "... src/IR/instructions/SetValue.s"
+	@echo "... src/IR/instructions/UnaryOperator.o"
+	@echo "... src/IR/instructions/UnaryOperator.i"
+	@echo "... src/IR/instructions/UnaryOperator.s"
 	@echo "... src/IR/instructions/WriteToMemory.o"
 	@echo "... src/IR/instructions/WriteToMemory.i"
 	@echo "... src/IR/instructions/WriteToMemory.s"

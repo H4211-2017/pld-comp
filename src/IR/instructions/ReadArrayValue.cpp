@@ -11,6 +11,17 @@ ReadArrayValue::ReadArrayValue(sh_MemoryArray array, sh_Register caseNumber, sh_
     this->readMemoryList.push_back(arraySource);
     this->readRegisterList.push_back(caseNumberRegister);
     this->writtenRegisterList.push_back(destRegister);
+
+    caseNumberRegister->incrementReadCount();
+    destRegister->incrementWriteCount();
+    arraySource->incrementReadCount();
+}
+
+ReadArrayValue::~ReadArrayValue()
+{
+    caseNumberRegister->decrementReadCount();
+    destRegister->decrementWriteCount();
+    arraySource->decrementReadCount();
 }
 
 std::string ReadArrayValue::toString() const

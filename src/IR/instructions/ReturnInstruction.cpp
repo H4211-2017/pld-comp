@@ -3,19 +3,31 @@
 
 using namespace IR;
 
-ReturnInstruction::ReturnInstruction(sh_Memory returnValue):
-    returnedMemory(returnValue)
+ReturnInstruction::ReturnInstruction(sh_Register returnValue):
+    returnedRegister(returnValue)
 {
-    this->getReadMemoryList().push_back(returnedMemory);
+    if(returnedRegister != nullptr)
+    {
+        readRegisterList.push_back(returnedRegister);
+        returnedRegister->incrementReadCount();
+    }
+}
+
+ReturnInstruction::~ReturnInstruction()
+{
+    if(returnedRegister != nullptr)
+    {
+        returnedRegister->decrementReadCount();
+    }
 }
 
 std::string ReturnInstruction::toLinuxX64() const
 {
     std::string ret = "";
-    if(returnedMemory != nullptr)
+    if(returnedRegister != nullptr)
     {
         ret="\tmovq\t"; // movl ???
-        ret.append(returnedMemory->getASMname(AsmType::X64Linux));
+        ret.append(returnedRegister->getASMname(AsmType::X64Linux));
         ret.append(", %");
         ret.append(ASM_X64_FUNCTION_RETURN_REGISTER);
     }
@@ -25,9 +37,9 @@ std::string ReturnInstruction::toLinuxX64() const
 std::string ReturnInstruction::toString() const
 {
     std::string ret = "return ";
-    if(this->returnedMemory != nullptr)
+    if(this->returnedRegister != nullptr)
     {
-        ret.append(this->returnedMemory->getName());
+        ret.append(this->returnedRegister->getName());
     }
     return ret;
 }

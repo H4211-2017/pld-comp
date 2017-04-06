@@ -12,7 +12,40 @@ Call::Call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData
     functionParam(parameters),
     functionReturn(returnRegister)
 {
+    for(sh_AbstractData data : parameters)
+    {
+        if(sh_Register reg = std::dynamic_pointer_cast<Register>(data))
+        {
+            readRegisterList.push_back(reg);
+            reg->incrementReadCount();
+        }
+        else if(sh_Memory mem = std::dynamic_pointer_cast<Memory>(data))
+        {
+            readMemoryList.push_back(mem);
+            mem->incrementReadCount();
+        }
+    }
+    if(functionReturn != nullptr)
+    {
+        writtenRegisterList.push_back(functionReturn);
+        functionReturn->incrementWriteCount();
+    }
+}
 
+Call::~Call()
+{
+    for(sh_Register reg : readRegisterList)
+    {
+        reg->decrementReadCount();
+    }
+    for(sh_Memory mem : readMemoryList)
+    {
+        mem->decrementReadCount();
+    }
+    if(functionReturn != nullptr)
+    {
+        functionReturn->decrementWriteCount();
+    }
 }
 
 std::string Call::toLinuxX64() const
@@ -52,7 +85,7 @@ std::string Call::toLinuxX64() const
     if(this->calledFunction->getFunctionReturnType() != Type::VOID)
     {
         ret.append("\n");
-        ret.append("\tmovq\t");
+        ret.append("\tmovq\t%");
         ret.append(ASM_X64_FUNCTION_RETURN_REGISTER);
         ret.append(", ");
         ret.append(functionReturn->getASMname(AsmType::X64Linux));

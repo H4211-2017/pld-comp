@@ -8,6 +8,7 @@
 #include "FunctionBlock.h"
 #include "../instructions/ReturnInstruction.h"
 #include "../instructions/BreakInstruction.h"
+#include "../instructions/Call.h"
 
 using namespace IR;
 
@@ -91,7 +92,7 @@ void FunctionBlock::aliveRegistryDetection()
  * @remarks The list of function basic block must be generated (FunctionBlock::generateBasicBlockList())
  * @remarks The basic block must have their alive registry set (FunctionBlock::aliveRegistryDetection())
  */
-void FunctionBlock::affectRegistry(std::queue<std::string> asmRegistryAvailable)
+void FunctionBlock::affectRegistry(std::queue<std::string> asmRegistryAvailable, OptimisationLevel opLvl)
 {
     std::list<sh_BasicBlock> waitingForAffectation = coreList;
     while (waitingForAffectation.size() > 0) {
@@ -102,7 +103,7 @@ void FunctionBlock::affectRegistry(std::queue<std::string> asmRegistryAvailable)
             if(bb->isRegistryAfectable())
             {
                 //then affect his register
-                bb->affectRegistry(asmRegistryAvailable);
+                bb->affectRegistry(asmRegistryAvailable, opLvl);
                 //save the value of it
                 auto newIt = it;
                 newIt--;
@@ -174,7 +175,7 @@ void FunctionBlock::manageReturnStatements()
                 //find were to go
                 sh_BasicBlock loopTop = closestLoop(bb);
                 //jump to the end of the function
-                bb->setNextBlockTrue(loopTop);
+                bb->setNextBlockTrue(loopTop->getNextBlockFalse());
                 bb->setNextBlockFalse(nullptr);
                 //remove every instruction after return in this block
                 it++;
@@ -193,32 +194,80 @@ void FunctionBlock::manageReturnStatements()
 void FunctionBlock::removeEmptyBasicBlock()
 {
     bool changeDuringLoop = false;
-    while (!changeDuringLoop)
+    for(sh_BasicBlock bb : coreList)
     {
-        for(sh_BasicBlock bb : coreList)
+        if(bb->getInstructionsList().size() == 0 && bb != functionReturn && bb != functionInit)
         {
-            if(bb->getInstructionsList().size() == 0 && bb != functionReturn && bb != functionInit)
+            //if the basic block is empty the next is the true
+            sh_BasicBlock nextBlock = bb->getNextBlockTrue();
+            for(sh_BasicBlock previousBB : bb->getPreviousBlocks())
             {
-                //if the basic block is empty the next is the true
-                sh_BasicBlock nextBlock = bb->getNextBlockTrue();
-                for(sh_BasicBlock previousBB : bb->getPreviousBlocks())
+                if(previousBB->getNextBlockFalse() == bb)
                 {
-                    if(previousBB->getNextBlockFalse() == bb)
-                    {
-                        previousBB->setNextBlockFalse(nextBlock);
-                        changeDuringLoop = true;
-                    }
-                    else if(previousBB->getNextBlockTrue() == bb)
-                    {
-                        previousBB->setNextBlockTrue(nextBlock);
-                        changeDuringLoop = true;
-                    }
+                    previousBB->setNextBlockFalse(nextBlock);
+                    changeDuringLoop = true;
+                }
+                else if(previousBB->getNextBlockTrue() == bb)
+                {
+                    previousBB->setNextBlockTrue(nextBlock);
+                    changeDuringLoop = true;
                 }
             }
         }
-        if(changeDuringLoop)
+    }
+    if(changeDuringLoop)
+    {
+        this->generateBasicBlockList();
+        this->affectPreviousBasicBlock();
+    }
+}
+
+/**
+ * @brief FunctionBlock::removeUnreadMemory remove instruction witing into an unread memory
+ * @remark coreList must be set
+ */
+void FunctionBlock::removeUnreadMemory()
+{
+    for(sh_BasicBlock bb : coreList)
+    {
+        std::list<sh_AbsInstruction> &instList = bb->getInstructionsList();
+        //read instruction bottom up
+        for(auto it=instList.rbegin() ; it!=instList.rend() ; it++)
         {
-            this->generateBasicBlockList();
+            sh_AbsInstruction inst = *it;
+            if(std::dynamic_pointer_cast<Call>(inst))
+            {
+                //nothing to do
+            }
+            else
+            {
+                bool isUseLess = false;
+                //if the only write done in this instruction will never be read, the instruction is useless
+                for(sh_Register reg : inst->getWroteRegisterList())
+                {
+                    if(reg->getReadCount() == 0)
+                    {
+                        isUseLess = true;
+                    }
+                }
+                for(sh_Memory mem : inst->getWroteMemoryList())
+                {
+                    if(mem->getReadCount() == 0)
+                    {
+                        isUseLess = true;
+                    }
+                }
+                //if the instruction is useless, delete it
+                if(isUseLess)
+                {
+                    auto previousIt = it;
+                    previousIt--;
+                    instList.erase(std::next(it).base());
+                    //during this process if the shared pointer are rigth, the instruction deleter must be call
+                    //and so the read / write count of the used reg/mem should be updated
+                    it = previousIt;
+                }
+            }
         }
     }
 }
@@ -307,17 +356,20 @@ void FunctionBlock::generateIR()
  * @remark This function must be called only once ! the beaviour is undefined if multliple call
  * are made on the same object.
  */
-void FunctionBlock::generateASM(AsmType asmType)
+void FunctionBlock::generateASM(AsmType asmType, OptimisationLevel opLvl)
 {
     generateBasicBlockList();
     manageReturnStatements();
     //re generate basic block list in case obvious dead code came
     generateBasicBlockList();
     affectPreviousBasicBlock();
-    removeEmptyBasicBlock();
+    if(opLvl > OptimisationLevel::O0)
+    {
+        removeUnreadMemory();
+    }
+    //removeEmptyBasicBlock();
     getMemoryFromBasicBlock();
     aliveRegistryDetection();
-    affectMemory();
     std::deque<std::string> regList;
     switch (asmType) {
     case AsmType::X64Linux:
@@ -329,7 +381,13 @@ void FunctionBlock::generateASM(AsmType asmType)
         break;
     }
     std::queue<std::string> regQueue(regList);
-    affectRegistry(regQueue);
+    affectRegistry(regQueue,opLvl);
+    if(opLvl > OptimisationLevel::O1)
+    {
+        removeUnreadMemory();
+        removeEmptyBasicBlock();
+    }
+    affectMemory();
 }
 
 /**
@@ -455,7 +513,7 @@ void FunctionBlock::printASMprolog(std::ostream &os, AsmType asmType) const
                 //if we are still on param passed by register
                 //move the wanted register to it's coresponding AbstracData
                 const sh_AbstractData &absData = *memParmIt;
-                os << "\tmovq\t" << *regNameIt << ", " << absData->getASMname(asmType) << std::endl;
+                os << "\tmovq\t%" << *regNameIt << ", " << absData->getASMname(asmType) << std::endl;
                 //TODO: manage arrays on function param (pointer...)
                 regNameIt++;
             }

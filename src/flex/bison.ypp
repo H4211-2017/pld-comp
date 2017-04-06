@@ -18,39 +18,39 @@ std::shared_ptr<Scope> currentContext = global;
 %}
 
 %union {
-	char cVal;
-	long int lVal;
-	char * sVal;
-	char * id;
-	AST::AbstractExpression* evalExpression;
-	
-	AST::Block* block;
-	
-	AST::ComposedInstruction* compInstruction; 
-	AST::UnitInstruction* unitInstruction;
-	AST::AbstractInstruction* abstractInstruction;
-	AST::SequenceInstruction* sequenceInstruction;
-	AST::ReturnInstruction* ret;
-	
+    char cVal;
+    long int lVal;
+    char * sVal;
+    char * id;
+    AST::AbstractExpression* evalExpression;
+
+    AST::Block* block;
+
+    AST::ComposedInstruction* compInstruction;
+    AST::UnitInstruction* unitInstruction;
+    AST::AbstractInstruction* abstractInstruction;
+    AST::SequenceInstruction* sequenceInstruction;
+    AST::ReturnInstruction* ret;
+
     std::shared_ptr<AST::AbstractVariable>* var;
-	AST::VariableSignature* signatureV;
-	AST::Type* typeVar;
-	AST::VariableDeclaration* declVar;
-	AST::ArrayDeclaration* declArray;
-	enum AST::OPAffect* op;
-	
+    AST::VariableSignature* signatureV;
+    AST::Type* typeVar;
+    AST::VariableDeclaration* declVar;
+    AST::ArrayDeclaration* declArray;
+    enum AST::OPAffect* op;
+
     AST::FunctionSignature* signatureF;
-	AST::LArguments* fctArguments;
+    AST::LArguments* fctArguments;
     AST::FunctionDeclaration* declFct;
     AST::Function* fct;
-	AST::LParametres* params;
-	AST::FunctionCall * appelFct;
-	
-	AST::AbstractStructure* struc;
-	AST::IfStructure* ifStruc;
-	AST::WhileStructure* whileStruc;
-	AST::ForStructure* forStruc;
-	AST::ElseStructure* elseStruc;
+    AST::LParametres* params;
+    AST::FunctionCall * appelFct;
+
+    AST::AbstractStructure* struc;
+    AST::IfStructure* ifStruc;
+    AST::WhileStructure* whileStruc;
+    AST::ForStructure* forStruc;
+    AST::ElseStructure* elseStruc;
 }
 
 %token SHARP LINE_COM BEGIN_COM END_COM 
@@ -131,7 +131,7 @@ std::shared_ptr<Scope> currentContext = global;
 /* ===== GENERAL ===== */ 
 
 program : liext mainbody liext {*program = new ProgramNode(std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($1))),
-															std::make_shared<FunctionDeclaration>( *( static_cast< FunctionDeclaration* >($2))), 
+                                                                                                                        std::make_shared<FunctionDeclaration>( *( static_cast< FunctionDeclaration* >($2))),
 															std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($3))));
 								delete $1;
 								delete $2;
@@ -144,23 +144,24 @@ mainbody : maindecl bloc {$1->setBlock(std::make_shared<Block>( *( static_cast< 
                                                        currentContext->getMother());
                         delete $1;
                         delete $2;
-                        currentContext = currentContext->getMother();}
+                        currentContext = currentContext->getMother();
+                       }
 	;
 
 maindecl : maintype MAIN LEFT_PARENTHESIS mainarg RIGHT_PARENTHESIS {if($4 != nullptr)
-																		{
+                                                                        {
                                                                             $$ = new Function(std::make_shared<FunctionSignature>("main", *$1),
-																					std::make_shared<LArguments>( *( static_cast< LArguments* >($4))), currentContext);	
-																			delete $1;
-																			delete $4;
-																		}
-																		else
-																		{
+                                                                                                std::make_shared<LArguments>( *( static_cast< LArguments* >($4))), currentContext);
+                                                                                delete $1;
+                                                                                delete $4;
+                                                                        }
+                                                                        else
+                                                                        {
                                                                             $$ = new Function(std::make_shared<FunctionSignature>("main", *$1), currentContext);
-																			delete $1;	
-																		}			
-																		currentContext = $$->getScope();
-																	}
+                                                                                delete $1;
+                                                                        }
+                                                                        currentContext = $$->getScope();
+                                                                    }
     ;
 maintype : type         {$$ = $1;}
     | VOID              {$$ = new Type(Type::VOID);}
@@ -185,15 +186,15 @@ iext : deffonc    {$$ = $1;}
 
 declfonc : debutfonc SEMICOLON  {$$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
 									delete $1;
-									currentContext = currentContext->getMother();}
+                                                                        currentContext = currentContext->getMother();
+                                }
     ;
 deffonc : debutfonc bloc        {$1->setBlock(std::make_shared<Block>( *( static_cast< Block* >($2))));
                                     $$ = new FunctionDeclaration($1->getSignature(), std::make_shared<Function>( *( static_cast< Function* >($1))), currentContext->getMother());
-
-									delete $1;
-									delete $2;
-									currentContext = currentContext->getMother();
-								}
+                                                                        delete $1;
+                                                                        delete $2;
+                                                                        currentContext = currentContext->getMother();
+                                                                }
     ;
     
 debutfonc : sigfonc larg RIGHT_PARENTHESIS     {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))),
@@ -201,15 +202,15 @@ debutfonc : sigfonc larg RIGHT_PARENTHESIS     {$$ = new Function(std::make_shar
                                                     delete $1;
                                                     delete $2;
                                                     currentContext = $$->getScope();
-												}
+                                                                                                }
     | sigfonc RIGHT_PARENTHESIS                {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
 												delete $1;
 												currentContext = $$->getScope();
-												}
+                                                                                                }
     | sigfonc VOID RIGHT_PARENTHESIS           {$$ = new Function(std::make_shared<FunctionSignature>( *( static_cast< FunctionSignature* >($1))), currentContext);
 												delete $1;
 												currentContext = $$->getScope();
-												}
+                                                                                                }
     ;
     
 larg : larg COMMA arg                               {$$ = $1; $$->addArgument(std::make_shared<VariableSignature>( *( static_cast< VariableSignature* >($3))));
@@ -301,10 +302,12 @@ sigfonc : type ID LEFT_PARENTHESIS          {$$ = new FunctionSignature($2, *$1)
 
 /* ===== INSTRUCTIONS INTERIEURES ===== */
 
-open_context : LEFT_BRACES {currentContext = std::make_shared<Scope>(currentContext);}
-	;
+open_context : LEFT_BRACES {currentContext = std::make_shared<Scope>(currentContext);
+                           }
+        ;
 	
-close_context : RIGHT_BRACES {currentContext = currentContext->getMother();}
+close_context : RIGHT_BRACES {currentContext = currentContext->getMother();
+                           }
 
 bloc : open_context seqint close_context    {$$ = new Block(currentContext, std::make_shared<SequenceInstruction>( *( static_cast< SequenceInstruction* >($2) )));}
     ;

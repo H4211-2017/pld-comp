@@ -22,23 +22,25 @@ std::string OperatorOr::toString() const
 std::string OperatorOr::toLinuxX64() const
 {
     std::string ret = "\tmovq\t";
-    ret.append( this->firstValue->getAsmRegisterName() );
+    ret.append( this->firstValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax" );
-    ret.append( "\n\addq\t");
-    ret.append( this->secondValue->getAsmRegisterName() );
+    ret.append( "\n\taddq\t");
+    ret.append( this->secondValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax");
-    ret.append("\ncmpq\t%rax, $0");
-    ret.append("\nsetg\t%al\ncmovne\t$1, %al\ncmove\t$0, %al\nmovq\t%rax, ");
-    ret.append( destination->getAsmRegisterName() );
+    ret.append("\n\tcmpq\t$0, %rax");
+    ret.append("\n\tmovq\t$0, %rcx\n\tmovq\t$1, %rdx");
+    ret.append("\n\tcmovne\t%rdx, %rax\n\tcmove\t%rcx, %rax\n\tmovq\t%rax, ");
+    ret.append( this->destination->getASMname(AsmType::X64Linux) );
     return ret;
 }
 
 /* Code en sortie :
     movq	-24(%rbp), %rax
     addq	-16(%rbp), %rax  // a + b
-    cmpq    %rax, $0
-    setg 	%al
-    cmovne	$1, %al
-    cmove $0, %al
+    cmpq    $0, %rax
+    movq	$0, %rcx
+	movq	$1, %rdx
+    cmovne	$1, %rax
+    cmove $0, %rax
     movq	%rax, -8(%rbp)
 */

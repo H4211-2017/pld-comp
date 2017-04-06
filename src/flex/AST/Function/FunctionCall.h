@@ -24,8 +24,7 @@ public:
 
 
 protected:
-    
-    std::shared_ptr<Function> fct;
+    std::string functionIdentifiant;
     std::shared_ptr<LParametres> parameters;
 
 };

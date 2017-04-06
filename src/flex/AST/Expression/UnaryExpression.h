@@ -14,11 +14,13 @@ namespace AST{
 
 enum UnaryOp
 {
-	UMINUS,
-	UPLUS,
-	UBITN,
-	UBOOLN
+    UMINUS, // -
+    UPLUS,  // +
+    UBITN,  // ~
+    UBOOLN  // !
 };
+
+typedef enum UnaryOp UnaryOp;
 
 class UnaryExpression : public AbstractExpression{
 public:

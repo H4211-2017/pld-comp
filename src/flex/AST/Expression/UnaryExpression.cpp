@@ -6,6 +6,10 @@
  */
 
 #include "UnaryExpression.h"
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/UnaryOperator.h"
+
+#include <iostream>
 
 using namespace AST;
 
@@ -56,7 +60,7 @@ void UnaryExpression::printTree(int tabulationNumber) const
 
     for (int i = 0; i < tabulationNumber + 1; i++)
     {
-        std::cout << "\t";
+        std::cout << "  ";
     }
     printOperator();
     std::cout << std::endl;
@@ -89,5 +93,11 @@ Value UnaryExpression::evaluate() const
 
 IR::sh_Memory UnaryExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	return nullptr;
+	IR::Generator gen; 
+	IR::sh_Memory leftMem = this->expr->buildIR(currentBasicBlock); 
+	IR::Type irType = this->expr->getValue().getIRType(); 
+	IR::sh_Memory destMem = gen.getNewUnusedMemmory(irType); 
+	std::list<IR::sh_AbsInstruction> instructionsList = gen.unaryOperator(leftMem, destMem, op); 
+	currentBasicBlock->pushInstructionBack(instructionsList); 
+	return destMem; 
 }

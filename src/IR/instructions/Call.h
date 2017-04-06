@@ -13,6 +13,7 @@ namespace IR {
     {
     public:
         Call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> parameters, sh_Register returnRegister);
+        ~Call();
 
         virtual std::string toString() const;
 

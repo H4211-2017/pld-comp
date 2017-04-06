@@ -9,6 +9,15 @@ ReadFromMemory::ReadFromMemory(sh_Memory from, sh_Register to):
 {
     this->readMemoryList.push_back(from);
     this->writtenRegisterList.push_back(to);
+
+    source->incrementReadCount();
+    destination->incrementWriteCount();
+}
+
+ReadFromMemory::~ReadFromMemory()
+{
+    source->decrementReadCount();
+    destination->decrementWriteCount();
 }
 
 std::string ReadFromMemory::toString() const

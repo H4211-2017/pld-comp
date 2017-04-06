@@ -8,6 +8,12 @@ SetValue::SetValue(Constant constant, sh_Register destRegister):
     value(constant)
 {
     this->writtenRegisterList.push_back(destRegister);
+    dest->incrementWriteCount();
+}
+
+SetValue::~SetValue()
+{
+    dest->decrementWriteCount();
 }
 
 std::string SetValue::toString() const

@@ -27,7 +27,7 @@ std::string OperatorSmaller::toLinuxX64() const
     ret.append( "\n\tcmpq\t");
     ret.append( this->secondValue->getASMname(AsmType::X64Linux) );
     ret.append( ", %rax");
-    ret.append("\nsetl\t%al\n\tmovzbl\t%al, %eax\nmovq\t%rax, ");
+    ret.append("\n\tsetl\t%al\n\tmovzbl\t%al, %eax\n\tmovq\t%rax, ");
     ret.append( destination->getASMname(AsmType::X64Linux) );
     return ret;
 }

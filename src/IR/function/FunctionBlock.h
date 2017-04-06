@@ -9,6 +9,7 @@
 #include "../basicBlock/BasicBlock.h"
 
 namespace IR {
+
     class FunctionBlock : public AbstractFunction
     {
     public:
@@ -23,17 +24,18 @@ namespace IR {
         void printIR(std::ostream &os) const;
         void printASM(std::ostream &os, AsmType asmType) const;
         void generateIR();
-        void generateASM(AsmType asmType);
+        void generateASM(AsmType asmType, OptimisationLevel opLvl = OptimisationLevel::O0);
 
     protected:
         void generateBasicBlockList();
         void affectPreviousBasicBlock();
         void getMemoryFromBasicBlock();
         void aliveRegistryDetection();
-        void affectRegistry(std::queue<std::string> asmRegistryAvailable);
+        void affectRegistry(std::queue<std::string> asmRegistryAvailable, OptimisationLevel opLvl = OptimisationLevel::O0);
         void affectMemory();
         void manageReturnStatements();
         void removeEmptyBasicBlock();
+        void removeUnreadMemory();
 
         sh_BasicBlock closestLoop(const sh_BasicBlock &source);
 

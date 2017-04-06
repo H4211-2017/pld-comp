@@ -24,6 +24,10 @@ Function::Function(std::shared_ptr<FunctionSignature> signature, std::shared_ptr
     : Function(signature, parentScope)
 {
     args = arguments;
+    if(args != nullptr && !args->isForDeclaration())
+    {
+        args->prepareScope(currentScope);
+    }
 }
 
 bool Function::compareArguments(std::shared_ptr<Function> f2) const
@@ -50,7 +54,6 @@ bool Function::checkParametres(std::shared_ptr<LParametres> params) const
         return params->parameters.size() == 0;
 	}
 	return args->checkParametres(params);
-	
 }
 
 bool Function::isDeclaration() const
@@ -60,17 +63,12 @@ bool Function::isDeclaration() const
 
 void Function::setBlock(std::shared_ptr<Block> content)
 {
-    std::cout << "Function::setBlock : " << sig->getIdentifiant() << " : begin" << std::endl;
     this->content = content;
     if(args != nullptr && args->isForDeclaration())
     {
         std::stringstream ss;
-        ss << "ERROR in definition of function <" << sig->getIdentifiant() << "> : one or more parameter is unnamed.";
+        ss << "ERROR in definition of function <" << sig->getIdentifiant() << " : one or more parameter is unnamed.";
         throw std::runtime_error(ss.str());
-    }
-    if (args != nullptr)
-    {
-        args->prepareScope(currentScope);
     }
 
     irFunction = std::make_shared<IR::FunctionBlock>(sig->getIdentifiant(), sig->getValue().getIRType());

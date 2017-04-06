@@ -4,6 +4,9 @@
 
 #include "BasicBlock.h"
 #include "../config/Enums.h"
+#include "../instructions/ReadFromMemory.h"
+#include "../instructions/WriteToMemory.h"
+#include "../instructions/Call.h"
 
 using namespace IR;
 
@@ -47,6 +50,23 @@ void BasicBlock::insertNextBlockTrue(sh_BasicBlock basicBlock)
  */
 void BasicBlock::setNextBlockFalse(sh_BasicBlock basicBlock)
 {
+    //if the end of the basic block is conditionnal
+    if(nextBlockTrue != nullptr && basicBlock != nullptr)
+    {
+        if(conditionnalJumpRegister != nullptr)
+        {
+            conditionnalJumpRegister->incrementReadCount();
+        }
+    }
+    //the basic block was conditionnal but is no more
+    else if(basicBlock == nullptr && nextBlockFalse != nullptr)
+    {
+        if(conditionnalJumpRegister != nullptr)
+        {
+            conditionnalJumpRegister->decrementReadCount();
+        }
+    }
+    //finaly set the value
     this->nextBlockFalse = basicBlock;
 }
 
@@ -56,6 +76,23 @@ void BasicBlock::setNextBlockFalse(sh_BasicBlock basicBlock)
  */
 void BasicBlock::setNextBlockTrue(sh_BasicBlock basicBlock)
 {
+    //if the end of the basic block is conditionnal
+    if(nextBlockFalse != nullptr && basicBlock != nullptr)
+    {
+        if(conditionnalJumpRegister != nullptr)
+        {
+            conditionnalJumpRegister->incrementReadCount();
+        }
+    }
+    //the basic block was conditionnal but is no more
+    else if(basicBlock == nullptr && nextBlockTrue != nullptr)
+    {
+        if(conditionnalJumpRegister != nullptr)
+        {
+            conditionnalJumpRegister->decrementReadCount();
+        }
+    }
+    //finaly set the value
     this->nextBlockTrue = basicBlock;
 }
 
@@ -90,7 +127,16 @@ void BasicBlock::pushInstructionBack(sh_AbsInstruction instruction)
     //the first register is used as no instruction can wrote two register
     if(instruction->getWroteRegisterList().size() > 0)
     {
+        //if the register was already set decrement its read number value
+        if(isConditionnal() && conditionnalJumpRegister != nullptr)
+        {
+            conditionnalJumpRegister->decrementReadCount();
+        }
         conditionnalJumpRegister = instruction->getWroteRegisterList().front();
+        if(isConditionnal())
+        {
+            conditionnalJumpRegister->incrementReadCount();
+        }
     }
 }
 
@@ -135,7 +181,7 @@ void BasicBlock::updateChildPreviousBlock()
  * the alive registry of this block to have their asm name set (can be checked
  * using BasicBlock::isRegistryAfectable)
  */
-void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
+void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry, OptimisationLevel opLvl)
 {
     if(instructionsList.size() == 0)
         return;
@@ -168,9 +214,13 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
             availableAsmRegistry.push(regAsmName);
         }
     }
-    ///Affect asm name the the registry
-    for(sh_AbsInstruction inst : instructionsList)
+    ///Define data sruct used for O2 optimisation
+    std::map<std::string,sh_Register> lastRegForAsmName;
+    std::map<sh_Memory,sh_Register> lastRegForMemory;
+    ///Affect asm name the registry
+    for(auto instIt=instructionsList.begin() ; instIt!=instructionsList.end() ; instIt++)
     {
+        sh_AbsInstruction inst = *instIt;
         //update avaibleRegistry queue by adding now unused register
         for(std::list<sh_Register>::iterator it=aliveRegisters.begin() ; it!=aliveRegisters.end() ; it++)
         {
@@ -190,6 +240,49 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
                 it = newIt;
             }
         }
+        //if we are in a O2 or more optimisation level
+        if(opLvl > OptimisationLevel::O1)
+        {
+            //if the instruction is a memory read,
+            if(std::dynamic_pointer_cast<ReadFromMemory>(inst))
+            {
+                sh_Register dest = inst->getWroteRegisterList().front();
+                sh_Memory source = inst->getReadMemoryList().front();
+                //look if we find a register with the wanted value
+                sh_Register lastRegForSource = lastRegForMemory.find(source)->second;
+                if(lastRegForSource != nullptr)
+                {
+                    //if the wanted register is still in memory (not erased yet)
+                    sh_Register lastRegForAsmNameOfSourceReg = lastRegForAsmName.find(lastRegForSource->getAsmRegisterName())->second;
+                    if(lastRegForSource == lastRegForAsmNameOfSourceReg)
+                    {
+                        //then we can set the same asmName to the dest reg
+                        dest->setAsmRegisterName(lastRegForSource->getAsmRegisterName());
+                        //remove the now useless read from memory instruction from this basicblock
+                        auto previousInstIt = instIt;
+                        previousInstIt--;
+                        instructionsList.erase(instIt);
+                        instIt = previousInstIt;
+                    }
+                }
+                //then update lastRegForMemory map
+                lastRegForMemory[source] = dest;
+            }
+            //if the instruction is a memory write
+            if(std::dynamic_pointer_cast<WriteToMemory>(inst))
+            {
+                sh_Register reg = inst->getReadRegisterList().front();
+                sh_Memory mem = inst->getWroteMemoryList().front();
+                //then update lastRegForMemory map
+                lastRegForMemory[mem] = reg;
+            }
+            //if we are in an Call, all register can be erased (or will) so clean every thing
+            if(std::dynamic_pointer_cast<Call>(inst))
+            {
+                lastRegForMemory.clear();
+                lastRegForAsmName.clear();
+            }
+        }
         //affect registry to newly used register
         for(sh_Register reg : inst->getWroteRegisterList())
         {
@@ -202,6 +295,8 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry)
                 availableAsmRegistry.pop();
                 //add it to the alive register list
                 aliveRegisters.push_back(reg);
+                //update the map of asm name to IR register
+                lastRegForAsmName[regName] = reg;
             }
         }
 
@@ -255,11 +350,11 @@ void BasicBlock::printIr(std::ostream &os) const
 
     }
     //if only one is set, no need to check any things
-    else if(nextBlockTrue == nullptr)
+    else if(nextBlockFalse != nullptr && nextBlockTrue == nullptr)
     {
         os << "Jump to: " << nextBlockFalse->getName() << std::endl;
     }
-    else if(nextBlockFalse == nullptr)
+    else if((nextBlockFalse == nullptr && nextBlockTrue != nullptr) || conditionnalJumpRegister == nullptr)
     {
         os << "Jump to: " << nextBlockTrue->getName() << std::endl;
     }
@@ -270,6 +365,7 @@ void BasicBlock::printIr(std::ostream &os) const
            << nextBlockFalse->getName() << " (False block)" << std::endl;
         os << "Jump to: " << nextBlockTrue->getName() << std::endl;
     }
+   
 }
 
 void BasicBlock::printAsm(std::ostream &os, AsmType asmType) const
@@ -344,7 +440,7 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
 
     }
     //if only one is set, no need to check any things
-    else if(nextBlockFalse != nullptr)
+    else if(nextBlockFalse != nullptr && nextBlockTrue == nullptr)
     {
         switch (asmType) {
         case AsmType::X64Linux:
@@ -354,7 +450,7 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
             break;
         }
     }
-    else if(nextBlockTrue != nullptr || conditionnalJumpRegister == nullptr)
+    else if((nextBlockFalse == nullptr && nextBlockTrue != nullptr) || conditionnalJumpRegister == nullptr)
     {//if the only the nextblockTrue is set or if the conditionnalRegister is undeffined
         switch (asmType) {
         case AsmType::X64Linux:
@@ -369,7 +465,7 @@ void BasicBlock::printAsmJump(std::ostream &os, AsmType asmType) const
         //else the two are set, need to do a conditionnal jump
         switch (asmType) {
         case AsmType::X64Linux:
-            os << "\tcmpq\t$0, " << conditionnalJumpRegister->getName() << std::endl;
+            os << "\tcmpq\t$0, " << conditionnalJumpRegister->getASMname(AsmType::X64Linux) << std::endl;
             os << "\tjne " << nextBlockTrue->getName() << std::endl;
             os << "\tjmp " << nextBlockFalse->getName() << std::endl;
             break;

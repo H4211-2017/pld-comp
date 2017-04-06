@@ -7,13 +7,14 @@ namespace IR {
     class ReturnInstruction : public AbstractInstruction
     {
     public:
-        ReturnInstruction(sh_Memory returnValue = nullptr);
+        ReturnInstruction(sh_Register returnValue = nullptr);
+        ~ReturnInstruction();
 
         virtual std::string toLinuxX64() const;
         virtual std::string toString() const;
 
     private:
-        sh_Memory returnedMemory;
+        sh_Register returnedRegister;
     };
 }
 
