@@ -120,6 +120,7 @@ int main(int argc, char *argv[])
 	std::cout << "main apres printIR" << std::endl;
     std::ofstream asmFileStream(target);
     programStructure->printASM(asmFileStream, IR::AsmType::X64Linux, optimisationlevel);
+    std::cout << "main after printASM" << std::endl;
 
 	delete program;
 

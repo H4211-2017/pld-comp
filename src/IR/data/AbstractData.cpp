@@ -5,7 +5,8 @@ using namespace IR;
 AbstractData::AbstractData(Type type, std::string name):
     dataName(name), dataType(type)
 {
-
+    readCount = 0;
+    writeCount = 0;
 }
 
 std::string AbstractData::getName() const

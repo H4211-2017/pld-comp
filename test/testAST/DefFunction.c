@@ -1,4 +1,4 @@
-int32_t fonctionAvant(int32_t z)
+void fonctionAvant(int32_t z)
 {
     return z;
 }

@@ -23,9 +23,9 @@ Value ElseStructure::evaluate() const
 
 void ElseStructure::printTree(int tabulationNumber) const
 {
+    AbstractNode::printTree(tabulationNumber);
 	if(intInstruction != nullptr)
 	{	
-		AbstractNode::printTree(tabulationNumber);
 		std::cout << std::endl;
 		intInstruction->printTree(tabulationNumber + 1);
 	}
