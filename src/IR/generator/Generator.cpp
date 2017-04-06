@@ -146,6 +146,9 @@ std::list<sh_AbsInstruction> Generator::setValue(sh_Memory value, sh_Memory dest
  */
 std::list<sh_AbsInstruction> Generator::call(std::shared_ptr<AbstractFunction> function, std::list<sh_AbstractData> param, sh_Memory retMemory) const
 {
+    std::cout << "Generator::call : begin" << std::endl;
+    std::cout << "Generator::call : function : " << function << std::endl;
+    std::cout << "Generator::call : retMemory : " << retMemory << std::endl;
     std::list<sh_AbsInstruction> instructionList;
     sh_Register tempReg = this->getNewUnusedRegister(retMemory->getType());
     //add call instruction
