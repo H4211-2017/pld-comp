@@ -1,10 +1,17 @@
+#include <stdint.h>
+
 int32_t main()
 {
     //int32_t a;
     //int32_t b[5];
     //a = 3;
     //b[0] = 1;
-
+    int32_t i;
+    i = 0;
+    for(;;)
+    {
+       i = i +1;
+    }
     //return 1+2;
     //return 30 - 3;
     //return 5*6;
@@ -19,5 +26,5 @@ int32_t main()
     //return 8 | 3;
     //return 4 ^ 6;
     //return 6 || 3;
-    return !6;
+    return 0;
 }

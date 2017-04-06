@@ -382,11 +382,11 @@ void FunctionBlock::generateASM(AsmType asmType, OptimisationLevel opLvl)
     }
     std::queue<std::string> regQueue(regList);
     affectRegistry(regQueue,opLvl);
-    if(opLvl > OptimisationLevel::O1)
-    {
-        removeUnreadMemory();
-        removeEmptyBasicBlock();
-    }
+//    if(opLvl > OptimisationLevel::O1)
+//    {
+//        removeUnreadMemory();
+//        removeEmptyBasicBlock();
+//    }
     affectMemory();
 }
 
