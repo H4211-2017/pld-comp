@@ -60,6 +60,7 @@ bool Function::isDeclaration() const
 void Function::setBlock(std::shared_ptr<Block> content)
 {
     this->content = content;
+    this->content->setParentScope(currentScope);
     if(args != nullptr && args->isForDeclaration())
     {
         std::stringstream ss;
