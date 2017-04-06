@@ -50,10 +50,24 @@ IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 
     IR::Type returnType = getValue().getIRType();
     IR::sh_Memory returnStatement = gen.getNewUnusedMemmory(returnType);
-	// TODO : complete this function by using params
 
-    std::list<IR::sh_AbsInstruction> absIntructions = gen.call(fct->getIrFunction(), irParams, returnStatement);
-    currentBasicBlock->pushInstructionBack(absIntructions);
+    std::list<IR::sh_AbsInstruction> absInstructions;
+    if (functionIdentifiant == "getchar")
+    {
+        IR::sh_FunctionBlock getCharFunctionIR = std::make_shared<IR::FunctionBlock>("getchar", IR::Type::CHAR);
+        absInstructions = gen.call(getCharFunctionIR, irParams, returnStatement);
+    }
+    else if (functionIdentifiant == "putchar")
+    {
+        IR::sh_FunctionBlock putCharFunctionIR = std::make_shared<IR::FunctionBlock>("putchar", IR::Type::VOID);
+        putCharFunctionIR->pushBackNewParam(irParams.front());
+        absInstructions = gen.call(putCharFunctionIR, irParams, returnStatement);
+    }
+    else
+    {
+        absInstructions = gen.call(fct->getIrFunction(), irParams, returnStatement);
+    }
+    currentBasicBlock->pushInstructionBack(absInstructions);
     return returnStatement;
 }
 
