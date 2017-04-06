@@ -101,6 +101,7 @@ IR::sh_Memory ForStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     {
 		this->condInstr2->buildIR(testBasicBlock);
 	}
+	
     //loop block is full of instrucitons...
     this->intInstruction->buildIR(loopBasicBlock);
     //... and finish by executing the increment (don't forget that loopBasicBlock may have been updated durring the previous call)

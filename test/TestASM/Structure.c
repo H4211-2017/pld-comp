@@ -27,7 +27,6 @@ int32_t main(void)
 	
 	for(;;)
 	{
-		a = 4;
 	}
 	
 	return a;
