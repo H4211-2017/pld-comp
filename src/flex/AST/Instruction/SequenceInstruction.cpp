@@ -59,9 +59,10 @@ IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock
 	
 	IR::sh_Memory last = nullptr;
 	
+    std::cout << "SequenceInstruction::buildIR : instructionList.size : " << instructionsList.size() << std::endl;
 	if (instructionsList.size() == 0)
 	{
-		// void intruction sequence has to have valure = 0
+        // void intruction sequence has to have value = 0
 		//~ IR::Constant constant(IR::VOID, 0);
 		//~ last = gen.getNewUnusedMemmory(IR::VOID);
 		//~ std::list<IR::sh_AbsInstruction> absIntructions = gen.setValue(constant, last);
@@ -71,6 +72,7 @@ IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock
 	{
 		for(std::shared_ptr<AbstractInstruction> instruction : instructionsList)
 		{
+            std::cout << "SequenceInstruction::buildIR : instruction : " << instruction << std::endl;
 			if (instruction != nullptr)
 			{
 				last = instruction->buildIR(currentBasicBlock);

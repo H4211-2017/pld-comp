@@ -10,7 +10,6 @@ using namespace AST;
 
 
 Scope::Scope()
-	: mother(nullptr)
 {
 	std::shared_ptr<Function> getchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("getchar", Type::CHAR), nullptr);
 	std::shared_ptr<Function> putchar = std::make_shared<Function>(std::make_shared<FunctionSignature>("putchar", Type::ERROR), 
@@ -18,11 +17,14 @@ Scope::Scope()
 																	nullptr);
 	fScope.declareFunction("getchar", getchar);
 	fScope.declareFunction("putchar", putchar);
+    mother = nullptr;
+    std::cout << "Scope::Scope : contruction scope mere : this : " << this << std::endl;
 }
 
 Scope::Scope( std::shared_ptr<Scope> Scope )
 {
 	mother = Scope;
+    std::cout << "Scope::Scope : construction scope fille : this : " << this << " mere : " << mother << std::endl;
 }
 
 Scope::~Scope()
@@ -91,9 +93,15 @@ void Scope::declareFunction(std::string identifiant, std::shared_ptr<Function> d
 
 std::shared_ptr<Function> Scope::findFunction(std::string identifiant)
 {
+    std::cout << "Scope::findFunction : begin : identifiant : " << identifiant << std::endl;
+    static int i = 0;
+    std::cout << "Scope::findFunction : i : " << i++ << std::endl;
+    std::cout << "Scope::findFunction : this : " << this << std::endl;
+    std::cout << "Scope::findFunction : mother : " << mother << std::endl;
+    //std::cout << "Scope::findFunction : fscope : " << fScope << std::endl;
 	try
 	{
-        auto val = fScope.findFunction(identifiant);
+        std::shared_ptr<Function> val = fScope.findFunction(identifiant);
 		return val;
 		
 		
@@ -101,7 +109,7 @@ std::shared_ptr<Function> Scope::findFunction(std::string identifiant)
 	catch(UndeclaredIdFctException& e)
 	{
 		try {
-			if(mother != nullptr)
+            if(mother != nullptr && &(*mother) != this)
                 return mother->findFunction(identifiant);
 			else
 				throw UndeclaredIdFctException();

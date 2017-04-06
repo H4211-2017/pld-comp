@@ -58,6 +58,12 @@ AbstractExpression::AbstractExpression(std::string name, Type type, long int val
 	
 }
 
+AbstractExpression::AbstractExpression(std::string name, std::shared_ptr<Scope> scope)
+    : AbstractNode(name, scope)
+{
+
+}
+
 std::shared_ptr<AbstractExpression> make_shared_expr(AbstractExpression* ptr)
 {
     std::string name = ptr->getName();
