@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
 
     std::cout << "main apres buildIR" << std::endl;
 
-//    programStructure->printIR(std::cout);
+    programStructure->printIR(std::cout);
     std::cout << "main apres printIR" << std::endl;
 
     std::ofstream asmFileStream(target);
