@@ -257,7 +257,8 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry, Op
                     if(lastRegForSource == lastRegForAsmNameOfSourceReg)
                     {
                         //then we can set the same asmName to the dest reg
-                        dest->setAsmRegisterName(lastRegForSource->getAsmRegisterName());
+                        //dest->setAsmRegisterName(lastRegForSource->getAsmRegisterName());
+                        dest->setParameters(lastRegForSource->getParameters());
                         //as the reg name is now set the map will not update on later code, do it now
                         lastRegForAsmName[lastRegForSource->getAsmRegisterName()] = dest;
                         //now they have the same
