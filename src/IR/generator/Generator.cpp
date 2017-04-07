@@ -202,7 +202,19 @@ std::list<sh_AbsInstruction> Generator::unaryOperator(sh_Memory valueA, sh_Memor
 	return instructionList;
 }
 
+std::list<sh_AbsInstruction> Generator::decrIncrOperator(sh_Memory valueA, sh_Memory dest, int valueOfIncrement, bool isBefore) const
+{
+	std::list<sh_AbsInstruction> instructionList;
+	sh_Register registerDest = getNewUnusedRegister(dest->getType());
+	//load Values in register
+	//make calculation
+	instructionList.push_back( std::make_shared<DecrIncrOperator>(registerDest, valueA, valueOfIncrement, isBefore));
+	//write result to memory
+	
+	instructionList.push_back( std::make_shared<WriteToMemory>(registerDest, dest));
 
+	return instructionList;
+}
 
 
 
