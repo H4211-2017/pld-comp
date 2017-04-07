@@ -73,7 +73,6 @@ IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock
 		{
 			if (instruction != nullptr)
 			{
-                std::cout << "SequenceInstruction::buildIR : instruction : " << instruction << std::endl;
 				last = instruction->buildIR(currentBasicBlock);
 			}
 		}
