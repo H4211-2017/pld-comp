@@ -14,8 +14,10 @@ int32_t main()
     }
     else
     {
-        putchar('3');
+        putchar('2');
         putchar(10);
     }
+    
+
     return 0;
 }
