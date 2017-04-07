@@ -258,6 +258,9 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry, Op
                     {
                         //then we can set the same asmName to the dest reg
                         dest->setAsmRegisterName(lastRegForSource->getAsmRegisterName());
+                        //as the reg name is now set the map will not update on later code, do it now
+                        lastRegForAsmName[lastRegForSource->getAsmRegisterName()] = dest;
+                        //now they have the same
                         //remove the now useless read from memory instruction from this basicblock
                         auto previousInstIt = instIt;
                         previousInstIt--;
