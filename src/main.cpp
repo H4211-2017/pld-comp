@@ -115,7 +115,10 @@ int main(int argc, char *argv[])
 	}
 	
     std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
-    programStructure->printIR(std::cout);
+    if (verbose)
+    {
+        programStructure->printIR(std::cout);
+    }
 	
     std::ofstream asmFileStream(target);
     programStructure->printASM(asmFileStream, IR::AsmType::X64Linux, optimisationlevel);
