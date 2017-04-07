@@ -13,9 +13,12 @@ namespace IR {
         AbstractOperator(sh_Register resultRegister, sh_Register firstValueRegister, sh_Register secondValueRegister);
         virtual ~AbstractOperator();
     protected:
-        sh_Register destination;
-        sh_Register firstValue;
-        sh_Register secondValue;
+        sh_sh_Register destinationPointer;
+        sh_sh_Register firstValuePointer;
+        sh_sh_Register secondValuePointer;
+        sh_Register &destination;
+        sh_Register &firstValue;
+        sh_Register &secondValue;
     };
 }
 

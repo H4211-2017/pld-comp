@@ -22,6 +22,7 @@ namespace IR {
     };
 
     typedef std::shared_ptr<Register> sh_Register;
+    typedef std::shared_ptr<sh_Register> sh_sh_Register;
 }
 
 
