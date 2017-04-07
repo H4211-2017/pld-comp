@@ -1,11 +1,10 @@
+#include "Function.h"
+
 #include <sstream>
 #include <iostream>
 
-#include "Function.h"
-
 #include "Variable/AbstractVariable.h"
 #include "LParametres.h"
-
 
 
 using namespace AST;

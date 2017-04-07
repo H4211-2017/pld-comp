@@ -21,8 +21,9 @@ FunctionCall::FunctionCall(std::string id,  std::shared_ptr<LParametres> params,
 	this->setType(fct->getValue().getValue().first);
 }
 
-
-FunctionCall::~FunctionCall() {
+FunctionCall::~FunctionCall() 
+{
+	
 }
 
 Value FunctionCall::evaluate() const

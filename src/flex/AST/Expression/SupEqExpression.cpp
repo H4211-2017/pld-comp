@@ -4,19 +4,18 @@
 #include "../../../IR/generator/Generator.h"
 #include "../../../IR/instructions/OperatorBiggerOrEqual.h"
 
-
 using namespace AST;
 
 SupEqExpression::SupEqExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractBinaryExpression("SupEqExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
 
 
-SupEqExpression::~SupEqExpression() {
-    // TODO Auto-generated destructor stub
+SupEqExpression::~SupEqExpression()
+{
+
 }
 
 Value SupEqExpression::evaluate() const
@@ -27,7 +26,6 @@ Value SupEqExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory SupEqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return fcBuildIR<IR::OperatorBiggerOrEqual>(currentBasicBlock);

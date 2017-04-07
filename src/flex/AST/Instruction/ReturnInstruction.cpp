@@ -38,7 +38,7 @@ Value ReturnInstruction::evaluate() const
 	}
 }
 
-IR::sh_Memory ReturnInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
+IR::sh_Memory ReturnInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {	
 	IR::Generator gen;
 	IR::sh_Memory returnValueMem = nullptr;

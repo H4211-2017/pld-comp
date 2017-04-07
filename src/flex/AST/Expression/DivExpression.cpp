@@ -10,12 +10,12 @@ DivExpression::DivExpression(std::shared_ptr<AbstractExpression> leftMember,  st
     : AbstractBinaryExpression("DivExpression", leftMember, rightMember)
 {
     this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
-
 }
 
 
-DivExpression::~DivExpression() {
-    // TODO Auto-generated destructor stub
+DivExpression::~DivExpression()
+{
+
 }
 
 Value DivExpression::evaluate() const
@@ -26,7 +26,6 @@ Value DivExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory DivExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return fcBuildIR<IR::OperatorDiv>(currentBasicBlock);

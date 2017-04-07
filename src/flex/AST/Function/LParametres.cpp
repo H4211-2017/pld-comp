@@ -1,9 +1,9 @@
 #include "LParametres.h"
 
+#include <iostream>
+
 #include "Scope.h"
 #include "Variable/Variable.h"
-
-#include <iostream>
 
 using namespace AST;
 
@@ -12,6 +12,7 @@ LParametres::LParametres()
 {
 
 }
+
 LParametres::LParametres(std::shared_ptr<AbstractExpression> parametre)
 	: LParametres()
 {
@@ -21,7 +22,6 @@ LParametres::LParametres(std::shared_ptr<AbstractExpression> parametre)
 void LParametres::addParametre(std::shared_ptr<AbstractExpression> parametre)
 {
     parameters.push_back(parametre);
-	
 }
 		
 Value LParametres::evaluate() const

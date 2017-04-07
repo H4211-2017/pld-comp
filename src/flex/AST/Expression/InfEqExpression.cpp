@@ -4,19 +4,18 @@
 #include "../../../IR/generator/Generator.h"
 #include "../../../IR/instructions/OperatorSmallerOrEqual.h"
 
-
 using namespace AST;
 
 InfEqExpression::InfEqExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractBinaryExpression("InfEqExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
 
 
-InfEqExpression::~InfEqExpression() {
-    // TODO Auto-generated destructor stub
+InfEqExpression::~InfEqExpression()
+{
+
 }
 
 Value InfEqExpression::evaluate() const
@@ -27,7 +26,6 @@ Value InfEqExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory InfEqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return fcBuildIR<IR::OperatorSmallerOrEqual>(currentBasicBlock);

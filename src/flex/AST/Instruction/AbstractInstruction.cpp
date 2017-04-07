@@ -47,8 +47,8 @@ std::shared_ptr<AbstractInstruction> make_shared_instr(AbstractInstruction* ptr)
         return std::make_shared<ReturnInstruction>( *( static_cast< ReturnInstruction* >(ptr) ) );
 	}
 	else
-	{	
-        std::cerr<< " AbstractInstruction :: make_shared_ptr found no type like '" << name << "'" << std::endl;
+	{			
+        std::cerr << " AbstractInstruction :: make_shared_ptr found no type like '" << name << "'" << std::endl;
         throw std::runtime_error("Bad cast");
 	}
 }

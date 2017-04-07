@@ -7,6 +7,7 @@ using namespace AST;
 SequenceInstruction::SequenceInstruction()
     : AbstractNode("SequenceInstruction")
 {
+
 }
 
 void SequenceInstruction::addInstruction(std::shared_ptr<AbstractInstruction> instruction)
@@ -53,7 +54,7 @@ Value SequenceInstruction::evaluate() const
 	return Value();
 }
 
-IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
+IR::sh_Memory SequenceInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	IR::Generator gen;
 	

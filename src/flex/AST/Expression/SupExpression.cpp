@@ -14,8 +14,9 @@ SupExpression::SupExpression(std::shared_ptr<AbstractExpression> leftMember,  st
 }
 
 
-SupExpression::~SupExpression() {
-    // TODO Auto-generated destructor stub
+SupExpression::~SupExpression()
+{
+
 }
 
 Value SupExpression::evaluate() const
@@ -26,7 +27,6 @@ Value SupExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory SupExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return fcBuildIR<IR::OperatorBigger>(currentBasicBlock);

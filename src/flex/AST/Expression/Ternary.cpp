@@ -21,7 +21,7 @@ void Ternary::printTree(int tabulationNumber) const
 
 Value Ternary::evaluate() const
 {
-		return Value();
+	return Value();
 }
 
 IR::sh_Memory Ternary::buildIR(IR::sh_BasicBlock & currentBasicBlock) const

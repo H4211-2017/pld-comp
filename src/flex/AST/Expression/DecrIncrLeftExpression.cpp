@@ -16,6 +16,7 @@ DecrIncrLeftExpression::DecrIncrLeftExpression(std::shared_ptr<AbstractVariable>
 
 DecrIncrLeftExpression::~DecrIncrLeftExpression()
 {
+	
 }
 
 void DecrIncrLeftExpression::printTree(int tabulationNumber) const
@@ -43,7 +44,6 @@ Value DecrIncrLeftExpression::evaluate() const
     return ret;
 }
 
-// TODO
 IR::sh_Memory DecrIncrLeftExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     IR::Generator gen; 

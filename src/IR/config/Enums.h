@@ -15,8 +15,6 @@ namespace IR {
         O1 = 1,
         O2 = 2
     };
-
-
 }
 
 #endif // ENUMS_H

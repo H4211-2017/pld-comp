@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "includeCommun.h"
+#include "OptionScanner.h"
 
 #include "bison.tab.hpp"
 #include <list>
@@ -20,107 +21,64 @@ extern FILE* yyin;
 
 int main(int argc, char *argv[])
 {
-    std::string fileToCompile = "";
-    std::string target = "a.s";
-    std::string ASTtarget = "";
-    IR::OptimisationLevel optimisationlevel = IR::OptimisationLevel::O0;
+	lake::OptionScanner options = lake::OptionScanner();
+	options.parseConsoleOptions(argc, argv);
+	
 	std::streambuf* oldBuf;
-	bool verbose = false;
-	int i = 1;
-    if( argc > 8 )
+	
+	/* ******************************************
+	 * 			Fetching the Source File		*
+	 * ******************************************/
+	//Note : if no file is given, the input will be taken from cin
+	if( options.srcFile.length() > 0)
 	{
-		std::cerr << "ERROR : Too many arguments" << std::endl;
-		exit(-1);
-	}
-	for(; i<argc; i++)
-	{
-		if(strcmp(argv[i], "-o") == 0)
-		{
-			i++;
-			if(i == argc || argv[i][0] == '-')
-			{
-				std::cerr << "ERROR : no target defined" << std::endl;
-				exit(-1);
-			}
-			target = argv[i];
-		}
-		else if(strcmp(argv[i], "-t") == 0)
-		{
-			i++;
-			if(i == argc || argv[i][0] == '-')
-			{
-				std::cerr << "ERROR : no AST-target defined" << std::endl;
-				exit(-1);
-			}
-			ASTtarget = argv[i];
-		}
-        else if(strcmp(argv[i], "-v") == 0)
-		{
-			verbose = true;
-		}
-        else if(strcmp(argv[i], "-O0") == 0)
-        {
-            optimisationlevel = IR::OptimisationLevel::O0;
-        }
-        else if(strcmp(argv[i], "-O1") == 0)
-        {
-            optimisationlevel = IR::OptimisationLevel::O1;
-        }
-        else if(strcmp(argv[i], "-O2") == 0)
-        {
-            optimisationlevel = IR::OptimisationLevel::O2;
-        }
-		else
-		{
-            fileToCompile = argv[i];
-		}
+		yyin = fopen(options.srcFile.c_str(), "r");
 	}
 	
-    if(fileToCompile.length() > 0)
+	/* ******************************************
+	 * 				Building AST				*
+	 * ******************************************/
+    AST::ProgramNode * program;//AST storage for the whole source program
+	if( !(options.verbose) )
 	{
-        yyin = fopen(fileToCompile.c_str(), "r");
-	}
-	
-    AST::ProgramNode * program;
-	
-	if(!verbose)
-	{
+		//artificial muting of cout to ignore output from flex
 		std::cout.setstate(std::ios_base::failbit);
 		yyparse(&program);
 		std::cout.clear();
 	}
-	else
+	else //verbose will display flex output
 	{
 		yyparse(&program);	
-	}
-	
-    if(fileToCompile.length() > 0)
-    {
+	}	
+	// safely closing the Source File if it was specified
+	if( options.srcFile.length() > 0)
 		fclose(yyin);
-    }
-    
-    if(ASTtarget.length() > 0)
+    //Writing AST output in priority to the target
+    if( options.ASTtarget.length() > 0)
     {
-		std::ofstream out(ASTtarget); 
+		std::ofstream out( options.ASTtarget); 
 		oldBuf = std::cout.rdbuf(out.rdbuf()); 
 	  	
 		program->printTree(0);
 		// Restauration du streambuf initial de std::cout (affichage sur la console) 
 		std::cout.rdbuf(oldBuf); 
 	}
-	else if(verbose)
+	else if(options.verbose) //Writing AST output to the console
 	{
 		program->printTree(0);				
 		std::cout << std::endl;
-	}
-	
-    std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
-    programStructure->printIR(std::cout);
-	
-    std::ofstream asmFileStream(target);
-    programStructure->printASM(asmFileStream, IR::AsmType::X64Linux, optimisationlevel);
+	}	  
 
-	delete program;
+	//Deleting the dynamically allocated AST node
+	if (program)
+	{
+		std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
+		programStructure->printIR(std::cout);
+		
+		std::ofstream asmFileStream(options.target);
+		programStructure->printASM(asmFileStream, IR::AsmType::X64Linux, options.optimisationLevel);
+		delete program;
+	}
 
     return 0;
 }

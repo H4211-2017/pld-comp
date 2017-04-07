@@ -1,27 +1,48 @@
 #ifndef SUPEQEXPRESSION_H
 #define SUPEQEXPRESSION_H
+
 #include "AbstractBinaryExpression.h"
-namespace AST {
 
-class SupEqExpression : public AbstractBinaryExpression
+namespace AST
 {
+	class SupEqExpression : public AbstractBinaryExpression
+	{
 
-public:
+	public:
 
-    SupEqExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
+		/**
+		 * @brief SupEqExpression constructor
+		 * @param leftMember a shared_ptr on the left part of the expression
+		 * @param rightMember a shared_ptr on the right part of the expression
+		 */
+		SupEqExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
 
-    virtual ~SupEqExpression();
+		/**
+		 * @brief SupEqExpression destructor
+		 */
+		virtual ~SupEqExpression();
 
-    virtual Value evaluate() const;
+		/**
+		 * @brief evaluate compute evaluation if possible beacuse of constants-composed expression
+		 * @return the "Value" of the expression if evaluable, or error-type value else
+		 */
+		virtual Value evaluate() const;
 
-    // TODO : create class CFG and replace comment below.
-    virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
+		/**
+		 * @brief buildIR build the IR from this node, and put the correspondant instructions in the provided basic block
+		 * @param currentBasicBlock, the reference to a shared pointer on the BasicBlock that is currently being completed
+		 * @return a shared pointer on the IR memory index that will contain the node's value once executed
+		 * 		or nullptr if the node shouldn't be calculated to be a value
+		 */	
+		virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
-protected:
-    virtual void printOperator() const;
-
-};
-
+	protected:
+	
+		/**
+		 * @brief printOperator Prints the operator of the binary expression. Used in printTree
+		 */
+		virtual void printOperator() const;
+	};
 } /* namespace AST */
 
 #endif //SUPEQEXPRESSION_H

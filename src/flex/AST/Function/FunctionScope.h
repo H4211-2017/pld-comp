@@ -6,13 +6,14 @@
 #include <string>
 #include <exception>
 
-namespace AST{	
-	
+namespace AST
+{	
 	class Function;
 	class ListArg;
 	
 	class UndeclaredIdFctException: public std::exception
 	{
+	
 	public:
 	
 		UndeclaredIdFctException()
@@ -32,21 +33,38 @@ namespace AST{
 	    
 	protected :
 		std::string text;    
-		
 	};
 
 
     class FunctionScope
 	{
+	
 	public:
+		
+		/**
+		 * @brief FunctionScope default constructor
+		 */
         FunctionScope();
-		
-        FunctionScope( const FunctionScope & fonctionScope); // declared but not defined
-		
+				
+		/**
+		 * @brief FunctionScope destructor
+		 */
         virtual ~FunctionScope();
 		
+		/**
+         * @brief declareFunction adds a function to the dictionnary of the FunctionScope
+         * @param identifiant the id of the function to add to the dictionary.
+         * @param decl the function to add to the dictionary
+         * @remark ends the compilation if the function is already defined in this scope or
+         * one of its ancestors
+         */
         void declareFunction(std::string name, std::shared_ptr<Function> decl);
 		
+		/**
+         * @brief findVariable to find a function in the scope.
+         * @param identifiant the id of the function to find.
+         * @return a shared pointer on the function in the scope, ends compilation if function not found.
+         */
         std::shared_ptr<Function> findFunction(std::string identifiant);
 		
 	protected:

@@ -13,7 +13,7 @@ ArrayExpression::ArrayExpression(std::string id, std::shared_ptr<AbstractExpress
 
 ArrayExpression::~ArrayExpression()
 {
-	// TODO Auto-generated destructor stub
+	
 }
 
 Value ArrayExpression::evaluate() const
@@ -28,7 +28,6 @@ void ArrayExpression::printTree(int tabulationNumber) const
     caseExpression->printTree(tabulationNumber + 1);
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory ArrayExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return nullptr;

@@ -10,12 +10,12 @@ MultExpression::MultExpression(std::shared_ptr<AbstractExpression> leftMember,  
     : AbstractBinaryExpression("MultExpression", leftMember, rightMember)
 {
     this->setType(std::max(leftMember->getValue().getValue().first, rightMember->getValue().getValue().first));
-
 }
 
 
-MultExpression::~MultExpression() {
-    // TODO Auto-generated destructor stub
+MultExpression::~MultExpression()
+{
+
 }
 
 Value MultExpression::evaluate() const

@@ -73,7 +73,6 @@ void UnitInstruction::printTree(int tabulationNumber) const
 	}
 }
 
-// TODO
 Value UnitInstruction::evaluate() const
 {
 	switch(content)
@@ -85,7 +84,7 @@ Value UnitInstruction::evaluate() const
 	}
 }
 
-IR::sh_Memory UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock)
+IR::sh_Memory UnitInstruction::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {	
     switch (content)
     {

@@ -1,4 +1,5 @@
 #include "AffectationExpression.h"
+
 #include "AddExpression.h"
 #include "IDExpression.h"
 #include "BitwiseAndExpression.h"
@@ -26,7 +27,6 @@ AffectationExpression::AffectationExpression(std::string id, enum OPAffect op, s
 {
 	var = scope->findVariable(id);
 	switchOperatorMake(op, rightMember, scope);
-	
 }
 
 
@@ -73,7 +73,6 @@ void AffectationExpression::switchOperatorMake(enum OPAffect op, std::shared_ptr
 {
 	switch(op)
 	{
-		
 		case AFFECT :
 			this->transformedExpr = rightMember;
 			var->noLongerDeclaration();

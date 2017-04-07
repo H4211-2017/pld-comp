@@ -1,6 +1,7 @@
+#include "Scope.h"
+
 #include <iostream>
 
-#include "Scope.h"
 #include "Function/Function.h"
 #include "Function/FunctionSignature.h"
 #include "Function/LArguments.h"
@@ -27,6 +28,7 @@ Scope::Scope( std::shared_ptr<Scope> scope )
 
 Scope::~Scope()
 {
+	
 }
 
 void Scope::declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable)

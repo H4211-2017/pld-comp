@@ -10,12 +10,12 @@ OrExpression::OrExpression(std::shared_ptr<AbstractExpression> leftMember,  std:
     : AbstractBinaryExpression("OrExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
 
 
-OrExpression::~OrExpression() {
-    // TODO Auto-generated destructor stub
+OrExpression::~OrExpression() 
+{
+	
 }
 
 Value OrExpression::evaluate() const
@@ -26,7 +26,6 @@ Value OrExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory OrExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	return fcBuildIR<IR::OperatorOr>(currentBasicBlock);

@@ -15,24 +15,42 @@ namespace AST {
     class SequenceInstruction : public AbstractNode
     {
     public:
+    
         /**
-         * @brief SequenceInstruction construtor, creates and empty sequence of instruction
+         * @brief SequenceInstruction default constructor, creates an empty sequence of instruction
          */
         SequenceInstruction();
 
         /**
-         * @brief addInstruction
+         * @brief addInstruction add instruction in the sequence
          * @param instruction the instrution to add
          */
         void addInstruction(std::shared_ptr<AbstractInstruction> instruction);
 
+		// TODO comment
         std::vector<std::shared_ptr<FunctionDeclaration>> getListFunctionDeclaration() const;
 
+		/**
+         * @brief printTree the AST tree corresponding to this node and it's children.
+         * @param tabulationNumber the number of tabulations corresponding to this node
+         */
         virtual void printTree(int tabulationNumber) const;
+        
+        /**
+         * @brief evaluate the Value of this node
+         * @return the value of the last instruction of the instance, if evaluable, or error null value otherwise
+         */
         virtual Value evaluate() const;
-        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock);
+        
+        /**
+		 * @brief buildIR build the IR from this node, and put the correspondant instructions in the provided basic block
+		 * @param currentBasicBlock, the reference to a shared pointer on the BasicBlock that is currently being completed
+		 * @return a nullptr (return deprecated here)
+		 */
+        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
     private:
+    
         std::vector<std::shared_ptr<AbstractInstruction> > instructionsList;
     };
 }

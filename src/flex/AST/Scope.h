@@ -1,5 +1,5 @@
-#ifndef SCOPE
-#define SCOPE
+#ifndef SCOPE_H
+#define SCOPE_H
 
 #include <memory>
 #include <string>
@@ -10,55 +10,77 @@
 
 #include "../../IR/generator/Generator.h"
 
-namespace AST{	
-	
+namespace AST
+{	
 	class AbstractExpression;
 
 	class Scope
 	{
 	public:
+	
+		/**
+		 * @brief default Scope constructor, used for global Scope building,
+		 * 		add putchar and getchar as functions declarations in the global scope 
+		 * 		of all compiled programs
+		 */
 		Scope();
 		
-		Scope( std::shared_ptr<Scope> Scope );
+		/**
+		 * @brief Scope constructor
+		 * @param scope a shared_ptr to the mother scope
+		 */
+		Scope( std::shared_ptr<Scope> scope );
 		
-		Scope(const Scope & scope); // declared but not defined
-		
+		/**
+		 * @brief Scope destructor
+		 */
 		virtual ~Scope();
 		
         /**
-         * @brief declareVariable adds a variable to the dictionary
-         * @param identifiant the id of the variable to add to the dictionary
-         * @param variable the variable to add to the dictionary
+         * @brief declareVariable adds a variable to the scope, with testing
+         * 		if variable not already declared. Ends compilation if variable
+         * 		already defined.
+         * @param identifiant the id of the variable to add to the scope
+         * @param variable the variable to add to the scope
          */
         void declareVariable(std::string identifiant, std::shared_ptr<AbstractVariable> variable);
+        
         /**
          * @brief findVariable to find a variable in the scope.
          * @param identifiant the id of the variable to find.
-         * @return a shared pointer on the variable in the scope, ends compilation if varaiable not found.
+         * @return a shared pointer on the variable in the scope, ends compilation if variable not found.
          */
         std::shared_ptr<AbstractVariable> findVariable(std::string identifiant);
         
+         /**
+         * @brief findVariable to find a variable in the scope.
+         * @param identifiant the id of the variable to find.
+         * @return a pointer on a shared pointer on the variable in the scope, ends compilation if variable not found.
+         */
         std::shared_ptr<AbstractVariable>* findVariableAddress(std::string identifiant);
         
         /**
-         * @brief declareFunction adds a function to the dictionnary of the scope
+         * @brief declareFunction adds a function to the dictionnary of the scope,
+         * 		with testing if function already declared : ends compilation if
+         * 		fuction already declared.
          * @param identifiant the id of the function to add to the dictionary.
          * @param decl the function to add to the dictionary
          */
         void declareFunction(std::string identifiant, std::shared_ptr<Function> decl);
+        
+        /**
+         * @brief findVariable to find a function in the scope.
+         * @param identifiant the id of the function to find.
+         * @return a shared pointer on the function in the scope, ends compilation if function not found.
+         */
         std::shared_ptr<Function> findFunction(std::string identifiant);
 		
         /**
          * @brief getMother
-         * @return  the mother of this scope, is the larger scope
+         * @return the mother scope of this scope, which is the larger scope
          */
 		std::shared_ptr<Scope> getMother() const;
-
-        /**
-         * @brief setMother to change the mother scope
-         * @param newMother the new mother scope
-         */
-  
+         
 	protected:
 		//tree hierarchy
 		std::shared_ptr<Scope> mother;
@@ -68,4 +90,4 @@ namespace AST{
     };
 }
 
-#endif // SCOPE
+#endif // SCOPE_H

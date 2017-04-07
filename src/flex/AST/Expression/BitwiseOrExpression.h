@@ -3,21 +3,45 @@
 
 #include "AbstractBinaryExpression.h"
 
-namespace AST{
-class BitwiseOrExpression : public AbstractBinaryExpression
+namespace AST
 {
-public:
-    BitwiseOrExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember);
+	class BitwiseOrExpression : public AbstractBinaryExpression
+	{
+	public:
+	
+		/**
+		 * @brief BitwiseOrExpression constructor
+		 * @param name name of this node
+		 * @param leftMember a shared_ptr on the left part of the expression
+		 * @param rightMember a shared_ptr on the right part of the expression
+		 */
+		BitwiseOrExpression(std::shared_ptr<AbstractExpression> leftMember, std::shared_ptr<AbstractExpression> rightMember);
+		
+		/**
+		 * @brief BitwiseOrExpression destructor
+		 */
+		virtual ~BitwiseOrExpression();
 
-        virtual ~BitwiseOrExpression();
+		/**
+		 * @brief evaluate compute evaluation if possible beacuse of constants-composed expression
+		 * @return the "Value" of the expression if evaluable, or error-type value else
+		 */
+		virtual Value evaluate() const;
 
-        virtual Value evaluate() const;
+        /**
+		* @brief buildIR build the IR from this node, and put the correspondant instructions in the provided basic block
+		* @param currentBasicBlock, the reference to a shared pointer on the BasicBlock that is currently being completed
+		* @return a shared pointer on the IR memory index that will contain the node's value once executed
+		* 		or nullptr if the node shouldn't be calculated to be a value
+		*/
+		virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 
-        // TODO : create class CFG and replace comment below.
-        virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
-
-protected:
-    virtual void printOperator() const;
-};
+	protected:
+	
+		/**
+		 * @brief printOperator Prints the operator of the binary expression. Used in printTree
+		 */
+		virtual void printOperator() const;
+	};
 }
 #endif // BINARYOREXPRESSION_H

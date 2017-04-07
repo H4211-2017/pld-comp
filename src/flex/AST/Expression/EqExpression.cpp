@@ -4,19 +4,18 @@
 #include "../../../IR/generator/Generator.h"
 #include "../../../IR/instructions/OperatorEquals.h"
 
-
 using namespace AST;
 
 EqExpression::EqExpression(std::shared_ptr<AbstractExpression> leftMember,  std::shared_ptr<AbstractExpression> rightMember)
     : AbstractBinaryExpression("EqExpression", leftMember, rightMember)
 {
     this->setType(Type::CHAR);
-
 }
 
 
-EqExpression::~EqExpression() {
-    // TODO Auto-generated destructor stub
+EqExpression::~EqExpression()
+{
+
 }
 
 Value EqExpression::evaluate() const
@@ -27,7 +26,6 @@ Value EqExpression::evaluate() const
     return ret;
 }
 
-// TODO : create class CFG and replace comment below.
 IR::sh_Memory EqExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
 	BINARY_OPERATOR_IR(OperatorEquals)

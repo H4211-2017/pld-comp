@@ -1,11 +1,11 @@
 #include "LArguments.h"
 
+#include <iostream>
+#include <sstream>
+
 #include "Scope.h"
 #include "Variable/Variable.h"
 #include "LParametres.h"
-
-#include <iostream>
-#include <sstream>
 
 using namespace AST;
 
@@ -14,6 +14,7 @@ LArguments::LArguments()
 {
 
 }
+
 LArguments::LArguments(std::shared_ptr<VariableSignature> argument)
 	: LArguments()
 {
@@ -38,8 +39,7 @@ void LArguments::addArgument(std::shared_ptr<VariableSignature> argument)
 		}
 	}
 	
-	arguments.push_back(argument);
-	
+	arguments.push_back(argument);	
 }
 		
 bool LArguments::compareSignature(std::shared_ptr<LArguments> larg2) const
@@ -110,6 +110,5 @@ std::vector<std::shared_ptr<VariableSignature> > LArguments::getArguments()
 
 IR::sh_Memory LArguments::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-
 	return nullptr;
 }

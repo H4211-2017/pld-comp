@@ -42,13 +42,7 @@ Value FunctionDeclaration::evaluate() const
     return Value();
 }
 
-/**
- * A FunctionDeclaration is the beginning of a new fonction. Consequently, it will get the basic block of the new function if
- * it is defined, then call the buildIR of its child function with this basic block.
- * If the function is defined but declared, do nothing.
- * @brief FunctionDeclaration::buildIR Build the IR of corresponding to this node
- */
-IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock)
+IR::sh_Memory FunctionDeclaration::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
     // Build something only if the function is declared.
     if (!fct->isDeclaration())

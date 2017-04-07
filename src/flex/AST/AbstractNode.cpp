@@ -7,6 +7,7 @@ using namespace AST;
 AbstractNode::AbstractNode(std::string name)
     : name(name)
 {
+	
 }
 
 AbstractNode::AbstractNode(std::string name, Value value)
