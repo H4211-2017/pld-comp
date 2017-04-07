@@ -2,6 +2,9 @@
 
 #include <algorithm>
 
+#include "../../../IR/generator/Generator.h"
+#include "../../../IR/instructions/DecrIncrOperator.h"
+
 using namespace AST;
 
 DecrIncrRightExpression::DecrIncrRightExpression(std::shared_ptr<AbstractVariable> var, int valueOfIncrement)
@@ -43,5 +46,11 @@ Value DecrIncrRightExpression::evaluate() const
 // TODO : create class CFG and replace comment below.
 IR::sh_Memory DecrIncrRightExpression::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-    return nullptr;
+    IR::Generator gen; 
+	IR::sh_Memory leftMem = this->var->buildIR(currentBasicBlock); 
+	IR::Type irType = this->var->getValue().getIRType(); 
+	IR::sh_Memory destMem = gen.getNewUnusedMemmory(irType); 
+	std::list<IR::sh_AbsInstruction> instructionsList = gen.decrIncrOperator(leftMem, destMem, valueOfIncrement, false); 
+	currentBasicBlock->pushInstructionBack(instructionsList); 
+	return destMem; 
 }

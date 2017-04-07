@@ -30,6 +30,7 @@
 #include "../instructions/BreakInstruction.h"
 #include "../../flex/AST/Expression/UnaryExpression.h"
 #include "../instructions/UnaryOperator.h"
+#include "../instructions/DecrIncrOperator.h"
 
 #define BINARY_OPERATOR_IR(CLASS) IR::Generator gen; \
 	IR::sh_Memory leftMem = leftMember->buildIR(currentBasicBlock); \
@@ -61,6 +62,8 @@ namespace IR {
         std::list<sh_AbsInstruction> binaryOperator(sh_Memory valueA, sh_Memory valueB, sh_Memory dest) const;
         
 		std::list<sh_AbsInstruction> unaryOperator(sh_Memory valueA, sh_Memory dest, enum AST::UnaryOp) const;
+		
+		std::list<sh_AbsInstruction> decrIncrOperator(sh_Memory valueA, sh_Memory dest, int valueOfIncrement, bool isBefore) const;
 		
     protected:
         /**
