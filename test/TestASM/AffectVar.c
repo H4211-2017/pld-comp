@@ -29,7 +29,7 @@ int32_t main()
     int32_t a = 65;
     /*a = 22;
     int32_t b = 7;
-    int32_t c = 2 * a + b;*/
-    //a++;
+    int32_t c = 2 * a + b;**/
+    a--;
     return a;
 }

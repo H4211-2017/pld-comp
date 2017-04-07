@@ -37,9 +37,9 @@ anymultilinechain	(.|\n|\r)*
 
 "/*"      				  	{std::cout << "MULTILINE COMMENT : " << yytext;
 								BEGIN(comment);}/*switch to comment state*/
-<comment>[^*\n]*        	{std::cout << yytext;}/* eat anything that's not a '*' */
-<comment>"*"+[^/\n]*	   	{std::cout << yytext;}/* eat up '*'s not followed by '/'s */
-<comment>"\n"            	{std::cout << yytext;}
+<comment>[^*\n]*        	{std::cout << "EAT NOT *" << std::endl;}/* eat anything that's not a '*' */
+<comment>"*"+[^/]	   	{std::cout << "EAT MIDDLE *" << std::endl;}/* eat up '*'s not followed by '/'s */
+<comment>"\n"            	{std::cout << "EAT \\n" << std::endl;}
 <comment>"*"+"/"        	{std::cout << "\nEND OF MULTILINE COMMENT" << yytext;
 								BEGIN(INITIAL);}/*switch back to initial state*/
 
