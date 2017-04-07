@@ -39,7 +39,6 @@ void FunctionCall::printTree(int tabulationNumber) const
 
 IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-    std::cout << "FunctionCall::buildIR : begin" << std::endl;
     IR::Generator gen;
 	std::list<IR::sh_AbstractData> irParams;
     std::vector<std::shared_ptr<AbstractExpression> > params = parameters->getParameters();
@@ -53,7 +52,6 @@ IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     IR::Type returnType = getValue().getIRType();
     IR::sh_Memory returnStatement = gen.getNewUnusedMemmory(returnType);
 
-    std::cout << "FunctionCall::buildIR : before build instructions" << std::endl;
     std::list<IR::sh_AbsInstruction> absInstructions;
     if (functionIdentifiant == "getchar")
     {
@@ -62,13 +60,9 @@ IR::sh_Memory FunctionCall::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
     }
     else if (functionIdentifiant == "putchar")
     {
-        std::cout << "FunctionCall::buildIR : in putchar" << std::endl;
         std::shared_ptr<IR::ExternalFunction> putCharFunctionIR = std::make_shared<IR::ExternalFunction>("putchar", IR::Type::INT_32);
-        std::cout << "FunctionCall::buildIR : after make_shared" << std::endl;
         putCharFunctionIR->pushBackNewParam(irParams.front());
-        std::cout << "FunctionCall::buildIR : after pushBackNewParams" << std::endl;
         absInstructions = gen.call(putCharFunctionIR, irParams, returnStatement);
-        std::cout << "FunctionCall::buildIR : after gen.call" << std::endl;
     }
     else
     {

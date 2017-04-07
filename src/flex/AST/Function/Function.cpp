@@ -117,7 +117,6 @@ Value Function::evaluate() const
 
 IR::sh_Memory Function::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-    std::cout << "Function::buildIR : begin " << std::endl;
     if (args != nullptr)
     {
         std::vector<std::shared_ptr<VariableSignature>> argumentsList = args->getArguments();
