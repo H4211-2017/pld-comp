@@ -368,7 +368,7 @@ void FunctionBlock::generateASM(AsmType asmType, OptimisationLevel opLvl)
     {
         removeUnreadMemory();
     }
-    //removeEmptyBasicBlock();
+    removeEmptyBasicBlock();
     getMemoryFromBasicBlock();
     aliveRegistryDetection();
     std::deque<std::string> regList;
@@ -383,11 +383,11 @@ void FunctionBlock::generateASM(AsmType asmType, OptimisationLevel opLvl)
     }
     std::queue<std::string> regQueue(regList);
     affectRegistry(regQueue,opLvl);
-//    if(opLvl > OptimisationLevel::O1)
-//    {
-//        removeUnreadMemory();
-//        removeEmptyBasicBlock();
-//    }
+    if(opLvl > OptimisationLevel::O1)
+    {
+        removeUnreadMemory();
+        //removeEmptyBasicBlock();
+    }
     affectMemory();
 }
 
@@ -535,7 +535,7 @@ void FunctionBlock::printASMepilog(std::ostream &os, AsmType asmType) const
 {
     switch (asmType) {
     case AsmType::X64Linux:
-        os << "\tpopq\t%rbp" << std::endl;
+        os << "\tleave" << std::endl;
         os << "\tret" << std::endl;
         os << "\t.size\t" << this->functionName << ", .-" << this->functionName << std::endl;
         break;
