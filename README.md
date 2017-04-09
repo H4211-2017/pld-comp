@@ -41,7 +41,7 @@ On gère:
 # Bugs connus:
 
 * Le compilateur ne donne pas l'erreur précise dans un fichier non compilable, mais sort en SegFault.  
-* La structure If/Else If ne compile pas, mais la structure If/Else If/Else compile.  
+* La structure If / ElseIf ne compile pas, mais la structure If / ElseIf / Else compile.  
 * L'instruction break et continue ne fonctionne pas (mais compile).  
 * L'instruction return ne compile pas si elle est placé dans un if, mais fonctionne dans un while.  
 * La structure de contrôle IF ne compile pas si il n'y a pas d'instruction après (une structure de contrôle est une instruction).  
