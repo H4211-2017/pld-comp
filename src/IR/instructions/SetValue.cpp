@@ -32,5 +32,9 @@ std::string SetValue::toLinuxX64() const
     ret.append(std::to_string(this->value.getDataValue()));
     ret.append(", ");
     ret.append(this->dest->getASMname(AsmType::X64Linux));
+//    ret.append("\t#\twrite count: ");
+//    ret.append(std::to_string(dest->getWriteCount()));
+//    ret.append("\tread count: ");
+//    ret.append(std::to_string(dest->getReadCount()));
     return ret;
 }

@@ -34,5 +34,9 @@ std::string WriteToMemory::toLinuxX64() const
     ret.append( ", " );
     ret.append( std::to_string(destination->getAsmBasePointerOffset()) );
     ret.append( "(%rbp)");
+//    ret.append("\t#\twrite count: ");
+//    ret.append(std::to_string(source->getWriteCount()));
+//    ret.append("\tread count: ");
+//    ret.append(std::to_string(source->getReadCount()));
     return ret;
 }
