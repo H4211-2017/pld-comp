@@ -8,7 +8,8 @@ L'exécutable <lake> se trouve dans le dossier 'bin'
 
 # Exécution:  
 La ligne de commande à exécuter est:  
-lake [srcFile] [-v] [-S <AsmTarget>] [ -o <ExecTarget>] [ -t <AstTarget>] [-On]  
+lake [srcFile] [-v] [-S <AsmTarget>] [ -o <ExecTarget>] [ -t <AstTarget>] [-On] 
+
     * srcfile:  
         Le fichier source que le compilateur compilera. Si aucun fichier source n'est fourni, l'entrée standard est utilisée.  
     * -v:  
@@ -24,6 +25,7 @@ lake [srcFile] [-v] [-S <AsmTarget>] [ -o <ExecTarget>] [ -t <AstTarget>] [-On]
     
 # Features:
 On gère:  
+
     * La déclaration anticipé de fonction.  
     * L'appel de fonction, avec et sans paramètres, maximum 6 paramètres (y compris appel récursif).  
     * Le retour de fonction, void ou non.  
@@ -38,6 +40,7 @@ On gère:
 
     
 # Bugs connus:
+
 * Le compilateur ne donne pas l'erreur précise dans un fichier non compilable, mais sort en SegFault.  
 * La structure If/Else If ne compile pas, mais la structure If/Else If/Else compile.  
 * L'instruction break et continue ne fonctionne pas (mais compile).  
@@ -45,6 +48,7 @@ On gère:
 * La structure de contrôle IF ne compile pas si il n'y a pas d'instruction après (une structure de contrôle est une instruction).  
 
 # Features non gérés:
+
 * Les tableaux ne sont pas pris en compte par l'IR.  
 * Le main peut déclarer des arguments, mais ne peut pas les utiliser.  
 * Les fonctions définies dans d'autres fonctions.  
