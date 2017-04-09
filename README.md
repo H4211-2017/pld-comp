@@ -1,12 +1,12 @@
-## Compilation:
-se déplacer dans le dossier racine du projet (celui contenant CMakeList.txt)\n
-Exécuter:\n
-    `cmake .`\n
-    `make`\n
+# Compilation:
+se déplacer dans le dossier racine du projet (celui contenant CMakeList.txt)
+Exécuter:
+    `cmake .`
+    `make`
     
 L'exécutable <lake> se trouve dans le dossier 'bin'
 
-## Exécution
+# Exécution:
 La ligne de commande à exécuter est:
 lake [srcFile] [-v] [-S <AsmTarget>] [ -o <ExecTarget>] [ -t <AstTarget>] [-On] 
     srcfile:
@@ -22,7 +22,7 @@ lake [srcFile] [-v] [-S <AsmTarget>] [ -o <ExecTarget>] [ -t <AstTarget>] [-On]
     -On:
         n peut valoir 0, 1 ou 2, et représente les différents niveaux d'optimisation. Par défaut, le niveau 0 est utilisé. -O1 supprime les écritures mémoires qui ne seront jamais lu, et -O2 supprime les lectures depuis les mémoires quand la valeur est déjà dans un registre (en plus de réaliser les optimisations de -O1).
     
-## Features
+# Features:
 On gère:
     La déclaration anticipé de fonction.
     L'appel de fonction, avec et sans paramètres, maximum 6 paramètres (y compris appel récursif).
@@ -37,14 +37,14 @@ On gère:
     
 
     
-## Bugs connus
+# Bugs connus:
 Le compilateur ne donne pas l'erreur précise dans un fichier non compilable, mais sort en SegFault.
 La structure If/Else If ne compile pas, mais la structure If/Else If/Else compile.
 L'instruction break et continue ne fonctionne pas (mais compile).
 L'instruction return ne compile pas si elle est placé dans un if, mais fonctionne dans un while.
 La structure de contrôle IF ne compile pas si il n'y a pas d'instruction après (une structure de contrôle est une instruction).
 
-## Features non gérés
+# Features non gérés:
 Les tableaux ne sont pas pris en compte par l'IR.
 Le main peut déclarer des arguments, mais ne peut pas les utiliser.
 Les fonctions définies dans d'autres fonctions.
