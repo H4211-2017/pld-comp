@@ -1,12 +1,12 @@
-##Compilation:
+## Compilation:
 se déplacer dans le dossier racine du projet (celui contenant CMakeList.txt)
 Exécuter:
-    cmake .
-    make
+    `cmake .
+    `make
     
 L'exécutable <lake> se trouve dans le dossier 'bin'
 
-##Exécution
+## Exécution
 La ligne de commande à exécuter est:
 lake [srcFile] [-v] [-S <AsmTarget>] [ -o <ExecTarget>] [ -t <AstTarget>] [-On] 
     srcfile:
