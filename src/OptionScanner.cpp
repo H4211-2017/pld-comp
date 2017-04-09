@@ -8,8 +8,8 @@ using namespace lake;
 OptionScanner::OptionScanner()
 {
 	srcFile = "";
-	target = "";
-	ASTtarget = "";
+    execTarget = "";
+    astTarget = "";
 	verbose = false;
 }
 
@@ -23,40 +23,53 @@ OptionScanner::~OptionScanner(){}
 /**
  * @brief : OptionScanner::parseConsoleOptions parses the command line options and
  * 		modifies the instance's attributes to translate the parsed options.
+ *  Command line accepted : lake [-v] [-On] [-o <nameExec>] [-S <nameAsm>] [-t <printASTfile>] [srcFile].
+ *  Any order could be used.
  * @param argc the count of arguments taken (taking in account that the call to the 
  * 		compiler itself is considered an argument)
  * @param argv the list of arguments
  */
 void OptionScanner::parseConsoleOptions(int argc, char *argv[])
 {
-	int i = 1;
-	if( argc > 8 )
+    if( argc > 10 )
 	{
 		std::cerr << "ERROR : Too many arguments" << std::endl;
 		exit(-1);
 	}
-	for(; i<argc; i++)
+
+    for(int i = 1; i<argc; i++)
 	{
 		if(strcmp(argv[i], "-o") == 0)
 		{
 			i++;
-			if(i == argc || argv[i][0] == '-')
+            if(i == argc || argv[i][0] == '-' || strcmp(argv[i], "") == 0)
 			{
 				std::cerr << "ERROR : no target defined" << std::endl;
 				exit(-1);
 			}
-			target = argv[i];
+            execTarget = argv[i];
 		}
-		else if(strcmp(argv[i], "-t") == 0)
+        else if(strcmp(argv[i], "-S") == 0)
 		{
 			i++;
-			if(i == argc || argv[i][0] == '-')
+            if(i == argc || argv[i][0] == '-' || strcmp(argv[i], "") == 0)
 			{
 				std::cerr << "ERROR : no AST-target defined" << std::endl;
 				exit(-1);
 			}
-			ASTtarget = argv[i];
+            asmTarget = argv[i];
+            deleteAsm = true;
 		}
+        else if(strcmp(argv[i], "-t") == 0)
+        {
+            i++;
+            if(i == argc || argv[i][0] == '-' || strcmp(argv[i], "") == 0)
+            {
+                std::cerr << "ERROR : no AST-target defined" << std::endl;
+                exit(-1);
+            }
+            astTarget = argv[i];
+        }
 		else if(strcmp(argv[i], "-v") == 0)
 		{
 			verbose = true;
@@ -89,10 +102,10 @@ void OptionScanner::printOptions()
 {
 	if( srcFile.length() > 0 ) 
 		std::cout << "Source File : " << srcFile << std::endl;
-	if( target.length() > 0 ) 
-		std::cout << "Built File : " << target << std::endl;
-	if( ASTtarget.length() > 0 ) 
-		std::cout << "Source File : " << ASTtarget << std::endl;
+    if( execTarget.length() > 0 )
+        std::cout << "Built File : " << execTarget << std::endl;
+    if( astTarget.length() > 0 )
+        std::cout << "Source File : " << astTarget << std::endl;
 	if( verbose ){
 		std::cout << "Verbose Enabled" << std::endl;
 	} else {
@@ -110,8 +123,8 @@ void OptionScanner::printOptions()
 void OptionScanner::reset()
 {
 	srcFile = "";
-	target = "";
-	ASTtarget = "";
+    execTarget = "";
+    astTarget = "";
 	verbose = false;
 	optimisationLevel = IR::OptimisationLevel::O0;
 }

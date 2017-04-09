@@ -70,8 +70,18 @@ int32_t main()
         putchar(' ');
         putchar(case9);
         putchar(10);
+        
+        //8 conditions de victoire
+        while ((case1==case2)&&(case2==case3)&&case1!='-'){victoire(case1); return 0;}
+        while ((case4==case5)&&(case5==case6)&&case4!='-'){victoire(case4); return 0;}
+        while ((case7==case8)&&(case8==case9)&&case7!='-'){victoire(case7); return 0;}
+        while ((case1==case4)&&(case4==case7)&&case1!='-'){victoire(case4); return 0;}
+        while ((case2==case5)&&(case5==case8)&&case2!='-'){victoire(case5); return 0;}
+        while ((case3==case6)&&(case6==case9)&&case3!='-'){victoire(case6); return 0;}
+        while ((case1==case5)&&(case5==case9)&&case1!='-'){victoire(case1); return 0;}
+        while ((case3==case5)&&(case5==case7)&&case3!='-'){victoire(case5); return 0;}
 
-
+        // Joueur 2
         putchar(10);
         putchar('J');
         putchar('o');
@@ -89,7 +99,6 @@ int32_t main()
         putchar(')');
         putchar(10);
 
-        // Joueur 2
         choix2 = getchar();
         choix = getchar();
         choix2 = choix2 - '0';
@@ -126,16 +135,15 @@ int32_t main()
         putchar(case9);
         putchar(10);
 
-
         //8 conditions de victoire
-        /*if ((case1==case2)&&(case2==case3)){victoire(case1); return 0;}
-        if ((case4==case5)&&(case5==case6)){victoire(case4); return 0;}
-        if ((case7==case8)&&(case8==case9)){victoire(case7); return 0;}
-        if ((case1==case4)&&(case4==case7)){victoire(case4); return 0;}
-        if ((case2==case5)&&(case5==case8)){victoire(case5); return 0;}
-        if ((case3==case6)&&(case6==case9)){victoire(case6); return 0;}
-        if ((case1==case5)&&(case5==case9)){victoire(case1); return 0;}
-        if ((case3==case5)&&(case5==case7)){victoire(case5); return 0;}*/
+        while ((case1==case2)&&(case2==case3)&&case1!='-'){victoire(case1); return 0;}
+        while ((case4==case5)&&(case5==case6)&&case4!='-'){victoire(case4); return 0;}
+        while ((case7==case8)&&(case8==case9)&&case7!='-'){victoire(case7); return 0;}
+        while ((case1==case4)&&(case4==case7)&&case1!='-'){victoire(case4); return 0;}
+        while ((case2==case5)&&(case5==case8)&&case2!='-'){victoire(case5); return 0;}
+        while ((case3==case6)&&(case6==case9)&&case3!='-'){victoire(case6); return 0;}
+        while ((case1==case5)&&(case5==case9)&&case1!='-'){victoire(case1); return 0;}
+        while ((case3==case5)&&(case5==case7)&&case3!='-'){victoire(case5); return 0;}
 
     }
 }
@@ -153,4 +161,5 @@ void victoire(char c){
     putchar(c);
     putchar(' ');
     putchar('!');
+    putchar(10);
 }
