@@ -1,8 +1,8 @@
 # Compilation:
-se déplacer dans le dossier racine du projet (celui contenant CMakeList.txt)
-Exécuter:
-    `cmake .`
-    `make`
+Se déplacer dans le dossier racine du projet (celui contenant CMakeList.txt)  
+Exécuter:  
+    `cmake .`  
+    `make`  
     
 L'exécutable <lake> se trouve dans le dossier 'bin'
 
