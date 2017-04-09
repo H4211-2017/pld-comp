@@ -462,8 +462,8 @@ void FunctionBlock::exploreBasicBlockToFindAliveRegister(sh_BasicBlock basicBloc
         for(sh_Register reg : inst->getWroteRegisterList())
         {
             auto it = aliveRegister.find(reg->getName());
-            //assert(it != aliveRegister.end()); // reg must be alive ! (optimisation may create unused register)
-            aliveRegister.erase(it);
+            if(it != aliveRegister.end()) // reg must be alive ! (optimisation may create unused register)
+                aliveRegister.erase(it);
         }
         //add the read registry to the alive list (map)
         for(sh_Register reg : inst->getReadRegisterList())

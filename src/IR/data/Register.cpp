@@ -1,4 +1,5 @@
 #include "Register.h"
+#include "iostream"
 
 using namespace IR;
 
@@ -9,6 +10,8 @@ Register::Register(Type type, std::string name):
     parameters->asm_registerName = "";
     parameters->dataName = this->dataName;
     parameters->dataType = this->dataType;
+    parameters->readCount = this->readCount;
+    parameters->writeCount = this->writeCount;
 }
 
 std::string Register::getName() const
@@ -48,8 +51,10 @@ sh_RegisterParameters Register::getParameters() const
     return parameters;
 }
 
-void Register::setParameters(const sh_RegisterParameters &value)
+void Register::setParameters(sh_RegisterParameters &value)
 {
+    value->readCount += getReadCount();
+    value->writeCount += getWriteCount();
     parameters = value;
 }
 

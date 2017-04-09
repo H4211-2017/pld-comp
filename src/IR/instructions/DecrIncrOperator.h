@@ -12,13 +12,13 @@ namespace IR {
     class DecrIncrOperator : public AbstractInstruction
     {
     public:
-        DecrIncrOperator(sh_Register resultRegister, sh_Memory firstValueRegister, int valueOfIncrement, bool isBefore);
+        DecrIncrOperator(sh_Register resultRegister, sh_Register firstValueRegister, int valueOfIncrement, bool isBefore);
         ~DecrIncrOperator();
         virtual std::string toLinuxX64() const;
         virtual std::string toString() const;
     protected:
         sh_Register destination;
-        sh_Memory firstValue;
+        sh_Register firstValue;
         int value;
         bool isBef;
     };

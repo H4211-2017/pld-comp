@@ -23,7 +23,7 @@ namespace IR {
         virtual std::string getX64name() const;
 
         sh_RegisterParameters getParameters() const;
-        void setParameters(const sh_RegisterParameters &value);
+        void setParameters(sh_RegisterParameters &value);
 
         virtual void incrementReadCount();
         virtual void decrementReadCount();

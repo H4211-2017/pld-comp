@@ -2,11 +2,13 @@
 
 using namespace IR;
 
-DecrIncrOperator::DecrIncrOperator(sh_Register resultRegister, sh_Memory firstValueRegister, int valueOfIncrement, bool isBefore)
+DecrIncrOperator::DecrIncrOperator(sh_Register resultRegister, sh_Register firstValueRegister, int valueOfIncrement, bool isBefore)
     : destination(resultRegister), firstValue(firstValueRegister), value(valueOfIncrement), isBef(isBefore)
 {
     this->writtenRegisterList.push_back(resultRegister);
 
+    firstValue->incrementReadCount();
+    firstValue->incrementWriteCount();
     destination->incrementWriteCount();
 }
 
@@ -14,6 +16,7 @@ DecrIncrOperator::~DecrIncrOperator()
 {
     destination->decrementWriteCount();
     firstValue->decrementReadCount();
+    firstValue->decrementWriteCount();
 }
 
 std::string DecrIncrOperator::toString() const
