@@ -137,8 +137,6 @@ int32_t main()
         if ((case1==case5)&&(case5==case9)){victoire(case1); return 0;}
         if ((case3==case5)&&(case5==case7)){victoire(case5); return 0;}*/
 
-
-
     }
 }
 

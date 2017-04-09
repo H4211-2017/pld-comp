@@ -67,13 +67,16 @@ int main(int argc, char *argv[])
 	{
 		program->printTree(0);				
 		std::cout << std::endl;
-	}	  
+	}
 
 	//Deleting the dynamically allocated AST node
 	if (program)
 	{
 		std::shared_ptr<IR::ProgrameStructure> programStructure = program->buildIR();
-		programStructure->printIR(std::cout);
+        if(options.verbose)
+        {
+            programStructure->printIR(std::cout);
+        }
 		
 		std::ofstream asmFileStream(options.target);
 		programStructure->printASM(asmFileStream, IR::AsmType::X64Linux, options.optimisationLevel);
