@@ -3,7 +3,7 @@ void main()
     while(1)
     {
         putchar('a');
-        break;
+        return;
     }
     putchar(10);
 }

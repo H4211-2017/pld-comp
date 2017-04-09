@@ -1,7 +1,7 @@
 int32_t main ()
 {
     int32_t a;
-    for (a = 97; a < 123; a += 1)
+    for (a = 97; a < 123; a++)
     {
         putchar(a);
         putchar(' ');

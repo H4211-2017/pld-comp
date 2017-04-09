@@ -46,7 +46,6 @@ IR::sh_ProgrameStructure ProgramNode::buildIR()
     {
         if (!astFunction->isDeclaration())
         {
-            std::cout << "ProgramNode::buildIR : after : astFunction->getIrFunction : " << astFunction->getIrFunction() << std::endl;
             programStructure->addFunction(astFunction->getIrFunction());
         }
     }
