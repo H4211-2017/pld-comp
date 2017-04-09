@@ -20,7 +20,7 @@ namespace AST
          * @brief ElseStructure constructor
          * @param intInstruction the instructions in the else.
          */
-		ElseStructure(std::shared_ptr<AbstractInstruction> intInstruction);
+        ElseStructure(std::shared_ptr<AbstractInstruction> elseInstructions);
 
         /**
          * @brief evaluate the Value of this node
@@ -44,7 +44,7 @@ namespace AST
         virtual IR::sh_Memory buildIR(IR::sh_BasicBlock & currentBasicBlock) const;
 		
 	private:
-		std::shared_ptr<AbstractInstruction> intInstruction;
+        std::shared_ptr<AbstractInstruction> elseInstructions;
 	};
 }
 
