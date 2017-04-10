@@ -8,7 +8,7 @@ L'exécutable <lake> se trouve dans le dossier 'bin'
 
 # Exécution:  
 La ligne de commande à exécuter est:  
-lake [srcFile] [-v] [-S <AsmTarget>] [ -o <ExecTarget>] [ -t <AstTarget>] [-On] 
+lake [srcFile] [-v] [-S <AsmTarget>] [ -o \<ExecTarget\>] [ -t <AstTarget>] [-On] 
 
 * srcfile:  
         Le fichier source que le compilateur compilera. Si aucun fichier source n'est fourni, l'entrée standard est utilisée.  
