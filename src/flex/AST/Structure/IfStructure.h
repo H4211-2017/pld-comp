@@ -20,7 +20,7 @@ namespace AST
          * @param elseStructure the structure of code used if condition false
          */
 		IfStructure(std::shared_ptr<ComposedInstruction> condition,
-				std::shared_ptr<AbstractInstruction> intInstruction, 
+                std::shared_ptr<AbstractInstruction> thenInstructions,
 				std::shared_ptr<ElseStructure> elseStructure);
 				
 
@@ -46,7 +46,7 @@ namespace AST
 
 	private:
 		std::shared_ptr<ComposedInstruction> condition;
-		std::shared_ptr<AbstractInstruction> intInstruction;
+        std::shared_ptr<AbstractInstruction> thenInstructions;
 		std::shared_ptr<ElseStructure> elseStructure;
 	};
 }

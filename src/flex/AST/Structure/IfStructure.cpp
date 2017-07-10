@@ -8,7 +8,7 @@ IfStructure::IfStructure(std::shared_ptr<ComposedInstruction> condition,
 		std::shared_ptr<AbstractInstruction> intInstruction, 
 		std::shared_ptr<ElseStructure> elseStructure)
 		: AbstractStructure("IfStructure"), condition(condition),
-		intInstruction(intInstruction), elseStructure(elseStructure)
+        thenInstructions(intInstruction), elseStructure(elseStructure)
 {
 	
 }
@@ -26,10 +26,10 @@ void IfStructure::printTree(int tabulationNumber) const
     std::cout << std::endl;
 
 
-	if(intInstruction != nullptr)
+    if(thenInstructions != nullptr)
 	{	
 		std::cout << std::endl;
-		intInstruction->printTree(tabulationNumber + 1);
+        thenInstructions->printTree(tabulationNumber + 1);
 	}
 	else
 	{
@@ -61,11 +61,12 @@ IR::sh_Memory IfStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 
     //set next block of after block as the old next bock of current block
     afterBasicBlock->setNextBlockTrue(currentBasicBlock->getNextBlockTrue());
+    afterBasicBlock->setNextBlockFalse(currentBasicBlock->getNextBlockFalse());
     //set then block links
     currentBasicBlock->setNextBlockTrue(thenBasicBlock);
     thenBasicBlock->setNextBlockTrue(afterBasicBlock);
 	//feed then block
-    this->intInstruction->buildIR(thenBasicBlock);
+    this->thenInstructions->buildIR(thenBasicBlock);
 
 	//set else block links
 	currentBasicBlock->setNextBlockFalse(elseBasicBlock);

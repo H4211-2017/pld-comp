@@ -206,11 +206,13 @@ std::list<sh_AbsInstruction> Generator::decrIncrOperator(sh_Memory valueA, sh_Me
 {
 	std::list<sh_AbsInstruction> instructionList;
 	sh_Register registerDest = getNewUnusedRegister(dest->getType());
+    sh_Register registerValueA = getNewUnusedRegister(valueA->getType());
 	//load Values in register
+    instructionList.push_back( std::make_shared<ReadFromMemory>(valueA, registerValueA) );
 	//make calculation
-	instructionList.push_back( std::make_shared<DecrIncrOperator>(registerDest, valueA, valueOfIncrement, isBefore));
+    instructionList.push_back( std::make_shared<DecrIncrOperator>(registerDest, registerValueA, valueOfIncrement, isBefore));
 	//write result to memory
-	
+    instructionList.push_back( std::make_shared<WriteToMemory>(registerValueA, valueA));
 	instructionList.push_back( std::make_shared<WriteToMemory>(registerDest, dest));
 
 	return instructionList;

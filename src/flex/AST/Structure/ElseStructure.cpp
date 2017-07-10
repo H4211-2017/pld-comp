@@ -7,11 +7,11 @@ using namespace AST;
 ElseStructure::ElseStructure()
 		: AbstractNode("ElseStructure")
 {
-	intInstruction = nullptr;
+    elseInstructions = nullptr;
 }
 
 ElseStructure::ElseStructure(std::shared_ptr<AbstractInstruction> intInstruction)
-		: AbstractNode("ElseStructure"), intInstruction(intInstruction)
+        : AbstractNode("ElseStructure"), elseInstructions(intInstruction)
 {
 	
 }
@@ -24,10 +24,10 @@ Value ElseStructure::evaluate() const
 void ElseStructure::printTree(int tabulationNumber) const
 {
     AbstractNode::printTree(tabulationNumber);
-	if(intInstruction != nullptr)
+    if(elseInstructions != nullptr)
 	{	
 		std::cout << std::endl;
-		intInstruction->printTree(tabulationNumber + 1);
+        elseInstructions->printTree(tabulationNumber + 1);
 	}
 	else
 	{
@@ -37,8 +37,8 @@ void ElseStructure::printTree(int tabulationNumber) const
 
 IR::sh_Memory ElseStructure::buildIR(IR::sh_BasicBlock & currentBasicBlock) const
 {
-	if (intInstruction != nullptr)
+    if (elseInstructions != nullptr)
 	{
-		return this->intInstruction->buildIR(currentBasicBlock);
+        return this->elseInstructions->buildIR(currentBasicBlock);
 	}
 }

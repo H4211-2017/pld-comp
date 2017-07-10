@@ -215,8 +215,8 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry, Op
         }
     }
     ///Define data sruct used for O2 optimisation
-    std::map<std::string,sh_Register> lastRegForAsmName;
-    std::map<sh_Memory,sh_Register> lastRegForMemory;
+    std::map<std::string,sh_RegisterParameters> lastRegForAsmName;
+    std::map<sh_Memory,sh_RegisterParameters> lastRegForMemory;
     ///Affect asm name the registry
     for(auto instIt=instructionsList.begin() ; instIt!=instructionsList.end() ; instIt++)
     {
@@ -249,27 +249,37 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry, Op
                 sh_Register dest = inst->getWroteRegisterList().front();
                 sh_Memory source = inst->getReadMemoryList().front();
                 //look if we find a register with the wanted value
-                sh_Register lastRegForSource = lastRegForMemory.find(source)->second;
-                if(lastRegForSource != nullptr)
+                auto lastRegForSourcePair = lastRegForMemory.find(source);
+                if(lastRegForSourcePair != lastRegForMemory.end())
                 {
-                    //if the wanted register is still in memory (not erased yet)
-                    sh_Register lastRegForAsmNameOfSourceReg = lastRegForAsmName.find(lastRegForSource->getAsmRegisterName())->second;
-                    if(lastRegForSource == lastRegForAsmNameOfSourceReg)
+                    sh_RegisterParameters lastRegForSource = lastRegForSourcePair->second;
+                    if(lastRegForSource != nullptr)
                     {
-                        //then we can set the same asmName to the dest reg
-                        dest->setAsmRegisterName(lastRegForSource->getAsmRegisterName());
-                        //as the reg name is now set the map will not update on later code, do it now
-                        lastRegForAsmName[lastRegForSource->getAsmRegisterName()] = dest;
-                        //now they have the same
-                        //remove the now useless read from memory instruction from this basicblock
-                        auto previousInstIt = instIt;
-                        previousInstIt--;
-                        instructionsList.erase(instIt);
-                        instIt = previousInstIt;
+                        //if the wanted register is still in memory (not erased yet)
+                        auto tmp = lastRegForAsmName.find(lastRegForSource->asm_registerName);
+                        if(tmp != lastRegForAsmName.end())
+                        {
+                            sh_RegisterParameters lastRegForAsmNameOfSourceReg = tmp->second;
+                            if(lastRegForSource == lastRegForAsmNameOfSourceReg)
+                            {
+                                //then we can set the same asmName to the dest reg
+                                //dest->setAsmRegisterName(lastRegForSource->getAsmRegisterName());
+                                dest->setParameters(lastRegForSource);
+                                //dest->setAsmRegisterName(lastRegForSource->getAsmRegisterName());
+                                //as the reg name is now set the map will not update on later code, do it now
+                                lastRegForAsmName[dest->getAsmRegisterName()] = dest->getParameters();
+                                //now they have the same
+                                //remove the now useless read from memory instruction from this basicblock
+                                auto previousInstIt = instIt;
+                                previousInstIt--;
+                                instructionsList.erase(instIt);
+                                instIt = previousInstIt;
+                            }
+                        }
                     }
                 }
                 //then update lastRegForMemory map
-                lastRegForMemory[source] = dest;
+                lastRegForMemory[source] = dest->getParameters();
             }
             //if the instruction is a memory write
             if(std::dynamic_pointer_cast<WriteToMemory>(inst))
@@ -277,7 +287,7 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry, Op
                 sh_Register reg = inst->getReadRegisterList().front();
                 sh_Memory mem = inst->getWroteMemoryList().front();
                 //then update lastRegForMemory map
-                lastRegForMemory[mem] = reg;
+                lastRegForMemory[mem] = reg->getParameters();
             }
             //if we are in an Call, all register can be erased (or will) so clean every thing
             if(std::dynamic_pointer_cast<Call>(inst))
@@ -299,7 +309,7 @@ void BasicBlock::affectRegistry(std::queue<std::string> availableAsmRegistry, Op
                 //add it to the alive register list
                 aliveRegisters.push_back(reg);
                 //update the map of asm name to IR register
-                lastRegForAsmName[regName] = reg;
+                lastRegForAsmName[regName] = reg->getParameters();
             }
         }
 

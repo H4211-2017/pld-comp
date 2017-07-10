@@ -17,9 +17,11 @@ namespace lake
 			void printOptions();//for debugging purposes
 			
 			std::string srcFile = "";
-			std::string target = "";
-			std::string ASTtarget = "";
+            std::string execTarget = "";
+            std::string astTarget = "";
+            std::string asmTarget = "a.s";
 			bool verbose = false;
+            bool deleteAsm = true;
 			IR::OptimisationLevel optimisationLevel = IR::OptimisationLevel::O0;
 		
 		protected:
